@@ -1,0 +1,3 @@
+*.png diff=exiftool
+*.rpm diff=rpm
+*.zip diff=zipinfo
