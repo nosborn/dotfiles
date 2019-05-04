@@ -1,0 +1,5 @@
+set line-graphics = utf-8
+set show-changes = yes
+set tab-size = 8
+set truncation-delimiter = utf-8
+set wrap-lines = no

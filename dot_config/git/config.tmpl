@@ -1,0 +1,116 @@
+[advice]
+  # pushNonFastForward = false
+  statusHints = false
+
+[color]
+  ui = auto
+
+[color "branch"] # falcon
+  current = yellow
+  local = 241
+  remote = green
+
+[color "diff"] # falcon
+  frag = magenta
+  meta = yellow
+  new = green
+  old = red
+
+[color "status"] # falcon
+  added = green
+  changed = yellow
+  untracked = magenta
+
+[core]
+  autocrlf = input
+  excludesfile = ~/.config/git/ignore
+  trustctime = false # Play nicely with revisiond
+
+[credential]
+{{- if eq .chezmoi.os "darwin" }}
+  helper = osxkeychain
+{{- end }}
+
+[diff]
+  algorithm = histogram
+  colorMoved = dimmed_zebra
+  indentHeuristic = on
+  mnemonicprefix = true
+  renames = copies
+
+[diff "ansible-vault"]
+  cachetextconv = false
+  textconv = ansible-vault view
+
+[diff "exiftool"]
+  cachetextconv = true
+  textconv = exiftool
+
+# [diff "eyaml"]
+#   cachetextconv = false
+#   textconv = eyaml decrypt --stdin <
+
+[diff "rpm"]
+  cachetextconv = true
+  textconf = rpm -qi -p
+
+[diff "zipinfo"]
+  cachetextconv = true
+  textconv = zipinfo -lZ
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+
+# [format]
+#   graph = true
+#   # pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+
+[github]
+  user = {{ .github.user }}
+
+# [help]
+#   autocorrect = -1
+
+[fetch]
+  prune = true
+
+[merge]
+  # conflictstyle = diff3
+  ff = only
+  # summary = true
+  # verbosity = 1
+
+[pull]
+  rebase = true
+
+[push]
+  default = current
+  followTags = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+
+[rerere]
+  enabled = true
+
+[secrets]
+  allowed = AKIAIOSFODNN7EXAMPLE
+  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+  patterns = [A-Z0-9]{20}
+  providers = git secrets --aws-provider
+
+# [status]
+#   showUntrackedFiles = all
+
+[user]
+  name = {{ .user.name }}
+  useConfigOnly = true
+
+[include]
+  path = config.local
