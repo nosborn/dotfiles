@@ -25,7 +25,9 @@
 [core]
   autocrlf = input
   excludesfile = ~/.config/git/ignore
+{{- if eq .chezmoi.os "darwin" }}
   trustctime = false # Play nicely with revisiond
+{{- end }}
 
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
@@ -71,9 +73,6 @@
 
 [github]
   user = {{ .github.user }}
-
-# [help]
-#   autocorrect = -1
 
 [fetch]
   prune = true
