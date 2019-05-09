@@ -1,0 +1,2 @@
+#!/bin/sh
+exec git secrets --commit_msg_hook -- "$@"
