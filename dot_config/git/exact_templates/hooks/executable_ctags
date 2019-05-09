@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+readonly dir="$(git rev-parse --git-dir)"
+readonly tags="${dir?}/tags"
+
+trap 'rm -f "${tags}.$$"' EXIT
+git ls-files | ctags -f "${tags}.$$" -L - --tag-relative
+mv -f "${tags}.$$" "${tags}"
