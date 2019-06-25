@@ -1,0 +1,214 @@
+{{ if false }}
+# shellcheck shell=bash
+
+shopt -s cdspell
+shopt -s checkhash
+shopt -s histappend
+shopt -s no_empty_cmd_completion
+
+export XDG_BIN_HOME=~/.local/bin
+export XDG_CACHE_HOME=~/.cache
+export XDG_CONFIG_HOME=~/.config
+export XDG_DATA_HOME=~/.local/share
+export XDG_LIB_HOME=~/.local/lib
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+if command -v python3 >/dev/null; then
+  PATH="$(python3 -m site --user-base)/bin:${PATH}"
+elif command -v python3 >/dev/null; then
+  PATH="$(python2 -m site --user-base)/bin:${PATH}"
+fi
+if [[ -e /usr/local/opt/ruby ]]; then
+  PATH=/usr/local/opt/ruby/bin:${PATH}
+fi
+#if command -v ruby >/dev/null && command -v gem >/dev/null; then
+#  PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:${PATH}"
+#fi
+PATH=~/bin:${XDG_BIN_HOME}:${PATH}
+
+export CDPATH=.:~:~/src/github.com/{{ .github.user }}:~/src/gitlab.com/{{ .gitlab.user }}
+
+export HISTCONTROL=ignorespace:erasedups
+export HISTFILESIZE=50000
+export HISTIGNORE='&:bg:exit:fg:pwd'
+export HISTSIZE=50000
+export HISTTIMEFORMAT='%F %T '
+
+export CLICOLOR=1
+
+if command -v vim >/dev/null; then
+  alias vi=vim
+  export VISUAL=vim
+elif command -v vi >/dev/null; then
+  export VISUAL=vi
+fi
+export EDITOR=${VISUAL}
+
+if [[ -e ~/.bashrc.local ]]; then
+  # shellcheck disable=SC1090
+  . ~/.bashrc.local
+fi
+
+# alias yaml2json="python3 -c 'import sys, json, yaml; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'"
+
+# -- Go -----------------------------------------------------------------------
+
+export GOPATH=~
+
+# -- HashiCorp ----------------------------------------------------------------
+
+export CHECKPOINT_DISABLE=1
+
+# -- Homebrew -----------------------------------------------------------------
+
+export HOMEBREW_CASK_OPTS=--require-sha
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+
+# FIXME:
+#PYTHONPATH=/usr/local/lib/python2.7/site-packages
+#export PYTHONPATH
+
+# -- Java ---------------------------------------------------------------------
+
+if [[ -e /usr/libexec/java_home ]]; then
+  JAVA_HOME=$(/usr/libexec/java_home --failfast 2>/dev/null)
+  export JAVA_HOME
+fi
+
+# -- Python -------------------------------------------------------------------
+
+export PYTHONDONTWRITEBYTECODE=1
+
+# -- awscli -------------------------------------------------------------------
+
+if command -v aws >/dev/null; then
+  complete -C aws_completer aws
+
+  # sts() {
+  #   [[ $# -le 1 ]] || {
+  #     print 'Usage: sts [PROFILE]\n' >&2
+  #     return 1
+  #   }
+  #   eval "$(~/bin/sts.sh "${1:-$AWS_PROFILE}")"
+  # }
+fi
+
+_prompt_aws_profile() {
+  if [[ ${AWS_PROFILE:-default} == default ]]; then
+    prompt_tag ''
+  else
+    prompt_tag "\[$(tput setaf 3)\]${AWS_PROFILE}\[$(tput sgr0)\]"
+  fi
+}
+
+# -- bash-completion ----------------------------------------------------------
+
+if [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
+  export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
+  # shellcheck disable=SC1091
+  . /usr/local/etc/profile.d/bash_completion.sh
+elif [[ -r /usr/local/etc/bash_completion ]]; then
+  # shellcheck disable=SC1091
+  . /usr/local/etc/bash_completion
+fi
+
+# -- chezmoi ------------------------------------------------------------------
+
+if command -v chezmoi >/dev/null; then
+  eval "$(chezmoi completion bash)"
+fi
+
+# -- docker -------------------------------------------------------------------
+
+# if command -v docker-machine >/dev/null; then
+#   eval "$(docker-machine env default)"
+# fi
+
+# -- git ----------------------------------------------------------------------
+
+if command -v vim >/dev/null; then
+  GIT_EDITOR="$(command -v vim) -n"
+  export GIT_EDITOR
+fi
+
+if [[ ! -e /usr/local/etc/bash_completion.d/git-completion.bash ]]; then
+  # shellcheck disable=SC1090
+  . "$(xcode-select -p 2>/dev/null)/usr/share/git-core/git-completion.bash"
+fi
+
+# -- gnupg --------------------------------------------------------------------
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+# -- grep ---------------------------------------------------------------------
+
+# FIXME: GREP_OPTIONS deprecated in GNU grep.
+if [[ -z "${GREP_OPTIONS}" ]]; then
+  if echo foo | grep --color=auto foo - &>/dev/null; then
+    GREP_OPTIONS+="${GREP_OPTIONS:+ }--color=auto"
+  fi
+  if echo foo | grep --exclude-dir=bar foo - &>/dev/null; then
+    GREP_OPTIONS+="${GREP_OPTIONS:+ }--exclude-dir=.git --exclude-dir=.svn"
+  fi
+  [[ -n "${GREP_OPTIONS}" ]] && export GREP_OPTIONS
+fi
+
+# -- less ---------------------------------------------------------------------
+
+if command -v less &>/dev/null; then
+  #[[ -z "${LESS}" ]] && export LESS="-R" FRX
+  [[ -z "${LESSHISTFILE}" ]] && export LESSHISTFILE=-
+  if command -v lesspipe.sh >/dev/null; then
+    LESSOPEN="|command lesspipe.sh %s"
+    export LESSOPEN LESS_ADVANCED_PREPROCESSOR=1
+  fi
+  if [[ "${TERM}" == xterm-color ]] || [[ "${TERM}" == xterm-256color ]]; then
+    export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+    export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'           # end mode
+    export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+    export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+    export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+    export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+  fi
+fi
+
+# -- liquidprompt -------------------------------------------------------------
+
+if [[ -e /usr/local/share/liquidprompt ]]; then
+  # shellcheck disable=SC1091
+  . /usr/local/share/liquidprompt
+  PROMPT_COMMAND="_prompt_aws_profile;${PROMPT_COMMAND}"
+fi
+
+# -- pstree -------------------------------------------------------------------
+
+alias pstree='command pstree -g 2'
+
+# -- sdiff --------------------------------------------------------------------
+
+alias sdiff='command sdiff -d -w${COLUMNS}'
+
+# -- sudo ---------------------------------------------------------------------
+
+if [[ -z ${SUDO_PROMPT} ]]; then
+  SUDO_PROMPT="[sudo] password for $(id -un): "
+  export SUDO_PROMPT
+fi
+
+# -- terraform ----------------------------------------------------------------
+
+if command -v terraform >/dev/null; then
+  complete -C "$(command -v terraform)" terraform
+fi
+
+# -- direnv (do last) ---------------------------------------------------------
+
+if command -v direnv >/dev/null; then
+  eval "$(command direnv hook bash)"
+fi
+
+# vim: ft=sh
+{{ end }}

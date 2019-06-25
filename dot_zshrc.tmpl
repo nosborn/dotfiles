@@ -1,0 +1,60 @@
+setopt HIST_FCNTL_LOCK
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt PROMPT_SP
+setopt PROMPT_SUBST
+setopt SHARE_HISTORY
+
+export HISTORY_IGNORE='(bg|cd *|exit|fg|pwd)'
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/nick/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+cdpath=(~/src/github.com/{{ .github.user }} ~/src/gitlab.com/{{ .gitlab.user }})
+fpath=(/usr/local/share/zsh-completions $fpath)
+path=(~/bin $path)
+
+autoload -U colors
+colors
+
+autoload -U vcs_info
+zstyle ':vcs_info:*' enable git svn
+#zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
+#zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+#zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%F{blue}%b%f %u%c"
+##zstyle ':vcs_info:*' formats "[%b]%u%c-"
+
+precmd() {
+  vcs_info
+}
+export PROMPT='%m ${vcs_info_msg_0_}%# '
+
+export CLICOLOR=1
+export EDITOR=vim
+
+alias sdiff='command sdiff -d -w${COLUMNS}'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# chezmoi completion zsh | source /dev/stdin
+kitty +complete setup zsh | source /dev/stdin
+
+eval "$(direnv hook zsh)"
+
+# vim: ft=zsh
