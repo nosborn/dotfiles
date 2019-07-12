@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /Applications/kitty.app/Contents/MacOS/kitty "$@"
