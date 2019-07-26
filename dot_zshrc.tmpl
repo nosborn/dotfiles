@@ -16,31 +16,36 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/nick/.zshrc'
+zstyle :compinstall filename ~/.zshrc
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-cdpath=(~/src/github.com/{{ .github.user }} ~/src/gitlab.com/{{ .gitlab.user }})
+cdpath=(~/src/github.com/"{{ .github.user }}" ~/src/gitlab.com/"{{ .gitlab.user }}")
 fpath=(/usr/local/share/zsh-completions $fpath)
 path=(~/bin $path)
 
 autoload -U colors
 colors
 
+if [[ -z "${SSH_CLIENT}" ]]; then
+  prompt_host=''
+else
+  prompt_host='%m '
+fi
+
 autoload -U vcs_info
-zstyle ':vcs_info:*' enable git svn
-#zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-#zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
-#zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%F{blue}%b%f %u%c"
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
+zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
 ##zstyle ':vcs_info:*' formats "[%b]%u%c-"
 
-precmd() {
-  vcs_info
-}
-export PROMPT='%m ${vcs_info_msg_0_}%# '
+precmd_functions+=( vcs_info )
+export PROMPT="%~%# "
+export RPROMPT='${vcs_info_msg_0_}'
 
 export CLICOLOR=1
 export EDITOR=vim
