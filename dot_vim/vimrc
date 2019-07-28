@@ -127,9 +127,10 @@ elseif executable('ack')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-" let g:one_allow_italics=1
+let g:one_allow_italics=1
 colorscheme github
 set background=light
+highlight Comment cterm=italic gui=italic
 
 let g:ale_sign_column_always=1
 " let g:ale_sign_error='✘'
