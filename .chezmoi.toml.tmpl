@@ -1,0 +1,11 @@
+{{ $heroku_user := promptString "Heroku user (email)" -}}
+
+[data]
+  [data.heroku]
+    user = "{{ $heroku_user }}"
+  [data.github]
+    user = "nosborn"
+  [data.gitlab]
+    user = "nosborn"
+  [data.user]
+    name = "Nick Osborn"
