@@ -1,4 +1,4 @@
-{{ if .heroku }}
+{{ if .heroku.user }}
 machine api.heroku.com
   login {{ .heroku.user }}
   password {{ keyring "api.heroku.com" .heroku.user }}

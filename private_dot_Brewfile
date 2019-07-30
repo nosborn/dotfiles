@@ -1,0 +1,129 @@
+HOME = false
+WORK = false
+
+tap 'homebrew/cask'
+tap 'homebrew/cask-drivers' if HOME
+tap 'homebrew/cask-fonts'
+tap 'twpayne/taps'
+
+# cask '1password-cli'
+# cask 'aerial'
+# brew 'ag'
+# brew 'amazon-ecs-cli'
+brew 'ansible'
+brew 'ansible-lint'
+brew 'atlassian-cli' if WORK
+brew 'awscli' if HOME
+# brew 'awslogs'
+# brew 'aws-keychain'
+# cask 'aws-vault'
+cask 'balenaetcher' if HOME
+cask 'bettertouchtool' if HOME
+brew 'black'
+cask 'blockblock' if HOME
+# cask 'caffeine'
+brew 'cfn-lint' if HOME
+brew 'chezmoi'
+brew 'circleci' if HOME
+brew 'ctags'
+brew 'direnv'
+# cask 'docker'
+# brew 'docker-clean'
+# brew 'docker-completion'
+# brew 'docker-compose-completion'
+# brew 'docker-machine-completion'
+# cask 'dynamodb-local'
+# brew 'eslint'
+brew 'exiftool'
+brew 'exiftags' if HOME
+cask 'font-source-code-pro'
+brew 'gem-completion'
+# brew 'git'
+brew 'git-lfs'
+brew 'git-secrets'
+# brew 'github-markdown-toc'
+# brew 'gitlab-gem'
+brew 'gnu-tar'
+# brew 'gnupg'
+brew 'go' if HOME
+# cask 'google-chrome'
+# brew 'groovy'
+brew 'grunt-completion'
+brew 'hadolint'
+brew 'hub'
+# cask 'iterm2'
+# cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
+brew 'jq'
+brew 'jsonlint'
+cask 'keybase' if HOME
+cask 'keypasscx' if WORK
+cask 'kitty' if HOME
+# cask 'knockknock'
+# brew 'launchctl-completion'
+brew 'lesspipe', args: ['with-syntax-highlighting']
+cask 'logitech-gaming-software' if HOME
+brew 'm-cli'
+# cask 'markdownmdimporter' -- no checksum
+brew 'mas'
+# brew 'maven'
+# brew 'maven-completion'
+# cask 'micro-snitch'
+# brew 'minio'
+brew 'node'
+cask 'oversight' if HOME
+# brew 'packer'
+# brew 'pipenv'
+cask 'pock'
+brew 'prettier'
+brew 'proselint'
+brew 'pstree'
+brew 'pwgen'
+cask 'qlmarkdown'
+cask 'razer-synapse' if HOME
+# brew 'rbenv'
+brew 'ripgrep'
+# brew 'rpm'
+# brew 'rpm2cpio'
+# brew 'ruby-completion'
+brew 'sf-pwgen'
+brew 'shellcheck'
+brew 'shfmt'
+cask 'spectacle'
+# brew 'speedtest-cli'
+brew 'ssh-audit'
+# cask 'subler'
+brew 'telnet'
+brew 'terminal-notifier'
+brew 'terraform'
+brew 'terraform_landscape'
+brew 'tflint'
+brew 'tig'
+# cask 'transmission'
+# cask 'vagrant'
+brew 'vim'
+# cask 'virtualbox'
+# cask 'wireshark'
+# brew 'watchexec'
+# brew 'watchman'
+# brew 'wdiff'
+brew 'wine' if HOME
+brew 'winetricks' if HOME
+# cask 'wireshark'
+# brew 'xhyve'
+brew 'yamllint'
+# brew 'yank'
+brew 'yarn'
+brew 'yq'
+# cask 'zenmap'
+# brew 'zsh-autosuggestions'
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
+
+# if File.writable?('/Applications')
+#   # mas 'Daisy Disk', id: 411_643_860
+#   mas 'Discovery', id: 1_381_004_916
+#   mas 'Microsoft Excel', id: 462_058_435
+#   mas 'Microsoft Word', id: 462_054_704
+#   mas 'Numbers', id: 409_203_825
+#   mas 'Pages', id: 409_201_541
+# end
