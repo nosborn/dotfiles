@@ -1,4 +1,4 @@
- if has('autocmd')
+if has('autocmd')
   filetype plugin indent on
 endif
 if has('syntax') && !exists('g:syntax_on')
@@ -80,9 +80,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-"" diff options. without this Gdiff was splitting horizontally on OSx.
-"set diffopt=filler,vertical
-
 " Display tabs, and trailing and non-breaking spaces visually.
 set list
 " set listchars=tab:»·,trail:·,nbsp:·
@@ -127,14 +124,13 @@ elseif executable('ack')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-let g:one_allow_italics=1
 colorscheme github
 set background=light
 highlight Comment cterm=italic gui=italic
 
 let g:ale_sign_column_always=1
-" let g:ale_sign_error='✘'
-" let g:ale_sign_warning='⚠'
+let g:ale_sign_error='✘'
+let g:ale_sign_warning='⚠'
 " highlight ALEErrorSign ctermbg=NONE ctermfg=red
 " highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
@@ -347,34 +343,21 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-function! ChezmoiEdit()
-  " The current file
-  let file = expand('%')
-  " The current file's basename plus .scss
-  let repo = 'chezmoi source-path'
-  echo repo
-  let repo_file = 'chezmoi source-path ' . file
-  echo repo_file
-  " If the file exists
-  if filereadable(repo_file)
-    " Prompt the user and store the user's choice (1-indexed) in a variable
-    let choice = confirm('Do you want to edit ' . repo_file . ' instead?', '&Yes\n&No', 1, 'Question')
-    " If the user picked [Y]es
-    if choice == 1
-      " Set file to the escaped scss filename
-      let file = fnameescape(repo_file)
-    endif
-  endif
-  " e[dit] the file
-  exe 'e' file
-  " Execute the autocommands for the file
-  exe 'doautocmd BufReadPost' file
-endfunction
+" function! ChezmoiEdit()
+"   let file = expand('%')
+"   silent! let repo = systemlist('chezmoi source-path')[0]
+"   silent! let repo_file = systemlist('chezmoi source-path ' . fnameescape(file))[0]
+"   if filereadable(repo_file)
+"     let file = fnameescape(repo_file)
+"   endif
+"   execute 'edit' file
+"   execute 'doautocmd BufReadPost' file
+" endfunction
 
-augroup chezmoi-edit
-  autocmd!
-  autocmd BufReadCmd * call ChezmoiEdit()
-augroup END
+" augroup chezmoi-edit
+"   autocmd!
+"   autocmd BufReadCmd * call ChezmoiEdit()
+" augroup END
 
 if filereadable($MYVIMRC . '.local')
   execute 'source ' . $MYVIMRC . '.local'
