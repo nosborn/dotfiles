@@ -48,7 +48,7 @@ brew 'gnu-tar'
 # brew 'gnupg'
 brew 'go' if HOME
 # cask 'google-chrome'
-brew 'gradle-completion'
+brew 'gradle-completion' if WORK
 # brew 'groovy'
 brew 'grunt-completion'
 brew 'hadolint'
