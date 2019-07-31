@@ -118,5 +118,14 @@
   name = {{ .user.name }}
   useConfigOnly = true
 
+[includeIf "gitdir:~/.local/share/chezmoi/"]
+  path = config.nosborn
+
+[includeIf "gitdir:~/src/github.com/corda/"]
+  path = config.corda
+
+[includeIf "gitdir:~/src/github.com/nosborn/"]
+  path = config.nosborn
+
 [include]
   path = config.local
