@@ -1,8 +1,7 @@
-HOME = false
-WORK = false
-
 tap 'homebrew/cask'
-tap 'homebrew/cask-drivers' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+tap 'homebrew/cask-drivers'
+{{- endif }}
 tap 'homebrew/cask-fonts'
 tap 'twpayne/taps'
 
@@ -12,20 +11,36 @@ tap 'twpayne/taps'
 # brew 'amazon-ecs-cli'
 brew 'ansible'
 brew 'ansible-lint'
-brew 'atlassian-cli' if WORK
-brew 'awscli' if HOME
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'atlassian-cli'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'awscli'
+{{- endif }}
 # brew 'awslogs'
 # brew 'aws-keychain'
 # cask 'aws-vault'
-brew 'azure-cli' if WORK
-cask 'balenaetcher' if HOME
-cask 'bettertouchtool' if HOME
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'azure-cli'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'balenaetcher'
+{{- endif }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'bettertouchtool'
+{{- endif }}
 brew 'black'
-cask 'blockblock' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'blockblock'
+{{- endif }}
 # cask 'caffeine'
-brew 'cfn-lint' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'cfn-lint'
+{{- endif }}
 brew 'chezmoi'
-brew 'circleci' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'circleci'
+{{- endif }}
 brew 'ctags'
 brew 'direnv'
 # cask 'docker'
@@ -36,7 +51,9 @@ brew 'direnv'
 # cask 'dynamodb-local'
 # brew 'eslint'
 brew 'exiftool'
-brew 'exiftags' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'exiftags'
+{{- endif }}
 cask 'font-source-code-pro'
 brew 'gem-completion'
 # brew 'git'
@@ -46,9 +63,13 @@ brew 'git-secrets'
 # brew 'gitlab-gem'
 brew 'gnu-tar'
 # brew 'gnupg'
-brew 'go' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'go'
+{{- endif }}
 # cask 'google-chrome'
-brew 'gradle-completion' if WORK
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'gradle-completion'
+{{- end }}
 # brew 'groovy'
 brew 'grunt-completion'
 brew 'hadolint'
@@ -58,13 +79,21 @@ brew 'hub'
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
-cask 'keybase' if HOME
-cask 'keypassxc' if WORK
-cask 'kitty' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'keybase'
+{{- endif }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'keypassxc'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'kitty'
+{{- endif }}
 # cask 'knockknock'
 # brew 'launchctl-completion'
 brew 'lesspipe'
-cask 'logitech-gaming-software' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'logitech-gaming-software'
+{{- endif }}
 brew 'm-cli'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
@@ -73,7 +102,9 @@ brew 'mas'
 # cask 'micro-snitch'
 # brew 'minio'
 brew 'node'
-cask 'oversight' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'oversight'
+{{- endif }}
 # brew 'packer'
 # brew 'pipenv'
 cask 'pock'
@@ -82,7 +113,9 @@ brew 'proselint'
 brew 'pstree'
 brew 'pwgen'
 cask 'qlmarkdown'
-cask 'razer-synapse' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'razer-synapse'
+{{- endif }}
 # brew 'rbenv'
 brew 'ripgrep'
 # brew 'rpm'
@@ -109,8 +142,10 @@ brew 'vim'
 # brew 'watchexec'
 # brew 'watchman'
 # brew 'wdiff'
-brew 'wine' if HOME
-brew 'winetricks' if HOME
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'wine'
+brew 'winetricks'
+{{- endif }}
 # cask 'wireshark'
 # brew 'xhyve'
 brew 'yamllint'
