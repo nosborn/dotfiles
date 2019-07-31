@@ -49,6 +49,8 @@ export RPROMPT='${vcs_info_msg_0_}'
 
 export CLICOLOR=1
 export EDITOR=vim
+export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
+export LESS_ADVANCED_PREPROCESSOR=1
 
 alias sdiff='command sdiff -d -w${COLUMNS}'
 
