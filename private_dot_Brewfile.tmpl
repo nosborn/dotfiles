@@ -75,7 +75,6 @@ brew 'grunt-completion'
 brew 'hadolint'
 brew 'html2text' # for lesspipe
 brew 'hub'
-# cask 'iterm2'
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
@@ -83,13 +82,13 @@ brew 'jsonlint'
 cask 'keybase'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-cask 'keypassxc'
+cask 'keepassxc'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'kitty'
 {{- end }}
 # cask 'knockknock'
-# brew 'launchctl-completion'
+brew 'launchctl-completion'
 brew 'lesspipe'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'logitech-gaming-software'
