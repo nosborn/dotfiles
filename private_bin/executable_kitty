@@ -1,3 +1,0 @@
-#!/bin/sh
-[ -e /Applications/kitty.app/Contents/MacOS/kitty ] || exit
-exec /Applications/kitty.app/Contents/MacOS/kitty "$@"

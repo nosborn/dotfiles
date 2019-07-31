@@ -24,9 +24,6 @@ brew 'awscli'
 brew 'azure-cli'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
-cask 'balenaetcher'
-{{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'bettertouchtool'
 {{- end }}
 brew 'black'
@@ -83,9 +80,6 @@ cask 'keybase'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'keepassxc'
-{{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
-cask 'kitty'
 {{- end }}
 # cask 'knockknock'
 brew 'launchctl-completion'
