@@ -134,9 +134,14 @@ brew 'terraform_landscape'
 brew 'tflint'
 brew 'tig'
 # cask 'transmission'
-# cask 'vagrant'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'vagrant'
+brew 'vagrant-completion'
+{{- end }}
 brew 'vim'
-# cask 'virtualbox'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'virtualbox'
+{{- end }}
 # cask 'wireshark'
 # brew 'watchexec'
 # brew 'watchman'
@@ -146,7 +151,9 @@ brew 'wine'
 brew 'winetricks'
 {{- end }}
 # cask 'wireshark'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 # brew 'xhyve'
+{{- end }}
 brew 'yamllint'
 # brew 'yank'
 brew 'yarn'
