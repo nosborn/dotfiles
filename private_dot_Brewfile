@@ -17,6 +17,7 @@ brew 'awscli' if HOME
 # brew 'awslogs'
 # brew 'aws-keychain'
 # cask 'aws-vault'
+brew 'azure-cli' if WORK
 cask 'balenaetcher' if HOME
 cask 'bettertouchtool' if HOME
 brew 'black'
@@ -47,20 +48,22 @@ brew 'gnu-tar'
 # brew 'gnupg'
 brew 'go' if HOME
 # cask 'google-chrome'
+brew 'gradle-completion'
 # brew 'groovy'
 brew 'grunt-completion'
 brew 'hadolint'
+brew 'html2text' # for lesspipe
 brew 'hub'
 # cask 'iterm2'
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
 cask 'keybase' if HOME
-cask 'keypasscx' if WORK
+cask 'keypassxc' if WORK
 cask 'kitty' if HOME
 # cask 'knockknock'
 # brew 'launchctl-completion'
-brew 'lesspipe', args: ['with-syntax-highlighting']
+brew 'lesspipe'
 cask 'logitech-gaming-software' if HOME
 brew 'm-cli'
 # cask 'markdownmdimporter' -- no checksum
