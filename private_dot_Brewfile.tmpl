@@ -1,7 +1,7 @@
 tap 'homebrew/cask'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 tap 'homebrew/cask-drivers'
-{{- endif }}
+{{- end }}
 tap 'homebrew/cask-fonts'
 tap 'twpayne/taps'
 
@@ -16,7 +16,7 @@ brew 'atlassian-cli'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'awscli'
-{{- endif }}
+{{- end }}
 # brew 'awslogs'
 # brew 'aws-keychain'
 # cask 'aws-vault'
@@ -25,22 +25,22 @@ brew 'azure-cli'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'balenaetcher'
-{{- endif }}
+{{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'bettertouchtool'
-{{- endif }}
+{{- end }}
 brew 'black'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'blockblock'
-{{- endif }}
+{{- end }}
 # cask 'caffeine'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'cfn-lint'
-{{- endif }}
+{{- end }}
 brew 'chezmoi'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'circleci'
-{{- endif }}
+{{- end }}
 brew 'ctags'
 brew 'direnv'
 # cask 'docker'
@@ -53,7 +53,7 @@ brew 'direnv'
 brew 'exiftool'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'exiftags'
-{{- endif }}
+{{- end }}
 cask 'font-source-code-pro'
 brew 'gem-completion'
 # brew 'git'
@@ -65,7 +65,7 @@ brew 'gnu-tar'
 # brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'go'
-{{- endif }}
+{{- end }}
 # cask 'google-chrome'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'gradle-completion'
@@ -81,19 +81,19 @@ brew 'jq'
 brew 'jsonlint'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'keybase'
-{{- endif }}
+{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'keypassxc'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'kitty'
-{{- endif }}
+{{- end }}
 # cask 'knockknock'
 # brew 'launchctl-completion'
 brew 'lesspipe'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'logitech-gaming-software'
-{{- endif }}
+{{- end }}
 brew 'm-cli'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
@@ -104,7 +104,7 @@ brew 'mas'
 brew 'node'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'oversight'
-{{- endif }}
+{{- end }}
 # brew 'packer'
 # brew 'pipenv'
 cask 'pock'
@@ -115,7 +115,7 @@ brew 'pwgen'
 cask 'qlmarkdown'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'razer-synapse'
-{{- endif }}
+{{- end }}
 # brew 'rbenv'
 brew 'ripgrep'
 # brew 'rpm'
@@ -145,7 +145,7 @@ brew 'vim'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'wine'
 brew 'winetricks'
-{{- endif }}
+{{- end }}
 # cask 'wireshark'
 # brew 'xhyve'
 brew 'yamllint'
