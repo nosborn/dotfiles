@@ -23,9 +23,10 @@ compinit
 # End of lines added by compinstall
 
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-cdpath=(~/src/github.com/corda)
-{{- else }}
-cdpath=(~/src/github.com/"{{ .github.user }}")
+cdpath=(~/src/github.com/corda $cdpath)
+{{- end }}
+{{- if .data.github.user }}
+cdpath=(~/src/github.com/{{ .github.user }} $cdpath)
 {{- end }}
 fpath=(/usr/local/share/zsh-completions $fpath)
 path=(~/bin $path)
