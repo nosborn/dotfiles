@@ -14,13 +14,9 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename ~/.zshrc
+#zstyle :compinstall filename ~/.zshrc
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+autoload -U compinit && compinit
 
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cdpath=( ~/src/github.com/corda $cdpath )
@@ -61,6 +57,17 @@ alias sdiff='command sdiff -d -w${COLUMNS}'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+[[ -e /usr/local/etc/bash_completion.d/az ]] && source /usr/local/etc/bash_completion.d/az
+
+expand-or-complete-with-dots() {
+  [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti rmam
+  print -Pn "%{%F{red}...%f%}"
+  [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti smam
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

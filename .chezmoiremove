@@ -1,2 +1,5 @@
+.config/flake8
+.config/kitty/
 .config/liquidpromptrc
+.config/pep8
 bin/kitty
