@@ -5,21 +5,25 @@ tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'twpayne/taps'
 
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask '1password-cli'
-# cask 'aerial'
+{{- end }}
+cask 'aerial'
 # brew 'ag'
-# brew 'amazon-ecs-cli'
 brew 'ansible'
 brew 'ansible-lint'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'atom'
+{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'atlassian-cli'
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
-brew 'awscli'
-{{- end }}
-# brew 'awslogs'
 # brew 'aws-keychain'
 # cask 'aws-vault'
+brew 'awscli'
+# brew 'awslogs'
+{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'azure-cli'
 {{- end }}
@@ -46,8 +50,6 @@ brew 'direnv'
 # brew 'docker-compose-completion'
 # brew 'docker-machine-completion'
 brew 'dpkg'
-# cask 'dynamodb-local'
-# brew 'eslint'
 brew 'exiftool'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'exiftags'
@@ -57,7 +59,7 @@ cask 'font-source-code-pro'
 # brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
-# brew 'github-markdown-toc'
+brew 'github-markdown-toc'
 brew 'gnu-tar'
 # brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
@@ -95,25 +97,30 @@ brew 'm-cli'
 brew 'mas'
 # brew 'maven'
 # brew 'maven-completion'
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'micro-snitch'
+{{- end }}
 # brew 'minio'
 brew 'node'
 # brew 'open-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'oversight'
 {{- end }}
-# brew 'packer'
-# brew 'pipenv'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'packer'
+{{- end }}
 cask 'pock'
 brew 'prettier'
 brew 'proselint'
 brew 'pstree'
 brew 'pwgen'
 cask 'qlmarkdown'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'quazip' # for keepassxc
+{{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'razer-synapse'
 {{- end }}
-# brew 'rbenv'
 brew 'ripgrep'
 brew 'rpm'
 # brew 'ruby-completion'
@@ -121,8 +128,9 @@ brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
 cask 'spectacle'
-# brew 'speedtest-cli'
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'ssh-audit'
+{{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'subler'
 {{- end }}
@@ -132,13 +140,18 @@ brew 'terraform'
 brew 'terraform_landscape'
 brew 'tflint'
 brew 'tig'
+{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
 # cask 'transmission'
+{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'vagrant'
 {{- end }}
 brew 'vim'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'virtualbox'
+{{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'visual-studio-code'
 {{- end }}
 # cask 'wireshark'
 # brew 'watchexec'
@@ -154,9 +167,9 @@ brew 'winetricks'
 {{- end }}
 brew 'yamllint'
 # brew 'yank'
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'yarn'
-brew 'yq'
-# cask 'zenmap'
+{{- end }}
 # brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
