@@ -31,15 +31,6 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
-if &encoding ==# 'latin1' && has('gui_running')
-  set encoding=utf-8
-endif
-
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-  " set listchars=tab:»·,trail:·,nbsp:·
-endif
-
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j " Delete comment character when joining commented lines
 endif
@@ -75,14 +66,14 @@ set ignorecase
 set number
 " set relativenumber
 
-" Convert tabs to spaces
-set expandtab
-set tabstop=2
-set shiftwidth=2
+" " Convert tabs to spaces
+" set expandtab
+" set tabstop=2
+" set shiftwidth=2
 
 " Display tabs, and trailing and non-breaking spaces visually.
 set list
-" set listchars=tab:»·,trail:·,nbsp:·
+set listchars=tab:»·,trail:▿,nbsp:▿
 
 " Get rid of the delay when pressing O (for example)
 " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
@@ -128,6 +119,7 @@ colorscheme github
 set background=light
 highlight Comment cterm=italic gui=italic
 
+let g:ale_set_balloons=1
 let g:ale_sign_column_always=1
 let g:ale_sign_error='✘'
 let g:ale_sign_warning='⚠'
@@ -316,12 +308,14 @@ set spelllang=en_gb
 if $TERM_PROGRAM ==# 'Apple_Terminal'
   let &t_ZH="\e[3m"
   let &t_ZR="\e[23m"
+  set mouse=a
 endif
 
 if $TERM ==# 'xterm-kitty'
   let &t_Cs="\e[4:3m"
   let &t_Ce="\e[4:0m"
-  hi SpellBad cterm=undercurl
+  highlight SpellBad cterm=undercurl
+  set mouse=a
 endif
 
 "" $ANSIBLE_VAULT;1.1;AES256
