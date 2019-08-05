@@ -1,27 +1,27 @@
-[submodule "dot_vim/exact_pack/cespare/start/vim-toml"]
-	path = dot_vim/exact_pack/cespare/start/vim-toml
+[submodule "private_dot_vim/exact_pack/cespare/start/vim-toml"]
+	path = private_dot_vim/exact_pack/cespare/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
-[submodule "dot_vim/exact_pack/cormacrelf/start/vim-colors-github"]
-	path = dot_vim/exact_pack/cormacrelf/start/vim-colors-github
+[submodule "private_dot_vim/exact_pack/cormacrelf/start/vim-colors-github"]
+	path = private_dot_vim/exact_pack/cormacrelf/start/vim-colors-github
 	url = https://github.com/cormacrelf/vim-colors-github.git
-[submodule "dot_vim/exact_pack/digitaltoad/start/vim-pug"]
-	path = dot_vim/exact_pack/digitaltoad/start/vim-pug
+[submodule "private_dot_vim/exact_pack/digitaltoad/start/vim-pug"]
+	path = private_dot_vim/exact_pack/digitaltoad/start/vim-pug
 	url = https://github.com/digitaltoad/vim-pug.git
-[submodule "dot_vim/exact_pack/hashivim/start/vim-terraform"]
-	path = dot_vim/exact_pack/hashivim/start/vim-terraform
+[submodule "private_dot_vim/exact_pack/hashivim/start/vim-terraform"]
+	path = private_dot_vim/exact_pack/hashivim/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule "dot_vim/exact_pack/itchyny/start/lightline.vim"]
-	path = dot_vim/exact_pack/itchyny/start/lightline.vim
+[submodule "private_dot_vim/exact_pack/itchyny/start/lightline.vim"]
+	path = private_dot_vim/exact_pack/itchyny/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule "dot_vim/exact_pack/pearofducks/start/ansible-vim"]
-	path = dot_vim/exact_pack/pearofducks/start/ansible-vim
+[submodule "private_dot_vim/exact_pack/pearofducks/start/ansible-vim"]
+	path = private_dot_vim/exact_pack/pearofducks/start/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim.git
-[submodule "dot_vim/exact_pack/tpope/start/vim-commentary"]
-	path = dot_vim/exact_pack/tpope/start/vim-commentary
+[submodule "private_dot_vim/exact_pack/tpope/start/vim-commentary"]
+	path = private_dot_vim/exact_pack/tpope/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "dot_vim/exact_pack/tpope/start/vim-fugitive"]
-	path = dot_vim/exact_pack/tpope/start/vim-fugitive
+[submodule "private_dot_vim/exact_pack/tpope/start/vim-fugitive"]
+	path = private_dot_vim/exact_pack/tpope/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "dot_vim/exact_pack/w0rp/start/ale"]
-	path = dot_vim/exact_pack/w0rp/start/ale
+[submodule "private_dot_vim/exact_pack/w0rp/start/ale"]
+	path = private_dot_vim/exact_pack/w0rp/start/ale
 	url = https://github.com/w0rp/ale.git
