@@ -12,5 +12,5 @@ pip3_install() {
 pip3_install vim-vint
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
-  pip3_install azure
+  pip3_install azure pylint
 fi
