@@ -1,3 +1,4 @@
 *.png diff=exiftool
 *.rpm diff=rpm
 *.zip diff=zipinfo
+vault.yml diff=ansible-vault

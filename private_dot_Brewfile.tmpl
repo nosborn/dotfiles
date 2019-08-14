@@ -98,11 +98,13 @@ brew 'mas'
 # cask 'micro-snitch'
 {{- end }}
 # brew 'minio'
-brew 'neovim'
 brew 'node'
 # brew 'open-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'oversight'
+{{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'p7zip'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'packer'
@@ -168,6 +170,7 @@ brew 'yamllint'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'yarn'
 {{- end }}
+brew 'yq'
 # brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
