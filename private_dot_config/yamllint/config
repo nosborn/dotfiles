@@ -1,0 +1,9 @@
+---
+extends: default
+
+rules:
+  key-ordering: enable
+  new-lines:
+    type: unix
+
+# vim: ft=yaml
