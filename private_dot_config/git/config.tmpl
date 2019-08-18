@@ -1,132 +1,129 @@
 [advice]
-  statusHints = false
+	; foo
+	statusHints = false
 
 [alias]
-  ctags = !.git/hooks/ctags
+	ctags = !.git/hooks/ctags
 
 [color]
-  ui = auto
+	ui = auto
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 
 [color "diff"]
-  frag = magenta
-  meta = yellow
-  new = green
-  old = red
+	frag = magenta
+	meta = yellow
+	new = green
+	old = red
 
 [color "status"]
-  added = green
-  changed = yellow
-  unmerged = red
-  untracked = magenta
+	added = green
+	changed = yellow
+	unmerged = red
+	untracked = magenta
 
 [core]
-  autocrlf = input
-  excludesfile = ~/.config/git/ignore
+	autocrlf = input
+	excludesfile = ~/.config/git/ignore
 {{- if eq .chezmoi.os "darwin" }}
-  trustctime = false # Play nicely with revisiond
+	trustctime = false ; play nicely with revisiond
 {{- end }}
 
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
-  helper = osxkeychain
+	helper = osxkeychain
 {{- end }}
 
 [diff]
-  algorithm = histogram
-  colorMoved = dimmed_zebra
-  indentHeuristic = on
-  mnemonicprefix = true
-  renames = copies
+	algorithm = histogram
+	colorMoved = dimmed_zebra
+	indentHeuristic = on
+	mnemonicprefix = true
+	renames = copies
 
 [diff "ansible-vault"]
-  cachetextconv = false
-  textconv = ansible-vault view
+	cachetextconv = false
+	textconv = ansible-vault view
 
 [diff "exiftool"]
-  cachetextconv = true
-  textconv = exiftool
+	cachetextconv = true
+	textconv = exiftool
 
-# [diff "eyaml"]
-#   cachetextconv = false
-#   textconv = eyaml decrypt --stdin <
+; [diff "eyaml"]
+;	cachetextconv = false
+;	textconv = eyaml decrypt --stdin <
 
-[diff "rpm"]
-  cachetextconv = true
-  textconf = rpm -qi -p
+; [diff "rpm"]
+;	cachetextconv = true
+;	textconf = rpm -qi -p
 
 [diff "zipinfo"]
-  cachetextconv = true
-  textconv = zipinfo -lZ
+	cachetextconv = true
+	textconv = zipinfo -lZ
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  process = git-lfs filter-process
-  required = true
-  smudge = git-lfs smudge -- %f
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
 
-# [format]
-#   graph = true
-#   # pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+; [format]
+;	graph = true
 
 [github]
-  user = {{ .github.user }}
+	user = {{ .github.user }}
 
 [fetch]
-  prune = true
+	prune = true
 
 [init]
-  templatedir = ~/.config/git/templates
+	templatedir = ~/.config/git/templates
 
 [merge]
-  # conflictstyle = diff3
-  ff = only
-  # summary = true
-  # verbosity = 1
+	ff = only
 
 [pull]
-  rebase = true
+	rebase = true
 
 [push]
-  default = current
-  followTags = true
+	default = current
+	followTags = true
 
 [rebase]
-  autoSquash = true
-  autoStash = true
+	autoSquash = true
+	autoStash = true
 
 [rerere]
-  enabled = true
+	enabled = true
 
 [secrets]
-  allowed = AKIAIOSFODNN7EXAMPLE
-  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-  patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
-  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
-  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
-  providers = git secrets --aws-provider
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	providers = git secrets --aws-provider
 
-# [status]
-#   showUntrackedFiles = all
+; [status]
+;	showUntrackedFiles = all
 
 [user]
-  name = {{ .user.name }}
-  useConfigOnly = true
+	name = {{ .user.name }}
+	useConfigOnly = true
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
-  path = config.nosborn
+	path = config.nosborn
 
 [includeIf "gitdir:~/src/github.com/corda/"]
-  path = config.corda
+	path = config.corda
 
 [includeIf "gitdir:~/src/github.com/nosborn/"]
-  path = config.nosborn
+	path = config.nosborn
 
 [include]
-  path = config.local
+	path = config.local
 
-# vim: ft=dosini
+; vim: ft=gitconfig

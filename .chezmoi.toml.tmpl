@@ -1,13 +1,12 @@
 {{ $heroku_user := promptString "Heroku user (email)" -}}
 {{ $github_user := promptString "GitHub user" -}}
-{{ $gitlab_user := promptString "GitLab user" -}}
+
+remove = true
 
 [data]
   [data.heroku]
     user = "{{ $heroku_user }}"
   [data.github]
     user = "{{ $github_user }}"
-  [data.gitlab]
-    user = "{{ $gitlab_user }}"
   [data.user]
     name = "Nick Osborn"

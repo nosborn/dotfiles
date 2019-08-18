@@ -1,9 +1,26 @@
-if has('autocmd')
-  filetype plugin indent on
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fL -o ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
+
+call plug#begin()
+Plug 'cespare/vim-toml'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'digitaltoad/vim-pug'
+Plug 'direnv/direnv.vim'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-terraform'
+Plug 'itchyny/lightline.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
+call plug#end()
+
+filetype plugin indent on
+syntax on
 
 set autoindent
 set backspace=indent,eol,start
@@ -119,14 +136,14 @@ colorscheme github
 set background=light
 highlight Comment cterm=italic gui=italic
 
-let g:ale_set_balloons=1
-let g:ale_sign_column_always=1
-let g:ale_sign_error='✘'
-let g:ale_sign_warning='⚠'
+let g:ale_set_balloons = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 " highlight ALEErrorSign ctermbg=NONE ctermfg=red
 " highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
-let g:ansible_name_highlight='d'
+let g:ansible_name_highlight = 'd'
 let g:ansible_template_syntaxes = {
       \   '*.ini.j2':               'dosini',
       \   '*.sh.j2':                'sh',
@@ -136,20 +153,20 @@ let g:ansible_template_syntaxes = {
       \   'sshd_config.j2':         'sshdconfig',
       \ }
 
-" let g:autopep8_ignore="E226,E24,W6"
-" let g:autopep8_max_line_length=79
+" let g:autopep8_ignore = "E226,E24,W6"
+" let g:autopep8_max_line_length = 79
 
-" let g:gitgutter_sign_added='+'
-" let g:gitgutter_sign_modified='~'
-" let g:gitgutter_sign_modified_removed='~_'
-" let g:gitgutter_sign_removed='_'
-" let g:gitgutter_sign_removed_first_line='‾'
+" let g:gitgutter_sign_added = '+'
+" let g:gitgutter_sign_modified = '~'
+" let g:gitgutter_sign_modified_removed = '~_'
+" let g:gitgutter_sign_removed = '_'
+" let g:gitgutter_sign_removed_first_line = '‾'
 
-let g:indentLine_char='┆'
-let g:indentLine_noConcealCursor=''
+let g:indentLine_char = '┆'
+let g:indentLine_noConcealCursor = ''
 
 " ⎇
-let g:lightline={
+let g:lightline = {
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
@@ -174,9 +191,13 @@ let g:lightline={
       \     'gitbranch': 'LightlineGitBranch',
       \     'readonly': 'LightlineReadonly'
       \   },
+      \   'separator': {
+      \     'left': '▶',
+      \     'right': '◀'
+      \   },
       \   'subseparator': {
-      \     'left': '│',
-      \     'right': '│'
+      \     'left': '>',
+      \     'right': '>'
       \   }
       \ }
 
@@ -200,55 +221,20 @@ endfunction
 
 " autocmd User ALELint call lightline#update()
 
-let g:netrw_banner=0
-let g:netrw_bufsettings='relativenumber,number'
-" let g:netrw_keepdir=0
-let g:netrw_liststyle=1
+let g:netrw_banner = 0
+let g:netrw_bufsettings = 'relativenumber,number'
+" let g:netrw_keepdir = 0
+let g:netrw_liststyle = 1
 
-let g:vim_json_syntax_conceal=0
+let g:terraform_align = 1
+" let g_terraform_fmt_on_save = 1
 
-let g:vim_markdown_conceal=0
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_toml_frontmatter=1
+let g:vim_json_syntax_conceal = 0
 
-" autocmd BufRead,BufNewFile *.Jenkinsfile                 setlocal ft=groovy
-" autocmd BufRead,BufNewFile *.ini.erb                     setlocal ft=dosini.eruby
-" autocmd BufRead,BufNewFile *.ini.j2                      setlocal ft=dosini.jinja2
-" autocmd BufRead,BufNewFile *.json.erb                    setlocal ft=json.eruby
-" autocmd BufRead,BufNewFile *.json.j2                     setlocal ft=json.jinja2
-" autocmd BufRead,BufNewFile *.lua.erb                     setlocal ft=lua.eruby
-" autocmd BufRead,BufNewFile *.lua.j2                      setlocal ft=lua.jinja2
-" autocmd BufRead,BufNewFile *.pl.erb                      setlocal ft=perl.eruby
-" autocmd BufRead,BufNewFile *.pl.j2                       setlocal ft=perl.jinja2
-" autocmd BufRead,BufNewFile *.properties.erb              setlocal ft=jproperties.eruby
-" autocmd BufRead,BufNewFile *.properties.j2               setlocal ft=jproperties.jinja2
-" autocmd BufRead,BufNewFile *.py.erb                      setlocal ft=python.eruby
-" autocmd BufRead,BufNewFile *.py.j2                       setlocal ft=python.jinja2
-" autocmd BufRead,BufNewFile *.sh.erb                      setlocal ft=sh.eruby
-" autocmd BufRead,BufNewFile *.sh.j2                       setlocal ft=sh.jinja2
-" autocmd BufRead,BufNewFile */ansible{,-*}/**/tasks/*.yml setlocal ft=ansible
-" autocmd BufRead,BufNewFile */ansible{,-*}/*.yml          setlocal ft=ansible
-" autocmd BufRead,BufNewFile *_Jenkinsfile                 setlocal ft=groovy
-" autocmd BufRead,BufNewFile .babelrc                      setlocal ft=json
-" autocmd BufRead,BufNewFile .envrc                        setlocal ft=sh
-" autocmd BufRead,BufNewFile Jenkinsfile                   setlocal ft=groovy
-" autocmd BufRead,BufNewFile Vagrantfile                   setlocal ft=ruby
-" autocmd BufRead,BufNewFile acme-client.conf.j2           setlocal sw=8 ts=8
-" autocmd BufRead,BufNewFile bash_profile.j2               setlocal ft=sh.jinja2
-" autocmd BufRead,BufNewFile bashrc.j2                     setlocal ft=sh.jinja2
-" autocmd BufRead,BufNewFile core_config.php.j2            setlocal ft=php.jinja2 noet sw=8 ts=8
-" autocmd BufRead,BufNewFile dhcpd.conf.j2                 setlocal noet sw=8 ts=8
-" autocmd BufRead,BufNewFile gemrc.j2                      setlocal ft=yaml.jinja2
-" autocmd BufRead,BufNewFile gvimrc.j2                     setlocal ft=vim
-" autocmd BufRead,BufNewFile liquidpromptrc.j2             setlocal ft=sh.jinja2
-" autocmd BufRead,BufNewFile nsd.conf.j2                   setlocal noet sw=8 ts=8
-" autocmd BufRead,BufNewFile pf.conf.j2                    setlocal ft=jinja2.pf
-" autocmd BufRead,BufNewFile squid.conf.j2                 setlocal ft=squid.jinja2
-" autocmd BufRead,BufNewFile unbound.conf.j2               setlocal noet sw=8 ts=8
-" autocmd BufRead,BufNewFile vimrc.j2                      setlocal ft=vim
-
-autocmd FileType c setlocal noet sw=8 ts=8
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
 
 " -------------------
 
@@ -287,12 +273,12 @@ set belloff=all
 "set smartindent
 
 " Sed
-let g:highlight_sedtabs=1
+let g:highlight_sedtabs = 1
 
 " Shell
-""let bash_is_sh=1                " highlight bash syntax
-let g:highlight_balanced_quotes=1 " highlight single quotes inside double
-let g:highlight_function_names=1
+""let bash_is_sh = 1                " highlight bash syntax
+let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
+let g:highlight_function_names = 1
 
 " -----------------------------------------------------------------------------
 
@@ -336,22 +322,6 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
-
-" function! ChezmoiEdit()
-"   let file = expand('%')
-"   silent! let repo = systemlist('chezmoi source-path')[0]
-"   silent! let repo_file = systemlist('chezmoi source-path ' . fnameescape(file))[0]
-"   if filereadable(repo_file)
-"     let file = fnameescape(repo_file)
-"   endif
-"   execute 'edit' file
-"   execute 'doautocmd BufReadPost' file
-" endfunction
-
-" augroup chezmoi-edit
-"   autocmd!
-"   autocmd BufReadCmd * call ChezmoiEdit()
-" augroup END
 
 if filereadable($MYVIMRC . '.local')
   execute 'source ' . $MYVIMRC . '.local'

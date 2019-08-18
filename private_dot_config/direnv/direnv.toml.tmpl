@@ -1,5 +1,6 @@
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 [whitelist]
 prefix = [
-  "{{ .chezmoi.homedir }}/github.com/{{ .github.user }}",
-  "{{ .chezmoi.homedir }}/gitlab.com/{{ .gitlab.user }}"
+  "{{ .chezmoi.homedir }}/github.com/{{ .github.user }}"
 ]
+{{- end }}

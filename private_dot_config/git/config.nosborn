@@ -1,2 +1,4 @@
 [user]
-  email = nosborn@noreply.users.github.com
+	email = nosborn@noreply.users.github.com
+
+# vim: ft=gitconfig

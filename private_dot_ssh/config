@@ -1,0 +1,107 @@
+# Home network.
+
+Host diningroom.lan
+  CheckHostIP no
+  HostKeyAlgorithms ssh-rsa
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking yes
+  User unifi
+
+Host homebridge.lan homebridge.local.
+  CheckHostIP no
+  HostKeyAlgorithms ssh-ed25519
+  HostKeyAlias homebridge.local.
+  HostName homebridge.lan
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking yes
+
+Host mac-mini.local. nicks-mac-mini.local.
+  CheckHostIP no
+  HostKeyAlgorithms ssh-ed25519
+  HostKeyAlias Nicks-Mac-mini.local.
+  HostName Nicks-Mac-mini.local.
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking yes
+
+Host masterbedroom.lan
+  CheckHostIP no
+  HostKeyAlgorithms ssh-rsa
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking yes
+  User unifi
+
+Host office.lan
+  CheckHostIP no
+  HostKeyAlgorithms ssh-rsa
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking yes
+  User unifi
+
+Host tombstone.local. 192.168.1.2
+  CheckHostIP no
+  HostKeyAlgorithms ssh-ed25519
+  HostKeyAlias tombstone.local.
+  HostName 192.168.1.2
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  StrictHostKeyChecking yes
+
+Host usg.local. 192.168.1.1
+  CheckHostIP no
+  HostKeyAlgorithms ssh-ed25519
+  HostKeyAlias usg.local.
+  HostName 192.168.1.1
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking yes
+  User unifi
+
+# Amazon EC2
+
+#Host *.compute.amazonaws.com
+#  AddressFamily inet
+
+# GitHub
+
+Host github.com
+  AddressFamily inet
+  CheckHostIP yes
+  Ciphers chacha20-poly1305@openssh.com
+  HostKeyAlgorithms ssh-rsa
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519-github-nosborn-20180409
+  KexAlgorithms curve25519-sha256@libssh.org
+  RequestTTY no
+  StrictHostKeyChecking yes
+  User git
+
+# GitLab
+
+Host gitlab.com
+  AddressFamily inet
+  CheckHostIP yes
+  Ciphers chacha20-poly1305@openssh.com
+  HostKeyAlgorithms ssh-rsa
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_ed25519
+  KexAlgorithms curve25519-sha256@libssh.org
+  RequestTTY no
+  StrictHostKeyChecking yes
+  User git
+
+# Defaults.
+
+Host *
+  AddKeysToAgent yes
+  Compression no
+  ForwardAgent no
+  ForwardX11 no
+  PasswordAuthentication no
+  PubkeyAuthentication yes
+  ServerAliveInterval 20
+  UseKeyChain yes
