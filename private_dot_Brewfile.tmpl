@@ -3,10 +3,11 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{- end }}
 tap 'homebrew/cask-fonts'
+tap 'rockyluke/devops'
 tap 'twpayne/taps'
 
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
-# cask '1password-cli'
+cask '1password-cli'
 {{- end }}
 cask 'aerial'
 # brew 'ag'
@@ -48,17 +49,17 @@ brew 'direnv'
 # brew 'docker-machine-completion'
 brew 'dpkg'
 brew 'exiftool'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
-brew 'exiftags'
-{{- end }}
 cask 'font-source-code-pro'
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'ftdi-vcp-driver'
+{{- end }}
 # brew 'gem-completion'
 # brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
 brew 'github-markdown-toc'
+brew 'gitlint'
 brew 'gnu-tar'
-# brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'go'
 {{- end }}
@@ -68,7 +69,6 @@ brew 'go'
 {{- end }}
 # brew 'groovy'
 # brew 'grunt-completion'
-brew 'hadolint'
 brew 'html2text' # for lesspipe
 brew 'hub'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -90,6 +90,7 @@ brew 'lesspipe'
 cask 'logitech-gaming-software'
 {{- end }}
 brew 'm-cli'
+cask 'macvim'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
@@ -122,15 +123,12 @@ brew 'quazip' # for keepassxc
 cask 'razer-synapse'
 {{- end }}
 brew 'ripgrep'
-brew 'rpm'
+# brew 'rpm'
 # brew 'ruby-completion'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
 cask 'spectacle'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
-brew 'ssh-audit'
-{{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'subler'
 {{- end }}

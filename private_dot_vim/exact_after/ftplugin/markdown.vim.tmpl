@@ -1,12 +1,14 @@
 setlocal expandtab
+setlocal linebreak
 setlocal shiftwidth=2
 setlocal spell
 setlocal tabstop=2
+setlocal wrap
 
 if exists('b:undo_ftplugin')
-  let b:undo_ftplugin .= ' | setlocal expandtab< shiftwidth< spell< tabstop<'
+  let b:undo_ftplugin .= ' | setlocal expandtab< linebreak< shiftwidth< spell< tabstop< wrap<'
 else
-  let b:undo_ftplugin = 'setlocal expandtab< shiftwidth< spell< tabstop<'
+  let b:undo_ftplugin = 'setlocal expandtab< linebreak< shiftwidth< spell< tabstop< wrap<'
 endif
 
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
