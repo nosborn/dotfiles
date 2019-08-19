@@ -13,4 +13,5 @@ Logstash
 Nessus
 Telegraf
 iPlayer/=
+nginx
 yamllint/=
