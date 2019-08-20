@@ -2,7 +2,8 @@
 extends: default
 
 rules:
-  key-ordering: enable
+  key-ordering:
+    level: warning
   new-lines:
     type: unix
 
