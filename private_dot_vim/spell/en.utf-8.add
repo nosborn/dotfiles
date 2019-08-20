@@ -14,6 +14,7 @@ Corda
 Datadog
 DevOps
 Filebeat
+Galera
 HSM
 Homebrew
 IPsec
@@ -34,6 +35,7 @@ Telegraf
 UUID
 VNet
 VirtualBox
+XtraDB
 YAML
 iPlayer/=
 journalctl
