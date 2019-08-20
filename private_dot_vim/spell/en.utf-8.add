@@ -17,6 +17,7 @@ HSM
 Homebrew
 IPsec
 JDK
+JSON
 Jira
 KeePass
 Kibana
@@ -25,6 +26,7 @@ MySQL
 Nessus
 OSSEC
 PKI
+Percona
 SendGrid
 TeamCity
 Telegraf
