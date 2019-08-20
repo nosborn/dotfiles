@@ -21,4 +21,5 @@ Telegraf
 VirtualBox
 iPlayer/=
 nginx
+playbook
 yamllint/=
