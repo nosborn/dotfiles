@@ -192,12 +192,12 @@ let g:lightline = {
       \     'readonly': 'LightlineReadonly'
       \   },
       \   'separator': {
-      \     'left': '▶',
-      \     'right': '◀'
+      \     'left': "\ue0b0",
+      \     'right': "\ue0b2"
       \   },
       \   'subseparator': {
-      \     'left': '>',
-      \     'right': '>'
+      \     'left': "\ue0b1",
+      \     'right': "\ue0b3"
       \   }
       \ }
 
