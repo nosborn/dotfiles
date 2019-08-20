@@ -3,6 +3,9 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{- end }}
 tap 'homebrew/cask-fonts'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-preview'
+{{- end }}
 tap 'rockyluke/devops'
 tap 'twpayne/taps'
 
@@ -95,11 +98,15 @@ cask 'macvim'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
-# brew 'maven-completion'
+# bre 'maven-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'micro-snitch'
 {{- end }}
 # brew 'minio'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'msodbcsql'
+brew 'mssql-tools'
+{{- end }}
 brew 'node'
 # brew 'open-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
