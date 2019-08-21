@@ -1,3 +1,4 @@
+tap 'adoptopenjdk/openjdk'
 tap 'homebrew/cask'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 tap 'homebrew/cask-drivers'
@@ -6,12 +7,12 @@ tap 'homebrew/cask-fonts'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 # tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-preview'
 {{- end }}
-tap 'rockyluke/devops'
 tap 'twpayne/taps'
 
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask '1password-cli'
 {{- end }}
+cask 'adoptopenjdk8' # for languagetool
 cask 'aerial'
 # brew 'ag'
 brew 'ansible'
@@ -61,7 +62,6 @@ cask 'ftdi-vcp-driver'
 brew 'git-lfs'
 brew 'git-secrets'
 brew 'github-markdown-toc'
-# brew 'gitlint'
 brew 'gnu-tar'
 brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
@@ -88,6 +88,7 @@ cask 'keybase'
 cask 'keepassxc'
 {{- end }}
 # cask 'knockknock'
+brew 'languagetool'
 # brew 'launchctl-completion'
 brew 'lesspipe'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
@@ -138,6 +139,9 @@ brew 'shfmt'
 cask 'spectacle'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'subler'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'subsurface'
 {{- end }}
 brew 'telnet'
 brew 'terminal-notifier'
