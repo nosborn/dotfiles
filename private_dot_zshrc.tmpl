@@ -45,9 +45,22 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
 ##zstyle ':vcs_info:*' formats "[%b]%u%c-"
 
-precmd_functions+=( vcs_info )
+function vpn_info() {
+  if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
+    local state=$(/opt/cisco/anyconnect/bin/vpn state | grep -F '>> state:' | tail -1 | awk '{print $4}')
+    case "${state}" in
+      Connected|Connecting) vpn_info_msg_0_="[%F{blue}VPN%f]";;
+      Disconnected) vpn_info_msg_0_="";;
+      *) vpn_info_msg_0_="[%F{yellow}VPN:${state}%f]";;
+    esac 
+  else
+    vpn_info_msg_0_=""
+  fi
+}
+
+precmd_functions+=( vcs_info vpn_info )
 export PROMPT="%~%# "
-export RPROMPT='${vcs_info_msg_0_}'
+export RPROMPT='${vcs_info_msg_0_}${vpn_info_msg_0_}'
 
 export CLICOLOR=1
 export EDITOR=vim
