@@ -1,4 +1,4 @@
-setlocal commentstring='#%s'
+setlocal commentstring=#%s
 setlocal expandtab
 setlocal shiftwidth=2
 setlocal spell
