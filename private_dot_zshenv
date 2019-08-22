@@ -14,4 +14,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 
+# sudo
+export SUDO_PROMPT="[sudo] password for $(id -un): "
+
 # vim: ft=zsh
