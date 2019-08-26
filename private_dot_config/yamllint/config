@@ -2,8 +2,8 @@
 extends: default
 
 rules:
-  key-ordering:
-    level: warning
+  # key-ordering:
+  #   level: warning
   new-lines:
     type: unix
 

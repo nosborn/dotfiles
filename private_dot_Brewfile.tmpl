@@ -40,6 +40,7 @@ cask 'blockblock'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'cfn-lint'
 {{- end }}
+brew 'checkbashisms'
 brew 'chezmoi'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'circleci'
@@ -95,7 +96,7 @@ brew 'lesspipe'
 cask 'logitech-gaming-software'
 {{- end }}
 brew 'm-cli'
-cask 'macvim'
+# cask 'macvim'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
