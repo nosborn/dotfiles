@@ -14,7 +14,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'itchyny/lightline.vim'
 Plug 'pearofducks/ansible-vim'
-Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
@@ -162,15 +161,6 @@ let g:ansible_template_syntaxes = {
 " let g:gitgutter_sign_modified_removed = '~_'
 " let g:gitgutter_sign_removed = '_'
 " let g:gitgutter_sign_removed_first_line = '‾'
-
-let g:grammarous#default_comments_only_filetypes = {
-      \   '*': 1,
-      \   'markdown': 0
-      \ }
-let g:grammarous#languagetool_cmd = 'languagetool'
-" let g:grammarous#show_first_error = 1
-" let g:grammarous#use_location_list = 1
-let g:grammarous#use_vim_spelllang = 1
 
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor = ''
