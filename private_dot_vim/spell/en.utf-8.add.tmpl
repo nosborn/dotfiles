@@ -46,5 +46,8 @@ journalctl
 macOS/=
 nginx
 playbook
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+qaops
+{{- end }}
 systemctl
 yamllint/=

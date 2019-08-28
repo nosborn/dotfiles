@@ -31,19 +31,35 @@ path=( ~/bin $path )
 autoload -U colors
 colors
 
+for config_file (~/.zsh/lib/*.zsh); do
+  # echo source $config_file
+  source $config_file
+done
+
 if [[ -z "${SSH_CLIENT}" ]]; then
   prompt_host=''
 else
   prompt_host='%m '
 fi
+export PROMPT='$(abbreviated_path)%# '
 
-autoload -U vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
-##zstyle ':vcs_info:*' formats "[%b]%u%c-"
+if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
+  source $(brew --prefix zsh-git-prompt)/zshrc.sh
+  ZSH_THEME_GIT_PROMPT_PREFIX="["
+  ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+  ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+  export RPROMPT='$(git_super_status)'
+else
+  autoload -U vcs_info
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
+  zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
+  ##zstyle ':vcs_info:*' formats "[%b]%u%c-"
+  precmd_functions+=( vcs_info )
+  export RPROMPT='${vcs_info_msg_0_}'
+fi
 
 function vpn_info() {
   if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
@@ -57,10 +73,8 @@ function vpn_info() {
     vpn_info_msg_0_=""
   fi
 }
-
-precmd_functions+=( vcs_info vpn_info )
-export PROMPT="%~%# "
-export RPROMPT='${vcs_info_msg_0_}${vpn_info_msg_0_}'
+precmd_functions+=( vpn_info )
+RPROMPT+='${vpn_info_msg_0_}'
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -90,10 +104,10 @@ done
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-for config_file (~/.zsh/lib/*.zsh); do
-  # echo source $config_file
-  source $config_file
-done
+# for config_file (~/.zsh/lib/*.zsh); do
+#   # echo source $config_file
+#   source $config_file
+# done
 
 if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
