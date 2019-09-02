@@ -7,16 +7,17 @@ endif
 call plug#begin()
 Plug 'cespare/vim-toml'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'dense-analysis/ale'
 Plug 'digitaltoad/vim-pug'
 Plug 'direnv/direnv.vim'
 Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'itchyny/lightline.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 filetype plugin indent on
@@ -136,6 +137,12 @@ colorscheme github
 set background=light
 highlight Comment cterm=italic gui=italic
 
+let g:airline#extensions#ale#enabled = 1
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+" let g:airline_theme = 'github'
+
 let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
@@ -165,59 +172,59 @@ let g:ansible_template_syntaxes = {
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor = ''
 
-" ⎇
-let g:lightline = {
-      \   'active': {
-      \     'left': [
-      \       [ 'mode', 'paste' ],
-      \       [ 'readonly', 'gitbranch', 'filename' ]
-      \     ],
-      \     'right': [
-      \       [ 'ale' ],
-      \       [ 'lineinfo' ],
-      \       [ 'percent' ],
-      \       [ 'fileformat', 'fileencoding', 'filetype' ]
-      \     ]
-      \   },
-      \   'colorscheme': 'github',
-      \   'component_expand': {
-      \     'linter_errors': 'LightlineLinterErrors',
-      \     'linter_ok': 'LightlineLinterOK',
-      \     'linter_warnings': 'LightlineLinterWarnings'
-      \   },
-      \   'component_function': {
-      \     'ale': 'ale#statusline#Status',
-      \     'filename': 'LightlineFilename',
-      \     'gitbranch': 'LightlineGitBranch',
-      \     'readonly': 'LightlineReadonly'
-      \   },
-      \   'separator': {
-      \     'left': "\ue0b0",
-      \     'right': "\ue0b2"
-      \   },
-      \   'subseparator': {
-      \     'left': "\ue0b1",
-      \     'right': "\ue0b3"
-      \   }
-      \ }
+" " ⎇
+" let g:lightline = {
+"       \   'active': {
+"       \     'left': [
+"       \       [ 'mode', 'paste' ],
+"       \       [ 'readonly', 'gitbranch', 'filename' ]
+"       \     ],
+"       \     'right': [
+"       \       [ 'ale' ],
+"       \       [ 'lineinfo' ],
+"       \       [ 'percent' ],
+"       \       [ 'fileformat', 'fileencoding', 'filetype' ]
+"       \     ]
+"       \   },
+"       \   'colorscheme': 'github',
+"       \   'component_expand': {
+"       \     'linter_errors': 'LightlineLinterErrors',
+"       \     'linter_ok': 'LightlineLinterOK',
+"       \     'linter_warnings': 'LightlineLinterWarnings'
+"       \   },
+"       \   'component_function': {
+"       \     'ale': 'ale#statusline#Status',
+"       \     'filename': 'LightlineFilename',
+"       \     'gitbranch': 'LightlineGitBranch',
+"       \     'readonly': 'LightlineReadonly'
+"       \   },
+"       \   'separator': {
+"       \     'left': "\ue0b0",
+"       \     'right': "\ue0b2"
+"       \   },
+"       \   'subseparator': {
+"       \     'left': "\ue0b1",
+"       \     'right': "\ue0b3"
+"       \   }
+"       \ }
 
-function! LightlineFilename()
-  let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let l:modified = &modified ? ' 𝌡' : ''
-  return l:filename . l:modified
-endfunction
+" function! LightlineFilename()
+"   let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+"   let l:modified = &modified ? ' 𝌡' : ''
+"   return l:filename . l:modified
+" endfunction
 
-function! LightlineGitBranch()
-  if exists('*fugitive#head')
-    let branch = fugitive#head()
-    return branch !=# '' ? branch : ''
-  endif
-  return ''
-endfunction
+" function! LightlineGitBranch()
+"   if exists('*fugitive#head')
+"     let branch = fugitive#head()
+"     return branch !=# '' ? branch : ''
+"   endif
+"   return ''
+" endfunction
 
-function! LightlineReadonly()
-  return &readonly ? '' : ''
-endfunction
+" function! LightlineReadonly()
+"   return &readonly ? '' : ''
+" endfunction
 
 " autocmd User ALELint call lightline#update()
 
