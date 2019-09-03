@@ -172,62 +172,6 @@ let g:ansible_template_syntaxes = {
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor = ''
 
-" " ⎇
-" let g:lightline = {
-"       \   'active': {
-"       \     'left': [
-"       \       [ 'mode', 'paste' ],
-"       \       [ 'readonly', 'gitbranch', 'filename' ]
-"       \     ],
-"       \     'right': [
-"       \       [ 'ale' ],
-"       \       [ 'lineinfo' ],
-"       \       [ 'percent' ],
-"       \       [ 'fileformat', 'fileencoding', 'filetype' ]
-"       \     ]
-"       \   },
-"       \   'colorscheme': 'github',
-"       \   'component_expand': {
-"       \     'linter_errors': 'LightlineLinterErrors',
-"       \     'linter_ok': 'LightlineLinterOK',
-"       \     'linter_warnings': 'LightlineLinterWarnings'
-"       \   },
-"       \   'component_function': {
-"       \     'ale': 'ale#statusline#Status',
-"       \     'filename': 'LightlineFilename',
-"       \     'gitbranch': 'LightlineGitBranch',
-"       \     'readonly': 'LightlineReadonly'
-"       \   },
-"       \   'separator': {
-"       \     'left': "\ue0b0",
-"       \     'right': "\ue0b2"
-"       \   },
-"       \   'subseparator': {
-"       \     'left': "\ue0b1",
-"       \     'right': "\ue0b3"
-"       \   }
-"       \ }
-
-" function! LightlineFilename()
-"   let l:filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-"   let l:modified = &modified ? ' 𝌡' : ''
-"   return l:filename . l:modified
-" endfunction
-
-" function! LightlineGitBranch()
-"   if exists('*fugitive#head')
-"     let branch = fugitive#head()
-"     return branch !=# '' ? branch : ''
-"   endif
-"   return ''
-" endfunction
-
-" function! LightlineReadonly()
-"   return &readonly ? '' : ''
-" endfunction
-
-" autocmd User ALELint call lightline#update()
-
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
