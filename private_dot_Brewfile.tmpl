@@ -103,8 +103,8 @@ brew 'mas'
 {{- end }}
 brew 'molecule'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-# brew 'msodbcsql'
-# brew 'mssql-tools'
+brew 'msodbcsql'
+brew 'mssql-tools'
 {{- end }}
 brew 'node'
 # brew 'open-completion'
@@ -149,6 +149,9 @@ brew 'tflint'
 brew 'tig'
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
 # cask 'transmission'
+{{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+brew 'unixodbc'  # for msodbcsql
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'vagrant'
