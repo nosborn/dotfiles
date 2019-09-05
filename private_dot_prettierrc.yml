@@ -1,0 +1,11 @@
+---
+overrides:
+  - files:
+      - "*.md"
+    options:
+      proseWrap: "preserve"
+  - files:
+      - "*.yaml"
+      - "*.yml"
+    options:
+      bracketSpacing: false

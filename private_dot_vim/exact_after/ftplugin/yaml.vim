@@ -10,10 +10,4 @@ else
 endif
 
 let b:ale_fix_on_save = 1
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
-{{- else }}
 let b:ale_fixers = ['prettier']
-{{- end }}
-
-" vim: ft=vim
