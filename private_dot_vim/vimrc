@@ -133,9 +133,13 @@ elseif executable('ack')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+augroup MyColorScheme
+  autocmd!
+  autocmd ColorScheme * highlight Comment cterm=italic gui=italic
+augroup END
+
 colorscheme github
 set background=light
-highlight Comment cterm=italic gui=italic
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
