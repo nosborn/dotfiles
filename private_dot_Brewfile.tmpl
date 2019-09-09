@@ -86,6 +86,7 @@ cask 'keybase'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'keepassxc'
 {{- end }}
+cask 'kitty'
 # cask 'knockknock'
 # brew 'launchctl-completion'
 brew 'lesspipe'
@@ -93,7 +94,7 @@ brew 'lesspipe'
 cask 'logitech-gaming-software'
 {{- end }}
 brew 'm-cli'
-cask 'macvim'
+# cask 'macvim'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
@@ -144,7 +145,6 @@ cask 'subsurface'
 {{- end }}
 brew 'telnet'
 brew 'terraform'
-brew 'terraform_landscape'
 brew 'tflint'
 brew 'tig'
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
@@ -156,7 +156,7 @@ brew 'unixodbc'  # for msodbcsql
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'vagrant'
 {{- end }}
-# brew 'vim'
+brew 'vim'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'virtualbox'
 {{- end }}
