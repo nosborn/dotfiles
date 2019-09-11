@@ -133,9 +133,15 @@ elseif executable('ack')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+
+function! MyHighlights() abort
+  highlight Comment cterm=italic gui=italic
+  highlight SpellBad cterm=undercurl
+endfunction
+
 augroup MyColorScheme
   autocmd!
-  autocmd ColorScheme * highlight Comment cterm=italic gui=italic
+  autocmd ColorScheme * call MyHighlights()
 augroup END
 
 colorscheme github
@@ -254,7 +260,7 @@ endif
 if $TERM ==# 'xterm-kitty'
   let &t_Cs="\e[4:3m"
   let &t_Ce="\e[4:0m"
-  highlight SpellBad cterm=undercurl
+  let &t_ut='' " https://sw.kovidgoyal.net/kitty/faq.html#id3
   set mouse=a
 endif
 
