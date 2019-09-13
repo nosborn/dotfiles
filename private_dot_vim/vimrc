@@ -251,6 +251,8 @@ set spelllang=en_gb
 
 " -----------------------------------------------------------------------------
 
+set tags^=./.git/tags;
+
 if $TERM_PROGRAM ==# 'Apple_Terminal'
   let &t_ZH="\e[3m"
   let &t_ZR="\e[23m"
