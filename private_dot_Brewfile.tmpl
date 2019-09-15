@@ -48,16 +48,12 @@ brew 'ctags'
 brew 'direnv'
 # cask 'docker'
 # brew 'docker-clean'
-# brew 'docker-completion'
-# brew 'docker-compose-completion'
-# brew 'docker-machine-completion'
 brew 'dpkg'
 brew 'exiftool'
 cask 'font-source-code-pro'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'ftdi-vcp-driver'
 {{- end }}
-# brew 'gem-completion'
 # brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
@@ -68,11 +64,7 @@ brew 'gnupg'
 brew 'go'
 {{- end }}
 # cask 'google-chrome'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-# brew 'gradle-completion'
-{{- end }}
 # brew 'groovy'
-# brew 'grunt-completion'
 brew 'html2text' # for lesspipe
 brew 'hub'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -88,17 +80,14 @@ cask 'keybase'
 cask 'keepassxc'
 {{- end }}
 # cask 'knockknock'
-# brew 'launchctl-completion'
 brew 'lesspipe'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'logitech-gaming-software'
 {{- end }}
 brew 'm-cli'
-# cask 'macvim'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
-# bre 'maven-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'micro-snitch'
 {{- end }}
@@ -108,7 +97,6 @@ brew 'msodbcsql'
 brew 'mssql-tools'
 {{- end }}
 brew 'node'
-# brew 'open-completion'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'oversight'
 {{- end }}
@@ -132,7 +120,6 @@ cask 'razer-synapse'
 {{- end }}
 brew 'ripgrep'
 # brew 'rpm'
-# brew 'ruby-completion'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
