@@ -1,12 +1,13 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fL -o ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " vint: next-line -ProhibitAutocmdWithNoGroup
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
 Plug 'cespare/vim-toml'
-Plug 'cormacrelf/vim-colors-github'
+Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'digitaltoad/vim-pug'
 Plug 'direnv/direnv.vim'
@@ -17,7 +18,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 filetype plugin indent on
@@ -36,6 +37,10 @@ if !has('nvim') && &ttimeoutlen == -1
 endif
 
 set incsearch
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 set laststatus=2
 set ruler
@@ -48,6 +53,10 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 set display+=lastline
+
+" Display tabs, and trailing and non-breaking spaces visually.
+set list
+set listchars=tab:»·,trail:▿,nbsp:▿
 
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j " Delete comment character when joining commented lines
@@ -65,6 +74,7 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 set sessionoptions-=options
+set viewoptions-=options
 
 " ----
 
@@ -84,15 +94,6 @@ set ignorecase
 set number
 " set relativenumber
 
-" " Convert tabs to spaces
-" set expandtab
-" set tabstop=2
-" set shiftwidth=2
-
-" Display tabs, and trailing and non-breaking spaces visually.
-set list
-set listchars=tab:»·,trail:▿,nbsp:▿
-
 " Get rid of the delay when pressing O (for example)
 " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
 set timeout
@@ -110,8 +111,7 @@ set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUs
 " highlight a matching [{()}] when cursor is placed on start/end character
 set showmatch
 
-" Do not wrap long lines
-set nowrap
+set nowrap " Do not wrap long lines
 
 " Redraw only when we need to (i.e. don't redraw when executing a macro)
 set lazyredraw
@@ -144,14 +144,17 @@ augroup MyColorScheme
   autocmd ColorScheme * call MyHighlights()
 augroup END
 
-colorscheme github
-set background=light
+if $TERM ==# 'xterm-kitty'
+  let g:base16colorspace = 256  " Access colors present in 256 colorspace
+endif
+colorscheme base16-pop
+set background=dark
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
-" let g:airline_theme = 'github'
+let g:airline_theme = 'base16_pop'
 
 let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
@@ -170,9 +173,6 @@ let g:ansible_template_syntaxes = {
       \   'sshd_config.j2':         'sshdconfig',
       \ }
 
-" let g:autopep8_ignore = "E226,E24,W6"
-" let g:autopep8_max_line_length = 79
-
 " let g:gitgutter_sign_added = '+'
 " let g:gitgutter_sign_modified = '~'
 " let g:gitgutter_sign_modified_removed = '~_'
@@ -182,19 +182,14 @@ let g:ansible_template_syntaxes = {
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor = ''
 
+let g:mkdp_auto_start = 1
+
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
 
-" let g_terraform_fmt_on_save = 1
-
 let g:vim_json_syntax_conceal = 0
-
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
 
 " -------------------
 
@@ -206,23 +201,6 @@ set noshowmode
 "set hidden                      " Allow un-saved buffers in background
 set noerrorbells                " don't beep
 set belloff=all
-
-""""""
-
-"map /  <Plug>(incsearch-forward)
-"map ?  <Plug>(incsearch-backward)
-"map g/ <Plug>(incsearch-stay)
-
-"" :h g:incsearch#auto_nohlsearch
-"let g:incsearch#auto_nohlsearch=1
-"map #  <Plug>(incsearch-nohl-#)
-"map *  <Plug>(incsearch-nohl-*)
-"map N  <Plug>(incsearch-nohl-N)
-"map g# <Plug>(incsearch-nohl-g#)
-"map g* <Plug>(incsearch-nohl-g*)
-"map n  <Plug>(incsearch-nohl-n)
-
-"nnoremap <C-p> :FuzzyOpen<CR>
 
 " -- FORMATTING ----------------------------------------------------------------
 
