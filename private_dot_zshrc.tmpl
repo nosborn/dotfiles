@@ -84,6 +84,7 @@ if (( $+commands[lesspipe.sh] )); then
   export LESS_ADVANCED_PREPROCESSOR=1
 fi
 
+alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
 
 if (( $+commands[terraform] )); then
