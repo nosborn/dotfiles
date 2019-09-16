@@ -1,138 +1,85 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fL -o ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fL -o ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   " vint: next-line -ProhibitAutocmdWithNoGroup
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
 Plug 'dense-analysis/ale'
 Plug 'digitaltoad/vim-pug'
 Plug 'direnv/direnv.vim'
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'pearofducks/ansible-vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-filetype plugin indent on
+" filetype plugin indent on
 syntax on
 
-set autoindent
-set backspace=indent,eol,start
-set complete-=i
-set smarttab
-
-set nrformats-=octal
-
-if !has('nvim') && &ttimeoutlen == -1
-  set ttimeout
-  set ttimeoutlen=100
-endif
-
-set incsearch
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-set laststatus=2
-set ruler
-set wildmenu
-
 if !&scrolloff
   set scrolloff=1
 endif
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
-set display+=lastline
-
-" Display tabs, and trailing and non-breaking spaces visually.
-set list
-set listchars=tab:»·,trail:▿,nbsp:▿
-
-if v:version > 703 || v:version == 703 && has('patch541')
-  set formatoptions+=j " Delete comment character when joining commented lines
-endif
-
-set autoread
-
-if &history < 1000
-  set history=1000
-endif
-if &tabpagemax < 50
-  set tabpagemax=50
-endif
-if !empty(&viminfo)
-  set viminfo^=!
-endif
-set sessionoptions-=options
-set viewoptions-=options
+"if !&sidescrolloff
+"  set sidescrolloff=5
+"endif
 
 " ----
 
-set encoding=utf-8
 scriptencoding=utf-8
 
-" Turn off backups and swap file.
+" " Get rid of the delay when pressing O (for example)
+" " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
+" set timeout
+" set timeoutlen=1000
+
+set ignorecase " Better '/'
+set lazyredraw " Redraw only when we need to (i.e. don't redraw when executing a macro)
+set list " Display tabs, and trailing and non-breaking spaces visually.
+set listchars=tab:»·,trail:▿,nbsp:▿
 set nobackup
-set nowritebackup
+set noerrorbells " don't beep
+set nospell
 set noswapfile
-
-" Better '/'
-set hlsearch
-set ignorecase
-
-" Line numbers
+set nowrap " Do not wrap long lines
+set nowritebackup
 set number
-" set relativenumber
-
-" Get rid of the delay when pressing O (for example)
-" http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
-set timeout
-set timeoutlen=1000
-
-" Don't show intro
-set shortmess+=I
-
-" Highlight the current line
-" set cursorline
-
-" Visual autocomplete for command menu (e.g. :e ~/path/to/file)
+set shortmess+=I " Don't show intro
+set showmatch " highlight a matching [{()}] when cursor is placed on start/end character
+set smartindent
+set spelllang=en_gb
+set updatetime=100
+set viewoptions-=options
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,DS_Store,.git/*,.idea/*,bundle/*,node_modules/*,vendor/*
 
-" highlight a matching [{()}] when cursor is placed on start/end character
-set showmatch
-
-set nowrap " Do not wrap long lines
-
-" Redraw only when we need to (i.e. don't redraw when executing a macro)
-set lazyredraw
-
-set autoindent
-set smartindent
-
-if executable('rg')
-  set grepprg=rg\ --vimgrep
-  set grepformat=%f:%l:%c:%m
-elseif executable('sift')
-  set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
-  set grepformat=%f:%l:%c:%m
-elseif executable('ag')
-  set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-elseif executable('ack')
-  set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-
+" if executable('rg')
+"   set grepprg=rg\ --vimgrep
+"   set grepformat=%f:%l:%c:%m
+" elseif executable('sift')
+"   set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
+"   set grepformat=%f:%l:%c:%m
+" elseif executable('ag')
+"   set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
+"   set grepformat=%f:%l:%c:%m,%f:%l:%m
+" elseif executable('ack')
+"   set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
+"   set grepformat=%f:%l:%c:%m,%f:%l:%m
+" endif
 
 function! MyHighlights() abort
   highlight Comment cterm=italic gui=italic
@@ -148,7 +95,6 @@ if $TERM ==# 'xterm-kitty'
   let g:base16colorspace = 256  " Access colors present in 256 colorspace
 endif
 colorscheme base16-pop
-set background=dark
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
@@ -173,6 +119,8 @@ let g:ansible_template_syntaxes = {
       \   'sshd_config.j2':         'sshdconfig',
       \ }
 
+let g:gitgutter_map_keys = 0
+let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_added = '+'
 " let g:gitgutter_sign_modified = '~'
 " let g:gitgutter_sign_modified_removed = '~_'
@@ -182,6 +130,11 @@ let g:ansible_template_syntaxes = {
 let g:indentLine_char = '┆'
 let g:indentLine_noConcealCursor = ''
 
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+
 let g:mkdp_auto_start = 1
 
 let g:netrw_banner = 0
@@ -189,7 +142,14 @@ let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
 
+" let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+
+" let g:python3_host_prog = '/usr/local/bin/python3'
+
 let g:vim_json_syntax_conceal = 0
+
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
 
 " -------------------
 
@@ -198,17 +158,7 @@ let g:vim_json_syntax_conceal = 0
 
 set noshowmode
 
-"set hidden                      " Allow un-saved buffers in background
-set noerrorbells                " don't beep
-set belloff=all
-
 " -- FORMATTING ----------------------------------------------------------------
-
-"set textwidth=79
-"set wrap
-"set showbreak=+
-
-"set smartindent
 
 " Sed
 let g:highlight_sedtabs = 1
@@ -219,9 +169,6 @@ let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
 let g:highlight_function_names = 1
 
 " -----------------------------------------------------------------------------
-
-set nospell
-set spelllang=en_gb
 
 "hi clear SpellBad
 "hi SpellBad cterm=underline
@@ -263,12 +210,8 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-for d in glob('~/.vim/spell/*.add', 1, 1)
+for d in glob('~/.config/nvim/spell/*.add', 1, 1)
   if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
     execute 'mkspell! ' . fnameescape(d)
   endif
 endfor
-
-if filereadable($MYVIMRC . '.local')
-  execute 'source ' . $MYVIMRC . '.local'
-endif

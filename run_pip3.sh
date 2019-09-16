@@ -9,7 +9,7 @@ pip3_install() {
   pip3 install --upgrade --quiet --disable-pip-version-check "$@"
 }
 
-pip3_install vim-vint
+pip3_install pynvim vim-vint
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
   pip3_install azure pykeepass pylint
