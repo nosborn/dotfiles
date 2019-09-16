@@ -96,6 +96,7 @@ brew 'molecule'
 brew 'msodbcsql'
 brew 'mssql-tools'
 {{- end }}
+brew 'neovim'
 brew 'node'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'oversight'
@@ -106,6 +107,7 @@ brew 'p7zip'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'packer'
 {{- end }}
+brew 'pandoc'
 cask 'pock'
 brew 'prettier'
 brew 'proselint'
@@ -143,7 +145,6 @@ brew 'unixodbc'  # for msodbcsql
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'vagrant'
 {{- end }}
-brew 'vim'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'virtualbox'
 {{- end }}
