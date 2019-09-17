@@ -10,5 +10,8 @@ else
   let b:undo_ftplugin = 'setlocal commentstring< expandtab< shiftwidth< spell< tabstop<'
 endif
 
-let b:ale_fix_on_save = 1
-let b:ale_fixers = ['terraform']
+if get(g:, 'terraform_fmt_on_save', 0) == 0
+  let b:ale_fix_on_save = 1
+  let b:ale_fixers = ['terraform']
+endif
+let b:ale_linters = ['fmt'] " https://github.com/dense-analysis/ale/issues/2762
