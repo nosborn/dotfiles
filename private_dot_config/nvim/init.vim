@@ -32,40 +32,30 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-if !&scrolloff
-  set scrolloff=1
-endif
-"if !&sidescrolloff
-"  set sidescrolloff=5
-"endif
-
 " ----
 
 scriptencoding=utf-8
 
-" " Get rid of the delay when pressing O (for example)
-" " http://stackoverflow.com/questions/2158516/vim-delay-before-o-opens-a-new-line
-" set timeout
-" set timeoutlen=1000
-
 set ignorecase " Better '/'
-set lazyredraw " Redraw only when we need to (i.e. don't redraw when executing a macro)
 set list " Display tabs, and trailing and non-breaking spaces visually.
 set listchars=tab:»·,trail:▿,nbsp:▿
 set nobackup
 set noerrorbells " don't beep
+set noshowmode
 set nospell
 set noswapfile
 set nowrap " Do not wrap long lines
 set nowritebackup
 set number
+set scrolloff=2
 set shortmess+=I " Don't show intro
 set showmatch " highlight a matching [{()}] when cursor is placed on start/end character
+set sidescrolloff=5
 set smartindent
 set spelllang=en_gb
+set tags^=./.git/tags;
 set updatetime=100
-set viewoptions-=options
-set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,DS_Store,.git/*,.idea/*,bundle/*,node_modules/*,vendor/*
+set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 
 " if executable('rg')
 "   set grepprg=rg\ --vimgrep
@@ -81,14 +71,14 @@ set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUs
 "   set grepformat=%f:%l:%c:%m,%f:%l:%m
 " endif
 
-function! MyHighlights() abort
+function! MyColorSchemeHighlights() abort
   highlight Comment cterm=italic gui=italic
   highlight SpellBad cterm=undercurl
 endfunction
 
 augroup MyColorScheme
   autocmd!
-  autocmd ColorScheme * call MyHighlights()
+  autocmd ColorScheme * call MyColorSchemeHighlights()
 augroup END
 
 if $TERM ==# 'xterm-kitty'
@@ -127,8 +117,8 @@ let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_removed = '_'
 " let g:gitgutter_sign_removed_first_line = '‾'
 
-let g:indentLine_char = '┆'
-let g:indentLine_noConcealCursor = ''
+" let g:indentLine_char = '┆'
+" let g:indentLine_noConcealCursor = ''
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
@@ -153,11 +143,6 @@ let g:vim_markdown_folding_disabled = 1
 
 " -------------------
 
-" Basic
-"""""""
-
-set noshowmode
-
 " -- FORMATTING ----------------------------------------------------------------
 
 " Sed
@@ -169,14 +154,6 @@ let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
 let g:highlight_function_names = 1
 
 " -----------------------------------------------------------------------------
-
-"hi clear SpellBad
-"hi SpellBad cterm=underline
-"hi SpellBad cterm=undercurl
-
-" -----------------------------------------------------------------------------
-
-set tags^=./.git/tags;
 
 if $TERM_PROGRAM ==# 'Apple_Terminal'
   let &t_ZH="\e[3m"
@@ -210,8 +187,8 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-for d in glob('~/.config/nvim/spell/*.add', 1, 1)
-  if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
-    execute 'mkspell! ' . fnameescape(d)
+for a in glob('~/.config/nvim/spell/*.add', 1, 1)
+  if filereadable(a) && (!filereadable(a . '.spl') || getftime(a) > getftime(a . '.spl'))
+    execute 'mkspell! ' . fnameescape(a)
   endif
 endfor
