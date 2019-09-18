@@ -12,5 +12,5 @@ pip3_install() {
 pip3_install pynvim vim-vint
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
-  pip3_install azure pykeepass pylint
+  pip3_install azure jinja2 pykeepass pylint
 fi
