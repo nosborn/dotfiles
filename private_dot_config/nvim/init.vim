@@ -58,19 +58,10 @@ set tags^=./.git/tags;
 set updatetime=100
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 
-" if executable('rg')
-"   set grepprg=rg\ --vimgrep
-"   set grepformat=%f:%l:%c:%m
-" elseif executable('sift')
-"   set grepprg=sift\ -nMs\ --no-color\ --binary-skip\ --column\ --no-group\ --git\ --follow
-"   set grepformat=%f:%l:%c:%m
-" elseif executable('ag')
-"   set grepprg=ag\ --vimgrep\ --ignore=\"**.min.js\"
-"   set grepformat=%f:%l:%c:%m,%f:%l:%m
-" elseif executable('ack')
-"   set grepprg=ack\ --nogroup\ --nocolor\ --ignore-case\ --column
-"   set grepformat=%f:%l:%c:%m,%f:%l:%m
-" endif
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+endif
 
 function! MyColorSchemeHighlights() abort
   highlight Comment cterm=italic gui=italic
@@ -119,6 +110,7 @@ let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_removed_first_line = '‾'
 
 let g:indentLine_char = '┆'
+let g:indentLine_fileTypeExclude = ['help']
 let g:indentLine_noConcealCursor = ''
 
 let g:loaded_node_provider = 0
