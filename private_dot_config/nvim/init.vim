@@ -6,6 +6,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
@@ -117,24 +118,20 @@ let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_removed = '_'
 " let g:gitgutter_sign_removed_first_line = '‾'
 
-" let g:indentLine_char = '┆'
-" let g:indentLine_noConcealCursor = ''
+let g:indentLine_char = '┆'
+let g:indentLine_noConcealCursor = ''
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 
-let g:mkdp_auto_start = 1
+" let g:mkdp_auto_start = 1
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
-
-" let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-
-" let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:terraform_fmt_on_save = 1
 
@@ -142,8 +139,6 @@ let g:vim_json_syntax_conceal = 0
 
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
-
-" -------------------
 
 " -- FORMATTING ----------------------------------------------------------------
 
@@ -188,9 +183,3 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
-
-for a in glob('~/.config/nvim/spell/*.add', 1, 1)
-  if filereadable(a) && (!filereadable(a . '.spl') || getftime(a) > getftime(a . '.spl'))
-    execute 'mkspell! ' . fnameescape(a)
-  endif
-endfor
