@@ -54,6 +54,7 @@ cask 'font-source-code-pro'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'ftdi-vcp-driver'
 {{- end }}
+brew 'fzf'
 # brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
@@ -63,8 +64,6 @@ brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'go'
 {{- end }}
-# cask 'google-chrome'
-# brew 'groovy'
 brew 'html2text' # for lesspipe
 brew 'hub'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -79,6 +78,7 @@ cask 'keybase'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'keepassxc'
 {{- end }}
+cask 'kitty'
 # cask 'knockknock'
 brew 'lesspipe'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
