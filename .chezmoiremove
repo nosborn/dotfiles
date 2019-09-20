@@ -1,7 +1,6 @@
 .config/flake8
 .config/kitty/
 .config/liquidpromptrc
-.config/nvim/
 .config/pep8
 .config/wireshark/
 bin/kitty
