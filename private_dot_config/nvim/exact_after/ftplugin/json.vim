@@ -8,9 +8,5 @@ else
   let b:undo_ftplugin = 'setlocal expandtab< shiftwidth< tabstop<'
 endif
 
-{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
 let b:ale_fix_on_save = 1
 let b:ale_fixers = ['prettier']
-
-{{- end }}
-" vim: ft=vim

@@ -6,7 +6,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
@@ -17,6 +16,7 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'pangloss/vim-javascript'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
@@ -108,10 +108,6 @@ let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_modified_removed = '~_'
 " let g:gitgutter_sign_removed = '_'
 " let g:gitgutter_sign_removed_first_line = '‾'
-
-let g:indentLine_char = '┆'
-let g:indentLine_fileTypeExclude = ['help']
-let g:indentLine_noConcealCursor = ''
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
