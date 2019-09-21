@@ -3,4 +3,7 @@
 .config/liquidpromptrc
 .config/pep8
 .config/wireshark/
+.zlogin
+.zlogout
+.zprofile
 bin/kitty
