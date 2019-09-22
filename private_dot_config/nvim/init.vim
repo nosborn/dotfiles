@@ -23,6 +23,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " filetype plugin indent on
@@ -42,6 +44,7 @@ set list " Display tabs, and trailing and non-breaking spaces visually.
 set listchars=tab:»·,trail:▿,nbsp:▿
 set nobackup
 set noerrorbells " don't beep
+set noshowcmd
 set noshowmode
 set nospell
 set noswapfile
@@ -77,6 +80,8 @@ if $TERM ==# 'xterm-kitty'
   let g:base16colorspace = 256  " Access colors present in 256 colorspace
 endif
 colorscheme base16-pop
+
+let g:WebDevIconsOS = 'Darwin'
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
