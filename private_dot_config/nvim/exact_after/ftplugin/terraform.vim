@@ -10,8 +10,14 @@ else
   let b:undo_ftplugin = 'setlocal commentstring< expandtab< shiftwidth< spell< tabstop<'
 endif
 
-if get(g:, 'terraform_fmt_on_save', 0) == 0
-  let b:ale_fix_on_save = 1
-  let b:ale_fixers = ['terraform']
+if expand('%:p') =~# '/corda-network/terraform/.\+\.rules\.tf$'
+  let b:ale_fix_on_save = 0
+  let b:ale_linters = []
+  let b:terraform_fmt_on_save = 0
+else
+  if get(g:, 'terraform_fmt_on_save', 0) == 0
+    let b:ale_fix_on_save = 1
+    let b:ale_fixers = ['terraform']
+  endif
+  let b:ale_linters = ['terraform', 'tflint12'] " https://github.com/dense-analysis/ale/issues/2762
 endif
-let b:ale_linters = ['fmt'] " https://github.com/dense-analysis/ale/issues/2762
