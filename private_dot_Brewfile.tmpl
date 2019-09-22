@@ -42,9 +42,6 @@ brew 'cfn-lint'
 brew 'checkbashisms'
 brew 'chezmoi'
 cask 'chromium'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
-brew 'circleci'
-{{- end }}
 brew 'ctags'
 brew 'direnv'
 # cask 'docker'
@@ -52,6 +49,7 @@ brew 'direnv'
 brew 'dpkg'
 brew 'exiftool'
 cask 'font-source-code-pro'
+cask 'font-sourcecodepro-nerd-font'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'ftdi-vcp-driver'
 {{- end }}
