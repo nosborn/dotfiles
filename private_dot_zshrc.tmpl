@@ -113,6 +113,30 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #   source $config_file
 # done
 
+if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
+  _update_terminal_cwd() {
+    local url_path=''
+    {
+      local LC_CTYPE=C LC_ALL= byte i ord
+      for ((i = 0; i < ${#PWD}; ++i)); do
+        byte="${PWD[i]}"
+        if [[ "${byte}" =~ [/._~A-Za-z0-9-] ]]; then
+          url_path+="${byte}"
+        else
+          ord=$(([#16] #byte))
+          url_path+="%${ord}"
+        fi
+      done
+    }
+    printf '\e]7;%s\a' "file://${HOST:?}${url_path}"
+  }
+  typeset -ag chpwd_functions
+  if [[ -z ${chpwd_functions[(r)_update_terminal_cwd]} ]]; then
+    chpwd_functions+=_update_terminal_cwd
+  fi
+  _update_terminal_cwd
+fi
+
 if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
