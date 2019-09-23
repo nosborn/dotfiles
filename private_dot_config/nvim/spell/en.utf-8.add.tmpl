@@ -1,4 +1,5 @@
 ACL/=
+API/=
 Ansible
 Artifactory/=
 Atlassian/=
@@ -38,15 +39,20 @@ Nessus/=
 OSSEC/=
 PKI/=
 Percona/=
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+R3/=
+{{- end }}
 SendGrid/=
 ShellCheck/=
 TeamCity/=
 Telegraf/=
 Terraform/=
+UAT/=
 UUID/=
 VCPU/=
 VNet/=
 VirtualBox/=
+XML/=
 XtraDB/=
 YAML/=
 iPlayer/=
