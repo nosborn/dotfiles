@@ -37,21 +37,21 @@ endif
 
 scriptencoding=utf-8
 
-set ignorecase " Better '/'
-set list " Display tabs, and trailing and non-breaking spaces visually.
+set ignorecase
+set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set nobackup
-set noerrorbells " don't beep
+set noerrorbells
 set noshowcmd
 set noshowmode
 set nospell
 set noswapfile
-set nowrap " Do not wrap long lines
+set nowrap
 set nowritebackup
 set number
 set scrolloff=2
-set shortmess+=I " Don't show intro
-set showmatch " highlight a matching [{()}] when cursor is placed on start/end character
+set shortmess+=I
+set showmatch
 set sidescrolloff=5
 set smartindent
 set spelllang=en_gb
@@ -105,6 +105,8 @@ let g:ansible_template_syntaxes = {
       \   'sshd_config.j2':         'sshdconfig',
       \ }
 
+let bash_is_sh = 1
+
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_added = '+'
@@ -112,6 +114,10 @@ let g:gitgutter_preview_win_floating = 1
 " let g:gitgutter_sign_modified_removed = '~_'
 " let g:gitgutter_sign_removed = '_'
 " let g:gitgutter_sign_removed_first_line = '‾'
+
+let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
+let g:highlight_function_names = 1
+let g:highlight_sedtabs = 1
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
@@ -132,29 +138,17 @@ let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
 
-" -- FORMATTING ----------------------------------------------------------------
-
-" Sed
-let g:highlight_sedtabs = 1
-
-" Shell
-""let bash_is_sh = 1                " highlight bash syntax
-let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
-let g:highlight_function_names = 1
-
-" -----------------------------------------------------------------------------
-
 if $TERM_PROGRAM ==# 'Apple_Terminal'
-  let &t_ZH="\e[3m"
-  let &t_ZR="\e[23m"
   set mouse=a
+  let &t_ZH = "\e[3m"
+  let &t_ZR = "\e[23m"
 endif
 
 if $TERM ==# 'xterm-kitty'
-  let &t_Cs="\e[4:3m"
-  let &t_Ce="\e[4:0m"
-  let &t_ut='' " https://sw.kovidgoyal.net/kitty/faq.html#id3
   set mouse=a
+  let &t_Cs = "\e[4:3m"
+  let &t_Ce = "\e[4:0m"
+  let &t_ut = '' " https://sw.kovidgoyal.net/kitty/faq.html#id3
 endif
 
 "" $ANSIBLE_VAULT;1.1;AES256
