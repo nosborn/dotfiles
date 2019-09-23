@@ -23,8 +23,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " filetype plugin indent on
@@ -80,8 +78,6 @@ if $TERM ==# 'xterm-kitty'
   let g:base16colorspace = 256  " Access colors present in 256 colorspace
 endif
 colorscheme base16-pop
-
-let g:WebDevIconsOS = 'Darwin'
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
