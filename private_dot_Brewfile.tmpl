@@ -27,6 +27,9 @@ brew 'awscli'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'azure-cli'
 {{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'b2-tools'
+{{- end }}
 brew 'bat'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 cask 'bettertouchtool'
