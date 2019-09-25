@@ -47,8 +47,9 @@ brew 'chezmoi'
 cask 'chromium'
 brew 'ctags'
 brew 'direnv'
-# cask 'docker'
-# brew 'docker-clean'
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+cask 'docker'
+{{- end }}
 brew 'dpkg'
 brew 'exiftool'
 cask 'font-source-code-pro'
@@ -64,6 +65,9 @@ brew 'gnu-tar'
 brew 'gnupg'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 brew 'go'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+brew 'hadolint'
 {{- end }}
 brew 'html2text' # for lesspipe
 brew 'hub'
