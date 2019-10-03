@@ -13,8 +13,10 @@ cask '1password-cli'
 {{- end }}
 cask 'aerial'
 # brew 'ag'
+{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
 brew 'ansible'
 brew 'ansible-lint'
+{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'atlassian-cli'
 {{- end }}
@@ -95,7 +97,6 @@ brew 'mas'
 {{- if eq .chezmoi.hostname "Nicks-MBP" }}
 # cask 'micro-snitch'
 {{- end }}
-brew 'molecule'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'msodbcsql'
 brew 'mssql-tools'
