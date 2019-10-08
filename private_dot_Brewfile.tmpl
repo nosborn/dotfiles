@@ -1,5 +1,5 @@
 tap 'homebrew/cask'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 tap 'homebrew/cask-drivers'
 {{- end }}
 tap 'homebrew/cask-fonts'
@@ -8,7 +8,7 @@ tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-prev
 {{- end }}
 tap 'twpayne/taps'
 
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask '1password-cli'
 {{- end }}
 cask 'aerial'
@@ -20,7 +20,7 @@ brew 'ansible-lint'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'atlassian-cli'
 {{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 # brew 'aws-keychain'
 # cask 'aws-vault'
 brew 'awscli'
@@ -29,46 +29,46 @@ brew 'awscli'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'azure-cli'
 {{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'b2-tools'
 {{- end }}
 brew 'bat'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'bettertouchtool'
 {{- end }}
 brew 'black'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'blockblock'
 {{- end }}
 # cask 'caffeine'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'cfn-lint'
 {{- end }}
 brew 'checkbashisms'
 brew 'chezmoi'
 cask 'chromium'
 brew 'ctags'
+brew 'diffr'
 brew 'direnv'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'docker'
 {{- end }}
 brew 'dpkg'
 brew 'exiftool'
 cask 'font-source-code-pro'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'ftdi-vcp-driver'
 {{- end }}
 brew 'fzf'
-brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
 brew 'github-markdown-toc'
 brew 'gnu-tar'
 brew 'gnupg'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'go'
 {{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'hadolint'
 {{- end }}
 brew 'html2text' # for lesspipe
@@ -79,7 +79,7 @@ brew 'hub'
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'keybase'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -88,14 +88,14 @@ cask 'keepassxc'
 cask 'kitty'
 # cask 'knockknock'
 brew 'lesspipe'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'logitech-gaming-software'
 {{- end }}
 brew 'm-cli'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
 # brew 'maven'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 # cask 'micro-snitch'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -104,7 +104,7 @@ brew 'mssql-tools'
 {{- end }}
 brew 'neovim'
 brew 'node'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'oversight'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
@@ -120,7 +120,7 @@ cask 'qlmarkdown'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'quazip' # for keepassxc
 {{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'razer-synapse'
 {{- end }}
 brew 'ripgrep'
@@ -129,10 +129,10 @@ brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
 cask 'spectacle'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 # cask 'subler'
 {{- end }}
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'subsurface'
 {{- end }}
 brew 'telnet'
@@ -158,7 +158,7 @@ cask 'visual-studio-code'
 # brew 'watchexec'
 # brew 'watchman'
 # brew 'wdiff'
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'wine'
 brew 'winetricks'
 {{- end }}

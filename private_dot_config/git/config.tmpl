@@ -73,26 +73,29 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
+[fetch]
+	prune = true
+	pruneTags = true
+
 ; [format]
 ;	graph = true
 
 [github]
 	user = {{ .github.user }}
 
-[fetch]
-	prune = true
-	pruneTags = true
-
 [init]
 	templatedir = ~/.config/git/templates
+
+[interactive]
+	diffFilter = /usr/local/bin/diffr
 
 [merge]
 	ff = only
 
 [pager]
-	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	diff = /usr/local/bin/diffr | less -R
+	log = /usr/local/bin/diffr | less -R
+	show = /usr/local/bin/diffr | less -R
 
 [pull]
 	rebase = true
