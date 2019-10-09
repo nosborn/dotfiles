@@ -86,16 +86,13 @@
 [init]
 	templatedir = ~/.config/git/templates
 
-[interactive]
-	diffFilter = /usr/local/bin/diffr
-
 [merge]
 	ff = only
 
 [pager]
-	diff = /usr/local/bin/diffr | less -R
-	log = /usr/local/bin/diffr | less -R
-	show = /usr/local/bin/diffr | less -R
+	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [pull]
 	rebase = true
