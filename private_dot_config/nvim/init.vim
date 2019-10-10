@@ -16,9 +16,11 @@ Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'neomake/neomake'
 Plug 'pangloss/vim-javascript'
 Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -85,6 +87,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_theme = 'base16_pop'
 
+let g:ale_enabled = 0
 let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
 "let g:ale_sign_error = '✘'
@@ -105,7 +108,7 @@ let g:ansible_template_syntaxes = {
       \   'sshd_config.j2':         'sshdconfig',
       \ }
 
-let bash_is_sh = 1
+let g:bash_is_sh = 1
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
@@ -125,6 +128,8 @@ let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 
 " let g:mkdp_auto_start = 1
+
+let g:neomake_virtualtext_prefix = '❯ '
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
@@ -169,3 +174,10 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
+
+call neomake#configure#automake({
+      \ 'TextChanged': {},
+      \ 'InsertLeave': {},
+      \ 'BufWritePost': {'delay': 0},
+      \ 'BufWinEnter': {},
+      \ }, 500)
