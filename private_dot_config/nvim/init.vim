@@ -1,7 +1,7 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fL -o ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  " vint: next-line -ProhibitAutocmdWithNoGroup
+  " xvint: next-line -ProhibitAutocmdWithNoGroup
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -25,15 +25,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" filetype plugin indent on
 syntax on
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
-
-" ----
 
 scriptencoding=utf-8
 
@@ -75,7 +72,7 @@ augroup MyColorScheme
 augroup END
 
 if $TERM ==# 'xterm-kitty'
-  let g:base16colorspace = 256  " Access colors present in 256 colorspace
+  let g:base16colorspace = 256
 endif
 colorscheme base16-pop
 
@@ -85,13 +82,12 @@ let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_theme = 'base16_pop'
 
-let g:ale_enabled = 0
-let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
-"let g:ale_sign_error = '✘'
-"let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '✖'
+let g:ale_sign_info = 'ℹ'
+let g:ale_sign_warning = '‼'
 let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_delay = 100
+" let g:ale_virtualtext_delay = 100
 let g:ale_virtualtext_prefix = '❯ '
 " highlight ALEErrorSign ctermbg=NONE ctermfg=red
 " highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
@@ -110,13 +106,8 @@ let g:bash_is_sh = 1
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
-" let g:gitgutter_sign_added = '+'
-" let g:gitgutter_sign_modified = '~'
-" let g:gitgutter_sign_modified_removed = '~_'
-" let g:gitgutter_sign_removed = '_'
-" let g:gitgutter_sign_removed_first_line = '‾'
 
-let g:highlight_balanced_quotes = 1 " highlight single quotes inside double
+let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
