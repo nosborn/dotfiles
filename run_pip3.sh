@@ -16,5 +16,6 @@ if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
     jinja2 \
     molecule \
     pykeepass \
-    pylint
+    pylint \
+    pyaml
 fi
