@@ -20,7 +20,7 @@ autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-cdpath=( ~/src/github.com/corda $cdpath )
+cdpath=( ~ ~/src/github.com/corda $cdpath )
 {{- end }}
 {{- if .github.user }}
 cdpath=( ~/src/github.com/{{ .github.user }} $cdpath )
