@@ -2,12 +2,18 @@
 extends: default
 
 rules:
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+  braces:
+    min-spaces-inside: 1
+    max-spaces-inside: 1
+{{- end }}
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
   key-ordering:
     level: warning
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-  min-spaces-from-content: 1  # compatibility with VSCode
+  comments:
+    min-spaces-from-content: 1  # compatibility with VSCode
 {{- end }}
   new-lines:
     type: unix
