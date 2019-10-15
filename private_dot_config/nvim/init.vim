@@ -1,7 +1,7 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fL -o ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  " xvint: next-line -ProhibitAutocmdWithNoGroup
+  " vint: next-line -ProhibitAutocmdWithNoGroup
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -162,3 +162,10 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
+
+nmap [A :ALEFirst<CR>
+nmap ]A :ALELast<CR>
+nmap [a :ALEPreviousWrap<CR>
+nmap ]a :ALENextWrap<CR>
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
