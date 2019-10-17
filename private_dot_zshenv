@@ -14,6 +14,10 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 
+# XDG
+export XDG_CACHE_HOME="${HOME}/Library/Caches"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
 # sudo
 export SUDO_PROMPT="[sudo] password for $(id -un): "
 
