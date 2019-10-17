@@ -18,8 +18,7 @@ function! ActiveStatusLine()
   let statusline.=' %{&fileencoding ? &fileencoding : &encoding}'
   let statusline.='[%{&fileformat}] '
   let statusline.='%#TermCursor#'
-  let statusline.='▏☰ %l:%c'           " line number and column number
-  let statusline.=' %p%% '             " percentage through file in lines
+  let statusline.='▏%3p%% ☰ %l:%c'
   let statusline.='%#WarningColor#'
   let statusline.='%{GetWarnings()}'   " ALE warnings
   let statusline.='%#ErrorColor#'
