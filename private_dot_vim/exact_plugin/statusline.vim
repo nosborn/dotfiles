@@ -1,102 +1,106 @@
 scriptencoding utf-8
 
-function! ActiveStatusLine()
-  let statusline=''
+if exists('g:loaded_statusline')
+  finish
+endif
+let g:loaded_statusline = 1
 
-  let statusline.='%#Search#'
-  let statusline.=' %{GetMode()} '
-  let statusline.='%#diffadd#'
-  let statusline.='%{StatuslineGit()}'
-  let statusline.='%#CursorlineNr#'
-  let statusline.=' %f'                " path to file in buffer
-  let statusline.=' %m'                " modified flag
+" function! ActiveStatusLine()
+"   let statusline=''
 
-  let statusline.='%='
+"   let statusline.='%#Search#'
+"   let statusline.=' %{GetMode()} '
+"   let statusline.='%#diffadd#'
+"   let statusline.='%{StatuslineGit()}'
+"   let statusline.='%#CursorlineNr#'
+"   let statusline.=' %f'                " path to file in buffer
+"   let statusline.=' %m'                " modified flag
 
-  let statusline.='%#StatuslineNC#'
-  let statusline.='▏%y'                " type of file in the buffer
-  let statusline.=' %{&fileencoding ? &fileencoding : &encoding}'
-  let statusline.='[%{&fileformat}] '
-  let statusline.='%#TermCursor#'
-  let statusline.='▏%3p%% ☰ %l:%c'
-  let statusline.='%#WarningColor#'
-  let statusline.='%{GetWarnings()}'   " ALE warnings
-  let statusline.='%#ErrorColor#'
-  let statusline.='%{GetErrors()}'     " ALE errors
+"   let statusline.='%='
 
-  return statusline
-endfunction
+"   let statusline.='%#StatuslineNC#'
+"   let statusline.='▏%y'                " type of file in the buffer
+"   let statusline.=' %{&fileencoding ? &fileencoding : &encoding}'
+"   let statusline.='[%{&fileformat}] '
+"   let statusline.='%#TermCursor#'
+"   let statusline.='▏%3p%% ☰ %l:%c'
+"   let statusline.='%#WarningColor#'
+"   let statusline.='%{GetWarnings()}'   " ALE warnings
+"   let statusline.='%#ErrorColor#'
+"   let statusline.='%{GetErrors()}'     " ALE errors
 
-function! InactiveStatusLine()
-  let statusline=''
+"   return statusline
+" endfunction
 
-  let statusline.='%#Whitespace#'
-  let statusline.=' %{GetMode()} '
-  let statusline.='\%{StatuslineGit()}'
-  let statusline.='▏%f'
-  let statusline.=' %m'
+" function! InactiveStatusLine()
+"   let statusline=''
 
-  let statusline.='%='
+"   " let statusline.='%#Whitespace#'
+"   " let statusline.=' %{GetMode()} '
+"   " let statusline.='\%{StatuslineGit()}'
+"   let statusline.='▏%f'
+"   let statusline.=' %m'
 
-  let statusline.='▏%y'
-  let statusline.=' %{&fileencoding?&fileencoding:&encoding}'
-  let statusline.='[%{&fileformat}] '
-  let statusline.='▏☰ %l:%c'
-  let statusline.=' %p%%'
-  let statusline.='%{GetWarnings()}'   " ALE warnings
-  let statusline.='%{GetErrors()}'     " ALE errors
+"   let statusline.='%='
 
-  return statusline
-endfunction
+"   let statusline.='▏%y'
+"   let statusline.=' %{&fileencoding?&fileencoding:&encoding}'
+"   let statusline.='[%{&fileformat}] '
+"   let statusline.='▏%3p%% ☰ %l:%c'
+"   let statusline.='%{GetWarnings()}'   " ALE warnings
+"   let statusline.='%{GetErrors()}'     " ALE errors
 
-set laststatus=2
-set statusline=%!ActiveStatusLine()
+"   return statusline
+" endfunction
 
-augroup status
-  autocmd!
-  autocmd WinEnter * setlocal statusline=%!ActiveStatusLine()
-  autocmd WinLeave * setlocal statusline=%!InactiveStatusLine()
-augroup END
+" set laststatus=2
+" set statusline=%!ActiveStatusLine()
 
-highlight WarningColor guibg=#DA711A guifg=#FFFFFF ctermbg=DarkBlue ctermfg=White
-highlight ErrorColor guibg=#B63939 guifg=#FFFFFF ctermbg=Red ctermfg=White
+" augroup statusline
+"   autocmd!
+"   autocmd WinEnter * setlocal statusline=%!ActiveStatusLine()
+"   autocmd WinLeave * setlocal statusline=%!InactiveStatusLine()
+" augroup END
 
-function! GetErrors()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  return l:all_errors == 0 ? '' : ' E:'.l:all_errors.' '
-endfunction
+" highlight WarningColor guibg=#DA711A guifg=#FFFFFF ctermbg=DarkBlue ctermfg=White
+" highlight ErrorColor guibg=#B63939 guifg=#FFFFFF ctermbg=Red ctermfg=White
 
-function! GetWarnings()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_warnings = l:counts.total - (l:counts.error + l:counts.style_error)
-  return l:all_warnings == 0 ? '' : ' W:'.l:all_warnings.' '
-endfunction
+" function! GetErrors()
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   return l:all_errors == 0 ? '' : ' E:'.l:all_errors.' '
+" endfunction
 
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0 ? '▏'.l:branchname.' ' : ''
-endfunction
+" function! GetWarnings()
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"   let l:all_warnings = l:counts.total - (l:counts.error + l:counts.style_error)
+"   return l:all_warnings == 0 ? '' : ' W:'.l:all_warnings.' '
+" endfunction
 
-function! GitBranch()
-  return exists('b:git_dir') ? FugitiveHead(7) : ''
-endfunction
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0 ? '▏'.l:branchname.' ' : ''
+" endfunction
 
-function! GetMode()
-  let mode = mode()
-  if mode ==# 'n'
-    return 'NORMAL'
-  elseif mode ==? 'v'
-    return 'VISUAL'
-  elseif mode ==? 's'
-    return 'SELECT'
-  elseif mode ==# 'i'
-    return 'INSERT'
-  elseif mode ==# 'R'
-    return 'REPLACE'
-  elseif mode ==# 'c'
-    return 'COMMAND'
-  else
-    return 'NORMAL'
-  endif
-endfunction
+" function! GitBranch()
+"   return exists('b:git_dir') ? FugitiveHead(7) : ''
+" endfunction
+
+" function! GetMode()
+"   let mode = mode()
+"   if mode ==# 'n'
+"     return 'NORMAL'
+"   elseif mode ==? 'v'
+"     return 'VISUAL'
+"   elseif mode ==? 's'
+"     return 'SELECT'
+"   elseif mode ==# 'i'
+"     return 'INSERT'
+"   elseif mode ==# 'R'
+"     return 'REPLACE'
+"   elseif mode ==# 'c'
+"     return 'COMMAND'
+"   else
+"     return 'NORMAL'
+"   endif
+" endfunction
