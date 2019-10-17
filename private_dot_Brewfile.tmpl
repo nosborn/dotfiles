@@ -11,6 +11,9 @@ tap 'twpayne/taps'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask '1password-cli'
 {{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'adoptopenjdk'
+{{- end }}
 cask 'aerial'
 # brew 'ag'
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
@@ -36,7 +39,9 @@ brew 'bat'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'bettertouchtool'
 {{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'bfg'
+{{- end }}
 brew 'black'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'blockblock'
@@ -103,7 +108,6 @@ brew 'mas'
 brew 'msodbcsql'
 brew 'mssql-tools'
 {{- end }}
-brew 'neovim'
 brew 'node'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'oversight'
