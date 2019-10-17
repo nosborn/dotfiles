@@ -7,10 +7,6 @@ rules:
     min-spaces-inside: 1
     max-spaces-inside: 1
 {{- end }}
-{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
-  key-ordering:
-    level: warning
-{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
   comments:
     min-spaces-from-content: 1  # compatibility with VSCode
