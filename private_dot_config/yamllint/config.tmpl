@@ -2,15 +2,23 @@
 extends: default
 
 rules:
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
   braces:
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
     min-spaces-inside: 1
     max-spaces-inside: 1
 {{- end }}
+    min-spaces-inside-empty: 0
+    max-spaces-inside-empty: 0
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
   comments:
     min-spaces-from-content: 1  # compatibility with VSCode
 {{- end }}
+  indentation:
+    spaces: 2
+    indent-sequences: true
+  line-length:
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
   new-lines:
     type: unix
 
