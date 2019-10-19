@@ -19,5 +19,4 @@ else
     let b:ale_fix_on_save = 1
     let b:ale_fixers = ['terraform']
   endif
-  let b:ale_linters = ['terraform', 'tflint12'] " https://github.com/dense-analysis/ale/issues/2762
 endif
