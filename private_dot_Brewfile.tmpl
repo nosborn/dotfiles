@@ -15,10 +15,9 @@ cask '1password-cli'
 cask 'adoptopenjdk'
 {{- end }}
 cask 'aerial'
-# brew 'ag'
 {{- if ne .chezmoi.hostname "19SGD-MAC11" }}
-brew 'ansible'
-brew 'ansible-lint'
+# brew 'ansible'
+# brew 'ansible-lint'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 # brew 'atlassian-cli'
