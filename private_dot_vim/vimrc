@@ -96,13 +96,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_theme = 'base16_pop'
 
+let g:ale_set_balloons = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = '‼'
-let g:ale_virtualtext_cursor = 1
-" let g:ale_virtualtext_delay = 100
-let g:ale_virtualtext_prefix = '❯ '
 " highlight ALEErrorSign ctermbg=NONE ctermfg=red
 " highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
