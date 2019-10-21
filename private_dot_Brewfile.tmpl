@@ -107,6 +107,7 @@ brew 'mas'
 brew 'msodbcsql'
 brew 'mssql-tools'
 {{- end }}
+brew 'neovim'
 brew 'node'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'oversight'
@@ -152,7 +153,6 @@ brew 'unixodbc'  # for msodbcsql
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'vagrant'
 {{- end }}
-brew 'vim'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'virtualbox'
 {{- end }}
