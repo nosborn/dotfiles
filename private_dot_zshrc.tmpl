@@ -88,6 +88,8 @@ fi
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
+alias vi='nvim'
+alias vim='nvim'
 
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
