@@ -1,11 +1,11 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLsS -o ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fL -o ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   " vint: next-line -ProhibitAutocmdWithNoGroup
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
@@ -25,8 +25,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-filetype plugin indent on
-syntax enable
+syntax on
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -35,14 +34,7 @@ endif
 
 scriptencoding=utf-8
 
-set autoindent
-set autoread
-set backspace=indent,eol,start
-set formatoptions+=j
-set history=1000
-set hlsearch
 set ignorecase
-set incsearch
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set nobackup
@@ -53,17 +45,12 @@ set nospell
 set noswapfile
 set nowrap
 set nowritebackup
-set nrformats-=octal
 set number
-set ruler
 set scrolloff=2
-set sessionoptions-=options
 set shortmess+=I
-set showcmd
 set showmatch
 set sidescrolloff=5
 set smartindent
-set smarttab
 set spelllang=en_gb
 set tags^=./.git/tags;
 set updatetime=100
@@ -88,7 +75,6 @@ if $TERM ==# 'xterm-kitty'
   let g:base16colorspace = 256
 endif
 colorscheme base16-pop
-set background=dark
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
@@ -125,12 +111,18 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+
 " let g:mkdp_auto_start = 1
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:terraform_fmt_on_save = 1
 
@@ -170,3 +162,10 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
+
+nmap [A :ALEFirst<CR>
+nmap ]A :ALELast<CR>
+nmap [a :ALEPreviousWrap<CR>
+nmap ]a :ALENextWrap<CR>
+nmap ]c <Plug>(GitGutterNextHunk)
+nmap [c <Plug>(GitGutterPrevHunk)
