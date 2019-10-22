@@ -78,8 +78,8 @@ precmd_functions+=( vpn_info )
 RPROMPT+='${vpn_info_msg_0_}'
 
 export CLICOLOR=1
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 if (( $+commands[lesspipe.sh] )); then
   export LESSOPEN="|$commands[lesspipe.sh] %s"
