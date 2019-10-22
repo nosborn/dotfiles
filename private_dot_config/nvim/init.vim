@@ -57,7 +57,6 @@ set spelllang=en_gb
 set tags^=./.git/tags;
 set updatetime=100
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
-" set winblend=10
 
 if executable('rg')
   set grepprg=rg\ --vimgrep
