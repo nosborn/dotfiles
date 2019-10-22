@@ -1,8 +1,10 @@
 .config/flake8
-.config/kitty/
 .config/liquidpromptrc
 .config/pep8
 .config/wireshark/
+.oracle_jre_usage/
+.vim/
+.viminfo
 .zlogin
 .zlogout
 .zprofile
