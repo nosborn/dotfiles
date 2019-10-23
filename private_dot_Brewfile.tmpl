@@ -79,9 +79,6 @@ brew 'hadolint'
 {{- end }}
 brew 'html2text' # for lesspipe
 brew 'hub'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-# cask 'intellij-idea-ce'
-{{- end }}
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
