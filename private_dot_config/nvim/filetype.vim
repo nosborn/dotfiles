@@ -23,7 +23,7 @@ augroup filetypedetect
 " au! BufRead,BufNewFile */ansible{,-*}/*.yml          set ft=ansible
   au! BufRead,BufNewFile *_Jenkinsfile                 set ft=groovy
   au! BufRead,BufNewFile .babelrc                      set ft=json
-" au! BufRead,BufNewFile .envrc                        set ft=sh
+  au! BufRead,BufNewFile .markdownlintrc               set ft=json
   au! BufRead,BufNewFile Brewfile                      set ft=ruby
   au! BufRead,BufNewFile Jenkinsfile                   set ft=groovy
   au! BufRead,BufNewFile Vagrantfile                   set ft=ruby
