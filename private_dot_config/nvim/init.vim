@@ -34,6 +34,8 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+map Q <Nop>
+
 scriptencoding=utf-8
 
 set ignorecase
