@@ -38,6 +38,7 @@ map Q <Nop>
 
 scriptencoding=utf-8
 
+set cursorline
 set ignorecase
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
