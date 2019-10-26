@@ -123,6 +123,9 @@ cask 'qlmarkdown'
 brew 'quazip' # for keepassxc
 {{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
+brew 'qpdf'
+{{- end }}
+{{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 cask 'razer-synapse'
 {{- end }}
 brew 'ripgrep'

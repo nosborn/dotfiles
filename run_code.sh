@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-[ -e /usr/local/bin/code ] || exit
+command -v code >/dev/null 2>&1 || exit 0
 
 readonly extensions="
   davidanson.vscode-markdownlint
