@@ -1,8 +1,11 @@
+.atom/
 .config/flake8
 .config/liquidpromptrc
 .config/pep8
 .config/wireshark/
+.gradle/
 .oracle_jre_usage/
+.pylint.d/
 .vim/
 .viminfo
 .zlogin
