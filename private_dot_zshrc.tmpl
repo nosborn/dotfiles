@@ -88,7 +88,7 @@ fi
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
-alias tfdiff='diff -ry -x *.rules.tf'
+alias tfdiff='command diff -dry -W${COLUMNS} -x .terraform -x \*.rules.tf'
 alias vi='nvim'
 alias vim='nvim'
 
