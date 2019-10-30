@@ -68,6 +68,9 @@ brew 'fzf'
 brew 'git'
 brew 'git-lfs'
 brew 'git-secrets'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'github'
+{{- end }}
 brew 'github-markdown-toc'
 brew 'gnu-tar'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
