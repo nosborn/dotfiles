@@ -78,6 +78,9 @@ brew 'gnu-tar'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'go'
 {{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'gpg-suite-no-email'
+{{- end }}
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 brew 'hadolint'
 {{- end }}
