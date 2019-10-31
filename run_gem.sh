@@ -7,6 +7,6 @@ set -o nounset
 PATH=$(brew --prefix ruby)/bin:${PATH}
 
 for p in github-linguist; do
-  gem list --installed --silent "${p}" && continue
-  gem install "${p}"
+  gem list "${p}" --installed --silent && continue
+  gem install "${p}" --no-document --minimal-deps --quiet
 done
