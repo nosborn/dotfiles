@@ -3,9 +3,10 @@
 set -o errexit
 set -o nounset
 
-command -v gem >/dev/null 2>&1 || exit 0
+[ -e "$(brew --prefix ruby)/bin/gem" ] || exit 0
+PATH=$(brew --prefix ruby)/bin:${PATH}
 
 for p in github-linguist; do
   gem list --installed --silent "${p}" && continue
-  sudo gem install "${p}"
+  gem install "${p}"
 done
