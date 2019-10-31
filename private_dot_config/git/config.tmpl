@@ -126,6 +126,9 @@
 	name = {{ .user.name }}
 	useConfigOnly = true
 
+[includeIf "gitdir:~/.ansible/roles/ansible-r3-roles/"]
+	path = config.corda
+
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = config.nosborn
 
