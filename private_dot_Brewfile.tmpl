@@ -185,11 +185,12 @@ brew 'zsh-completions'
 brew 'zsh-git-prompt'
 brew 'zsh-syntax-highlighting'
 
-# if File.writable?('/Applications')
-#   # mas 'Daisy Disk', id: 411_643_860
-#   mas 'Discovery', id: 1_381_004_916
-#   mas 'Microsoft Excel', id: 462_058_435
-#   mas 'Microsoft Word', id: 462_054_704
-#   mas 'Numbers', id: 409_203_825
-#   mas 'Pages', id: 409_201_541
-# end
+if File.writable?('/Applications')
+  mas '1Blocker', id: 1107421413
+  # # mas 'Daisy Disk', id: 411643860
+  # mas 'Discovery', id: 1381004916
+  # mas 'Microsoft Excel', id: 462058435
+  # mas 'Microsoft Word', id: 462054704
+  # mas 'Numbers', id: 409203825
+  # mas 'Pages', id: 409201541
+end
