@@ -101,7 +101,6 @@ cask 'logitech-gaming-software'
 brew 'm-cli'
 # cask 'markdownmdimporter' -- no checksum
 brew 'mas'
-# brew 'maven'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 # cask 'micro-snitch'
 {{- end }}
@@ -121,6 +120,7 @@ cask 'oversight'
 brew 'p7zip'
 {{- end }}
 brew 'pandoc'
+brew 'pkg-config' # to build gems
 cask 'pock'
 brew 'prettier'
 brew 'pstree'
