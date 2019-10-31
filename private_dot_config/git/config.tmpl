@@ -87,15 +87,15 @@
 	templatedir = ~/.config/git/templates
 
 [interactive]
-	diffFilter = diffr
+	diffFilter = /usr/local/bin/diffr
 
 [merge]
 	ff = only
 
 [pager]
-	diff = diffr | less -R
-	log  = diffr | less -R
-	show = diffr | less -R
+	diff = /usr/local/bin/diffr | less -R
+	log  = /usr/local/bin/diffr | less -R
+	show = /usr/local/bin/diffr | less -R
 
 [pull]
 	rebase = true
