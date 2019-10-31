@@ -135,6 +135,9 @@ brew 'ripgrep'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+cask 'slack'
+{{- end }}
 cask 'spectacle'
 {{- if eq .chezmoi.hostname "Nicks-MacBook-Pro" }}
 # cask 'subler'
