@@ -2,7 +2,7 @@
 	gpgsign = true
 
 [user]
-	email = nosborn@noreply.users.github.com
+	email = nick@osborn.io
 	signingkey = D7655F8A32FA5B43
 
 # vim: ft=gitconfig
