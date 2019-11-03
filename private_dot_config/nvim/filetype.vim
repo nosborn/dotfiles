@@ -24,6 +24,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile *_Jenkinsfile                 set ft=groovy
   au! BufRead,BufNewFile .babelrc                      set ft=json
   au! BufRead,BufNewFile .markdownlintrc               set ft=json
+  au! BufRead,BufNewFile .yamllint                     set ft=yaml
   au! BufRead,BufNewFile Brewfile                      set ft=ruby
   au! BufRead,BufNewFile Jenkinsfile                   set ft=groovy
   au! BufRead,BufNewFile Vagrantfile                   set ft=ruby
