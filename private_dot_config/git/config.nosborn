@@ -1,8 +1,4 @@
-[commit]
-	gpgsign = true
-
 [user]
 	email = nosborn@users.noreply.github.com
-	signingkey = 4C036A880B354B36
 
 # vim: ft=gitconfig
