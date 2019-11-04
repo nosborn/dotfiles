@@ -29,7 +29,7 @@ brew 'awscli'
 # brew 'awslogs'
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-brew 'azure-cli'
+# brew 'azure-cli'
 {{- end }}
 {{- if eq .chezmoi.hostname "MacBook-Pro" }}
 brew 'b2-tools'
@@ -41,7 +41,7 @@ cask 'bettertouchtool'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'bfg'
 {{- end }}
-brew 'black'
+# brew 'black'
 {{- if eq .chezmoi.hostname "MacBook-Pro" }}
 cask 'blockblock'
 {{- end }}
@@ -172,7 +172,7 @@ brew 'winetricks'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 # brew 'xhyve'
 {{- end }}
-brew 'yamllint'
+# brew 'yamllint'
 # brew 'yank'
 brew 'yarn'
 brew 'yq'
