@@ -70,9 +70,7 @@ cask 'github'
 brew 'github-markdown-toc'
 brew 'gnu-tar'
 cask 'gpg-suite-no-mail'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
 brew 'hadolint'
-{{- end }}
 brew 'html2text' # for lesspipe
 brew 'hub'
 # cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
@@ -96,6 +94,7 @@ brew 'mas'
 {{- if eq .chezmoi.hostname "MacBook-Pro" }}
 # cask 'micro-snitch'
 {{- end }}
+brew 'molecule'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'msodbcsql'
 brew 'mssql-tools'
