@@ -29,7 +29,8 @@
 	autocrlf = input
 	commitGraph = true
 	excludesfile = ~/.config/git/ignore
-#	fsmonitor = .git/hooks/fsmonitor-watchman
+	fsmonitor = ~/.config/git/hooks/fsmonitor-watchman
+	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
@@ -84,9 +85,6 @@
 
 [github]
 	user = {{ .github.user }}
-
-[init]
-	templatedir = ~/.config/git/templates
 
 [merge]
 	ff = only
