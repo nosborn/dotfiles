@@ -121,6 +121,7 @@ let g:highlight_sedtabs = 1
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 
 " let g:mkdp_auto_start = 1
@@ -130,7 +131,7 @@ let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:terraform_fmt_on_save = 1
 
