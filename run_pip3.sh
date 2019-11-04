@@ -3,9 +3,7 @@
 set -o errexit
 set -o nounset
 
-sudo -H python3 -mpip install --upgrade --quiet --disable-pip-version-check \
-  ansible \
-  ansible-lint \
+python3 -mpip install --upgrade --quiet --disable-pip-version-check \
   black \
   datadog \
   jinja2 \
@@ -15,9 +13,8 @@ sudo -H python3 -mpip install --upgrade --quiet --disable-pip-version-check \
   yamllint
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
-  sudo -H python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+  python3 -mpip install --upgrade --quiet --disable-pip-version-check \
     azure \
-    azure-cli \
     pykeepass \
     pyaml
 fi
