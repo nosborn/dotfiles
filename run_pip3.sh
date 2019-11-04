@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+sudo -H python3 -mpip install --upgrade --quiet --disable-pip-version-check \
   ansible \
   ansible-lint \
   black \
@@ -15,7 +15,7 @@ python3 -mpip install --upgrade --quiet --disable-pip-version-check \
   yamllint
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
-  python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+  sudo -H python3 -mpip install --upgrade --quiet --disable-pip-version-check \
     azure \
     azure-cli \
     pykeepass \
