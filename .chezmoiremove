@@ -1,6 +1,7 @@
 .atom/
 .config/flake8
 .config/liquidpromptrc
+.config/nvim/ale_linters/
 .config/pep8
 .config/wireshark/
 .gradle/
