@@ -95,6 +95,7 @@ let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 
 " let g:mkdp_auto_start = 1
+" let g:mkdp_markdown_css = ''
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
