@@ -1,5 +1,6 @@
 [advice]
 	statusHints = false
+	waitingForEditor = false
 
 [alias]
 	ctags = !~/.config/git/hooks/ctags
@@ -43,7 +44,7 @@
 {{- end }}
 
 [diff]
-	algorithm = histogram
+	algorithm = minimal
 	colorMoved = dimmed_zebra
 	indentHeuristic = on
 	mnemonicprefix = true
@@ -70,9 +71,6 @@
 [fetch]
 	prune = true
 	pruneTags = true
-
-; [format]
-;	graph = true
 
 [github]
 	user = {{ .github.user }}
