@@ -20,7 +20,7 @@ autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
 {{- if .github.user }}
-cdpath=( ~/src/github.com/{{ .github.user }} $cdpath )
+cdpath=( "${HOME}/src/github.com/{{ .github.user }}" $cdpath )
 {{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cdpath=( ~ ~/src/github.com/corda $cdpath )
@@ -69,7 +69,7 @@ function vpn_info() {
       Connected|Connecting) vpn_info_msg_0_="[%F{blue}VPN%f]";;
       Disconnected) vpn_info_msg_0_="";;
       *) vpn_info_msg_0_="[%F{yellow}VPN:${state}%f]";;
-    esac 
+    esac
   else
     vpn_info_msg_0_=""
   fi
@@ -88,7 +88,7 @@ fi
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
-alias tfdiff='command diff -dry -W${COLUMNS} -x .terraform -x \*.rules.tf'
+alias tfdiff='command diff -dry -I ".*\"($(cd $1 && basename $PWD)|($cd $2 && basename $PWD)\").*" -W${COLUMNS} -x .terraform -x \*.rules.tf'
 alias vi='nvim'
 alias vim='nvim'
 
