@@ -103,9 +103,6 @@ brew 'node'
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'openssl' # botched dependency of msodbcsql and mssql-tools
 {{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-cask 'oversight'
-{{- end }}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'p7zip'
 {{- end }}
