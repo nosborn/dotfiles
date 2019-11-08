@@ -13,9 +13,6 @@ case "$(uname)" in
     if ! command -v chezmoi >/dev/null 2>&1; then
       brew install twpayne/taps/chezmoi
     fi
-    if ! command -v gpg >/dev/null 2>&1; then
-      brew install gnupg
-    fi
     ;;
 esac
 
