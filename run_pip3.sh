@@ -3,7 +3,9 @@
 set -o errexit
 set -o nounset
 
-# python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+  vim-vint
+
 #   datadog \
 #   jinja2 \
 #   netaddr \
