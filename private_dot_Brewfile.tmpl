@@ -36,6 +36,9 @@ brew 'b2-tools'
 {{- end }}
 brew 'bat'
 {{- if eq .chezmoi.hostname "MacBook-Pro" }}
+cask 'battle-net'
+{{- end }}
+{{- if eq .chezmoi.hostname "MacBook-Pro" }}
 # cask 'bettertouchtool'
 {{- end }}
 brew 'black'
