@@ -31,17 +31,17 @@
 	commitGraph = true
 	excludesfile = ~/.config/git/ignore
 	hooksPath = ~/.config/git/hooks
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" -}}
 	ignoreCase = true
-{{- end }}
-{{- if eq .chezmoi.os "darwin" }}
+{{ end -}}
+{{ if eq .chezmoi.os "darwin" -}}
 	trustctime = false ; play nicely with revisiond
-{{- end }}
+{{ end -}}
 
 [credential]
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" -}}
 	helper = osxkeychain
-{{- end }}
+{{ end -}}
 
 [diff]
 	algorithm = minimal
