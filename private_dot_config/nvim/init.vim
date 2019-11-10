@@ -38,6 +38,7 @@ command! PackStatus call minpac#status()
 command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
 
 call minpac#init()
+call minpac#add('godlygeek/tabular')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 packloadall
 
