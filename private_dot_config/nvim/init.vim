@@ -5,9 +5,9 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-if empty(glob('~/.config/nvim/pack/k-takata/opt/minpac/plugin/minpac.vim'))
+if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.config/nvim/pack/k-takata/opt/minpac
+        \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -38,8 +38,29 @@ command! PackStatus call minpac#status()
 command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
 
 call minpac#init()
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('cespare/vim-toml')
+call minpac#add('chriskempson/base16-vim')
+call minpac#add('dense-analysis/ale')
+call minpac#add('digitaltoad/vim-pug')
+call minpac#add('direnv/direnv.vim')
+call minpac#add('fatih/vim-go')
 call minpac#add('godlygeek/tabular')
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('hashivim/vim-terraform')
+call minpac#add('iamcco/markdown-preview.nvim', {
+      \   'do': {hooktype, name -> system('yarn install --cwd '.minpac#getpluginfo(a:name).dir.'/app')}
+      \ })
+call minpac#add('junegunn/fzf.vim')
+call minpac#add('k-takata/minpac', {
+      \   'type': 'opt'
+      \ })
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('pearofducks/ansible-vim')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
 packloadall
 
 syntax on
