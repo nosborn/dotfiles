@@ -33,14 +33,13 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 packadd minpac
+command! PackClean  call minpac#clean()
+command! PackStatus call minpac#status()
+command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
 
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 packloadall
-
-command! PackClean  call minpac#clean()
-command! PackStatus call minpac#status()
-command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
 
 syntax on
 
