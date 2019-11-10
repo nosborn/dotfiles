@@ -1,5 +1,5 @@
 tap 'homebrew/cask'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{- if .home }}
 tap 'homebrew/cask-drivers'
 {{- end }}
 tap 'homebrew/cask-fonts'
