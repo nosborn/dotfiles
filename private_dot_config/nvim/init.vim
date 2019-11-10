@@ -183,7 +183,3 @@ endfunction
 
 nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-
-packloadall
-
-call neomake#configure#automake('nrwi', 500)
