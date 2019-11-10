@@ -5,6 +5,11 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+if empty(glob('~/.config/nvim/pack/k-takata/opt/minpac/plugin/minpac.vim'))
+  silent !git clone -- https://github.com/k-takata/minpac.git
+        \ ~/.config/nvim/pack/k-takata/opt/minpac
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
@@ -26,6 +31,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+packadd minpac
+
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+packloadall
+
+command! PackClean  call minpac#clean()
+command! PackStatus call minpac#status()
+command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
 
 syntax on
 
