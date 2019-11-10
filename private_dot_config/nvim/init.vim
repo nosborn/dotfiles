@@ -1,41 +1,12 @@
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fL -o ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  " vint: next-line -ProhibitAutocmdWithNoGroup
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
         \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
 
-call plug#begin('~/.local/share/nvim/plugged')
-Plug '/usr/local/opt/fzf'
-Plug 'airblade/vim-gitgutter'
-Plug 'cespare/vim-toml'
-Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
-Plug 'digitaltoad/vim-pug'
-Plug 'direnv/direnv.vim'
-Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-terraform'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'junegunn/fzf.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'pearofducks/ansible-vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
 packadd minpac
 command! PackClean  call minpac#clean()
 command! PackStatus call minpac#status()
-command! PackUpdate call minpac#update('', {'do': 'call minpac#status()'})
+command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
