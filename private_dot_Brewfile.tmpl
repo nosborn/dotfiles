@@ -1,163 +1,113 @@
 tap 'homebrew/cask'
-{{- if .home }}
+{{ if .home -}}
 tap 'homebrew/cask-drivers'
-{{- end }}
+{{ end -}}
 tap 'homebrew/cask-fonts'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work }}
 tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-preview'
-{{- end }}
+{{ end -}}
 tap 'twpayne/taps'
 
-{{ if eq .chezmoi.hostname "MacBook-Pro" -}}
 cask '1password-cli'
-{{ end -}}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
 cask 'adoptopenjdk'
-{{- end }}
+{{ end -}}
 cask 'aerial'
-{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
+{{ if not .work -}}
 brew 'ansible'
 brew 'ansible-lint'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-# brew 'atlassian-cli'
-{{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ end }}
 # brew 'aws-keychain'
 # cask 'aws-vault'
 brew 'awscli'
 # brew 'awslogs'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'azure-cli'
-{{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 brew 'b2-tools'
-{{- end }}
+{{ end -}}
 brew 'bat'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-# cask 'battle-net'
-{{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-# cask 'bettertouchtool'
-{{- end }}
 brew 'black'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home }}
 cask 'blockblock'
-{{- end }}
+{{ end -}}
 # cask 'caffeine'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
 brew 'cfn-lint'
-{{- end }}
 brew 'chezmoi'
 cask 'chromium'
 brew 'ctags'
 brew 'direnv'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
 cask 'docker'
-{{- end }}
 brew 'exiftool'
 cask 'font-input'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 cask 'ftdi-vcp-driver'
-{{- end }}
+{{ end -}}
 brew 'fzf'
 brew 'git-lfs'
 brew 'git-secrets'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'github'
-{{- end }}
 brew 'github-markdown-toc'
 brew 'gnu-tar'
 cask 'gpg-suite-no-mail'
 brew 'hadolint'
 brew 'html2text' # for lesspipe
 brew 'hub'
-# cask 'java' unless system '/usr/libexec/java_home --failfast >/dev/null'
 brew 'jq'
 brew 'jsonlint'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 cask 'keybase'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ end -}}
 cask 'keepassxc'
-{{- end }}
 cask 'kitty'
 # cask 'knockknock'
 brew 'lesspipe'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 cask 'logitech-gaming-software'
-{{- end }}
+{{ end -}}
 brew 'm-cli'
 cask 'markdownmdimporter'
 brew 'mas'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-# cask 'micro-snitch'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
 brew 'msodbcsql'
 brew 'mssql-tools'
-{{- end }}
+{{ end -}}
 brew 'neovim'
 brew 'node'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
 brew 'openssl' # botched dependency of msodbcsql and mssql-tools
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ end -}}
 brew 'p7zip'
-{{- end }}
 brew 'pandoc'
 cask 'pock'
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
 cask 'qlmarkdown'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 brew 'quazip' # for keepassxc
-{{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
 brew 'qpdf'
-{{- end }}
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 # cask 'razer-synapse'
-{{- end }}
+{{ end -}}
 brew 'ripgrep'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
 cask 'slack'
-{{- end }}
+{{ end -}}
 cask 'spectacle'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-# cask 'subler'
-{{- end }}
 brew 'telnet'
 brew 'terraform'
 brew 'tflint'
 brew 'tig'
-{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
-# cask 'transmission'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
 brew 'unixodbc'  # for msodbcsql
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ end -}}
 cask 'vagrant'
-{{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'virtualbox'
-{{- end }}
 # cask 'wireshark'
 # brew 'wdiff'
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
-# brew 'wine'
-# brew 'winetricks'
-{{- end }}
 # cask 'wireshark'
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-# brew 'xhyve'
-{{- end }}
 brew 'yamllint'
 # brew 'yank'
 brew 'yarn'
