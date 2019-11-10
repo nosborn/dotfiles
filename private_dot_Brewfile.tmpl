@@ -8,9 +8,9 @@ tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-prev
 {{- end }}
 tap 'twpayne/taps'
 
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if eq .chezmoi.hostname "MacBook-Pro" -}}
 cask '1password-cli'
-{{- end }}
+{{ end -}}
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cask 'adoptopenjdk'
 {{- end }}
