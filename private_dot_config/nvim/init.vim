@@ -1,39 +1,3 @@
-if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
-  silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.config/nvim/pack/minpac/opt/minpac
-endif
-
-packadd minpac
-command! PackClean  call minpac#clean()
-command! PackStatus call minpac#status()
-command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
-
-call minpac#init()
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('cespare/vim-toml')
-call minpac#add('chriskempson/base16-vim')
-call minpac#add('dense-analysis/ale')
-call minpac#add('digitaltoad/vim-pug')
-call minpac#add('direnv/direnv.vim')
-call minpac#add('fatih/vim-go')
-call minpac#add('godlygeek/tabular')
-call minpac#add('hashivim/vim-terraform')
-call minpac#add('iamcco/markdown-preview.nvim', {
-      \   'do': {hooktype, name -> system('yarn install --cwd '.minpac#getpluginfo(a:name).dir.'/app')}
-      \ })
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('k-takata/minpac', {
-      \   'type': 'opt'
-      \ })
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('pearofducks/ansible-vim')
-call minpac#add('plasticboy/vim-markdown')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-packloadall
-
 syntax on
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
