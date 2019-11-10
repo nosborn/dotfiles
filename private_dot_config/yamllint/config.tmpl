@@ -3,16 +3,16 @@ extends: default
 
 rules:
   braces:
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
     min-spaces-inside: 1
     max-spaces-inside: 1
-{{- end }}
+{{ end -}}
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work -}}
   comments:
     min-spaces-from-content: 1  # compatibility with VSCode
-{{- end }}
+{{ end -}}
   indentation:
     spaces: 2
     indent-sequences: true

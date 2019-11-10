@@ -1,6 +1,6 @@
-{{- if eq .chezmoi.hostname "MacBook-Pro" }}
+{{ if .home -}}
 [whitelist]
 prefix = [
   "{{ .chezmoi.homedir }}/github.com/{{ .github.user }}"
 ]
-{{- end }}
+{{ end -}}
