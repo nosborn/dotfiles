@@ -90,9 +90,6 @@ if $TERM ==# 'xterm-kitty'
 endif
 colorscheme base16-pop
 
-" let g:airline#extensions#ale#checking_symbol = '…'
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline#extensions#ale#show_line_numbers = 0
 let g:airline#extensions#neomake#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline_powerline_fonts = 1
@@ -242,3 +239,6 @@ endfunction
 
 nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+
+packloadall
+call neomake#configure#automake('nrwi', 500)
