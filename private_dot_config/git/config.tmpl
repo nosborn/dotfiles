@@ -72,6 +72,11 @@
 	prune = true
 	pruneTags = true
 
+[gpg]
+{{ if eq .chezmoi.os "darwin" -}}
+	program = /usr/local/MacGPG2/bin/gpg2
+{{ end -}}
+
 [github]
 	user = {{ .github.user }}
 
@@ -113,13 +118,13 @@
 	useConfigOnly = true
 
 [includeIf "gitdir:~/.ansible/roles/ansible-r3-roles/"]
-	path = config.corda
+	path = config.nosborn-r3
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = config.nosborn
 
 [includeIf "gitdir:~/src/github.com/corda/"]
-	path = config.corda
+	path = config.nosborn-r3
 
 [includeIf "gitdir:~/src/github.com/nosborn/"]
 	path = config.nosborn

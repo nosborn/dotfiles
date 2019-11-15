@@ -1,0 +1,17 @@
+[commit]
+{{ if .work -}}
+	gpgsign = true
+{{ end -}}
+
+[tag]
+{{ if .work -}}
+	forceSignAnnotated = true
+{{ end -}}
+
+[user]
+	email = nick.osborn@r3.com
+{{ if .work -}}
+	signingkey = 1D2CD1D2
+{{ end -}}
+
+# vim: ft=gitconfig
