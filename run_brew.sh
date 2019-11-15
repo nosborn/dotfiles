@@ -5,6 +5,7 @@ set -o nounset
 
 [ "$(uname -s)" = Darwin ] || exit 0
 
+export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
@@ -16,6 +17,7 @@ if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
 fi
 brew bundle --global
 
+# Fix Python 3 on macOS 10.15.
 for dylib in libcrypto.dylib libssl.dylib; do
   [ -e "$(brew --prefix openssl)/lib/${dylib}" ] || continue
   [ -e "$(brew --prefix)/lib/${dylib}" ] && continue
