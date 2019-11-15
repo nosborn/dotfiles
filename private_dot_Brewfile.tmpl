@@ -26,6 +26,9 @@ brew 'azure-cli'
 brew 'b2-tools'
 {{ end -}}
 brew 'bat'
+{{ if .home -}}
+# brew 'battle-net'
+{{ end -}}
 brew 'black'
 {{ if .home -}}
 cask 'blockblock'
@@ -54,6 +57,7 @@ brew 'html2text' # for lesspipe
 brew 'hub'
 brew 'jq'
 brew 'jsonlint'
+cask 'karabiner-elements'
 {{ if .home -}}
 cask 'keybase'
 {{ end -}}
