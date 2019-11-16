@@ -150,7 +150,7 @@ function prompt_git -d "Display the current git state"
 end
 
 function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
-  if [ $1 -ne 0 ]
+  if [ $RETVAL -ne 0 ]
     prompt_segment black red "⚠️ "
   end
 
@@ -171,8 +171,8 @@ end
 # ===========================
 
 function fish_prompt
-  # set -g RETVAL $status
-  prompt_status $status
+  set -g RETVAL $status
+  prompt_status
   prompt_user
   prompt_dir
   type -q git; and prompt_git
