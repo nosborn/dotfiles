@@ -176,8 +176,8 @@ function fish_prompt
   prompt_user
   prompt_dir
   type -q git; and prompt_git
-  # prompt_finish
-  # echo ""
-  prompt_segment $colour_path $colour_text_path $prompt_text
   prompt_finish
+  # echo ""
+  # prompt_segment $colour_path $colour_text_path $prompt_text
+  # prompt_finish
 end
