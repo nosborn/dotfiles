@@ -1,13 +1,3 @@
-# name: Agnoster
-# agnoster's Theme - https://gist.github.com/3712874
-# A Powerline-inspired theme for FISH
-#
-# # README
-#
-# In order for this theme to render correctly, you will need a
-# [Powerline-patched font](https://gist.github.com/1595572).
-
-## Set this options in your config.fish (if you want to :])
 # set -g theme_display_user yes
 # set -g theme_hide_hostname yes
 # set -g theme_hide_hostname no
@@ -18,8 +8,8 @@ set -g current_bg NONE
 set hard_space '\u2060'
 set icon_root '🌏'
 set icon_home '🏡'
-#set icon_root '/'
-#set icon_home '~'
+# set icon_root '/'
+# set icon_home '~'
 
 set prompt_text '→'
 
@@ -34,6 +24,7 @@ set colour_clean 7E6FFF
 set segment_separator \uE0B0
 set segment_splitter \uE0B1
 set right_segment_separator \uE0B0
+
 # ===========================
 # Helper methods
 # ===========================
@@ -100,16 +91,9 @@ function prompt_finish -d "Close open segments"
   set -g current_bg NONE
 end
 
-
 # ===========================
 # Theme components
 # ===========================
-
-function prompt_virtual_env -d "Display Python virtual environment"
-  if test "$VIRTUAL_ENV"
-    prompt_segment white black (basename $VIRTUAL_ENV)
-  end
-end
 
 function prompt_user -d "Display current user if different from $default_user"
   if [ "$theme_display_user" = "yes" ]
@@ -139,33 +123,11 @@ function get_hostname -d "Set current hostname to prompt variable $HOSTNAME_PROM
 end
 
 function wrap_root
-
 end
 
 function prompt_dir -d "Display the current directory"
   prompt_segment $colour_path $colour_text_path (string trim (string join " $segment_splitter " (string split '/' (string replace -r '^\/$' "$icon_root$hard_space" (string replace -r '^\/(.+?)' "$icon_root/\$1" (string replace -r '^\~' "$icon_home$hard_space" (string trim (prompt_pwd))))))))
 end
-
-
-function prompt_hg -d "Display mercurial state"
-  set -l branch
-  set -l state
-  if command hg id >/dev/null 2>&1
-    if command hg prompt >/dev/null 2>&1
-      set branch (command hg prompt "{branch}")
-      set state (command hg prompt "{status}")
-      set branch_symbol \uE0A0
-      if [ "$state" = "!" ]
-        prompt_segment red white "$branch_symbol $branch ±"
-      else if [ "$state" = "?" ]
-          prompt_segment $colour_clean $colour_text_clean "$branch_symbol $branch ±"
-        else
-          prompt_segment $colour_dirty $colour_text_dirty "$branch_symbol $branch"
-      end
-    end
-  end
-end
-
 
 function prompt_git -d "Display the current git state"
   set -l ref
@@ -187,50 +149,21 @@ function prompt_git -d "Display the current git state"
   end
 end
 
-
-function prompt_svn -d "Display the current svn state"
-  set -l ref
-  if command svn ls . >/dev/null 2>&1
-    set branch (svn_get_branch)
-    set branch_symbol \uE0A0
-    set revision (svn_get_revision)
-    prompt_segment green black "$branch_symbol $branch:$revision"
-  end
-end
-
-function svn_get_branch -d "get the current branch name"
-  svn info 2> /dev/null | awk -F/ \
-      '/^URL:/ { \
-        for (i=0; i<=NF; i++) { \
-          if ($i == "branches" || $i == "tags" ) { \
-            print $(i+1); \
-            break;\
-          }; \
-          if ($i == "trunk") { print $i; break; } \
-        } \
-      }'
-end
-
-function svn_get_revision -d "get the current revision number"
-  svn info 2> /dev/null | sed -n 's/Revision:\ //p'
-end
-
-
 function prompt_status -d "the symbols for a non zero exit status, root and background jobs"
-    if [ $RETVAL -ne 0 ]
-      prompt_segment black red "⚠️ "
-    end
+  if [ $RETVAL -ne 0 ]
+    prompt_segment black red "⚠️ "
+  end
 
-    # if superuser (uid == 0)
-    set -l uid (id -u $USER)
-    if [ $uid -eq 0 ]
-      prompt_segment black yellow "⚡"
-    end
+  # if superuser (uid == 0)
+  set -l uid (id -u $USER)
+  if [ $uid -eq 0 ]
+    prompt_segment black yellow "⚡"
+  end
 
-    # Jobs display
-    if [ (jobs -l | wc -l) -gt 0 ]
-      prompt_segment black cyan "⚙"
-    end
+  # Jobs display
+  if [ (jobs -l | wc -l) -gt 0 ]
+    prompt_segment black cyan "⚙"
+  end
 end
 
 # ===========================
@@ -240,14 +173,11 @@ end
 function fish_prompt
   set -g RETVAL $status
   prompt_status
-  prompt_virtual_env
   prompt_user
   prompt_dir
-  type -q hg;  and prompt_hg
   type -q git; and prompt_git
-  type -q svn; and prompt_svn
-  prompt_finish
-  echo ""
+  # prompt_finish
+  # echo ""
   prompt_segment $colour_path $colour_text_path $prompt_text
   prompt_finish
 end
