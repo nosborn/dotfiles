@@ -12,6 +12,7 @@ call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
 call minpac#add('chriskempson/base16-vim')
+call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
 call minpac#add('direnv/direnv.vim')
 call minpac#add('godlygeek/tabular')
@@ -25,11 +26,9 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
-call minpac#add('neomake/neomake')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('plasticboy/vim-markdown')
-call minpac#add('sbdchd/neoformat')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-rhubarb')
@@ -70,6 +69,10 @@ set tags^=./.git/tags;
 set updatetime=100
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 
+if executable('fzf')
+  set runtimepath+=/usr/local/opt/fzf
+endif
+
 if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
@@ -90,22 +93,36 @@ if $TERM ==# 'xterm-kitty'
 endif
 colorscheme base16-pop
 
-" let g:airline#extensions#neomake#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#wordcount#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_detect_spelllang = 0
 let g:airline_theme = 'base16_pop'
 
-" let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '✖'
-" let g:ale_sign_info = 'ℹ'
-" let g:ale_sign_warning = '‼'
-" let g:ale_virtualtext_cursor = 1
-" " let g:ale_virtualtext_delay = 100
-" let g:ale_virtualtext_prefix = '❯ '
-" " highlight ALEErrorSign ctermbg=NONE ctermfg=red
-" " highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \   'javascript': ['prettier'],
+      \   'json': ['prettier'],
+      \   'markdown': ['prettier'],
+      \   'python': ['black'],
+      \   'sh': ['shfmt'],
+      \   'terraform': ['terraform'],
+      \   'xml': ['xmllint'],
+      \   'yaml': ['prettier'],
+      \   'zsh': ['shfmt'],
+      \   '*': ['remove_trailing_lines', 'trim_whitespace']
+      \ }
+let g:ale_sh_shfmt_options = '-i 2 -ci'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_info = 'ℹ'
+let g:ale_sign_warning = '‼'
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = '❯ '
+let b:ale_xml_xmllint_optons = '--nonet'
 
 let g:ansible_name_highlight = 'd'
 let g:ansible_template_syntaxes = {
@@ -133,25 +150,12 @@ let g:loaded_ruby_provider = 0
 " let g:mkdp_auto_start = 1
 " let g:mkdp_markdown_css = ''
 
-let g:neoformat_basic_format_trim = 1
-let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_json = ['prettier']
-let g:neoformat_enabled_python = ['black']
-let g:neoformat_enabled_shell = ['shfmt']
-let g:neoformat_enabled_terraform = ['terraform']
-let g:neoformat_enabled_yaml = ['prettier']
-let g:neoformat_only_msg_on_error = 1
-
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_liststyle = 1
 
 let g:python3_host_prog = '/usr/local/bin/python3'
-
-let g:streamline_show_ale_status = 1
-
-let g:terraform_fmt_on_save = 1
 
 let g:vim_json_syntax_conceal = 0
 
@@ -239,6 +243,3 @@ endfunction
 
 nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-
-packloadall
-call neomake#configure#automake('nrwi', 500)

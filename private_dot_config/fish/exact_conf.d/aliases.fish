@@ -1,6 +1,0 @@
-alias diff='command diff -W{$COLUMNS} -x .terraform -d'
-alias sdiff='command sdiff -d -w{$COLUMNS}'
-alias tfdiff='command diff -dry -W{$COLUMNS} -x .terraform -x \*.rules.tf'
-alias tfdiffs='command diff -dry -W{$COLUMNS} -x .terraform -x \*.rules.tf --suppress-common-lines'
-alias vi='nvim'
-alias vim='nvim'
