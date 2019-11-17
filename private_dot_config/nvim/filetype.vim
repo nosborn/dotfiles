@@ -21,7 +21,7 @@ augroup filetypedetect
 " au! BufRead,BufNewFile *.{yaml,yml}.j2               set ft=yaml.jinja2
 " au! BufRead,BufNewFile */ansible{,-*}/**/tasks/*.yml set ft=ansible
 " au! BufRead,BufNewFile */ansible{,-*}/*.yml          set ft=ansible
-  au! BufRead,BufNewFile */terraform/**/*.rules        set ft=markdown.pandoc
+  au! BufRead,BufNewFile */terraform/**/*.rules        set ft=markdown nospell
   au! BufRead,BufNewFile *_Jenkinsfile                 set ft=groovy
   au! BufRead,BufNewFile .babelrc                      set ft=json
   au! BufRead,BufNewFile .markdownlintrc               set ft=json

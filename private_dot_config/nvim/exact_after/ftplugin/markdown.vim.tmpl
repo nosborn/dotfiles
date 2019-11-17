@@ -1,5 +1,5 @@
 setlocal expandtab
-setlocal filetype=markdown.pandoc
+" setlocal filetype=markdown.pandoc
 setlocal linebreak
 setlocal shiftwidth=2
 setlocal spell
@@ -12,11 +12,8 @@ else
   let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
 endif
 
-let b:ale_fix_on_save = 1
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{ if .work }}
 let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
-{{- else }}
-let b:ale_fixers = ['prettier']
-{{- end }}
+{{ end }}
 
 " vim: ft=vim
