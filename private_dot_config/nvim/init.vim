@@ -28,7 +28,6 @@ call minpac#add('k-takata/minpac', {
       \ })
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
-call minpac#add('plasticboy/vim-markdown')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-rhubarb')
@@ -146,6 +145,14 @@ let g:highlight_sedtabs = 1
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
+
+let g_markdown_fenced_languages = [
+      \   'bash=sh',
+      \   'sh',
+      \   'terraform',
+      \   'yaml'
+      \ ]
+let g:markdown_syntax_conceal = 0
 
 " let g:mkdp_auto_start = 1
 " let g:mkdp_markdown_css = ''
