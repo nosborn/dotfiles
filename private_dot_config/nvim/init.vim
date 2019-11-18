@@ -147,7 +147,7 @@ let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 
-let g_markdown_fenced_languages = [
+let g:markdown_fenced_languages = [
       \   'bash=sh',
       \   'sh',
       \   'terraform',
