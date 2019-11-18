@@ -1,3 +1,6 @@
+machine api.github.com
+  login {{ .github.user }}
+  password TODO
 {{ if (index . "heroku") -}}
 machine api.heroku.com
   login {{ .heroku.user }}
