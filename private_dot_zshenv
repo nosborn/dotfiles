@@ -1,6 +1,9 @@
 export LC_ALL=en_GB.UTF-8
 
-# GO
+# ansible
+export ANSIBLE_NOCOWS=1
+
+# Go
 export GOPATH=~
 
 # HashiCorp
