@@ -151,9 +151,11 @@ let g:loaded_ruby_provider = 0
 let g:markdown_fenced_languages = [
       \   'bash=sh',
       \   'gitconfig',
+      \   'json',
       \   'sh',
       \   'terraform',
-      \   'yaml'
+      \   'yaml',
+      \   'zsh=sh',
       \ ]
 let g:markdown_syntax_conceal = 0
 
