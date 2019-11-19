@@ -106,12 +106,10 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \   'javascript': ['prettier'],
       \   'json': ['prettier'],
-      \   'markdown': ['prettier'],
       \   'python': ['black'],
       \   'sh': ['shfmt'],
       \   'terraform': ['terraform'],
       \   'xml': ['xmllint'],
-      \   'yaml': ['prettier'],
       \   'zsh': ['shfmt'],
       \   '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }
