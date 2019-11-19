@@ -150,6 +150,7 @@ let g:loaded_ruby_provider = 0
 
 let g:markdown_fenced_languages = [
       \   'bash=sh',
+      \   'gitconfig',
       \   'sh',
       \   'terraform',
       \   'yaml'
