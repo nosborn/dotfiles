@@ -19,7 +19,7 @@ call minpac#add('godlygeek/tabular')
 call minpac#add('hashivim/vim-terraform')
 call minpac#add('iamcco/markdown-preview.nvim', {
       \   'do': {hooktype, name ->
-      \     system('yarn install --cwd '.minpac#getpluginfo(a:name).dir.'/app')
+      \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
 call minpac#add('junegunn/fzf.vim')
