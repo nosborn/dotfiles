@@ -10,6 +10,10 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
 endif
+{{ if .work -}}
+
+let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
+{{ end -}}
 
 " Stolen from https://github.com/plasticboy/vim-markdown
 function! s:TableFormat()
