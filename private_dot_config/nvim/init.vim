@@ -160,6 +160,7 @@ let g:markdown_fenced_languages = [
 let g:markdown_syntax_conceal = 0
 
 " let g:mkdp_auto_start = 1
+let g:mkdp_browser = 'Chromium'
 " let g:mkdp_markdown_css = ''
 
 let g:netrw_banner = 0
