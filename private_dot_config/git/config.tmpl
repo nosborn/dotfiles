@@ -72,6 +72,9 @@
 	prune = true
 	pruneTags = true
 
+[gc]
+	writeCommitGraph = true
+
 [gpg]
 {{ if eq .chezmoi.os "darwin" -}}
 	program = /usr/local/MacGPG2/bin/gpg2
@@ -79,6 +82,9 @@
 
 [github]
 	user = {{ .github.user }}
+
+[log]
+	date = human
 
 [merge]
 	ff = only
