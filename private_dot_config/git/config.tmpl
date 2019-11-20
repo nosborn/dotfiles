@@ -28,7 +28,6 @@
 
 [core]
 	autocrlf = input
-	commitGraph = true
 	excludesfile = ~/.config/git/ignore
 	hooksPath = ~/.config/git/hooks
 {{ if eq .chezmoi.os "darwin" -}}
@@ -72,9 +71,6 @@
 	prune = true
 	pruneTags = true
 
-[gc]
-	writeCommitGraph = true
-
 [gpg]
 {{ if eq .chezmoi.os "darwin" -}}
 	program = /usr/local/MacGPG2/bin/gpg2
@@ -87,7 +83,9 @@
 	date = human
 
 [merge]
+{{ if not .work -}}
 	ff = only
+{{ end -}}
 
 [pager]
 	diff = ~/.local/share/git-core/contrib/diff-highlight/diff-highlight | less
