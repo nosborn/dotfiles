@@ -1,3 +1,7 @@
+if &shell =~# 'fish$'
+  set shell=/bin/bash
+endif
+
 if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
         \ ~/.config/nvim/pack/minpac/opt/minpac
@@ -12,6 +16,7 @@ call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
 call minpac#add('chriskempson/base16-vim')
+call minpac#add('dag/vim-fish')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
 call minpac#add('direnv/direnv.vim')
