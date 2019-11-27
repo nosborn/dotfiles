@@ -1,7 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
-# Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
+# alt_send_esc: true
 
 background_opacity: 1.0
 
@@ -54,46 +51,19 @@ cursor:
   style: Block
   unfocused_hollow: true
 
-#debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
+# debug:
+#   log_level: Warn
+#   persistent_logging: false
+#   print_events: false
+#   ref_test: false
+#   render_timer: false
 
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
-
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
-
-  # Print all received window events.
-  #print_events: false
-
-  # Record all characters and escape sequences as test data.
-  #ref_test: false
-
-# If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 
 dynamic_title: true
 
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
-#env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+# env:
+#   TERM: xterm-256color
 
 font:
   bold:
@@ -102,43 +72,20 @@ font:
   bold_italic:
     family: InputMono
     style: Bold Italic
+  # glyph_offset:
+  #   x: 0
+  #   y: 0
   italic:
     family: InputMono
     style: Italic
   normal:
     family: InputMono
     style: Regular
-  size: 14.0
-
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
-
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upwards.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
-
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`
-  #
-  # macOS >= 10.14.x:
-  #
-  # If the font quality on non-retina display looks bad then set
-  # `use_thin_strokes` to `true` and enable font smoothing by running the
-  # following command:
-  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
-  #
-  # This is a global setting and will require a log out or restart to take
-  # effect.
-  #use_thin_strokes: true
+  offset:
+    x: 1
+    y: 1
+  size: 18.0
+  use_thin_strokes: true
 
 # Key bindings
 #
