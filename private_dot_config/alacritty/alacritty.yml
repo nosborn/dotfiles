@@ -67,23 +67,23 @@ dynamic_title: true
 
 font:
   bold:
-    family: InputMono
+    family: Input Mono
     style: Bold
   bold_italic:
-    family: InputMono
+    family: Input Mono
     style: Bold Italic
   # glyph_offset:
   #   x: 0
   #   y: 0
   italic:
-    family: InputMono
+    family: Input Mono
     style: Italic
   normal:
-    family: InputMono
+    family: Input Mono
     style: Regular
   offset:
-    x: 2
-    y: 2
+    x: 3
+    y: 3
   size: 14.0
   use_thin_strokes: true
 
