@@ -105,12 +105,15 @@ brew 'terraform'
 brew 'tflint'
 brew 'tig'
 {{ if .work -}}
-brew 'unixodbc'  # for msodbcsql
+# brew 'unixodbc'  # for msodbcsql
 {{ end -}}
 cask 'vagrant'
 cask 'virtualbox'
 # cask 'wireshark'
 # brew 'wdiff'
+{{ if .home -}}
+cask 'wine'
+{{ end -}}
 # cask 'wireshark'
 brew 'yamllint'
 # brew 'yank'
