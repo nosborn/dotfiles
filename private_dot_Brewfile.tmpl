@@ -3,17 +3,10 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{ end -}}
 tap 'homebrew/cask-fonts'
-{{ if .home -}}
-tap 'homebrew/cask-versions'
 {{ if .work -}}
-{{ end -}}
 tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-preview'
 {{ end -}}
 tap 'twpayne/taps'
-
-{{ if .home -}}
-cask 'xquartz'  # for wine-devel
-{{ end -}}
 
 cask '1password-cli'
 {{ if .work -}}
@@ -118,9 +111,6 @@ cask 'vagrant'
 cask 'virtualbox'
 # cask 'wireshark'
 # brew 'wdiff'
-{{ if .home -}}
-cask 'wine-devel'
-{{ end -}}
 # cask 'wireshark'
 brew 'yamllint'
 # brew 'yank'
