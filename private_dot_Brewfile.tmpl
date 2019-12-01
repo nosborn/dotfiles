@@ -8,6 +8,10 @@ tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-prev
 {{ end -}}
 tap 'twpayne/taps'
 
+{{ if .home -}}
+cask 'xquartz'  # for wine-stable
+{{ end -}}
+
 cask '1password-cli'
 {{ if .work -}}
 cask 'adoptopenjdk'
