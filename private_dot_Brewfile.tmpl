@@ -9,7 +9,7 @@ tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-prev
 tap 'twpayne/taps'
 
 {{ if .home -}}
-cask 'xquartz'  # for wine-stable
+cask 'xquartz'  # for wine-devel
 {{ end -}}
 
 cask '1password-cli'
@@ -116,7 +116,7 @@ cask 'virtualbox'
 # cask 'wireshark'
 # brew 'wdiff'
 {{ if .home -}}
-cask 'wine-stable'
+cask 'wine-devel'
 {{ end -}}
 # cask 'wireshark'
 brew 'yamllint'
