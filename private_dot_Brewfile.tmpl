@@ -3,7 +3,10 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{ end -}}
 tap 'homebrew/cask-fonts'
+{{ if .home -}}
+tap 'homebrew/cask-versions'
 {{ if .work -}}
+{{ end -}}
 tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-preview'
 {{ end -}}
 tap 'twpayne/taps'
