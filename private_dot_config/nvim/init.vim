@@ -93,7 +93,7 @@ augroup MyColorScheme
   autocmd ColorScheme * call MyColorSchemeHighlights()
 augroup END
 
-if $TERM ==# 'xterm-kitty'
+if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
   let g:base16colorspace = 256
 endif
 colorscheme base16-pop
