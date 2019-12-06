@@ -1,15 +1,8 @@
 function fish_right_prompt
   # Git status
   if type -q git
-    set git_topdir (git rev-parse --show-topdir . 2>/dev/null)
-    if test -n "$git_topdir"
-      set_color normal
-      echo -n '['
-      set_color blue
-      echo -n 'GIT' # TODO
-      set_color normal
-      echo -n ']'
-    end
+    set -g __fish_git_prompt_show_informative_status 1
+    __fish_git_prompt
   end
   # VPN status
   if type -q /opt/cisco/anyconnect/bin/vpn
