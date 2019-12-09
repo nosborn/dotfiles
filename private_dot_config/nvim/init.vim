@@ -219,10 +219,10 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-augroup git-blame
-  autocmd!
-  autocmd BufEnter * EnableBlameLine
-augroup END
+" augroup git-blame
+"   autocmd!
+"   autocmd BufEnter * EnableBlameLine
+" augroup END
 
 nmap [A :ALEFirst<CR>
 nmap ]A :ALELast<CR>
