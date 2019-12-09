@@ -39,6 +39,7 @@ call minpac#add('tpope/vim-markdown')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('zivyangll/git-blame.vim')
 
 syntax on
 
