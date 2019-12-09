@@ -37,9 +37,9 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-markdown')
 call minpac#add('tpope/vim-rhubarb')
+call minpac#add('tveskag/nvim-blame-line')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('zivyangll/git-blame.vim')
 
 syntax on
 
