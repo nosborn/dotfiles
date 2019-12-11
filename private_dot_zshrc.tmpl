@@ -102,6 +102,8 @@ avdiffs() {
   command diff -dy -W${COLUMNS} --suppress-common-lines =(ansible-vault view "$1") =(ansible-vault view "$2")
 }
 
+zstyle ':completion:*:*:git:*' script $(xcode-select --print-path)/usr/share/git-core/git-completion.zsh
+
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
 fi
