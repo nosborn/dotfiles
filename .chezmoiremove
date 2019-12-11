@@ -7,12 +7,9 @@
 .gradle/
 .oracle_jre_usage/
 .pylint.d/
-.vim/
-.viminfo
 .zlogin
 .zlogout
 .zprofile
 Library/Preferences/com.jetbrains.intellij.ce.plist
 Library/Preferences/com.github.atom.plist
-Library/Preferences/org.vim.MacVim.plist
 bin/kitty
