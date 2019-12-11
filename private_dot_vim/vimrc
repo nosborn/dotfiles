@@ -1,5 +1,7 @@
+scriptencoding=utf-8
+
 if &shell =~# 'fish$'
-  set shell=/bin/bash
+  set shell=/usr/bin/env\ bash
 endif
 
 if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
@@ -49,61 +51,71 @@ endif
 
 map Q <Nop>
 
-scriptencoding=utf-8
-
+" -- sensible
 set autoindent
 set autoread
+set backspace=indent,eol,start
 set belloff=all
 set complete-=i
 set cscopeverbose
-" set display=lastline,msgsep
+set cursorline
+set display+=lastline
+set encoding=utf-8
 set fillchars=vert:│,fold:·
-set formatoptions=tcqj
+set formatoptions+=j
 set history=1000
 set hlsearch
+set ignorecase
 set incsearch
 set langnoremap
 set laststatus=2
-set listchars=tab:»·,trail:▿,nbsp:▿
-set nofsync
-set nolangremap
-set nostartofline
-set nrformats-=octal
-set sessionoptions-=options
-set shortmess+=F
-" set shortmess=-S
-set showcmd
-set sidescroll=1
-set smarttab
-set tabpagemax=50
-set ttimeoutlen=50
-set undodir=~/.vim/undo
-set viminfo+=!
-set wildmenu
-" set wildoptions=pum,tagfile
-
-""
-set cursorline
-set ignorecase
 set list
+set listchars=tab:»·,trail:▿,nbsp:▿
+set mouse=a
 set nobackup
 set noerrorbells
-set noshowcmd
+set nofsync
+set nolangremap
+" set noshowcmd
 set noshowmode
 set nospell
+set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
+set nrformats-=octal
 set number
+set ruler
 set scrolloff=2
-set shortmess+=I
+" set sessionoptions=-options
+set shortmess+=FI
+set showcmd
 set showmatch
 set sidescrolloff=5
-set smartindent
+set smarttab
 set spelllang=en_gb
+set tabpagemax=50
 set tags^=./.git/tags;
+set ttimeout
+set ttimeoutlen=100 " 50 in nvim
+set undodir=~/.vim/undo
 set updatetime=100
+" set viewoptions=-options
+set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
+set wildmenu
+
+map Q gq
+
+inoremap <C-U> <C-G>u<C-U>
+
+syntax on
+filetype plugin indent on
+
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
 
 if executable('fzf')
   set runtimepath+=/usr/local/opt/fzf
