@@ -106,7 +106,9 @@ brew 'unixodbc'  # for msodbcsql
 {{ end -}}
 cask 'vagrant'
 cask 'virtualbox'
-# cask 'wireshark'
+{{ if .work -}}
+cask 'visual-studio-code'
+{{ end -}}
 # brew 'wdiff'
 # cask 'wireshark'
 brew 'yamllint'
