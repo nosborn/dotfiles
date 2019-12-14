@@ -62,6 +62,8 @@ else
   export RPROMPT='${vcs_info_msg_0_}'
 fi
 
+zstyle ':completion:*:*:git:*' script $(xcode-select --print-path)/usr/share/git-core/git-completion.zsh
+
 function vpn_info() {
   if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
     local state=$(/opt/cisco/anyconnect/bin/vpn state | grep -F '>> state:' | tail -1 | awk '{print $4}')
@@ -101,8 +103,6 @@ avdiffs() {
   [[ $# -eq 2 ]] || { echo "Usage: $0 FILENAME FILENAME" >&2; exit 1 }
   command diff -dy -W${COLUMNS} --suppress-common-lines =(ansible-vault view "$1") =(ansible-vault view "$2")
 }
-
-zstyle ':completion:*:*:git:*' script $(xcode-select --print-path)/usr/share/git-core/git-completion.zsh
 
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
