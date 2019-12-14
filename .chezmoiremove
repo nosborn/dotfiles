@@ -1,6 +1,7 @@
 .atom/
 .config/fish
 .config/flake8
+.config/kitty
 .config/liquidpromptrc
 .config/nvim/ale_linters/
 .config/pep8
