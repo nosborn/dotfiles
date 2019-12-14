@@ -51,13 +51,15 @@ if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
   ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
   export RPROMPT='$(git_super_status)'
 else
-  autoload -U vcs_info
+  autoload -Uz vcs_info
   zstyle ':vcs_info:*' enable git
+
   zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
   zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
   zstyle ':vcs_info:git:*' check-for-changes true
   zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
   ##zstyle ':vcs_info:*' formats "[%b]%u%c-"
+
   precmd_functions+=( vcs_info )
   export RPROMPT='${vcs_info_msg_0_}'
 fi
