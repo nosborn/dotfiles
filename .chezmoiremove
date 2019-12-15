@@ -3,10 +3,12 @@
 .config/flake8
 .config/kitty
 .config/liquidpromptrc
-.config/nvim/ale_linters/
+.config/nvim/
 .config/pep8
 .config/wireshark/
 .gradle/
+.local/bin/
+.local/share/nvim/
 .oracle_jre_usage/
 .pylint.d/
 .zlogin
