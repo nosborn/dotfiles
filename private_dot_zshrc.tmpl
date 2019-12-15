@@ -65,8 +65,6 @@ else
   export RPROMPT='${vcs_info_msg_0_}'
 fi
 
-zstyle ':completion:*:*:git:*' script $(xcode-select --print-path)/usr/share/git-core/git-completion.zsh
-
 function vpn_info() {
   if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
     local state=$(/opt/cisco/anyconnect/bin/vpn state | grep -F '>> state:' | tail -1 | awk '{print $4}')
