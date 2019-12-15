@@ -43,6 +43,7 @@ else
   prompt_host='%m '
 fi
 export PROMPT='$(abbreviated_path)%# '
+export PROMPT_EOL_MARK="%F{1}$(echo "\u23CE")%f"
 
 if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
   source $(brew --prefix zsh-git-prompt)/zshrc.sh
