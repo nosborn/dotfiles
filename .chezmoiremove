@@ -1,4 +1,5 @@
 .atom/
+.config/direnv/direnvrc
 .config/fish
 .config/flake8
 .config/kitty
