@@ -61,7 +61,9 @@ brew 'hub'
 brew 'jinja2-cli'
 brew 'jq'
 brew 'jsonlint'
+{{ if .home -}}
 cask 'karabiner-elements'
+{{ end -}}
 {{ if .home -}}
 cask 'keybase'
 {{ end -}}
