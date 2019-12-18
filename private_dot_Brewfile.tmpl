@@ -25,7 +25,6 @@ brew 'azure-cli'
 {{ if .home -}}
 brew 'b2-tools'
 {{ end -}}
-cask 'bartender'
 brew 'bat'
 {{ if .home -}}
 # brew 'battle-net'
@@ -67,8 +66,12 @@ cask 'karabiner-elements'
 {{ if .home -}}
 cask 'keybase'
 {{ end -}}
+{{ if .work -}}
 cask 'keepassxc'
+{{ end -}}
+{{ if .home -}}
 # cask 'knockknock'
+{{ end -}}
 brew 'lesspipe'
 {{ if .home -}}
 cask 'logitech-gaming-software'
@@ -85,7 +88,6 @@ cask 'pock'
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
-cask 'qlmarkdown'
 brew 'quazip' # for keepassxc
 brew 'qpdf'
 {{ if .home -}}
@@ -113,8 +115,6 @@ cask 'virtualbox'
 {{ if .work -}}
 cask 'visual-studio-code'
 {{ end -}}
-# brew 'wdiff'
-# cask 'wireshark'
 brew 'yamllint'
 # brew 'yank'
 brew 'yarn'
