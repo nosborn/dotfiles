@@ -12,6 +12,7 @@
 .local/share/nvim/
 .oracle_jre_usage/
 .pylint.d/
+.vim/gvimrc
 .zlogin
 .zlogout
 .zprofile
