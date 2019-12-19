@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding=utf-8
 
 if &shell =~# 'fish$'
@@ -60,7 +61,6 @@ set complete-=i
 set cscopeverbose
 set cursorline
 set display+=lastline
-set encoding=utf-8
 set fillchars=vert:│,fold:·
 set formatoptions+=j
 set history=1000
@@ -112,7 +112,7 @@ inoremap <C-U> <C-G>u<C-U>
 syntax on
 filetype plugin indent on
 
-if !exists(":DiffOrig")
+if !exists(':DiffOrig')
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
         \ | wincmd p | diffthis
 endif
