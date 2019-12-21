@@ -101,8 +101,6 @@ set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 set wildmenu
 
-map Q gq
-
 inoremap <C-U> <C-G>u<C-U>
 
 syntax on
