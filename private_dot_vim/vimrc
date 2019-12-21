@@ -52,7 +52,6 @@ endif
 
 map Q <Nop>
 
-" -- sensible
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -76,7 +75,6 @@ set nobackup
 set noerrorbells
 set nofsync
 set nolangremap
-" set noshowcmd
 set noshowmode
 set nospell
 set nostartofline
@@ -87,7 +85,6 @@ set nrformats-=octal
 set number
 set ruler
 set scrolloff=2
-" set sessionoptions=-options
 set shortmess+=FI
 set showcmd
 set showmatch
@@ -97,10 +94,9 @@ set spelllang=en_gb
 set tabpagemax=50
 set tags^=./.git/tags;
 set ttimeout
-set ttimeoutlen=100 " 50 in nvim
+set ttimeoutlen=50
 set undodir=~/.vim/undo
 set updatetime=100
-" set viewoptions=-options
 set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 set wildmenu
@@ -208,13 +204,10 @@ let g:mkdp_browser = 'Chromium'
 " let g:mkdp_markdown_css = ''
 
 let g:netrw_banner = 0
-" let g:netrw_bufsettings = 'relativenumber,number'
+let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
-
-let g:node_host_prog = '/usr/local/bin/node'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0
 

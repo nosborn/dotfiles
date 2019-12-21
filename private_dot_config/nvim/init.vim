@@ -1,5 +1,7 @@
+scriptencoding=utf-8
+
 if &shell =~# 'fish$'
-  set shell=/bin/bash
+  set shell=/usr/bin/env\ bash
 endif
 
 if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
@@ -49,8 +51,6 @@ endif
 
 map Q <Nop>
 
-scriptencoding=utf-8
-
 set cursorline
 set ignorecase
 set list
@@ -73,6 +73,8 @@ set spelllang=en_gb
 set tags^=./.git/tags;
 set updatetime=100
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
+
+inoremap <C-U> <C-G>u<C-U>
 
 if executable('fzf')
   set runtimepath+=/usr/local/opt/fzf
@@ -167,7 +169,8 @@ let g:mkdp_browser = 'Chromium'
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
-let g:netrw_liststyle = 1
+let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_liststyle = 3
 
 let g:node_host_prog = '/usr/local/bin/node'
 let g:python3_host_prog = '/usr/local/bin/python3'
