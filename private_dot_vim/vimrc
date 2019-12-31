@@ -34,6 +34,7 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
+call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('tpope/vim-commentary')
