@@ -18,7 +18,6 @@ command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
-" call minpac#add('chriskempson/base16-vim')
 call minpac#add('dag/vim-fish')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
@@ -122,19 +121,16 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
-function! MyColorSchemeHighlights() abort
-  highlight Comment cterm=italic gui=italic
-  highlight SpellBad cterm=undercurl
-endfunction
+" function! MyColorSchemeHighlights() abort
+"   highlight Comment cterm=italic gui=italic
+"   highlight SpellBad cterm=undercurl
+" endfunction
 
-augroup MyColorScheme
-  autocmd!
-  autocmd ColorScheme * call MyColorSchemeHighlights()
-augroup END
+" augroup MyColorScheme
+"   autocmd!
+"   autocmd ColorScheme * call MyColorSchemeHighlights()
+" augroup END
 
-" if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
-"   let g:base16colorspace = 256
-" endif
 colorscheme gruvbox
 
 let g:airline#extensions#ale#enabled = 1
