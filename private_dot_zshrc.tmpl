@@ -127,7 +127,9 @@ for f in $comp_files; do
 done
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval $(/usr/local/bin/qpdf --completion-zsh)
+if [[ -e /usr/local/bin/qpdf ]]; then
+  eval $(/usr/local/bin/qpdf --completion-zsh)
+fi
 
 # for config_file (~/.zsh/lib/*.zsh); do
 #   # echo source $config_file
