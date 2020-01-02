@@ -8,7 +8,7 @@ tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-prev
 {{ end -}}
 tap 'twpayne/taps'
 
-cask '1password-cli'
+# cask '1password-cli'
 {{ if .work -}}
 cask 'adoptopenjdk'
 {{ end -}}
@@ -34,7 +34,7 @@ brew 'black'
 cask 'blockblock'
 {{ end -}}
 brew 'bumpversion'
-brew 'cfn-lint'
+# brew 'cfn-lint'
 brew 'chezmoi'
 cask 'chromium'
 brew 'ctags'
@@ -88,8 +88,12 @@ brew 'pre-commit'
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
+{{ if .work -}}
 brew 'quazip' # for keepassxc
+{{ end -}}
+{{ if .home -}}
 brew 'qpdf'
+{{ end -}}
 {{ if .home -}}
 # cask 'razer-synapse'
 {{ end -}}
