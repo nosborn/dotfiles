@@ -4,7 +4,7 @@ tap 'homebrew/cask-drivers'
 {{ end -}}
 tap 'homebrew/cask-fonts'
 {{ if .work -}}
-tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
+tap 'microsoft/mssql-preview', 'https://github.com/Microsoft/homebrew-mssql-release'
 {{ end -}}
 tap 'twpayne/taps'
 
@@ -78,11 +78,7 @@ cask 'logitech-gaming-software'
 brew 'm-cli'
 brew 'mas'
 {{ if .work -}}
-# brew 'msodbcsql'
-# brew 'msodbcsql17'
-# brew 'mssql-tools'
-brew 'msodbcsql@13.1.9.2'
-brew 'mssql-tools@14.0.6.0'
+brew 'mssql-tools'
 {{ end -}}
 brew 'nvim'
 brew 'p7zip'
