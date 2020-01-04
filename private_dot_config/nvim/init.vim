@@ -17,7 +17,6 @@ command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
-call minpac#add('chriskempson/base16-vim')
 call minpac#add('dag/vim-fish')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
@@ -33,6 +32,7 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
+call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('tpope/vim-commentary')
@@ -85,20 +85,20 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
-function! MyColorSchemeHighlights() abort
-  highlight Comment cterm=italic gui=italic
-  highlight SpellBad cterm=undercurl
-endfunction
+" function! MyColorSchemeHighlights() abort
+"   highlight Comment cterm=italic gui=italic
+"   highlight SpellBad cterm=undercurl
+" endfunction
 
-augroup MyColorScheme
-  autocmd!
-  autocmd ColorScheme * call MyColorSchemeHighlights()
-augroup END
+" augroup MyColorScheme
+"   autocmd!
+"   autocmd ColorScheme * call MyColorSchemeHighlights()
+" augroup END
 
-if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
-  let g:base16colorspace = 256
-endif
-colorscheme base16-pop
+" if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
+"   let g:base16colorspace = 256
+" endif
+colorscheme gruvbox
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
@@ -107,7 +107,7 @@ let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_detect_spelllang = 0
-let g:airline_theme = 'base16_pop'
+let g:airline_theme = 'gruvbox'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -143,6 +143,12 @@ let g:bash_is_sh = 1
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
+
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_improved_strings = 1
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_strings = 1
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
