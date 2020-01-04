@@ -71,7 +71,7 @@ set sidescrolloff=5
 set smartindent
 set spelllang=en_gb
 set tags^=./.git/tags;
-set updatetime=100
+" set updatetime=100
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUserTextEncoding,.DS_Store,.git/*,.idea/*,.terraform/*,bundle/*,node_modules/*,vendor/*
 
 inoremap <C-U> <C-G>u<C-U>
