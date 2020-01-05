@@ -111,7 +111,7 @@ let g:airline_theme = 'gruvbox'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-      \   'javascript': ['prettier'],
+      \   'javascript': ['eslint'],
       \   'json': ['prettier'],
       \   'python': ['black'],
       \   'sh': ['shfmt'],
