@@ -26,7 +26,7 @@ cdpath=( "${HOME}/src/github.com/{{ .github.user }}" $cdpath )
 cdpath=( ~ ~/src/github.com/corda $cdpath )
 {{ end -}}
 cdpath=( . $cdpath )
-fpath=( /usr/local/share/zsh-completions $fpath )
+fpath=( ~/.local/share/zsh-completions /usr/local/share/zsh-completions $fpath )
 path=( ~/bin /usr/local/sbin $path )
 
 autoload -U colors
