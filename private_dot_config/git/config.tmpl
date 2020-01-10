@@ -30,17 +30,17 @@
 [core]
 	autocrlf = input
 #	hooksPath = ~/.config/git/hooks
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
-{{ end -}}
-{{ if eq .chezmoi.os "darwin" -}}
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
 	trustctime = false ; play nicely with revisiond
-{{ end -}}
+{{- end }}
 
 [credential]
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 	helper = osxkeychain
-{{ end -}}
+{{- end }}
 
 [diff]
 	algorithm = minimal
@@ -72,9 +72,9 @@
 	pruneTags = true
 
 [gpg]
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 	program = /usr/local/MacGPG2/bin/gpg2
-{{ end -}}
+{{- end }}
 
 [github]
 	user = {{ .github.user }}
@@ -83,9 +83,9 @@
 	date = human
 
 [merge]
-{{ if not .work -}}
+{{- if not .work -}}
 	ff = only
-{{ end -}}
+{{- end -}}
 
 [pager]
 	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
