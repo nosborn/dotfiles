@@ -1,0 +1,5 @@
+send-metrics=false
+update-notifier=false
+{{- if .npm.auth_token }}
+//registry.npmjs.org/:_authToken={{ .npm.auth_token }}
+{{- end }}

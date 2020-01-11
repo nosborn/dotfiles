@@ -1,16 +1,16 @@
 [commit]
-{{ if .home -}}
+{{- if .home }}
 	gpgsign = true
 {{- end }}
 
 [tag]
-{{ if .home -}}
+{{- if .home }}
 	forceSignAnnotated = true
 {{- end }}
 
 [user]
 	email = nosborn@users.noreply.github.com
-{{ if .home -}}
+{{- if .home }}
 	signingkey = 4C036A880B354B36
 {{- end }}
 
