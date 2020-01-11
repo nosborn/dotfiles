@@ -13,7 +13,6 @@ tap 'twpayne/taps'
 cask 'adoptopenjdk'
 {{ end -}}
 cask 'aerial'
-cask 'alacritty'
 {{ if not .work -}}
 brew 'ansible'
 brew 'ansible-lint'
@@ -22,7 +21,7 @@ brew 'ansible-lint'
 # cask 'aws-vault'
 brew 'awscli'
 # brew 'awslogs'
-# brew 'azure-cli'
+brew 'azure-cli'
 {{ if .home -}}
 brew 'b2-tools'
 {{ end -}}
@@ -46,7 +45,7 @@ brew 'exiftool'
 brew 'findutils'
 cask 'font-input'
 {{ if .home -}}
-cask 'ftdi-vcp-driver'
+# cask 'ftdi-vcp-driver'
 {{ end -}}
 brew 'fzf'
 brew 'git'
@@ -85,6 +84,9 @@ brew 'mssql-tools'
 brew 'nvim'
 brew 'openconnect'
 brew 'p7zip'
+{{ if .home -}}
+cask 'philips-hue-sync'
+{{ end -}}
 brew 'pre-commit'
 brew 'prettier'
 brew 'pstree'
