@@ -18,8 +18,8 @@ fi
 brew bundle --global
 
 # Fix Python 3 on macOS 10.15.
-for dylib in libcrypto.dylib libssl.dylib; do
-  [ -e "$(brew --prefix openssl)/lib/${dylib}" ] || continue
-  [ -e "$(brew --prefix)/lib/${dylib}" ] && continue
-  ln -s "$(brew --prefix openssl)/lib/${dylib}" "$(brew --prefix)/lib/${dylib}"
-done
+# for dylib in libcrypto.dylib libssl.dylib; do
+#   [ -e "$(brew --prefix openssl)/lib/${dylib}" ] || continue
+#   [ -e "$(brew --prefix)/lib/${dylib}" ] && continue
+#   ln -s "$(brew --prefix openssl)/lib/${dylib}" "$(brew --prefix)/lib/${dylib}"
+# done
