@@ -110,6 +110,9 @@ avdiffs() {
   command diff -dy -W${COLUMNS} --suppress-common-lines =(ansible-vault view "$1") =(ansible-vault view "$2")
 }
 
+if (( $+commands[kitty] )); then
+  kitty +complete setup zsh | source /dev/stdin
+fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
 fi
