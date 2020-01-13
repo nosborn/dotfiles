@@ -29,6 +29,9 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
+{{- if .home }}
+call minpac#add('jonrad/vim-hu-hue')
+{{- end }}
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
