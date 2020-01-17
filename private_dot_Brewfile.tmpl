@@ -109,6 +109,9 @@ cask 'shiba'
 cask 'slack'
 {{ end -}}
 cask 'spectacle'
+{{ if .home -}}
+cask 'stellarium'
+{{ end -}}
 brew 'telnet'
 brew 'terraform'
 brew 'terraform-docs'
