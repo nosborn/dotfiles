@@ -11,5 +11,6 @@ if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
     ansible \
     ansible-lint \
     datadog \
-    jinja2
+    jinja2 \
+    packaging
 fi
