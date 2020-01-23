@@ -8,3 +8,5 @@ set -o nounset
 if [ -d ~/bin ]; then
   SetFile -a V ~/bin
 fi
+
+cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* /Library/Fonts/
