@@ -1,4 +1,7 @@
 .atom/
+.azure/logs/telemetry.log
+.azure/telemetry.txt
+.azure/telemetry/
 .config/alacritty
 .config/fish
 .config/flake8
@@ -7,7 +10,6 @@
 .config/pep8
 .config/wireshark/
 .gradle/
-.local/bin/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
 .pylint.d/
@@ -15,6 +17,6 @@
 .zlogin
 .zlogout
 .zprofile
-Library/Preferences/com.jetbrains.intellij.ce.plist
 Library/Preferences/com.github.atom.plist
+Library/Preferences/com.jetbrains.intellij.ce.plist
 bin/kitty
