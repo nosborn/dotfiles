@@ -10,3 +10,5 @@ if [ -d ~/bin ]; then
 fi
 
 cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* /Library/Fonts/
+
+defaults write -app Rectangle launchOnLogin -int 1

@@ -81,6 +81,9 @@ cask 'logitech-gaming-software'
 {{ end -}}
 brew 'm-cli'
 brew 'mas'
+{{ if .home -}}
+brew 'mitmproxy'
+{{ end -}}
 {{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
