@@ -9,6 +9,9 @@ if [ -d ~/bin ]; then
   SetFile -a V ~/bin
 fi
 
-cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* /Library/Fonts/
+cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* \
+  /Library/Fonts/
 
-defaults write -app Rectangle launchOnLogin -int 1
+# defaults write -app Rectangle alternateDefaultShortcuts -bool true
+defaults write -app Rectangle launchOnLogin -bool true
+# defaults write -app Rectangle subsequentExecutionMode -int 2
