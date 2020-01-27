@@ -57,7 +57,7 @@ endif
 
 map Q <Nop>
 
-if has('nvim')
+if !has('nvim')
   set autoindent
   set autoread
   set background=dark
@@ -67,7 +67,7 @@ if has('nvim')
   set cscopeverbose
 endif
 set cursorline
-if has('nvim')
+if !has('nvim')
   set display+=lastline
   set fillchars=vert:│,fold:·
   set formatoptions+=j
@@ -75,7 +75,7 @@ if has('nvim')
   set hlsearch
 endif
 set ignorecase
-if has('nvim')
+if !has('nvim')
   set incsearch
   set langnoremap
   set laststatus=2
