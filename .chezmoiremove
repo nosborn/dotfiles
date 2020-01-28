@@ -2,12 +2,12 @@
 .azure/logs/telemetry.log
 .azure/telemetry.txt
 .azure/telemetry/
-.config/alacritty
-.config/fish
-.config/flake8
+.config/alacritty/
+.config/fish/
+.config/flake8/
 .config/git/hooks/prepare-commit-msg
 .config/liquidpromptrc
-.config/pep8
+.config/pep8/
 .config/wireshark/
 .gradle/
 .npm/anonymous-cli-metrics.json
