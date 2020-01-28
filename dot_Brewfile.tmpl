@@ -86,6 +86,9 @@ brew 'mitmproxy'
 {{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
+{{ if .work -}}
+mysql-client
+{{ end -}}
 brew 'nvim'
 brew 'openconnect'
 brew 'p7zip'
