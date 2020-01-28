@@ -17,6 +17,43 @@
 .zlogin
 .zlogout
 .zprofile
+Library/Application Support/Atom/
+Library/Application Support/Google/
+Library/Application Support/Pock/
+Library/Application Support/Spectacle/
+Library/Application Support/Shiba/
+Library/Application Support/com.pigigaldi.pock/
+Library/Application Support/gitify/
+Library/Application Support/kotlin/
+Library/Application Support/marktext/
+Library/Caches/com.crashlytics.data/
+Library/Caches/com.divisiblebyzero.Spectacle/
+Library/Caches/com.electron.shiba/
+Library/Caches/com.github.atom/
+Library/Caches/com.github.atom.ShipIt/
+Library/Caches/com.google.Keystone/
+Library/Caches/com.google.SoftwareUpdate/
+Library/Caches/com.matryer.BitBar/
+Library/Caches/com.northnumber.Bodo/
+Library/Caches/com.pigigaldi.pock/
+Library/Caches/com.plausiblelabs.crashreporter.data/
+Library/Caches/com.qvacua.VimR/
+Library/Caches/fish/
+Library/Caches/org.vim.MacVim/
+Library/LaunchAgents/com.github.facebook.watchman.plist
+Library/Preferences/com.divisiblebyzero.Spectacle.plist
+Library/Preferences/com.electron.gitify.helper.plist
+Library/Preferences/com.electron.gitify.plist
+Library/Preferences/com.electron.shiba.helper.plist
+Library/Preferences/com.electron.shiba.plist
 Library/Preferences/com.github.atom.plist
+Library/Preferences/com.github.marktext.marktext.plist
+Library/Preferences/com.google.Chrome.plist
+Library/Preferences/com.google.Keystone.Agent.plist
 Library/Preferences/com.jetbrains.intellij.ce.plist
+Library/Preferences/com.matryer.BitBar.plist
+Library/Preferences/com.pigigaldi.pock.plist
+Library/Preferences/com.qvacua.VimR.menuitems.plist
+Library/Preferences/com.qvacua.VimR.plist
+Library/Preferences/org.vim.MacVim.plist
 bin/kitty
