@@ -29,6 +29,7 @@
 
 [core]
 	autocrlf = input
+	editor = vim
 #	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
@@ -105,6 +106,9 @@
 
 [rerere]
 	enabled = true
+
+[sequence]
+	editor = interactive-rebase-tool
 
 ; [status]
 ;	showUntrackedFiles = all
