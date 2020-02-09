@@ -32,7 +32,7 @@ call minpac#add('iamcco/markdown-preview.nvim', {
 call minpac#add('jonrad/vim-hi-hue')
 {{- end }}
 call minpac#add('juliosueiras/vim-terraform-completion')
-" call minpac#add('junegunn/fzf.vim')
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
@@ -81,9 +81,9 @@ set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,.CFUs
 
 inoremap <C-U> <C-G>u<C-U>
 
-" if executable('fzf')
-"   set runtimepath+=/usr/local/opt/fzf
-" endif
+if executable('fzf')
+  set runtimepath+=/usr/local/opt/fzf
+endif
 
 if executable('rg')
   set grepprg=rg\ --vimgrep
