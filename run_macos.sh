@@ -12,6 +12,17 @@ fi
 cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* \
   /Library/Fonts/
 
+defaults write -app BitBar SUSendProfileInfo -bool false
+defaults write -app BitBar pluginsDirectory "${HOME}/.local/libexec/bitbar"
+
 # defaults write -app Rectangle alternateDefaultShortcuts -bool true
 defaults write -app Rectangle launchOnLogin -bool true
 # defaults write -app Rectangle subsequentExecutionMode -int 2
+
+readonly username=$(id -un)
+sudo tee /etc/sudoers.d/${username}-openconnect >/dev/null <<EOF
+${username} ALL=(ALL) NOPASSWD: /usr/bin/killall openconnect
+${username} ALL=(ALL) NOPASSWD: /usr/local/bin/openconnect
+EOF
+sudo chown root:wheel /etc/sudoers.d/${username}-openconnect
+sudo chmod 0440 /etc/sudoers.d/${username}-openconnect
