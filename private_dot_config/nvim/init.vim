@@ -1,13 +1,12 @@
-set encoding=utf-8
 scriptencoding=utf-8
 
 if &shell =~# 'fish$'
   set shell=/usr/bin/env\ bash
 endif
 
-if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
+if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.vim/pack/minpac/opt/minpac
+        \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
 
 packadd minpac
@@ -29,9 +28,6 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
-{{- if .home }}
-call minpac#add('jonrad/vim-hi-hue')
-{{- end }}
 call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
@@ -57,82 +53,30 @@ endif
 
 map Q <Nop>
 
-if !has('nvim')
-  set autoindent
-  set autoread
-  set background=dark
-  set backspace=indent,eol,start
-  set belloff=all
-  set complete-=i
-  set cscopeverbose
-endif
 set cursorline
-if !has('nvim')
-  set display+=lastline
-  set fillchars=vert:│,fold:·
-  set formatoptions+=j
-  set history=1000
-  set hlsearch
-endif
 set ignorecase
-if !has('nvim')
-  set incsearch
-  set langnoremap
-  set laststatus=2
-endif
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
-if !has('nvim')
-  set mouse=a
-endif
 set nobackup
 set noerrorbells
-if !has('nvim')
-  set nofsync
-endif
-set nolangremap
 set noshowcmd
 set noshowmode
 set nospell
-if !has('nvim')
-  set nostartofline
-endif
 set noswapfile
 set nowrap
 set nowritebackup
-if !has('nvim')
-  set nrformats-=octal
-endif
 set number
-set ruler
 set path=$PWD/**
 set scrolloff=2
-set shortmess+=FI
+set shortmess+=I
 set showmatch
 set sidescrolloff=5
-set smarttab
+set smartindent
 set spelllang=en_gb
-if !has('nvim')
-  set tabpagemax=50
-endif
 set tags^=./.git/tags;
-set ttimeout
-set ttimeoutlen=50
-set undodir=~/.vim/undo
-set updatetime=100
-set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
-set wildmenu
 
 inoremap <C-U> <C-G>u<C-U>
-
-syntax on
-filetype plugin indent on
-
-if !exists(':DiffOrig')
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
 
 if executable('fzf')
   set runtimepath+=/usr/local/opt/fzf
@@ -156,7 +100,6 @@ endif
 " if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
 "   let g:base16colorspace = 256
 " endif
-
 colorscheme gruvbox
 
 let g:airline#extensions#ale#enabled = 1
@@ -213,10 +156,8 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
-if has('nvim')
-  let g:loaded_python_provider = 0
-  let g:loaded_ruby_provider = 0
-endif
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
 
 let g:markdown_fenced_languages = [
       \   'bash=sh',
@@ -239,10 +180,8 @@ let g:netrw_bufsettings = 'relativenumber,number'
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
 
-if has('nvim')
-  let g:node_host_prog = '/usr/local/bin/node'
-  let g:python3_host_prog = '/usr/local/bin/python3'
-endif
+let g:node_host_prog = '/usr/local/bin/node'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0
 
