@@ -86,8 +86,8 @@ precmd_functions+=( vpn_info )
 RPROMPT+='${vpn_info_msg_0_}'
 
 export CLICOLOR=1
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR=nvim
+export VISUAL=nvim
 
 if (( $+commands[lesspipe.sh] )); then
   export LESSOPEN="|$commands[lesspipe.sh] %s"
@@ -98,7 +98,8 @@ alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
 alias tfdiff='command diff -dNry -W${COLUMNS} -x .terraform -x \*.rules.tf -x \*.tfstate -x \*.tfstate.\*'
 alias tfdiffs='tfdiff --suppress-common-lines'
-alias vi='vim'
+alias vi=vim
+alias vim='command nvim'
 
 avdiff() {
   [[ $# -eq 2 ]] || { echo "Usage: $0 FILENAME FILENAME" >&2; exit 1 }

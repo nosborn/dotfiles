@@ -1,9 +1,5 @@
 scriptencoding=utf-8
 
-if &shell =~# 'fish$'
-  set shell=/usr/bin/env\ bash
-endif
-
 if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
         \ ~/.config/nvim/pack/minpac/opt/minpac
@@ -17,7 +13,6 @@ command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
-call minpac#add('dag/vim-fish')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
 call minpac#add('direnv/direnv.vim')
@@ -180,7 +175,7 @@ let g:netrw_bufsettings = 'relativenumber,number'
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
 
-let g:node_host_prog = '/usr/local/bin/node'
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0

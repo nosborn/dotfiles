@@ -13,7 +13,8 @@
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
 .pylint.d/
-.vim/gvimrc
+.vim/
+.vscode/
 .zlogin
 .zlogout
 .zprofile
