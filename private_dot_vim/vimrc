@@ -1,8 +1,9 @@
+set encoding=utf-8
 scriptencoding=utf-8
 
-if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
+if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.config/nvim/pack/minpac/opt/minpac
+        \ ~/.vim/pack/minpac/opt/minpac
 endif
 
 packadd minpac
@@ -28,6 +29,7 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
+call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('majutsushi/tagbar')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
@@ -48,30 +50,64 @@ endif
 
 map Q <Nop>
 
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set belloff=all
+set completeopt+=menuone,noinsert
 set cursorline
+set display+=lastline
+set fillchars=vert:│,fold:·
+set formatoptions+=j
+set history=1000
+set hlsearch
 set ignorecase
+set incsearch
+set langnoremap
+set laststatus=2
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
+set mouse=a
 set nobackup
 set noerrorbells
+set nolangremap
 set noshowcmd
 set noshowmode
 set nospell
+set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
+set nrformats-=octal
 set number
+set ruler
 set path=$PWD/**
 set scrolloff=2
-set shortmess+=I
+set shortmess+=cFI
 set showmatch
 set sidescrolloff=5
-set smartindent
+set smarttab
 set spelllang=en_gb
+set tabpagemax=50
 set tags^=./.git/tags;
+set ttimeout
+set ttimeoutlen=50
+set undodir=~/.vim/undo
+set updatetime=100
+set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
+set wildmenu
 
 inoremap <C-U> <C-G>u<C-U>
+
+syntax on
+filetype plugin indent on
+
+if !exists(':DiffOrig')
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
 
 if executable('fzf')
   set runtimepath+=/usr/local/opt/fzf
@@ -95,6 +131,7 @@ endif
 " if $TERM ==# 'alacritty' || $TERM ==# 'xterm-kitty'
 "   let g:base16colorspace = 256
 " endif
+
 colorscheme gruvbox
 
 let g:airline#extensions#ale#enabled = 1
@@ -151,9 +188,6 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
-let g:loaded_python_provider = 0
-let g:loaded_ruby_provider = 0
-
 let g:markdown_fenced_languages = [
       \   'bash=sh',
       \   'gitconfig',
@@ -169,14 +203,14 @@ let g:markdown_syntax_conceal = 0
 let g:mkdp_browser = 'Chromium'
 " let g:mkdp_markdown_css = ''
 
+let g:mucomplete#completion_delay = 1
+let g:mucomplete#enable_auto_at_startup = 1
+
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
-
-let g:node_host_prog = '/usr/local/bin/neovim-node-host'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0
 
@@ -236,7 +270,6 @@ nmap ]a :ALENextWrap<CR>
 nmap ]c <Plug>(GitGutterNextHunk)
 nmap [c <Plug>(GitGutterPrevHunk)
 
-" nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
 " vim: ft=vim
