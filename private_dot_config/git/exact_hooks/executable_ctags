@@ -6,5 +6,5 @@ readonly dir="$(git rev-parse --git-dir)"
 readonly tags="${dir?}/tags"
 
 trap 'rm -f "${tags}.$$"' EXIT
-git ls-files | ctags -f "${tags}.$$" -L - --tag-relative
+git ls-files | ctags -f "${tags}.$$" -L - --guess-language-eagerly --tag-relative
 mv -f "${tags}.$$" "${tags}"
