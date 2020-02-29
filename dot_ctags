@@ -1,9 +1,9 @@
---langdef=ansible
---langmap=ansible:.yml
+--langdef=Ansible
+--langmap=Ansible:.yaml.yml
 --regex-ansible=/^\s*- name:(.*)/\1/t,task/
 
---langdef=terraform
---langmap=terraform:.tf.tfvars
+--langdef=Terraform
+--langmap=Terraform:.tf.tfvars
 --regex-terraform=/^[[:space:]]*data[[:space:]]*"([^"]*)"[[:space:]]*"([^"]*)"/\1.\2/d,Data/
 --regex-terraform=/^[[:space:]]*module[[:space:]]*"([^"]*)"/\1/m,Module/
 --regex-terraform=/^[[:space:]]*output[[:space:]]*"([^"]*)"/\1/o,Output/

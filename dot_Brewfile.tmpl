@@ -7,6 +7,7 @@ tap 'homebrew/cask-fonts'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 {{ end -}}
 tap 'twpayne/taps'
+tap 'universal-ctags/universal-ctags'
 
 # cask '1password-cli'
 {{ if .work -}}
@@ -38,7 +39,6 @@ brew 'bumpversion'
 # brew 'cfn-lint'
 brew 'chezmoi'
 cask 'chromium'
-brew 'ctags'
 brew 'direnv'
 cask 'docker'
 brew 'eslint'
@@ -126,12 +126,14 @@ brew 'terraform'
 brew 'terraform-docs'
 brew 'tflint'
 brew 'tig'
+brew 'universal-ctags', args: ['HEAD']
 {{ if .work -}}
 brew 'unixodbc'  # for msodbcsql*
 {{ end -}}
 cask 'vagrant'
 brew 'vim'
 cask 'virtualbox'
+brew 'wget'
 brew 'yamllint'
 # brew 'yank'
 brew 'yarn'
