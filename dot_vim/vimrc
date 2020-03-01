@@ -117,30 +117,35 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
-" function! MyColorSchemeHighlights() abort
-"   highlight Comment cterm=italic gui=italic
-"   highlight SpellBad cterm=undercurl
-" endfunction
+function! MyColorSchemeHighlights() abort
+  " highlight Comment cterm=italic gui=italic
+  highlight SpellBad cterm=undercurl
+endfunction
 
-" augroup MyColorScheme
-"   autocmd!
-"   autocmd ColorScheme * call MyColorSchemeHighlights()
-" augroup END
+augroup MyColorScheme
+  autocmd!
+  autocmd ColorScheme * call MyColorSchemeHighlights()
+augroup END
 
 " if $TERM ==# 'xterm-kitty'
 "   let g:base16colorspace = 256
 " endif
 
+let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_improved_strings = 1
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_italic = 1
+" let g:gruvbox_italicize_strings = 1
 colorscheme gruvbox
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_detect_spelllang = 0
@@ -178,14 +183,10 @@ let g:ansible_template_syntaxes = {
 
 let g:bash_is_sh = 1
 
+let g:direnv_cmd = '/usr/local/bin/direnv'
+
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
-
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_improved_strings = 1
-let g:gruvbox_improved_warnings = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_italicize_strings = 1
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
