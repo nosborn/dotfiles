@@ -24,12 +24,12 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
-call minpac#add('juliosueiras/vim-terraform-completion')
+" call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
-call minpac#add('lifepillar/vim-mucomplete')
+" call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('majutsushi/tagbar')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')

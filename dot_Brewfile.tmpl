@@ -133,6 +133,9 @@ brew 'unixodbc'  # for msodbcsql*
 cask 'vagrant'
 brew 'vim'
 cask 'virtualbox'
+{{ if .work -}}
+cask 'webex-meetings'
+{{ end -}}
 brew 'wget'
 brew 'yamllint'
 # brew 'yank'
