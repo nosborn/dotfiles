@@ -1,0 +1,547 @@
+#!/bin/sh
+#
+# Originally part of vpnc source code:
+# © 2005-2012 Maurice Massar, Jörg Mayer, Antonio Borneo et al.
+# © 2009-2012 David Woodhouse <dwmw2@infradead.org>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+#
+################
+#
+# List of parameters passed through environment
+#* reason                       -- why this script was called, one of: pre-init connect disconnect reconnect attempt-reconnect
+#* VPNGATEWAY                   -- vpn gateway address (always present)
+#* TUNDEV                       -- tunnel device (always present)
+#* INTERNAL_IP4_ADDRESS         -- address (always present)
+#* INTERNAL_IP4_MTU             -- mtu (often unset)
+#* INTERNAL_IP4_NETMASK         -- netmask (often unset)
+#* INTERNAL_IP4_NETMASKLEN      -- netmask length (often unset)
+#* INTERNAL_IP4_NETADDR         -- address of network (only present if netmask is set)
+#* INTERNAL_IP4_DNS             -- list of dns servers
+#* INTERNAL_IP4_NBNS            -- list of wins servers
+#* INTERNAL_IP6_ADDRESS         -- IPv6 address
+#* INTERNAL_IP6_NETMASK         -- IPv6 netmask
+#* INTERNAL_IP6_DNS             -- IPv6 list of dns servers
+#* CISCO_DEF_DOMAIN             -- default domain name
+#* CISCO_BANNER                 -- banner from server
+#* CISCO_SPLIT_INC              -- number of networks in split-network-list
+#* CISCO_SPLIT_INC_%d_ADDR      -- network address
+#* CISCO_SPLIT_INC_%d_MASK      -- subnet mask (for example: 255.255.255.0)
+#* CISCO_SPLIT_INC_%d_MASKLEN   -- subnet masklen (for example: 24)
+#* CISCO_SPLIT_INC_%d_PROTOCOL  -- protocol (often just 0)
+#* CISCO_SPLIT_INC_%d_SPORT     -- source port (often just 0)
+#* CISCO_SPLIT_INC_%d_DPORT     -- destination port (often just 0)
+#* CISCO_IPV6_SPLIT_INC         -- number of networks in IPv6 split-network-list
+#* CISCO_IPV6_SPLIT_INC_%d_ADDR -- IPv6 network address
+#* CISCO_IPV6_SPLIT_INC_$%d_MASKLEN -- IPv6 subnet masklen
+
+# FIXMEs:
+
+# Section A: route handling
+
+# 1) The 3 values CISCO_SPLIT_INC_%d_PROTOCOL/SPORT/DPORT are currently being ignored
+#   In order to use them, we'll probably need os specific solutions
+#   * Linux: iptables -t mangle -I PREROUTING <conditions> -j ROUTE --oif $TUNDEV
+#       This would be an *alternative* to changing the routes (and thus 2) and 3)
+#       shouldn't be relevant at all)
+# 2) There are two different functions to set routes: generic routes and the
+#   default route. Why isn't the defaultroute handled via the generic route case?
+# 3) In the split tunnel case, all routes but the default route might get replaced
+#   without getting restored later. We should explicitely check and save them just
+#   like the defaultroute
+# 4) Replies to a dhcp-server should never be sent into the tunnel
+
+# Section B: Split DNS handling
+
+# 1) Maybe dnsmasq can do something like that
+# 2) Parse dns packets going out via tunnel and redirect them to original dns-server
+
+#env | sort
+#set -x
+
+# =========== script (variable) setup ====================================
+
+PATH=/sbin:/usr/sbin:$PATH
+
+OS="$(uname -s)"
+
+readonly HOOKS_DIR="${HOME}/.local/etc/vpnc"
+
+# some systems, eg. Darwin & FreeBSD, prune /var/run on boot
+if [ ! -d "/var/run/vpnc" ]; then
+  mkdir -p /var/run/vpnc
+fi
+
+# =========== script hooks =================================================
+
+run_hooks() {
+  HOOK="$1"
+
+  if [ -d "${HOOKS_DIR}/${HOOK}.d" ]; then
+    for script in "${HOOKS_DIR}/${HOOK}.d"/*; do
+      # shellcheck disable=SC1090
+      [ -f "${script}" ] && . "${script}"
+    done
+  fi
+}
+
+# =========== tunnel interface handling ====================================
+
+do_ifconfig() {
+  if [ -n "${INTERNAL_IP4_MTU}" ]; then
+    MTU="${INTERNAL_IP4_MTU}"
+  fi
+
+  if [ -z "${MTU}" ]; then
+    MTU=1412
+  fi
+
+  # Point to point interface require a netmask of 255.255.255.255 on some
+  # systems.
+  ifconfig "${TUNDEV}" inet "${INTERNAL_IP4_ADDRESS}" "${INTERNAL_IP4_ADDRESS}" netmask 255.255.255.255 mtu ${MTU} up
+
+  # shellcheck disable=SC2153
+  if [ -n "${INTERNAL_IP4_NETMASK}" ]; then
+    set_network_route "${INTERNAL_IP4_NETADDR}" "${INTERNAL_IP4_NETMASK}" "${INTERNAL_IP4_NETMASKLEN}" "${TUNDEV}"
+  fi
+
+  # If the netmask is provided, it contains the address _and_ netmask.
+  if [ -n "${INTERNAL_IP6_ADDRESS}" ] && [ -z "${INTERNAL_IP6_NETMASK}" ]; then
+    INTERNAL_IP6_NETMASK="${INTERNAL_IP6_ADDRESS}/128"
+  fi
+  if [ -n "${INTERNAL_IP6_NETMASK}" ]; then
+    # Unlike for Legacy IP, we don't specify the dest_address here on *BSD.
+    # OpenBSD for one will refuse to accept incoming packets to that address if
+    # we do. OpenVPN does the same (gives dest_address for Legacy IP but not
+    # for IPv6).
+    ifconfig "${TUNDEV}" inet6 "${INTERNAL_IP6_NETMASK}" mtu "${MTU}" up
+  fi
+}
+
+destroy_tun_device() {
+  case "$OS" in
+    NetBSD | OpenBSD) # and probably others...
+      ifconfig "${TUNDEV}" destroy
+      ;;
+    FreeBSD)
+      ifconfig "${TUNDEV}" destroy >/dev/null 2>&1 &
+      ;;
+  esac
+}
+
+# =========== route handling ====================================
+
+get_default_gw() {
+  netstat -r -n -f inet | awk '$1=="default" {print $2}'
+}
+
+set_default_route() {
+  route -nv add -net 0/1 "${INTERNAL_IP4_ADDRESS}"
+  route -nv add -net 128/1 "${INTERNAL_IP4_ADDRESS}"
+}
+
+set_network_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  NETMASKLEN="$3"
+  if [ -n "$5" ]; then
+    NETGW="$5"
+  else
+    NETGW="${INTERNAL_IP4_ADDRESS}"
+  fi
+  route -nv add -net "${NETWORK}" -netmask "${NETMASK}" "${NETGW}"
+}
+
+set_exclude_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  NETMASKLEN="$3"
+  if [ -z "${DEFAULTGW}" ]; then
+    DEFAULTGW="$(get_default_gw)"
+  fi
+  # Add explicit route to keep traffic for this target separate
+  # from tunnel. FIXME: We use default gateway - this is our best
+  # guess in absence of "ip" command to query effective route.
+  route add -net "${NETWORK}" -netmask "${NETMASK}" "${DEFAULTGW}"
+}
+
+del_exclude_route() {
+  # FIXME: This can delete existing routes in case they're
+  # identical to split-exclude routes specified by VPNGATEWAY
+  NETWORK="$1"
+  NETMASK="$2"
+  NETMASKLEN="$3"
+  route delete -net "${NETWORK}" -netmask "${NETMASK}"
+}
+
+reset_default_route() {
+  route -nv delete -net 128/1 "${INTERNAL_IP4_ADDRESS}"
+  route -nv delete -net 0/1 "${INTERNAL_IP4_ADDRESS}"
+}
+
+del_network_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  NETMASKLEN="$3"
+  if [ -n "$5" ]; then
+    NETGW="$5"
+  else
+    NETGW="${INTERNAL_IP4_ADDRESS}"
+  fi
+  route delete -net "${NETWORK}" -netmask "${NETMASK}" "${NETGW}"
+}
+
+set_ipv6_default_route() {
+  route add -inet6 default "${INTERNAL_IP6_ADDRESS}"
+}
+
+set_ipv6_network_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  if [ -n "$4" ]; then
+    NETGW="$4"
+  else
+    NETGW="${INTERNAL_IP6_ADDRESS}"
+  fi
+
+  route add -inet6 -net "${NETWORK}/${NETMASK}" "${NETGW}"
+}
+
+set_ipv6_exclude_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  # Add explicit route to keep traffic for this target separate from tunnel.
+  # FIXME: We use default gateway - this is our best guess in absence of "ip"
+  # command to query effective route.
+  route add -inet6 -net "${NETWORK}/${NETMASK}" "$(get_default_gw)"
+}
+
+reset_ipv6_default_route() {
+  route delete -inet6 default "${INTERNAL_IP6_ADDRESS}"
+}
+
+del_ipv6_network_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  if [ -n "$4" ]; then
+    NETGW="$4"
+  else
+    NETGW="${INTERNAL_IP6_ADDRESS}"
+  fi
+  route delete -inet6 "${NETWORK}/${NETMASK}" "${NETGW}"
+}
+
+del_ipv6_exclude_route() {
+  NETWORK="$1"
+  NETMASK="$2"
+  route delete -inet6 "${NETWORK}/${NETMASK}"
+}
+
+# =========== resolv.conf handling ====================================
+
+# =========== resolv.conf handling for any OS =========================
+
+modify_resolvconf_generic() {
+  OVERRIDE_PRIMARY=""
+  if [ -n "${CISCO_SPLIT_INC}" ]; then
+    if [ "${CISCO_SPLIT_INC}" -lt 1 ]; then
+      # Must override for correct default route.
+      # Cannot use multiple DNS matching in this case
+      OVERRIDE_PRIMARY='d.add OverridePrimary # 1'
+    fi
+    # Overriding the default gateway breaks split routing
+    OVERRIDE_GATEWAY=""
+    # Not overriding the default gateway breaks usage of
+    # INTERNAL_IP4_DNS. Prepend INTERNAL_IP4_DNS to list
+    # of used DNS servers
+    SERVICE=$(echo "show State:/Network/Global/IPv4" | scutil | grep -oE '[a-fA-F0-9]{8}-([a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12}')
+    SERVICE_DNS=$(echo "show State:/Network/Service/$SERVICE/DNS" | scutil | grep -oE '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | xargs)
+    if [ "${SERVICE_DNS}" != "${INTERNAL_IP4_DNS}" ]; then
+      scutil >/dev/null 2>&1 <<EOF
+open
+get State:/Network/Service/$SERVICE/DNS
+d.add ServerAddresses * $INTERNAL_IP4_DNS $SERVICE_DNS
+set State:/Network/Service/$SERVICE/DNS
+close
+EOF
+    fi
+  else
+    ## No split routing. Override default gateway
+    #OVERRIDE_GATEWAY="d.add Router $INTERNAL_IP4_ADDRESS"
+    OVERRIDE_GATEWAY=""
+  fi
+  # Uncomment the following if/fi pair to use multiple
+  # DNS matching when available.  When multiple DNS matching
+  # is present, anything reading the /etc/resolv.conf file
+  # directly will probably not work as intended.
+  #if [ -z "$CISCO_DEF_DOMAIN" ]; then
+  # Cannot use multiple DNS matching without a domain
+  OVERRIDE_PRIMARY='d.add OverridePrimary # 1'
+  #fi
+  scutil >/dev/null 2>&1 <<EOF
+open
+d.init
+d.add ServerAddresses * ${INTERNAL_IP4_DNS}
+set State:/Network/Service/${TUNDEV}/DNS
+d.init
+$OVERRIDE_GATEWAY
+d.add Addresses * $INTERNAL_IP4_ADDRESS
+d.add SubnetMasks * 255.255.255.255
+d.add InterfaceName $TUNDEV
+$OVERRIDE_PRIMARY
+set State:/Network/Service/$TUNDEV/IPv4
+close
+EOF
+  if [ -n "${CISCO_DEF_DOMAIN}" ]; then
+    scutil >/dev/null 2>&1 <<EOF
+open
+get State:/Network/Service/$TUNDEV/DNS
+d.add DomainName $CISCO_DEF_DOMAIN
+d.add SearchDomains * $CISCO_DEF_DOMAIN
+d.add SupplementalMatchDomains * $CISCO_DEF_DOMAIN
+set State:/Network/Service/$TUNDEV/DNS
+close
+EOF
+  fi
+}
+
+restore_resolvconf_generic() {
+  scutil >/dev/null 2>&1 <<EOF
+open
+remove State:/Network/Service/${TUNDEV}/IPv4
+remove State:/Network/Service/${TUNDEV}/DNS
+close
+EOF
+  # Split routing required prepending of INTERNAL_IP4_DNS to list of used DNS
+  # servers.
+  if [ -n "${CISCO_SPLIT_INC}" ]; then
+    SERVICE=$(echo "show State:/Network/Global/IPv4" | scutil | grep -oE '[a-fA-F0-9]{8}-([a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12}')
+    SERVICE_DNS=$(echo "show State:/Network/Service/$SERVICE/DNS" | scutil | grep -oE '([0-9]{1,3}[\.]){3}[0-9]{1,3}' | xargs)
+    if [ "${SERVICE_DNS}" != "${INTERNAL_IP4_DNS}" ]; then
+      scutil >/dev/null 2>&1 <<EOF
+open
+get State:/Network/Service/${SERVICE}/DNS
+d.add ServerAddresses * ${SERVICE_DNS##${INTERNAL_IP4_DNS}}
+set State:/Network/Service/${SERVICE}/DNS
+close
+EOF
+    fi
+  fi
+}
+
+# ========= Toplevel state handling  =======================================
+
+do_pre_init() {
+  :
+}
+
+do_connect() {
+  if [ -n "${CISCO_BANNER}" ]; then
+    echo 'Connect Banner:'
+    printf '%s' "${CISCO_BANNER}" | while read -r LINE; do
+      printf '| %s\n' "${LINE}"
+    done
+    echo
+  fi
+
+  route add -host "${VPNGATEWAY}" "$(get_default_gw)"
+  do_ifconfig
+
+  if [ -n "$CISCO_SPLIT_EXC" ]; then
+    i=0
+    while [ $i -lt "$CISCO_SPLIT_EXC" ]; do
+      eval NETWORK="\${CISCO_SPLIT_EXC_${i}_ADDR}"
+      eval NETMASK="\${CISCO_SPLIT_EXC_${i}_MASK}"
+      eval NETMASKLEN="\${CISCO_SPLIT_EXC_${i}_MASKLEN}"
+      set_exclude_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+      i=$((i + 1))
+    done
+  fi
+  if [ -n "$CISCO_IPV6_SPLIT_EXC" ]; then
+    # untested
+    i=0
+    while [ $i -lt "$CISCO_IPV6_SPLIT_EXC" ]; do
+      eval NETWORK="\${CISCO_IPV6_SPLIT_EXC_${i}_ADDR}"
+      eval NETMASKLEN="\${CISCO_IPV6_SPLIT_EXC_${i}_MASKLEN}"
+      set_ipv6_exclude_route "$NETWORK" "$NETMASKLEN"
+      i=$((i + 1))
+    done
+  fi
+  if [ -n "$CISCO_SPLIT_INC" ]; then
+    i=0
+    while [ $i -lt "$CISCO_SPLIT_INC" ]; do
+      eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+      eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+      eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+      if [ "$NETWORK" != "0.0.0.0" ]; then
+        set_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN" "$TUNDEV"
+      else
+        set_default_route
+      fi
+      i=$((i + 1))
+    done
+    for i in $INTERNAL_IP4_DNS; do
+      echo "$i" | grep : >/dev/null ||
+        set_network_route "$i" "255.255.255.255" "32" "$TUNDEV"
+    done
+  elif [ -n "$INTERNAL_IP4_ADDRESS" ]; then
+    set_default_route
+  fi
+  if [ -n "$CISCO_IPV6_SPLIT_INC" ]; then
+    i=0
+    while [ $i -lt "$CISCO_IPV6_SPLIT_INC" ]; do
+      eval NETWORK="\${CISCO_IPV6_SPLIT_INC_${i}_ADDR}"
+      eval NETMASKLEN="\${CISCO_IPV6_SPLIT_INC_${i}_MASKLEN}"
+      if [ "$NETMASKLEN" -eq 0 ]; then
+        set_ipv6_default_route
+      else
+        set_ipv6_network_route "$NETWORK" "$NETMASKLEN" "$TUNDEV"
+      fi
+      i=$((i + 1))
+    done
+    for i in $INTERNAL_IP4_DNS; do
+      if echo "$i" | grep : >/dev/null; then
+        set_ipv6_network_route "$i" "128" "$TUNDEV"
+      fi
+    done
+  elif [ -n "$INTERNAL_IP6_NETMASK" ] || [ -n "$INTERNAL_IP6_ADDRESS" ]; then
+    set_ipv6_default_route
+  fi
+
+  if [ -n "${INTERNAL_IP4_DNS}" ]; then
+    modify_resolvconf_generic
+  fi
+}
+
+do_disconnect() {
+  if [ -n "$CISCO_SPLIT_INC" ]; then
+    i=0
+    while [ $i -lt "$CISCO_SPLIT_INC" ]; do
+      eval NETWORK="\${CISCO_SPLIT_INC_${i}_ADDR}"
+      eval NETMASK="\${CISCO_SPLIT_INC_${i}_MASK}"
+      eval NETMASKLEN="\${CISCO_SPLIT_INC_${i}_MASKLEN}"
+      if [ "$NETWORK" != "0.0.0.0" ]; then
+        # FIXME: This doesn't restore previously overwritten
+        #        routes.
+        del_network_route "$NETWORK" "$NETMASK" "$NETMASKLEN" "$TUNDEV"
+      else
+        reset_default_route
+      fi
+      i=$((i + 1))
+    done
+    for i in $INTERNAL_IP4_DNS; do
+      del_network_route "$i" "255.255.255.255" "32" "$TUNDEV"
+    done
+  else
+    reset_default_route
+  fi
+  if [ -n "$CISCO_SPLIT_EXC" ]; then
+    i=0
+    while [ $i -lt "$CISCO_SPLIT_EXC" ]; do
+      eval NETWORK="\${CISCO_SPLIT_EXC_${i}_ADDR}"
+      eval NETMASK="\${CISCO_SPLIT_EXC_${i}_MASK}"
+      eval NETMASKLEN="\${CISCO_SPLIT_EXC_${i}_MASKLEN}"
+      del_exclude_route "$NETWORK" "$NETMASK" "$NETMASKLEN"
+      i=$((i + 1))
+    done
+  fi
+  if [ -n "$CISCO_IPV6_SPLIT_EXC" ]; then
+    # untested
+    i=0
+    while [ $i -lt "$CISCO_IPV6_SPLIT_EXC" ]; do
+      eval NETWORK="\${CISCO_IPV6_SPLIT_EXC_${i}_ADDR}"
+      eval NETMASKLEN="\${CISCO_IPV6_SPLIT_EXC_${i}_MASKLEN}"
+      del_ipv6_exclude_route "$NETWORK" "$NETMASKLEN"
+      i=$((i + 1))
+    done
+  fi
+  if [ -n "$CISCO_IPV6_SPLIT_INC" ]; then
+    i=0
+    while [ $i -lt "${CISCO_IPV6_SPLIT_INC}" ]; do
+      eval NETWORK="\${CISCO_IPV6_SPLIT_INC_${i}_ADDR}"
+      eval NETMASKLEN="\${CISCO_IPV6_SPLIT_INC_${i}_MASKLEN}"
+      if [ "${NETMASKLEN}" -eq 0 ]; then
+        reset_ipv6_default_route
+      else
+        del_ipv6_network_route "$NETWORK" "$NETMASKLEN" "$TUNDEV"
+      fi
+      i=$((i + 1))
+    done
+    for i in ${INTERNAL_IP6_DNS}; do
+      del_ipv6_network_route "$i" "128" "$TUNDEV"
+    done
+  elif [ -n "${INTERNAL_IP6_NETMASK}" ] || [ -n "${INTERNAL_IP6_ADDRESS}" ]; then
+    reset_ipv6_default_route
+  fi
+
+  route delete -host "${VPNGATEWAY}" "$(get_default_gw)"
+
+  if [ -n "${INTERNAL_IP4_DNS}" ]; then
+    restore_resolvconf_generic
+  fi
+
+  if [ -n "${INTERNAL_IP4_ADDRESS}" ]; then
+    ifconfig "${TUNDEV}" 0.0.0.0
+  fi
+  if [ -n "${INTERNAL_IP6_ADDRESS}" ] && [ -z "${INTERNAL_IP6_NETMASK}" ]; then
+    INTERNAL_IP6_NETMASK="${INTERNAL_IP6_ADDRESS}/128"
+  fi
+  if [ -n "${INTERNAL_IP6_NETMASK}" ]; then
+    ifconfig "${TUNDEV}" inet6 del "${INTERNAL_IP6_NETMASK}"
+  fi
+
+  destroy_tun_device
+}
+
+#### Main
+
+# shellcheck disable=SC2154
+if [ -z "${reason}" ]; then
+  echo "this script must be called from vpnc" 1>&2
+  exit 1
+fi
+
+case "${reason}" in
+  pre-init)
+    run_hooks pre-init
+    do_pre_init
+    ;;
+  connect)
+    run_hooks connect
+    do_connect
+    run_hooks post-connect
+    ;;
+  disconnect)
+    run_hooks disconnect
+    do_disconnect
+    run_hooks post-disconnect
+    ;;
+  attempt-reconnect)
+    # Invoked before each attempt to re-establish the session. If the
+    # underlying physical connection changed, we might be left with a route to
+    # the VPN server through the VPN itself, which would need to be fixed.
+    run_hooks attempt-reconnect
+    ;;
+  reconnect)
+    # After successfully re-establishing the session.
+    run_hooks reconnect
+    ;;
+  *)
+    echo "unknown reason '${reason}'. Maybe vpnc-script is out of date" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
