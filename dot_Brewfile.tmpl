@@ -72,7 +72,7 @@ cask 'keybase'
 {{ if .work -}}
 cask 'keepassxc'
 {{ end -}}
-cask 'kitty'
+# cask 'kitty'
 {{ if .home -}}
 # cask 'knockknock'
 {{ end -}}
@@ -126,6 +126,9 @@ brew 'terraform'
 brew 'terraform-docs'
 brew 'tflint'
 brew 'tig'
+{{ if .home -}}
+brew 'unbound'
+{{ end -}}
 brew 'universal-ctags', args: ['HEAD']
 {{ if .work -}}
 brew 'unixodbc'  # for msodbcsql*
