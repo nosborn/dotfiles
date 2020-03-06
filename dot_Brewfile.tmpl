@@ -97,6 +97,9 @@ brew 'p7zip'
 {{ if .home -}}
 cask 'philips-hue-sync'
 {{ end -}}
+{{ if .work -}}
+cask 'powershell'
+{{ end -}}
 brew 'pre-commit'
 brew 'prettier'
 brew 'pstree'
