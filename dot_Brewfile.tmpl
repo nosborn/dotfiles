@@ -3,6 +3,9 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{ end -}}
 tap 'homebrew/cask-fonts'
+{{ if .home -}}
+tap 'homebrew/services'
+{{ end -}}
 {{ if .work -}}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 {{ end -}}
