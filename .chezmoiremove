@@ -8,14 +8,13 @@
 .config/git/hooks/prepare-commit-msg
 .config/kitty/
 .config/liquidpromptrc
-.config/nvim/
 .config/pep8/
 .config/wireshark/
 .gradle/
-.local/share/nvim/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
 .pylint.d/
+.vim/
 .vscode/
 .zlogin
 .zlogout
