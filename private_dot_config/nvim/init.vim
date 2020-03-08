@@ -1,9 +1,8 @@
-set encoding=utf-8
 scriptencoding=utf-8
 
-if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
+if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.vim/pack/minpac/opt/minpac
+        \ ~/.config/nvim/pack/minpac/opt/minpac
 endif
 
 packadd minpac
@@ -24,6 +23,7 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
+call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
@@ -31,14 +31,13 @@ call minpac#add('k-takata/minpac', {
       \ })
 " call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('majutsushi/tagbar')
+call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-markdown')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
 
 syntax on
 
@@ -49,22 +48,9 @@ endif
 
 map Q <Nop>
 
-set autoindent
-set autoread
-set background=dark
-set backspace=indent,eol,start
-set belloff=all
 set completeopt+=menuone,noinsert
 set cursorline
-set display+=lastline
-set fillchars=vert:│,fold:·
-set formatoptions+=j
-set history=1000
-set hlsearch
 set ignorecase
-set incsearch
-set langnoremap
-set laststatus=2
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a
@@ -78,30 +64,19 @@ set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
-set nrformats-=octal
 set number
-set ruler
 set path=$PWD/**
 set scrolloff=2
-set shortmess+=cFI
+" set shortmess+=cFI
 set showmatch
 set sidescrolloff=5
-set smarttab
 set spelllang=en_gb
-set tabpagemax=50
 set tags^=./.git/tags;
 set ttimeout
-set ttimeoutlen=50
-set undodir=~/.vim/undo
 set updatetime=100
-set viminfo^=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
-set wildmenu
 
 inoremap <C-U> <C-G>u<C-U>
-
-syntax on
-filetype plugin indent on
 
 if !exists(':DiffOrig')
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
@@ -137,19 +112,6 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_italic = 1
 " let g:gruvbox_italicize_strings = 1
 colorscheme gruvbox
-
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#wordcount#enabled = 1
-let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-let g:airline_detect_spelllang = 0
-let g:airline_theme = 'gruvbox'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -192,6 +154,32 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
+let g:lightline = {
+      \   'active': {
+      \     'left': [
+      \       ['mode', 'paste'],
+      \       ['gitbranch', 'readonly', 'filename', 'modified']
+      \     ],
+      \     'right': [
+      \       ['lineinfo'],
+      \       ['percent'],
+      \       ['fileformat', 'fileencoding', 'filetype'],
+      \     ]
+      \   },
+      \   'colorscheme': 'gruvbox',
+      \   'component_function': {
+      \     'gitbranch': 'FugitiveHead'
+      \   },
+      \   'subseparator': {
+      \     'left': '│',
+      \     'right': '│'
+      \   }
+      \ }
+
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+
 let g:markdown_fenced_languages = [
       \   'bash=sh',
       \   'gitconfig',
@@ -215,6 +203,8 @@ let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0
 
