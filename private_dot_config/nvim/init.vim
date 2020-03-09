@@ -42,7 +42,7 @@ call minpac#add('tpope/vim-markdown')
 syntax on
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
+if maparg("<C-L>", 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
@@ -188,10 +188,10 @@ let g:lightline.component_type = {
       \   'linter_ok': 'right',
       \ }
 let g:lightline#ale#indicator_checking = "\uf110"
-" let g:lightline#ale#indicator_errors = "\uf05e"
-" let g:lightline#ale#indicator_infos = "\uf129"
+let g:lightline#ale#indicator_errors = 'E:'
+let g:lightline#ale#indicator_infos = 'I:'
 let g:lightline#ale#indicator_ok = "\uf00c"
-" let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_warnings = 'W:'
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
