@@ -48,15 +48,13 @@ endif
 
 map Q <Nop>
 
-set completeopt+=menuone,noinsert
+set clipboard=unnamedplus
 set cursorline
 set ignorecase
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a
 set nobackup
-set noerrorbells
-set nolangremap
 set noshowcmd
 set noshowmode
 set nospell
