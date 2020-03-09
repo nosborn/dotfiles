@@ -91,7 +91,7 @@ export VISUAL=nvim
 
 if (( $+commands[lesspipe.sh] )); then
   export LESSOPEN="|$commands[lesspipe.sh] %s"
-  export LESS_ADVANCED_PREPROCESSOR=1
+  #export LESS_ADVANCED_PREPROCESSOR=1
 fi
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
