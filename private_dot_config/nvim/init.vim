@@ -66,6 +66,7 @@ set nowrap
 set nowritebackup
 set number
 set path=$PWD/**
+set relativenumber
 set scrolloff=2
 " set shortmess+=cFI
 set showmatch
