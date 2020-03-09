@@ -68,7 +68,7 @@ set number
 set path=$PWD/**
 set relativenumber
 set scrolloff=2
-" set shortmess+=cFI
+set shortmess+=I
 set showmatch
 set sidescrolloff=5
 set spelllang=en_gb
@@ -102,10 +102,6 @@ augroup MyColorScheme
   autocmd!
   autocmd ColorScheme * call MyColorSchemeHighlights()
 augroup END
-
-" if $TERM ==# 'xterm-kitty'
-"   let g:base16colorspace = 256
-" endif
 
 let g:gruvbox_contrast_dark = 'hard'
 " let g:gruvbox_improved_strings = 1
@@ -236,13 +232,6 @@ if $TERM_PROGRAM ==# 'Apple_Terminal'
   set mouse=a
   let &t_ZH = "\e[3m"
   let &t_ZR = "\e[23m"
-endif
-
-if $TERM ==# 'xterm-kitty'
-  set mouse=a
-  let &t_Cs = "\e[4:3m"
-  let &t_Ce = "\e[4:0m"
-  let &t_ut = '' " https://sw.kovidgoyal.net/kitty/faq.html#id3
 endif
 
 function AnsibleVaultDecrypt()
