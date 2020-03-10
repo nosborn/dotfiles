@@ -56,6 +56,9 @@ cask 'font-sourcecodepro-nerd-font'
 # cask 'ftdi-vcp-driver'
 {{ end -}}
 brew 'fzf'
+{{ if .home -}}
+brew 'get_iplayer'
+{{ end -}}
 brew 'git-delta'
 brew 'git-lfs'
 brew 'github-markdown-toc'
