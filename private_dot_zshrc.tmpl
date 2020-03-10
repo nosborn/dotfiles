@@ -33,7 +33,6 @@ autoload -U colors
 colors
 
 for config_file (~/.zsh/lib/*.zsh); do
-  # echo source $config_file
   source $config_file
 done
 
@@ -169,4 +168,4 @@ if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
 
-# vim: ft=zsh
+# vim: ft=zsh.jinja2
