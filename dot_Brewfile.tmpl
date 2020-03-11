@@ -10,7 +10,6 @@ tap 'homebrew/services'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 {{ end -}}
 tap 'twpayne/taps'
-tap 'universal-ctags/universal-ctags'
 
 # cask '1password-cli'
 {{ if .work -}}
@@ -46,6 +45,7 @@ brew 'bumpversion'
 brew 'chezmoi'
 cask 'chromium'
 brew 'coreutils' # for timeout
+brew 'ctags'
 brew 'direnv'
 cask 'docker'
 brew 'eslint'
@@ -58,9 +58,6 @@ cask 'font-source-code-pro'
 # cask 'ftdi-vcp-driver'
 {{ end -}}
 brew 'fzf'
-{{ if .home -}}
-brew 'get_iplayer'
-{{ end -}}
 brew 'git-delta'
 brew 'git-lfs'
 brew 'github-markdown-toc'
@@ -141,7 +138,6 @@ brew 'tig'
 {{ if .home -}}
 brew 'unbound'
 {{ end -}}
-brew 'universal-ctags', args: ['HEAD']
 {{ if .work -}}
 brew 'unixodbc'  # for msodbcsql*
 {{ end -}}
@@ -151,8 +147,9 @@ cask 'virtualbox'
 cask 'webex-meetings'
 {{ end -}}
 brew 'wget'
+{{ if not .work -}}
 brew 'yamllint'
-# brew 'yank'
+{{ end -}}
 brew 'yarn'
 brew 'yq'
 # brew 'zsh-autosuggestions'
