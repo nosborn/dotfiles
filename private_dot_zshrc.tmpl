@@ -89,8 +89,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 if (( $+commands[lesspipe.sh] )); then
-  export LESSOPEN="|$commands[lesspipe.sh] %s"
-  #export LESS_ADVANCED_PREPROCESSOR=1
+  #export LESSOPEN="|$commands[lesspipe.sh] %s"
+  export LESS_ADVANCED_PREPROCESSOR=1
 fi
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
@@ -113,6 +113,9 @@ avdiffs() {
 
 if (( $+commands[kitty] )); then
   kitty +complete setup zsh | source /dev/stdin
+fi
+if (( $+commands[molecule] )); then
+  eval "$(_MOLECULE_COMPLETE=source molecule)"
 fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
