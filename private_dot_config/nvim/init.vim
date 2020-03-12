@@ -48,7 +48,6 @@ endif
 
 map Q <Nop>
 
-set clipboard=unnamedplus
 set cursorline
 set ignorecase
 set list
