@@ -148,46 +148,53 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
+function! LightlineReadOnly()
+  return &readonly && &filetype !=# 'help' ? "\uE0A2" : ''
+endfunction
+
 let g:lightline = {
       \   'active': {
       \     'left': [
       \       ['mode', 'paste'],
-      \       ['gitbranch', 'readonly', 'filename', 'modified']
+      \       ['gitbranch', 'readonly', 'filename', 'modified'],
       \     ],
       \     'right': [
       \       ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
       \       ['lineinfo'],
+      \       ['wordcount'],
       \       ['percent'],
       \       ['fileformat', 'fileencoding', 'filetype'],
       \     ]
       \   },
       \   'colorscheme': 'gruvbox',
       \   'component_function': {
-      \     'gitbranch': 'FugitiveHead'
+      \     'gitbranch': 'FugitiveHead',
+      \     'readonly': 'LightlineReadOnly',
+      \     'wordcount': 'lightline#wordcount#words',
       \   },
       \   'subseparator': {
       \     'left': '│',
-      \     'right': '│'
+      \     'right': '│',
       \   }
       \ }
 let g:lightline.component_expand = {
       \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_warnings': 'lightline#ale#warnings',
       \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_infos': 'lightline#ale#infos',
       \   'linter_ok': 'lightline#ale#ok',
+      \   'linter_warnings': 'lightline#ale#warnings',
       \ }
 let g:lightline.component_type = {
       \   'linter_checking': 'right',
-      \   'linter_infos': 'right',
-      \   'linter_warnings': 'warning',
       \   'linter_errors': 'error',
+      \   'linter_infos': 'right',
       \   'linter_ok': 'right',
+      \   'linter_warnings': 'warning',
       \ }
-let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_checking = '⋯'
 let g:lightline#ale#indicator_errors = 'E:'
 let g:lightline#ale#indicator_infos = 'I:'
-let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline#ale#indicator_ok = '✓'
 let g:lightline#ale#indicator_warnings = 'W:'
 
 let g:loaded_node_provider = 0
