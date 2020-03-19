@@ -16,10 +16,8 @@ tap 'twpayne/taps'
 cask 'adoptopenjdk'
 {{ end -}}
 cask 'aerial'
-{{ if not .work -}}
 brew 'ansible'
 brew 'ansible-lint'
-{{ end -}}
 # brew 'aws-keychain'
 # cask 'aws-vault'
 brew 'awscli'
@@ -32,9 +30,6 @@ brew 'b2-tools'
 brew 'bat'
 {{ if .home -}}
 # brew 'battle-net'
-{{ end -}}
-{{ if .home -}}
-cask 'bbc-iplayer-downloads'
 {{ end -}}
 cask 'bitbar'
 brew 'black'
@@ -91,6 +86,7 @@ cask 'logitech-gaming-software'
 {{ end -}}
 brew 'm-cli'
 brew 'mas'
+brew 'molecule'
 {{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
@@ -102,9 +98,6 @@ brew 'openconnect'
 brew 'p7zip'
 {{ if .home -}}
 cask 'philips-hue-sync'
-{{ end -}}
-{{ if .work -}}
-cask 'powershell'
 {{ end -}}
 brew 'pre-commit'
 brew 'prettier'
