@@ -47,9 +47,8 @@ cask 'docker'
 brew 'eslint'
 brew 'exiftool'
 brew 'findutils'
-cask 'font-fira-code'
-cask 'font-input'
 cask 'font-source-code-pro'
+cask 'font-sourcecodepro-nerd-font'
 {{ if .home -}}
 # cask 'ftdi-vcp-driver'
 {{ end -}}
@@ -76,7 +75,7 @@ cask 'keybase'
 {{ if .work -}}
 cask 'keepassxc'
 {{ end -}}
-# cask 'kitty'
+cask 'kitty'
 {{ if .home -}}
 # cask 'knockknock'
 {{ end -}}
@@ -86,7 +85,9 @@ cask 'logitech-gaming-software'
 {{ end -}}
 brew 'm-cli'
 brew 'mas'
+{{ if .work -}}
 brew 'molecule'
+{{ end -}}
 {{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
