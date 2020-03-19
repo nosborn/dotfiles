@@ -1,0 +1,54 @@
+setopt prompt_subst
+
+RPROMPT=''
+RPROMPT_ASYNC_PROC=0
+
+function rprompt_cmd() {
+  if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
+    git_super_status
+  else
+    vcs_info
+    printf '%s' "${vcs_info_msg_0_}"
+  fi
+
+  if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
+    local state=$(/opt/cisco/anyconnect/bin/vpn state | grep -F '>> state:' | tail -1 | awk '{print $4}')
+    case "${state}" in
+      Connected|Connecting) vpn_info_msg_0_="[%F{blue}VPN%f]";;
+      Disconnected) vpn_info_msg_0_="";;
+      *) vpn_info_msg_0_="[%F{yellow}VPN:${state}%f]";;
+    esac
+  else
+    vpn_info_msg_0_=""
+  fi
+  printf '%s' "${vpn_info_msg_0_}"
+{{ if .work }}
+
+  local az_name="$(az account show --output tsv --query name 2>/dev/null)"
+  if [[ -n "${az_name}" ]]; then
+    printf ' %s' "%F{cyan}${az_name}%k%f"
+  fi
+{{ end }}
+}
+
+function precmd() {
+  function async() {
+    printf %s "$(rprompt_cmd)" >/tmp/zsh_prompt_$$
+    kill -s USR1 $$
+  }
+
+  if [[ ${RPROMPT_ASYNC_PROC} != 0 ]]; then
+    kill -s HUP ${RPROMPT_ASYNC_PROC} >/dev/null 2>&1 || :
+  fi
+
+  async &!
+  RPROMPT_ASYNC_PROC=$!
+}
+
+function TRAPUSR1() {
+  RPROMPT="$(cat /tmp/zsh_prompt_$$)"
+  RPROMPT_ASYNC_PROC=0
+  zle && zle reset-prompt
+}
+
+# vim: ft=zsh
