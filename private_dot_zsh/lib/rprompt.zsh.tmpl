@@ -26,7 +26,7 @@ function rprompt_cmd() {
 
   local az_name="$(az account show --output tsv --query name 2>/dev/null)"
   if [[ -n "${az_name}" ]]; then
-    printf ' %s' "%F{cyan}${az_name}%k%f"
+    printf ' \ufd03 %s' "%F{cyan}${az_name}%k%f"
   fi
 {{ end }}
 }

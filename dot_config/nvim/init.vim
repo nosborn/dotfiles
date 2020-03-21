@@ -31,13 +31,12 @@ call minpac#add('k-takata/minpac', {
       \ })
 " call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('majutsushi/tagbar')
-call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('pearofducks/ansible-vim')
+call minpac#add("pearofducks/ansible-vim")
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-markdown')
+call minpac#add('pope/vim-markdown')
 
 syntax on
 
@@ -122,7 +121,7 @@ let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_info = 'ℹ'
-let g:ale_sign_warning = '‼'
+let g:ale_sign_warning = "\uf071" " '‼'
 let g:ale_virtualtext_cursor = 1
 let g:ale_virtualtext_prefix = '❯ '
 let b:ale_xml_xmllint_optons = '--nonet'
@@ -159,7 +158,7 @@ let g:lightline = {
       \       ['gitbranch', 'readonly', 'filename', 'modified'],
       \     ],
       \     'right': [
-      \       ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
+      \       ['ale_error', 'ale_warning', 'ale_info', 'ale_ok'],
       \       ['lineinfo'],
       \       ['wordcount'],
       \       ['percent'],
@@ -178,24 +177,17 @@ let g:lightline = {
       \   }
       \ }
 let g:lightline.component_expand = {
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_errors': 'lightline#ale#errors',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_ok': 'lightline#ale#ok',
-      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'ale_info': 'lightline#ale#info',
+      \   'ale_error': 'lightline#ale#error',
+      \   'ale_ok': 'lightline#ale#ok',
+      \   'ale_warning': 'lightline#ale#warning',
       \ }
 let g:lightline.component_type = {
-      \   'linter_checking': 'right',
-      \   'linter_errors': 'error',
-      \   'linter_infos': 'right',
-      \   'linter_ok': 'right',
-      \   'linter_warnings': 'warning',
+      \   'ale_error': 'error',
+      \   'ale_info': 'right',
+      \   'ale_ok': 'right',
+      \   'ale_warning': 'warning',
       \ }
-let g:lightline#ale#indicator_checking = '⋯'
-let g:lightline#ale#indicator_errors = 'E:'
-let g:lightline#ale#indicator_infos = 'I:'
-let g:lightline#ale#indicator_ok = '✓'
-let g:lightline#ale#indicator_warnings = 'W:'
 
 let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
