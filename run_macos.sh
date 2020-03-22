@@ -23,7 +23,7 @@ defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
 defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
 
 readonly username=$(id -un)
-test -e /etc/sudoers.d/${username}-openconnect || {
+[ -e /etc/sudoers.d/${username}-openconnect ] || {
   sudo tee /etc/sudoers.d/${username}-openconnect >/dev/null <<EOF
 ${username} ALL=(ALL) NOPASSWD: /usr/bin/killall openconnect
 ${username} ALL=(ALL) NOPASSWD: /usr/local/bin/openconnect
@@ -31,3 +31,12 @@ EOF
   sudo chown root:wheel /etc/sudoers.d/${username}-openconnect
   sudo chmod 0440 /etc/sudoers.d/${username}-openconnect
 }
+
+if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
+  for cmd in docker docker-compose; do
+    [ -e /usr/local/share/zsh/site-functions/_${cmd} ] || {
+      ln -sv /Applications/Docker.app/Contents/Resources/etc/${cmd}.zsh-completion \
+        /usr/local/share/zsh/site-functions/_${cmd}
+    }
+  done
+fi
