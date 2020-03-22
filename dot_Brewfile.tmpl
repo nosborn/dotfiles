@@ -44,10 +44,14 @@ brew 'coreutils' # for timeout
 brew 'ctags'
 brew 'direnv'
 cask 'docker'
+brew 'docker-clean'
+{{ if .home -}}
 brew 'eslint'
+{{ end -}}
+{{ if .home -}}
 brew 'exiftool'
+{{ end -}}
 brew 'findutils'
-cask 'font-source-code-pro'
 cask 'font-sourcecodepro-nerd-font'
 {{ if .home -}}
 # cask 'ftdi-vcp-driver'
@@ -97,7 +101,9 @@ brew 'p7zip'
 {{ if .home -}}
 cask 'philips-hue-sync'
 {{ end -}}
+{{ if .work -}}
 brew 'pre-commit'
+{{ end -}}
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
