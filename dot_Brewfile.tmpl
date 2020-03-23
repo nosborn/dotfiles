@@ -16,7 +16,9 @@ tap 'twpayne/taps'
 cask 'adoptopenjdk'
 {{ end -}}
 cask 'aerial'
+{{ if .home -}}
 brew 'ansible'
+{{ end -}}
 brew 'ansible-lint'
 # brew 'aws-keychain'
 # cask 'aws-vault'
