@@ -1,14 +1,17 @@
+set encoding=utf-8
 scriptencoding=utf-8
 
-if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
+if empty(glob('~/.vim/pack/minpac/opt/minpac/plugin/minpac.vim'))
   silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.config/nvim/pack/minpac/opt/minpac
+        \ ~/.vim/pack/minpac/opt/minpac
 endif
 
 packadd minpac
 command! PackClean  call minpac#clean()
 command! PackStatus call minpac#status()
 command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
+
+let g:ale_set_balloons = 1
 
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
@@ -23,7 +26,6 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
-call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
@@ -33,11 +35,12 @@ call minpac#add('k-takata/minpac', {
 " call minpac#add('majutsushi/tagbar')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
-call minpac#add("pearofducks/ansible-vim")
+call minpac#add('pearofducks/ansible-vim')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('pope/vim-markdown')
+call minpac#add('tpope/vim-markdown')
 
+filetype plugin indent on
 syntax on
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
@@ -47,12 +50,29 @@ endif
 
 map Q <Nop>
 
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set belloff=all
+set complete-=i
+set cscopeverbose
 set cursorline
+set display=lastline
+set fillchars=vert:│,fold:·
+set formatoptions=tcqj
+set history=10000
+set hlsearch
+set incsearch
 set ignorecase
+set langnoremap
+set laststatus=2
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a
 set nobackup
+set nofsync
+set nolangremap
 set noshowcmd
 set noshowmode
 set nospell
@@ -60,18 +80,33 @@ set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
+set nrformats-=octal
 set number
 set path=$PWD/**
 set relativenumber
+set ruler
 set scrolloff=2
+set sessionoptions-=options
 set shortmess+=I
+set showcmd
 set showmatch
+set sidescroll=1
 set sidescrolloff=5
+set signcolumn=yes
+set smarttab
 set spelllang=en_gb
+set tabpagemax=50
 set tags^=./.git/tags;
 set ttimeout
+set ttimeoutlen=50
+set ttyfast
 set updatetime=100
+set viminfo+=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
+set wildmenu
+set wildoptions=tagfile
+
+packadd matchit
 
 inoremap <C-U> <C-G>u<C-U>
 
@@ -147,11 +182,22 @@ let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
-function! LightlineReadOnly()
+let g:markdown_fenced_languages = [
+      \   'bash=sh',
+      \   'gitconfig',
+      \   'json',
+      \   'sh',
+      \   'terraform',
+      \   'yaml',
+      \   'zsh=sh',
+      \ ]
+let g:markdown_syntax_conceal = 0
+
+function! MayonnaiseReadOnly()
   return &readonly && &filetype !=# 'help' ? "\uE0A2" : ''
 endfunction
 
-let g:lightline = {
+let g:mayonnaise = {
       \   'active': {
       \     'left': [
       \       ['mode', 'paste'],
@@ -168,41 +214,26 @@ let g:lightline = {
       \   'colorscheme': 'gruvbox',
       \   'component_function': {
       \     'gitbranch': 'FugitiveHead',
-      \     'readonly': 'LightlineReadOnly',
-      \     'wordcount': 'lightline#wordcount#words',
+      \     'readonly': 'MayonnaiseReadOnly',
+      \     'wordcount': 'mayonnaise#wordcount#words',
       \   },
       \   'subseparator': {
       \     'left': '│',
       \     'right': '│',
       \   }
       \ }
-let g:lightline.component_expand = {
-      \   'ale_info': 'lightline#ale#info',
-      \   'ale_error': 'lightline#ale#error',
-      \   'ale_ok': 'lightline#ale#ok',
-      \   'ale_warning': 'lightline#ale#warning',
+let g:mayonnaise.component_expand = {
+      \   'ale_info': 'mayonnaise#ale#info',
+      \   'ale_error': 'mayonnaise#ale#error',
+      \   'ale_ok': 'mayonnaise#ale#ok',
+      \   'ale_warning': 'mayonnaise#ale#warning',
       \ }
-let g:lightline.component_type = {
+let g:mayonnaise.component_type = {
       \   'ale_error': 'error',
       \   'ale_info': 'right',
       \   'ale_ok': 'right',
       \   'ale_warning': 'warning',
       \ }
-
-let g:loaded_node_provider = 0
-let g:loaded_python_provider = 0
-let g:loaded_ruby_provider = 0
-
-let g:markdown_fenced_languages = [
-      \   'bash=sh',
-      \   'gitconfig',
-      \   'json',
-      \   'sh',
-      \   'terraform',
-      \   'yaml',
-      \   'zsh=sh',
-      \ ]
-let g:markdown_syntax_conceal = 0
 
 " let g:mkdp_auto_start = 1
 let g:mkdp_browser = 'Chromium'
@@ -216,8 +247,6 @@ let g:netrw_bufsettings = 'relativenumber,number'
 " let g:netrw_keepdir = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
-
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:vim_json_syntax_conceal = 0
 

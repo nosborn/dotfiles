@@ -66,8 +66,8 @@ else
 fi
 
 export CLICOLOR=1
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=vim
+export VISUAL=vim
 
 if (( $+commands[lesspipe.sh] )); then
   #export LESSOPEN="|$commands[lesspipe.sh] %s"
@@ -79,8 +79,7 @@ alias sdiff='command sdiff -d -w${COLUMNS}'
 alias tfdiff='command diff -dNry -W${COLUMNS} -x .terraform -x \*.tfplan -x \*.rules.tf -x \*.tfstate -x \*.tfstate.\* -x PLAN'
 alias tfdiffs='tfdiff --suppress-common-lines'
 alias timeout=gtimeout
-alias vi=nvim
-alias vim=nvim
+alias vi=vim
 
 avdiff() {
   [[ $# -eq 2 ]] || { echo "Usage: $0 FILENAME FILENAME" >&2; exit 1 }
