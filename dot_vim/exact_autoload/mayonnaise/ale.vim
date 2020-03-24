@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
-function! lightline#ale#error() abort
-  if !lightline#ale#linted()
+function! mayonnaise#ale#error() abort
+  if !mayonnaise#ale#linted()
     return ''
   endif
   let l:count = ale#statusline#Count(bufnr(''))
@@ -9,30 +9,30 @@ function! lightline#ale#error() abort
   return l:errors == 0 ? '' : printf('E: %d', errors)
 endfunction
 
-function! lightline#ale#info() abort
-  if !lightline#ale#linted()
+function! mayonnaise#ale#info() abort
+  if !mayonnaise#ale#linted()
     return ''
   endif
   let l:count = ale#statusline#Count(bufnr(''))
   return l:count.info == 0 ? '' : printf('I: %d', l:count.info)
 endfunction
 
-function! lightline#ale#linted() abort
+function! mayonnaise#ale#linted() abort
   return get(g:, 'ale_enabled', 0) == 1
         \ && getbufvar(bufnr(''), 'ale_linted', 0) > 0
         \ && ale#engine#IsCheckingBuffer(bufnr('')) == 0
 endfunction
 
-function! lightline#ale#ok() abort
-  if !lightline#ale#linted()
+function! mayonnaise#ale#ok() abort
+  if !mayonnaise#ale#linted()
     return ''
   endif
   let l:count = ale#statusline#Count(bufnr(''))
   return l:count.total == 0 ? '✓' : ''
 endfunction
 
-function! lightline#ale#warning() abort
-  if !lightline#ale#linted()
+function! mayonnaise#ale#warning() abort
+  if !mayonnaise#ale#linted()
     return ''
   endif
   let l:count = ale#statusline#Count(bufnr(''))
