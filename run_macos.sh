@@ -40,3 +40,7 @@ if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
     }
   done
 fi
+
+for link in $(find /usr/local/Caskroom -name '*.app' -type l); do
+  xattr -d -v com.apple.quarantine "${link}" >/dev/null || :
+done
