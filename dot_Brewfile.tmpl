@@ -44,6 +44,9 @@ brew 'chezmoi'
 cask 'chromium'
 brew 'coreutils' # for timeout
 brew 'ctags'
+{{ if .work -}}
+cask 'dbeaver-community'
+{{ end -}}
 brew 'direnv'
 cask 'docker'
 brew 'docker-clean'
