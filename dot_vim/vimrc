@@ -36,6 +36,7 @@ call minpac#add('k-takata/minpac', {
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
+call minpac#add('thaerkh/vim-indentguides')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-markdown')
@@ -57,7 +58,8 @@ set backspace=indent,eol,start
 set belloff=all
 set complete-=i
 set cscopeverbose
-set cursorline
+" set cursorcolumn
+" set cursorline
 set display=lastline
 set fillchars=vert:│,fold:·
 set formatoptions=tcqj
@@ -181,6 +183,12 @@ let g:gitgutter_preview_win_floating = 1
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
+
+let g:indentguides_ignorelist = [
+      \   'text'
+      \ ]
+let g:indentguides_spacechar = '┊'
+let g:indentguides_tabchar = '┋'
 
 let g:markdown_fenced_languages = [
       \   'bash=sh',
