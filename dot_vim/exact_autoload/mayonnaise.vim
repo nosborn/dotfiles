@@ -98,11 +98,26 @@ let s:_mayonnaise = {
       \   },
       \   'component': {
       \     'mode': '%{mayonnaise#mode()}',
-      \     'absolutepath': '%F', 'relativepath': '%f', 'filename': '%t', 'modified': '%M', 'bufnum': '%n',
-      \     'paste': '%{&paste?"PASTE":""}', 'readonly': '%R', 'charvalue': '%b', 'charvaluehex': '%B',
-      \     'spell': '%{&spell?&spelllang:""}', 'fileencoding': '%{&fenc!=#""?&fenc:&enc}', 'fileformat': '%{&ff}',
-      \     'filetype': '%{&ft!=#""?&ft:"no ft"}', 'percent': '%3p%%', 'percentwin': '%P',
-      \     'lineinfo': '%3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X ', 'winnr': '%{winnr()}'
+      \     'absolutepath': '%F',
+      \     'relativepath': '%f',
+      \     'filename': '%t',
+      \     'modified': '%M',
+      \     'bufnum': '%n',
+      \     'paste': '%{&paste?"PASTE":""}',
+      \     'readonly': '%R',
+      \     'charvalue': '%b',
+      \     'charvaluehex': '%B',
+      \     'spell': '%{&spell?&spelllang:""}',
+      \     'fileencoding': '%{&fenc!=#""?&fenc:&enc}',
+      \     'fileformat': '%{winwidth(0) > 70 ? (&fileformat." ".WebDevIconsGetFileFormatSymbol()) : ""}',
+      \     'filetype': '%{winwidth(0) > 70 ? (strlen(&filetype) ? &filetype." ".WebDevIconsGetFileTypeSymbol() : "no ft") : ""}',
+      \     'percent': '%3p%%',
+      \     'percentwin': '%P',
+      \     'lineinfo': '%3l:%-2v',
+      \     'line': '%l',
+      \     'column': '%c',
+      \     'close': '%999X X ',
+      \     'winnr': '%{winnr()}'
       \   },
       \   'component_visible_condition': {
       \     'modified': '&modified||!&modifiable', 'readonly': '&readonly', 'paste': '&paste', 'spell': '&spell'
