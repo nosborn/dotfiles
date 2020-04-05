@@ -27,6 +27,7 @@ call minpac#add('iamcco/markdown-preview.nvim', {
       \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
       \   }
       \ })
+call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
@@ -34,6 +35,7 @@ call minpac#add('k-takata/minpac', {
       \ })
 " call minpac#add('lifepillar/vim-mucomplete')
 " call minpac#add('majutsushi/tagbar')
+call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
@@ -196,6 +198,52 @@ let g:indentguides_ignorelist = [
 let g:indentguides_spacechar = '┊'
 let g:indentguides_tabchar = '┋'
 
+function! LightlineReadOnly()
+  return &readonly && &filetype !=# 'help' ? "\uE0A2" : ''
+endfunction
+
+let g:lightline = {
+      \   'active': {
+      \     'left': [
+      \       ['mode', 'paste'],
+      \       ['gitbranch', 'readonly', 'filename', 'modified'],
+      \     ],
+      \     'right': [
+      \       ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
+      \       ['lineinfo'],
+      \       ['wordcount'],
+      \       ['percent'],
+      \       ['fileformat', 'fileencoding', 'filetype'],
+      \     ]
+      \   },
+      \   'colorscheme': 'gruvbox',
+      \   'component_function': {
+      \     'gitbranch': 'FugitiveHead',
+      \     'readonly': 'LightlineReadOnly',
+      \     'wordcount': 'lightline#wordcount#words',
+      \   },
+      \   'subseparator': {
+      \     'left': '│',
+      \     'right': '│',
+      \   }
+      \ }
+let g:lightline.component_expand = {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_infos': 'lightline#ale#infos',
+      \   'linter_ok': 'lightline#ale#ok',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \ }
+let g:lightline.component_type = {
+      \   'linter_checking': 'right',
+      \   'linter_errors': 'error',
+      \   'linter_infos': 'right',
+      \   'linter_ok': 'right',
+      \   'linter_warnings': 'warning',
+      \ }
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_ok = "\u2713"
+
 let g:markdown_fenced_languages = [
       \   'bash=sh',
       \   'gitconfig',
@@ -206,48 +254,6 @@ let g:markdown_fenced_languages = [
       \   'zsh=sh',
       \ ]
 let g:markdown_syntax_conceal = 0
-
-function! MayonnaiseReadOnly()
-  return &readonly && &filetype !=# 'help' ? "\uE0A2" : ''
-endfunction
-
-let g:mayonnaise = {
-      \   'active': {
-      \     'left': [
-      \       ['mode', 'paste'],
-      \       ['gitbranch', 'readonly', 'filename', 'modified'],
-      \     ],
-      \     'right': [
-      \       ['ale_error', 'ale_warning', 'ale_info', 'ale_ok'],
-      \       ['lineinfo'],
-      \       ['wordcount'],
-      \       ['percent'],
-      \       ['fileformat', 'fileencoding', 'filetype'],
-      \     ]
-      \   },
-      \   'colorscheme': 'gruvbox',
-      \   'component_function': {
-      \     'gitbranch': 'FugitiveHead',
-      \     'readonly': 'MayonnaiseReadOnly',
-      \     'wordcount': 'mayonnaise#wordcount#words',
-      \   },
-      \   'subseparator': {
-      \     'left': '│',
-      \     'right': '│',
-      \   }
-      \ }
-let g:mayonnaise.component_expand = {
-      \   'ale_info': 'mayonnaise#ale#info',
-      \   'ale_error': 'mayonnaise#ale#error',
-      \   'ale_ok': 'mayonnaise#ale#ok',
-      \   'ale_warning': 'mayonnaise#ale#warning',
-      \ }
-let g:mayonnaise.component_type = {
-      \   'ale_error': 'error',
-      \   'ale_info': 'right',
-      \   'ale_ok': 'right',
-      \   'ale_warning': 'warning',
-      \ }
 
 " let g:mkdp_auto_start = 1
 let g:mkdp_browser = 'Chromium'
