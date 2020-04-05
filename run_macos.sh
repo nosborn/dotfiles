@@ -12,9 +12,6 @@ fi
 cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* \
   /Library/Fonts/
 
-defaults write -app BitBar SUSendProfileInfo -bool false
-defaults write -app BitBar pluginsDirectory "${HOME}/.local/libexec/bitbar"
-
 # defaults write -app Rectangle alternateDefaultShortcuts -bool true
 defaults write -app Rectangle launchOnLogin -bool true
 # defaults write -app Rectangle subsequentExecutionMode -int 2
