@@ -44,6 +44,9 @@ cask 'chromium'
 brew 'coreutils' # for timeout
 brew 'ctags'
 {{ if .work -}}
+cask 'datadog-agent'
+{{ end -}}
+{{ if .work -}}
 cask 'dbeaver-community'
 {{ end -}}
 brew 'direnv'
