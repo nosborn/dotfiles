@@ -15,7 +15,7 @@ let g:ale_set_balloons = 1
 
 call minpac#init()
 call minpac#add('airblade/vim-gitgutter')
-call minpac#add('bagrat/vim-buffet')
+" call minpac#add('bagrat/vim-buffet')
 call minpac#add('cespare/vim-toml')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
@@ -179,9 +179,9 @@ let g:ansible_template_syntaxes = {
 
 let g:bash_is_sh = 1
 
-let g:buffet_always_show_tabline = 1
-let g:buffet_powerline_seperators = 1
-let g:buffet_use_devicons = 1
+" let g:buffet_always_show_tabline = 1
+" let g:buffet_powerline_seperators = 1
+" let g:buffet_use_devicons = 1
 
 let g:direnv_cmd = '/usr/local/bin/direnv'
 
