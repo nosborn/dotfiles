@@ -14,27 +14,20 @@ command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 let g:ale_set_balloons = 1
 
 call minpac#init()
+call minpac#add('JamshedVesuna/vim-markdown-preview')
 call minpac#add('airblade/vim-gitgutter')
-" call minpac#add('bagrat/vim-buffet')
 call minpac#add('cespare/vim-toml')
 call minpac#add('dense-analysis/ale')
 call minpac#add('digitaltoad/vim-pug')
 call minpac#add('direnv/direnv.vim')
 call minpac#add('godlygeek/tabular')
 call minpac#add('hashivim/vim-terraform')
-call minpac#add('iamcco/markdown-preview.nvim', {
-      \   'do': {hooktype, name ->
-      \     system('yarn install --cwd '.minpac#getpluginfo(a:name)['dir'].'/app')
-      \   }
-      \ })
 call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('k-takata/minpac', {
       \   'type': 'opt'
       \ })
-" call minpac#add('lifepillar/vim-mucomplete')
-" call minpac#add('majutsushi/tagbar')
 call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
@@ -255,12 +248,8 @@ let g:markdown_fenced_languages = [
       \ ]
 let g:markdown_syntax_conceal = 0
 
-" let g:mkdp_auto_start = 1
-let g:mkdp_browser = 'Chromium'
-" let g:mkdp_markdown_css = ''
-
-let g:mucomplete#completion_delay = 1
-let g:mucomplete#enable_auto_at_startup = 1
+let vim_markdown_preview_browser = 'Chromium'
+let vim_markdown_preview_github = 1
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
@@ -268,7 +257,7 @@ let g:netrw_bufsettings = 'relativenumber,number'
 let g:netrw_list_hide = netrw_gitignore#Hide()
 let g:netrw_liststyle = 3
 
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_conceal = 0
 
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
