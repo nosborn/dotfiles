@@ -12,7 +12,9 @@ if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
     'ansible[azure]' \
     'datadog-checks-dev[cli]' \
     'mitogen' \
-    'molecule[docker]'
+    'molecule[docker]' \
+    'packaging'
+
   # 'ansible[azure]' \
   # 'ansible-lint' \
   # 'azure-cli' \
