@@ -100,6 +100,9 @@ brew 'mysql-client'
 {{ end -}}
 brew 'p7zip'
 {{ if .home -}}
+cask 'parallels'
+{{ end -}}
+{{ if .home -}}
 cask 'philips-hue-sync'
 {{ end -}}
 {{ if .work -}}
