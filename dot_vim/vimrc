@@ -25,9 +25,7 @@ call minpac#add('hashivim/vim-terraform')
 call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('k-takata/minpac', {
-      \   'type': 'opt'
-      \ })
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
@@ -124,7 +122,7 @@ if executable('rg')
 endif
 
 function! MyColorSchemeHighlights() abort
-  " highlight Comment cterm=italic gui=italic
+  highlight Comment cterm=italic gui=italic
   highlight SpellBad cterm=undercurl
 endfunction
 
@@ -155,9 +153,8 @@ let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_info = 'ℹ'
+" let g:ale_sign_priority = 10
 let g:ale_sign_warning = "\uf071" " '‼'
-let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = '❯ '
 let b:ale_xml_xmllint_optons = '--nonet'
 
 let g:ansible_name_highlight = 'd'
@@ -180,6 +177,7 @@ let g:direnv_cmd = '/usr/local/bin/direnv'
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_sign_priority = 9
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
