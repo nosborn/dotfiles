@@ -24,9 +24,12 @@ function rprompt_cmd() {
   printf '%s' "${vpn_info_msg_0_}"
 {{ if .work }}
 
-  local az_name="$(az account show --output tsv --query name 2>/dev/null)"
-  if [[ -n "${az_name}" ]]; then
-    printf ' \ufd03 %s' "%F{cyan}${az_name}%k%f"
+  local subscription=$(grep -e ^subscription ~/.azure/clouds.config | tr -d ' ' | cut -d= -f2)
+  if [[ -n "${subscription}" ]]; then
+    local az_name=$(jq -r ".subscriptions[] | select(.id==\"${subscription}\") | .name" <~/.azure/azureProfile.json)
+    if [[ -n "${az_name}" ]]; then
+      printf ' \ufd03 %s' "%F{cyan}${az_name}%k%f"
+    fi
   fi
 {{ end }}
 }
