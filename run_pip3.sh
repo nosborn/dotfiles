@@ -14,12 +14,4 @@ if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
     'mitogen' \
     'molecule[docker]' \
     'packaging'
-
-  # 'ansible[azure]' \
-  # 'ansible-lint' \
-  # 'azure-cli' \
-  # 'datadog' \
-  # 'jinja2' \
-  # 'molecule[docker]' \
-  # 'packaging'
 fi
