@@ -58,3 +58,4 @@ Library/Preferences/com.qvacua.VimR.menuitems.plist
 Library/Preferences/com.qvacua.VimR.plist
 Library/Preferences/org.vim.MacVim.plist
 bin/kitty
+mitogen-0.2.9.tar.gz
