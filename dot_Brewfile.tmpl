@@ -107,6 +107,9 @@ cask 'parallels'
 cask 'philips-hue-sync'
 {{ end -}}
 {{ if .work -}}
+cask 'powershell'
+{{ end -}}
+{{ if .work -}}
 brew 'pre-commit'
 {{ end -}}
 brew 'prettier'
