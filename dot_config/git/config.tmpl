@@ -90,9 +90,9 @@
 	log = false
 
 [pager]
-	diff = ~/.local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	log = ~/.local/share/git-core/contrib/diff-highlight/diff-highlight | less
-	show = ~/.local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
 [pull]
 	rebase = true
@@ -126,6 +126,9 @@
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = config.nosborn
+
+[includeIf "gitdir:~/corda-*/"]
+	path = config.nosborn-r3
 
 [includeIf "gitdir:~/src/github.com/corda/"]
 	path = config.nosborn-r3

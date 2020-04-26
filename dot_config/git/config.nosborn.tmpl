@@ -1,11 +1,17 @@
 [commit]
 {{- if .home }}
-	gpgsign = true
+	gpgSign = true
+{{- end }}
+
+[push]
+{{- if .home }}
+	gpgSign = true
 {{- end }}
 
 [tag]
 {{- if .home }}
 	forceSignAnnotated = true
+	gpgSign = true
 {{- end }}
 
 [user]
