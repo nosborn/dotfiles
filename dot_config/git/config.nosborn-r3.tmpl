@@ -3,11 +3,6 @@
 	gpgSign = true
 {{- end }}
 
-[push]
-{{- if .work }}
-	gpgSign = true
-{{- end }}
-
 [tag]
 {{- if .work }}
 	forceSignAnnotated = true

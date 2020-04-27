@@ -23,6 +23,10 @@ function rprompt_cmd() {
   fi
   printf '%s' "${vpn_info_msg_0_}"
 {{ if .work }}
+  local workspace=$(terraform workspace show 2>/dev/null)
+  if [[ "${workspace}" != default ]]; then
+    printf ' 🄣 %s' "%F{magenta}${workspace}%k%f"
+  fi
 
   local subscription=$(grep -e ^subscription ~/.azure/clouds.config | tr -d ' ' | cut -d= -f2)
   if [[ -n "${subscription}" ]]; then
