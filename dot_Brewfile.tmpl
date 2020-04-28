@@ -20,10 +20,12 @@ cask 'aerial'
 brew 'ansible'
 {{ end -}}
 brew 'ansible-lint'
+{{ if .home -}}
 # brew 'aws-keychain'
 # cask 'aws-vault'
 brew 'awscli'
 # brew 'awslogs'
+{{ end -}}
 # brew 'azcopy'
 brew 'azure-cli'
 {{ if .home -}}
