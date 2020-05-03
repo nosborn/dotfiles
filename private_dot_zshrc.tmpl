@@ -27,7 +27,7 @@ cdpath=( ~ ~/src/github.com/corda $cdpath )
 {{ end -}}
 cdpath=( . $cdpath )
 fpath=( ~/.local/share/zsh-completions /usr/local/share/zsh-completions $fpath )
-path=( ~/bin /usr/local/sbin $path )
+path=( ~/bin $(python3 -msite --user-base)/bin /usr/local/sbin $path )
 
 autoload -U colors
 colors
