@@ -3,15 +3,13 @@
 set -o errexit
 set -o nounset
 
-python3 -mpip install --upgrade --quiet --disable-pip-version-check \
-  'pynvim' \
+python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
   'vim-vint'
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
-  python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+  python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
     'ansible[azure]' \
     'datadog-checks-dev[cli]' \
-    'mitogen' \
     'molecule[docker]' \
     'packaging'
 fi
