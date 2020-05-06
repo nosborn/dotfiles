@@ -62,15 +62,16 @@
 	cachetextconv = true
 	textconv = zipinfo -lZ
 
+[fetch]
+        fsckobjects = true
+	prune = true
+	pruneTags = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
 	required = true
 	smudge = git-lfs smudge -- %f
-
-[fetch]
-	prune = true
-	pruneTags = true
 
 [gpg]
 {{- if eq .chezmoi.os "darwin" }}
@@ -106,6 +107,9 @@
 	autoStash = true
 	missingCommitsCheck = warn
 
+[receive]
+	fsckObjects = true
+
 [rerere]
 	enabled = true
 
@@ -116,6 +120,9 @@
 	relativePaths = false
 	showStash = true
 ;	showUntrackedFiles = all
+
+[transfer]
+        fsckobjects = true
 
 [user]
 	name = {{ .user.name }}
