@@ -16,9 +16,7 @@ tap 'twpayne/taps'
 # cask 'adoptopenjdk'
 {{ end -}}
 # cask 'aerial'
-{{ if .home -}}
 brew 'ansible'
-{{ end -}}
 brew 'ansible-lint'
 {{ if .home -}}
 # brew 'aws-keychain'
@@ -26,7 +24,6 @@ brew 'ansible-lint'
 brew 'awscli'
 # brew 'awslogs'
 {{ end -}}
-# brew 'azcopy'
 brew 'azure-cli'
 {{ if .home -}}
 brew 'b2-tools'
@@ -95,13 +92,13 @@ brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
 {{ if .work -}}
-# brew 'molecule'
+brew 'molecule'
 {{ end -}}
 {{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
 {{ if .work -}}
-brew 'mysql-client'
+# brew 'mysql-client'
 {{ end -}}
 brew 'p7zip'
 {{ if .home -}}
