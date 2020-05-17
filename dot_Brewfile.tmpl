@@ -71,7 +71,6 @@ brew 'grip' # for vim-markdown-preview
 brew 'hadolint'
 cask 'hammerspoon'
 brew 'html2text' # for lesspipe
-brew 'interactive-rebase-tool'
 brew 'jinja2-cli'
 brew 'jq'
 brew 'jsonlint'
@@ -106,9 +105,6 @@ cask 'parallels'
 {{ end -}}
 {{ if .home -}}
 cask 'philips-hue-sync'
-{{ end -}}
-{{ if .work -}}
-cask 'powershell'
 {{ end -}}
 {{ if .work -}}
 brew 'pre-commit'
