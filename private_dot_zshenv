@@ -2,7 +2,7 @@ export LC_ALL=en_GB.UTF-8
 
 # Ansible
 export ANSIBLE_NOCOWS=1
-export ANSIBLE_TIMEOUT=24
+export ANSIBLE_TIMEOUT=36
 
 # HashiCorp
 export CHECKPOINT_DISABLE=1
@@ -15,6 +15,9 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
+
+# Terraform
+export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 
 # XDG
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
