@@ -18,5 +18,5 @@ fi
 brew bundle --global
 
 # https://aka.ms/azsdk/python/all
-$(brew --prefix ansible)/libexec/bin/python3 -mpip install --upgrade --quiet --disable-pip-version-check \
+"$(brew --prefix ansible)/libexec/bin/python3" -mpip install --upgrade --quiet --disable-pip-version-check \
   msrestazure
