@@ -15,6 +15,7 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
+export PYTHONWARNINGS=ignore
 
 # Terraform
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
