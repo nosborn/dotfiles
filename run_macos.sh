@@ -9,8 +9,10 @@ if [ -d ~/bin ]; then
   SetFile -a V ~/bin
 fi
 
-cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* \
-  /Library/Fonts/
+if [ -d /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts ]; then
+  cp -R /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/* \
+    /Library/Fonts/
+fi
 
 defaults write -app Hammerspoon HSUploadCrashData -bool false
 defaults write -app Hammerspoon SUEnableAutomaticChecks -bool false
