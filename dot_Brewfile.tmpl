@@ -1,4 +1,3 @@
-tap 'd12frosted/emacs-plus'
 tap 'homebrew/cask'
 {{ if .home -}}
 tap 'homebrew/cask-drivers'
@@ -17,8 +16,12 @@ tap 'twpayne/taps'
 # cask 'adoptopenjdk'
 {{ end -}}
 # cask 'aerial'
+{{ if not .work -}}
 brew 'ansible'
+{{ end -}}
+{{ if not .work -}}
 brew 'ansible-lint'
+{{ end -}}
 {{ if .home -}}
 # brew 'aws-keychain'
 # cask 'aws-vault'
@@ -51,7 +54,6 @@ cask 'dbeaver-community'
 brew 'direnv'
 cask 'docker'
 brew 'docker-clean'
-brew 'emacs-plus', args: []
 brew 'eslint'
 brew 'exiftool'
 brew 'findutils'
@@ -93,9 +95,6 @@ brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
 {{ if .work -}}
-brew 'molecule'
-{{ end -}}
-{{ if .work -}}
 brew 'mssql-tools'
 {{ end -}}
 {{ if .work -}}
@@ -115,6 +114,9 @@ brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
 {{ if .work -}}
+brew 'python3'
+{{ end -}}
+{{ if .work -}}
 brew 'quazip' # for keepassxc
 {{ end -}}
 {{ if .home -}}
@@ -130,11 +132,6 @@ brew 'shellcheck'
 brew 'shfmt'
 {{ if .work -}}
 cask 'slack'
-brew 'slackcat'
-brew 'slacknimate'
-{{ end -}}
-{{ if .home -}}
-cask 'stellarium'
 {{ end -}}
 brew 'telnet'
 brew 'terraform'

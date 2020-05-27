@@ -16,7 +16,3 @@ if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
   export HOMEBREW_NO_ENV_FILTERING=1 # https://github.com/microsoft/homebrew-mssql-release/pull/26
 fi
 brew bundle --global
-
-# https://aka.ms/azsdk/python/all
-"$(brew --prefix ansible)/libexec/bin/python3" -mpip install --upgrade --quiet --disable-pip-version-check \
-  msrestazure
