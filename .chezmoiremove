@@ -10,6 +10,7 @@
 .config/nvim/
 .config/pep8/
 .config/wireshark/
+.emacs.d/
 .gradle/
 .local/share/nvim/
 .npm/anonymous-cli-metrics.json
