@@ -7,7 +7,6 @@ command -v npm >/dev/null 2>&1 || exit 0
 
 packages="
   markdownlint-cli
-  neovim
 "
 
 for p in ${packages}; do
