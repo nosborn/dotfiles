@@ -15,7 +15,7 @@ tap 'twpayne/taps'
 {{ if .work -}}
 # cask 'adoptopenjdk'
 {{ end -}}
-# cask 'aerial'
+cask 'aerial'
 {{ if not .work -}}
 brew 'ansible'
 {{ end -}}
