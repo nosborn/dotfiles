@@ -6,6 +6,7 @@
 .config/fish/
 .config/flake8/
 .config/git/hooks/prepare-commit-msg
+.config/kitty/
 .config/liquidpromptrc
 .config/nvim/
 .config/pep8/
