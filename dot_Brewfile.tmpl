@@ -18,8 +18,6 @@ tap 'twpayne/taps'
 cask 'aerial'
 {{ if not .work -}}
 brew 'ansible'
-{{ end -}}
-{{ if not .work -}}
 brew 'ansible-lint'
 {{ end -}}
 {{ if .home -}}
@@ -44,8 +42,6 @@ brew 'coreutils' # for timeout
 brew 'ctags'
 {{ if .work -}}
 # cask 'datadog-agent'
-{{ end -}}
-{{ if .work -}}
 cask 'dbeaver-community'
 {{ end -}}
 brew 'direnv'
@@ -77,8 +73,6 @@ brew 'jq'
 brew 'jsonlint'
 {{ if .home -}}
 cask 'karabiner-elements'
-{{ end -}}
-{{ if .home -}}
 cask 'keybase'
 {{ end -}}
 {{ if .work -}}
@@ -91,16 +85,13 @@ brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
 {{ if .work -}}
+cask 'microsoft-azure-storage-explorer'
 brew 'mssql-tools'
-{{ end -}}
-{{ if .work -}}
 # brew 'mysql-client'
 {{ end -}}
 brew 'p7zip'
 {{ if .home -}}
 cask 'parallels'
-{{ end -}}
-{{ if .home -}}
 cask 'philips-hue-sync'
 {{ end -}}
 {{ if .work -}}
@@ -111,14 +102,10 @@ brew 'pstree'
 brew 'pwgen'
 {{ if .work -}}
 brew 'python3'
-{{ end -}}
-{{ if .work -}}
 brew 'quazip' # for keepassxc
 {{ end -}}
 {{ if .home -}}
 brew 'qpdf'
-{{ end -}}
-{{ if .home -}}
 # cask 'razer-synapse'
 {{ end -}}
 cask 'rectangle'
@@ -133,9 +120,6 @@ brew 'telnet'
 brew 'terraform'
 brew 'tflint'
 brew 'tig'
-{{ if .home -}}
-brew 'tintin'
-{{ end -}}
 {{ if .work -}}
 brew 'unixodbc'  # for msodbcsql*
 {{ end -}}
