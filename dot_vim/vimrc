@@ -15,7 +15,6 @@ let g:ale_set_balloons = 1
 
 call minpac#init()
 call minpac#add('JamshedVesuna/vim-markdown-preview')
-call minpac#add('LokiChaos/vim-tintin')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
 call minpac#add('dense-analysis/ale')
