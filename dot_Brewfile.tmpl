@@ -3,10 +3,8 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-drivers'
 {{ end -}}
 tap 'homebrew/cask-fonts'
-{{ if .home -}}
-tap 'homebrew/services'
-{{ end -}}
 {{ if .work -}}
+tap 'liamg/tfsec'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 {{ end -}}
 tap 'twpayne/taps'
@@ -121,6 +119,9 @@ cask 'slack'
 brew 'telnet'
 brew 'terraform'
 brew 'tflint'
+{{ if .work -}}
+brew 'tfsec'
+{{ end -}}
 brew 'tig'
 {{ if .work -}}
 brew 'unixodbc'  # for msodbcsql*
