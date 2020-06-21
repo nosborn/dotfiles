@@ -116,6 +116,9 @@ brew 'shfmt'
 {{ if .work -}}
 cask 'slack'
 {{ end -}}
+{{ if .home -}}
+cask 'synologyassistant'
+{{ end -}}
 brew 'telnet'
 brew 'terraform'
 brew 'tflint'

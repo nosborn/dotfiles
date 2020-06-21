@@ -27,6 +27,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile .markdownlintrc               set ft=json
   au! BufRead,BufNewFile .yamllint                     set ft=yaml
   au! BufRead,BufNewFile Brewfile                      set ft=ruby
+  au! BufRead,BufNewFile Dockerfile.j2                 set ft=dockerfile.jinja2
   au! BufRead,BufNewFile Jenkinsfile                   set ft=groovy
   au! BufRead,BufNewFile Vagrantfile                   set ft=ruby
   au! BufRead,BufNewFile acme-client.conf.j2           set sw=8 ts=8
