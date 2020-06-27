@@ -97,6 +97,9 @@ fi
 if (( $+commands[molecule] )); then
   eval "$(_MOLECULE_COMPLETE=source molecule)"
 fi
+if (( $+commands[qpdf] )); then
+  complete -o bashdefault -o default -o nospace -C $commands[qpdf] qpdf
+fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
 fi
