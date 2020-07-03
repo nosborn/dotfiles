@@ -136,7 +136,7 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
         fi
       done
     }
-    printf '\e]7;%s\a' "file://${HOST:?}${url_path}"
+    printf '\e]7;%s\a' "file://${HOST}${url_path}"
   }
   typeset -ag chpwd_functions
   if [[ -z ${chpwd_functions[(r)_update_terminal_cwd]} ]]; then
