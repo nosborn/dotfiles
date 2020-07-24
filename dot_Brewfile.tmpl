@@ -1,17 +1,7 @@
 tap 'homebrew/cask'
-{{ if .home -}}
-tap 'homebrew/cask-drivers'
-{{ end -}}
 tap 'homebrew/cask-fonts'
-{{ if .work -}}
-tap 'liamg/tfsec'
-tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
-{{ end -}}
 
 # cask '1password-cli'
-{{ if .work -}}
-# cask 'adoptopenjdk'
-{{ end -}}
 cask 'aerial'
 {{ if not .work -}}
 brew 'ansible'
@@ -24,23 +14,13 @@ brew 'awscli'
 # brew 'awslogs'
 {{ end -}}
 brew 'azure-cli'
-{{ if .home -}}
-brew 'b2-tools'
-{{ end -}}
 brew 'bat'
-{{ if .home -}}
-# brew 'battle-net'
-{{ end -}}
 brew 'black'
 # brew 'cfn-lint'
 brew 'chezmoi'
 cask 'chromium'
 brew 'coreutils' # for timeout
 brew 'ctags'
-{{ if .work -}}
-# cask 'datadog-agent'
-cask 'dbeaver-community'
-{{ end -}}
 brew 'direnv'
 cask 'docker'
 brew 'docker-clean'
@@ -50,9 +30,6 @@ brew 'findutils'
 brew 'flake8'
 cask 'font-jetbrainsmono-nerd-font'
 brew 'fswatch'
-{{ if .home -}}
-# cask 'ftdi-vcp-driver'
-{{ end -}}
 brew 'fzf'
 brew 'gh'
 brew 'git'
@@ -68,13 +45,6 @@ brew 'html2text' # for lesspipe
 brew 'jinja2-cli'
 brew 'jq'
 brew 'jsonlint'
-{{ if .home -}}
-cask 'karabiner-elements'
-cask 'keybase'
-{{ end -}}
-{{ if .work -}}
-cask 'keepassxc'
-{{ end -}}
 cask 'kitty'
 {{ if .home -}}
 # cask 'knockknock'
@@ -82,59 +52,26 @@ cask 'kitty'
 brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
-{{ if .work -}}
-cask 'microsoft-azure-storage-explorer'
-brew 'mssql-tools'
-# brew 'mysql-client'
-{{ end -}}
 brew 'p7zip'
-{{ if .home -}}
-cask 'parallels'
-cask 'philips-hue-sync'
-{{ end -}}
-{{ if .work -}}
 brew 'pre-commit'
-{{ end -}}
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
 brew 'pylint'
-{{ if .work -}}
-brew 'python@3.7'
-brew 'quazip' # for keepassxc
-{{ end -}}
-{{ if .home -}}
-brew 'qpdf'
-# cask 'razer-synapse'
-{{ end -}}
 cask 'rectangle'
 brew 'ripgrep'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
-{{ if .work -}}
-cask 'slack'
-{{ end -}}
-{{ if .home -}}
-cask 'synologyassistant'
-{{ end -}}
 brew 'telnet'
 brew 'terraform'
 brew 'tflint'
-{{ if .work -}}
 brew 'tfsec'
-{{ end -}}
 brew 'tig'
-{{ if .work -}}
-brew 'unixodbc'  # for msodbcsql*
-{{ end -}}
 # cask 'vagrant'
 brew 'vim'
 # cask 'virtualbox'
 brew 'watch'
-{{ if .work -}}
-cask 'webex-meetings'
-{{ end -}}
 brew 'wget'
 brew 'yamllint'
 brew 'yapf'
@@ -144,6 +81,43 @@ brew 'yq'
 brew 'zsh-completions'
 # brew 'zsh-git-prompt'
 brew 'zsh-syntax-highlighting'
+
+{{ if .home -}}
+tap 'homebrew/cask-drivers'
+
+brew 'b2-tools'
+# brew 'battle-net'
+# cask 'ftdi-vcp-driver'
+cask 'karabiner-elements'
+cask 'keybase'
+cask 'parallels'
+cask 'philips-hue-sync'
+brew 'qpdf'
+# cask 'razer-synapse'
+cask 'synologyassistant'
+{{ end -}}
+
+{{ if .work -}}
+tap 'liamg/tfsec'
+tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
+
+# cask 'adoptopenjdk'
+# cask 'datadog-agent'
+cask 'dbeaver-community'
+brew 'elasticsearch'
+brew 'filebeat'
+cask 'keepassxc'
+brew 'kibana'
+brew 'logstash'
+cask 'microsoft-azure-storage-explorer'
+brew 'mssql-tools'
+# brew 'mysql-client'
+brew 'python@3.7'
+brew 'quazip' # for keepassxc
+cask 'slack'
+brew 'unixodbc'  # for msodbcsql*
+cask 'webex-meetings'
+{{ end -}}
 
 if File.writable?('/Applications')
   mas '1Blocker', id: 1107421413
