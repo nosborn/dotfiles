@@ -17,4 +17,6 @@ if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
 fi
 brew bundle --global
 
-brew link --force --overwrite python@3.7
+if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
+  brew link --force --overwrite python@3.7
+fi
