@@ -69,6 +69,20 @@ export CLICOLOR=1
 export EDITOR=vim
 export VISUAL=vim
 
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_ZN=$(tput ssubm)
+export LESS_TERMCAP_ZV=$(tput rsubm)
+export LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZW=$(tput rsupm)
+
 if (( $+commands[lesspipe.sh] )); then
   #export LESSOPEN="|$commands[lesspipe.sh] %s"
   export LESS_ADVANCED_PREPROCESSOR=1
@@ -144,6 +158,8 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
   fi
   _update_terminal_cwd
 fi
+
+[[ -s /usr/local/etc/grc.zsh ]] && source /usr/local/etc/grc.zsh
 
 if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
