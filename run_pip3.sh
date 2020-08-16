@@ -11,7 +11,7 @@ python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
 
 if [ "$(hostname -s)" = "19SGD-MAC11" ]; then
   python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
-    'ansible[azure]' \
+    'ansible[azure]>=1.9.0,<1.10.0' \
     'ansible-lint' \
     'datadog' \
     'datadog-checks-dev[cli]'
