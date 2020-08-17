@@ -17,7 +17,9 @@ if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
 fi
 brew bundle --global
 
-if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
-  brew link --force --overwrite python@3.7
-  brew pin terraform
-fi
+case "$(hostname -s)" in
+  19SGD-*)
+    brew link --force --overwrite python@3.7
+    brew pin terraform
+    ;;
+esac
