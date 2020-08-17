@@ -15,6 +15,7 @@ case "$(hostname -s)" in
       'ansible[azure]>=2.9.0,<2.10.0' \
       'ansible-lint' \
       'datadog' \
-      'datadog-checks-dev[cli]'
+      'datadog-checks-dev[cli]' \
+      'molecule[lint]'
     ;;
 esac
