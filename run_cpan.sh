@@ -3,7 +3,9 @@
 set -o errexit
 set -o nounset
 
-[ "$(hostname -s)" = "19SGD-MAC11" ] && exit
+case "$(hostname -s)" in
+  19SGD-*) exit ;;
+esac
 
 /usr/local/bin/cpan -T \
   Digest::SHA1 \
