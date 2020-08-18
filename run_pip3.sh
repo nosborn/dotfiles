@@ -16,6 +16,6 @@ case "$(hostname -s)" in
       'ansible-lint' \
       'datadog' \
       'datadog-checks-dev[cli]' \
-      'molecule[lint]'
+      'molecule[docker,lint]'
     ;;
 esac
