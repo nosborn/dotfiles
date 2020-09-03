@@ -67,6 +67,9 @@ brew 'shellcheck'
 brew 'shfmt'
 brew 'telnet'
 brew 'terraform'
+{{ if .work -}}
+brew 'terraform@0.12'
+{{ end -}}
 brew 'tflint'
 brew 'tfsec'
 brew 'tig'

@@ -20,6 +20,5 @@ brew bundle --global
 case "$(hostname -s)" in
   19SGD-*)
     brew link --force --overwrite python@3.7
-    brew pin terraform
     ;;
 esac
