@@ -4,10 +4,8 @@ tap 'liamg/tfsec'
 
 # cask '1password-cli'
 cask 'aerial'
-{{ if not .work -}}
 brew 'ansible'
 brew 'ansible-lint'
-{{ end -}}
 {{ if .home -}}
 # brew 'aws-keychain'
 # cask 'aws-vault'
@@ -54,6 +52,7 @@ cask 'kitty'
 brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
+brew 'molecule'
 brew 'p7zip'
 brew 'pre-commit'
 brew 'prettier'
@@ -112,7 +111,6 @@ cask 'keepassxc'
 cask 'microsoft-azure-storage-explorer'
 brew 'mssql-tools'
 # brew 'mysql-client'
-brew 'python@3.7'
 brew 'quazip' # for keepassxc
 cask 'slack'
 brew 'unixodbc'  # for msodbcsql*

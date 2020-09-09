@@ -16,9 +16,3 @@ if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
   export HOMEBREW_NO_ENV_FILTERING=1 # https://github.com/microsoft/homebrew-mssql-release/pull/26
 fi
 brew bundle --global
-
-case "$(hostname -s)" in
-  19SGD-*)
-    brew link --force --overwrite python@3.7
-    ;;
-esac
