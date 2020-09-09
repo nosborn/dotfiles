@@ -15,7 +15,8 @@ case "$(hostname -s)" in
   19SGD-*)
     python3 -mpip install --user --upgrade --quiet \
       datadog \
-      msrest
+      msrest \
+      msrestazure
     # 'ansible[azure]==2.9.11' \
     # 'ansible-lint' \
     # 'datadog' \
