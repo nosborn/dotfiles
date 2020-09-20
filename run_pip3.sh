@@ -13,7 +13,8 @@ case "$(hostname -s)" in
   19SGD-*)
     python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
       'datadog' \
-      'molecule[docker]'
+      'molecule[docker]' \
+      'msrestazure'
     #  'ansible[azure]==2.9.11' \
     #  'ansible-lint' \
     # # 'datadog-checks-dev[cli]' \
