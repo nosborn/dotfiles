@@ -14,24 +14,26 @@ if [ -d /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts ]; 
     /Library/Fonts/
 fi
 
-defaults write -app Hammerspoon HSUploadCrashData -bool false
-defaults write -app Hammerspoon SUEnableAutomaticChecks -bool false
+if [ -d /Applications/Hammerspoon.app ]; then
+  defaults write -app Hammerspoon HSUploadCrashData -bool false
+  defaults write -app Hammerspoon SUEnableAutomaticChecks -bool false
+fi
 
-# defaults write -app Rectangle alternateDefaultShortcuts -bool true
-defaults write -app Rectangle launchOnLogin -bool true
-# defaults write -app Rectangle subsequentExecutionMode -int 2
+if [ -d /Applications/Rectangle.app ]; then
+  # defaults write -app Rectangle alternateDefaultShortcuts -bool true
+  defaults write -app Rectangle launchOnLogin -bool true
+  # defaults write -app Rectangle subsequentExecutionMode -int 2
+fi
 
-defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
-defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
+if [ -d "${HOME}/Library/Screen Savers/Aerial.saver" ]; then
+  defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
+  defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
+fi
 
+# TODO: remove this
 readonly username=$(id -un)
-[ -e /etc/sudoers.d/${username}-openconnect ] || {
-  sudo tee /etc/sudoers.d/${username}-openconnect >/dev/null <<EOF
-${username} ALL=(ALL) NOPASSWD: /usr/bin/killall openconnect
-${username} ALL=(ALL) NOPASSWD: /usr/local/bin/openconnect
-EOF
-  sudo chown root:wheel /etc/sudoers.d/${username}-openconnect
-  sudo chmod 0440 /etc/sudoers.d/${username}-openconnect
+[ -e /etc/sudoers.d/${username}-openconnect ] && {
+  sudo rm /etc/sudoers.d/${username}-openconnect
 }
 
 if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
