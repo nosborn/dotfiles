@@ -11,17 +11,6 @@ function rprompt_cmd() {
     printf '%s' "${vcs_info_msg_0_}"
   fi
 
-  if [[ -e /opt/cisco/anyconnect/bin/vpn ]]; then
-    local state=$(/opt/cisco/anyconnect/bin/vpn state | grep -F '>> state:' | tail -1 | awk '{print $4}')
-    case "${state}" in
-      Connected|Connecting) vpn_info_msg_0_="[%F{blue}VPN%f]";;
-      Disconnected) vpn_info_msg_0_="";;
-      *) vpn_info_msg_0_="[%F{yellow}VPN:${state}%f]";;
-    esac
-  else
-    vpn_info_msg_0_=""
-  fi
-  printf '%s' "${vpn_info_msg_0_}"
 {{ if .work }}
   local workspace=$(terraform workspace show 2>/dev/null)
   if [[ "${workspace}" != default ]]; then
