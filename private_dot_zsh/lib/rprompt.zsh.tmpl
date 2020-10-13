@@ -1,50 +1,14 @@
 setopt prompt_subst
 
-RPROMPT=''
-RPROMPT_ASYNC_PROC=0
-
-function rprompt_cmd() {
+function _rprompt_info() {
   if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
     git_super_status
   else
     vcs_info
     printf '%s' "${vcs_info_msg_0_}"
   fi
-
-{{ if .work }}
-  local workspace=$(terraform workspace show 2>/dev/null)
-  if [[ "${workspace}" != default ]]; then
-    printf ' 🄣 %s' "%F{magenta}${workspace}%k%f"
-  fi
-
-  local subscription=$(grep -e ^subscription ~/.azure/clouds.config | tr -d ' ' | cut -d= -f2)
-  if [[ -n "${subscription}" ]]; then
-    local az_name=$(jq -r ".subscriptions[] | select(.id==\"${subscription}\") | .name" <~/.azure/azureProfile.json)
-    if [[ -n "${az_name}" ]]; then
-      printf ' \ufd03 %s' "%F{cyan}${az_name}%k%f"
-    fi
-  fi
-{{ end }}
 }
 
-function precmd() {
-  function async() {
-    printf %s "$(rprompt_cmd)" >/tmp/zsh_prompt_$$
-    kill -s USR1 $$
-  }
-
-  if [[ ${RPROMPT_ASYNC_PROC} != 0 ]]; then
-    kill -s HUP ${RPROMPT_ASYNC_PROC} >/dev/null 2>&1 || :
-  fi
-
-  async &!
-  RPROMPT_ASYNC_PROC=$!
-}
-
-function TRAPUSR1() {
-  RPROMPT="$(cat /tmp/zsh_prompt_$$)"
-  RPROMPT_ASYNC_PROC=0
-  zle && zle reset-prompt
-}
+RPROMPT='$(_rprompt_info)'
 
 # vim: ft=zsh
