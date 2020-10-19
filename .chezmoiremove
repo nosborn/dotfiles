@@ -15,6 +15,7 @@
 .local/etc/
 .local/share/git-core/
 .local/share/nvim/
+.local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
 .pylint.d/
