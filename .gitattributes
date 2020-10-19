@@ -1,3 +1,2 @@
-/dot_tflint.d/** binary
-/private_dot_terminfo/** binary
-executable_tflint-ruleset-azurerm filter=lfs diff=lfs merge=lfs -text
+/dot_tflint.d/ binary
+/dot_tflint.d/plugins/ filter=lfs diff=lfs merge=lfs -text
