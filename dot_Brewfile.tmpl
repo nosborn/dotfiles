@@ -45,9 +45,6 @@ brew 'jinja2-cli'
 brew 'jq'
 brew 'jsonlint'
 cask 'kitty'
-{{ if .home -}}
-# cask 'knockknock'
-{{ end -}}
 brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
@@ -94,6 +91,16 @@ cask 'philips-hue-sync'
 brew 'qpdf'
 # cask 'razer-synapse'
 cask 'synologyassistant'
+
+if File.writable?('/Applications')
+  mas '1Blocker', id: 1107421413
+  # # mas 'Daisy Disk', id: 411643860
+  # mas 'Discovery', id: 1381004916
+  # mas 'Microsoft Excel', id: 462058435
+  # mas 'Microsoft Word', id: 462054704
+  # mas 'Numbers', id: 409203825
+  # mas 'Pages', id: 409201541
+end
 {{ end -}}
 
 {{ if .work -}}
@@ -111,15 +118,5 @@ cask 'slack'
 brew 'unixodbc'  # for msodbcsql*
 cask 'webex-meetings'
 {{ end -}}
-
-if File.writable?('/Applications')
-  mas '1Blocker', id: 1107421413
-  # # mas 'Daisy Disk', id: 411643860
-  # mas 'Discovery', id: 1381004916
-  # mas 'Microsoft Excel', id: 462058435
-  # mas 'Microsoft Word', id: 462054704
-  # mas 'Numbers', id: 409203825
-  # mas 'Pages', id: 409201541
-end
 
 # vim: ft=ruby.jinja2
