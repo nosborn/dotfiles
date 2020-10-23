@@ -14,11 +14,11 @@ case "$(hostname -s)" in
     python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
       'azure-cli' \
       'datadog' \
+      'datadog-checks-dev[cli]' \
       'molecule[docker]' \
       'msrestazure' \
       'packaging'
     #  'ansible[azure]==2.9.11' \
     #  'ansible-lint' \
-    # # 'datadog-checks-dev[cli]' \
     ;;
 esac

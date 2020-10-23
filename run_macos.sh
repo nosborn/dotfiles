@@ -14,27 +14,16 @@ if [ -d /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts ]; 
     /Library/Fonts/
 fi
 
-if [ -d /Applications/Hammerspoon.app ]; then
-  defaults write -app Hammerspoon HSUploadCrashData -bool false
-  defaults write -app Hammerspoon SUEnableAutomaticChecks -bool false
-fi
-
 if [ -d /Applications/Rectangle.app ]; then
-  # defaults write -app Rectangle alternateDefaultShortcuts -bool true
+  defaults write -app Rectangle SUEnableAutomaticChecks -bool false
+  defaults write -app Rectangle SUSendProfileInfo -bool false
   defaults write -app Rectangle launchOnLogin -bool true
-  # defaults write -app Rectangle subsequentExecutionMode -int 2
 fi
 
 if [ -d "${HOME}/Library/Screen Savers/Aerial.saver" ]; then
   defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
   defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
 fi
-
-# TODO: remove this
-readonly username=$(id -un)
-[ -e /etc/sudoers.d/${username}-openconnect ] && {
-  sudo rm /etc/sudoers.d/${username}-openconnect
-}
 
 if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
   for cmd in docker docker-compose; do
