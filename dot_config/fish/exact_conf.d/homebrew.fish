@@ -1,0 +1,4 @@
+set --export HOMEBREW_BAT 1
+set --export HOMEBREW_BUNDLE_NO_LOCK 1
+set --export HOMEBREW_NO_ANALYTICS 1
+set --export HOMEBREW_NO_INSECURE_REDIRECT 1
