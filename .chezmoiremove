@@ -3,7 +3,6 @@
 .azure/telemetry.txt
 .azure/telemetry/
 .config/alacritty/
-.config/fish/
 .config/git/hooks/prepare-commit-msg
 .config/liquidpromptrc
 .config/nvim/
@@ -43,7 +42,6 @@ Library/Caches/com.northnumber.Bodo/
 Library/Caches/com.pigigaldi.pock/
 Library/Caches/com.plausiblelabs.crashreporter.data/
 Library/Caches/com.qvacua.VimR/
-Library/Caches/fish/
 Library/Caches/io.fabric.sdk.mac.data/
 Library/Caches/org.hammerspoon.Hammerspoon/
 Library/Caches/org.vim.MacVim/
