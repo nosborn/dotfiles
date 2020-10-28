@@ -33,7 +33,7 @@ call minpac#add('jsit/toast.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('maximbaz/lightline-ale')
-call minpac#add('morhetz/gruvbox')
+" call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('satabin/hocon-vim')
@@ -137,12 +137,13 @@ augroup MyColorScheme
   autocmd ColorScheme * call MyColorSchemeHighlights()
 augroup END
 
-let g:gruvbox_contrast_dark = 'medium'
-" let g:gruvbox_improved_strings = 1
-let g:gruvbox_improved_warnings = 1
-let g:gruvbox_italic = 1
-" let g:gruvbox_italicize_strings = 1
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark = 'medium'
+"" let g:gruvbox_improved_strings = 1
+"let g:gruvbox_improved_warnings = 1
+"let g:gruvbox_italic = 1
+"" let g:gruvbox_italicize_strings = 1
+"colorscheme gruvbox
+colorscheme toast
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -213,7 +214,7 @@ let g:lightline = {
       \       ['fileformat', 'fileencoding', 'filetype'],
       \     ]
       \   },
-      \   'colorscheme': 'gruvbox',
+      \   'colorscheme': 'toast',
       \   'component_function': {
       \     'gitbranch': 'FugitiveHead',
       \     'readonly': 'LightlineReadOnly',
