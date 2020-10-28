@@ -1,3 +1,4 @@
+.anyconnect/
 .atom/
 .azure/logs/telemetry.log
 .azure/telemetry.txt
@@ -5,7 +6,6 @@
 .config/alacritty/
 .config/git/hooks/prepare-commit-msg
 .config/liquidpromptrc
-.config/nvim/
 .config/pep8/
 .config/wireshark/
 .emacs.d/
@@ -13,7 +13,6 @@
 .hammerspoon/
 .local/etc/
 .local/share/git-core/
-.local/share/nvim/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
