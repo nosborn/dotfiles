@@ -1,0 +1,931 @@
+SpecialKey     xxx term=bold ctermfg=238 guifg=Grey27
+EndOfBuffer    xxx links to NonText
+NonText        xxx term=bold ctermfg=12 gui=bold guifg=Blue
+                   links to GruvboxBg2
+Directory      xxx term=bold ctermfg=159 guifg=Cyan
+                   links to GruvboxGreenBold
+ErrorMsg       xxx term=standout cterm=bold ctermfg=235 ctermbg=167 gui=bold guifg=#282828 guibg=#fb4934
+IncSearch      xxx term=reverse cterm=reverse ctermfg=208 ctermbg=235 gui=reverse guifg=#fe8019 guibg=#282828
+Search         xxx term=reverse cterm=reverse ctermfg=214 ctermbg=235 gui=reverse guifg=#fabd2f guibg=#282828
+MoreMsg        xxx term=bold ctermfg=121 gui=bold guifg=SeaGreen
+                   links to GruvboxYellowBold
+ModeMsg        xxx term=bold cterm=bold gui=bold
+                   links to GruvboxYellowBold
+LineNr         xxx term=underline ctermfg=243 guifg=#7c6f64
+LineNrAbove    xxx cleared
+LineNrBelow    xxx cleared
+CursorLineNr   xxx term=bold ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+Question       xxx term=standout ctermfg=121 gui=bold guifg=Green
+                   links to GruvboxOrangeBold
+StatusLine     xxx term=bold,reverse cterm=reverse ctermfg=239 ctermbg=223 gui=reverse guifg=#504945 guibg=#ebdbb2
+StatusLineNC   xxx term=reverse cterm=reverse ctermfg=237 ctermbg=246 gui=reverse guifg=#3c3836 guibg=#a89984
+VertSplit      xxx term=reverse ctermfg=241 ctermbg=235 guifg=#665c54 guibg=#282828
+Title          xxx term=bold ctermfg=225 gui=bold guifg=Magenta
+                   links to GruvboxGreenBold
+Visual         xxx term=reverse cterm=reverse ctermbg=241 gui=reverse guibg=#665c54
+VisualNOS      xxx term=bold,underline cterm=bold,underline gui=bold,underline
+                   links to Visual
+WarningMsg     xxx term=standout ctermfg=224 guifg=Red
+                   links to GruvboxRedBold
+WildMenu       xxx term=standout cterm=bold ctermfg=109 ctermbg=239 gui=bold guifg=#83a598 guibg=#504945
+Folded         xxx term=standout cterm=italic ctermfg=245 ctermbg=237 gui=italic guifg=#928374 guibg=#3c3836
+FoldColumn     xxx term=standout ctermfg=245 ctermbg=237 guifg=#928374 guibg=#3c3836
+DiffAdd        xxx term=bold cterm=reverse ctermfg=142 ctermbg=235 gui=reverse guifg=#b8bb26 guibg=#282828
+DiffChange     xxx term=bold cterm=reverse ctermfg=108 ctermbg=235 gui=reverse guifg=#8ec07c guibg=#282828
+DiffDelete     xxx term=bold cterm=reverse ctermfg=167 ctermbg=235 gui=reverse guifg=#fb4934 guibg=#282828
+DiffText       xxx term=reverse cterm=reverse ctermfg=214 ctermbg=235 gui=reverse guifg=#fabd2f guibg=#282828
+SignColumn     xxx term=standout ctermbg=237 guibg=#3c3836
+Conceal        xxx ctermfg=238 guifg=Grey27
+SpellBad       xxx term=reverse cterm=undercurl gui=undercurl guisp=#83a598
+SpellCap       xxx term=reverse cterm=bold,italic ctermfg=142 gui=bold,italic guifg=#b8bb26 guisp=Blue
+SpellRare      xxx term=reverse cterm=undercurl gui=undercurl guisp=#d3869b
+SpellLocal     xxx term=underline cterm=undercurl gui=undercurl guisp=#8ec07c
+Pmenu          xxx ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
+PmenuSel       xxx cterm=bold ctermfg=239 ctermbg=109 gui=bold guifg=#504945 guibg=#83a598
+PmenuSbar      xxx ctermbg=239 guibg=#504945
+PmenuThumb     xxx ctermbg=243 guibg=#7c6f64
+TabLine        xxx term=underline cterm=underline ctermfg=15 ctermbg=242 gui=underline guibg=DarkGrey
+                   links to TabLineFill
+TabLineSel     xxx term=bold ctermfg=142 ctermbg=237 guifg=#b8bb26 guibg=#3c3836
+TabLineFill    xxx term=reverse ctermfg=243 ctermbg=237 guifg=#7c6f64 guibg=#3c3836
+CursorColumn   xxx term=reverse ctermbg=242 guibg=Grey40
+                   links to CursorLine
+CursorLine     xxx term=underline ctermbg=237 guibg=#3c3836
+ColorColumn    xxx term=reverse ctermbg=237 guibg=#3c3836
+QuickFixLine   xxx links to Search
+StatusLineTerm xxx term=bold,reverse cterm=bold ctermfg=0 ctermbg=121 gui=bold guifg=bg guibg=LightGreen
+StatusLineTermNC xxx term=reverse ctermfg=0 ctermbg=121 guifg=bg guibg=LightGreen
+Normal         xxx ctermfg=223 ctermbg=235 guifg=#ebdbb2 guibg=#282828
+MatchParen     xxx term=reverse cterm=bold ctermbg=241 gui=bold guibg=#665c54
+ToolbarLine    xxx term=underline ctermbg=242 guibg=Grey50
+ToolbarButton  xxx cterm=bold ctermfg=0 ctermbg=7 gui=bold guifg=Black guibg=LightGrey
+Comment        xxx term=bold cterm=italic ctermfg=245 gui=italic guifg=#928374
+Constant       xxx term=underline ctermfg=13 guifg=#ffa0a0
+                   links to GruvboxPurple
+Special        xxx term=bold ctermfg=224 guifg=Orange
+                   links to GruvboxOrange
+Identifier     xxx term=underline cterm=bold ctermfg=14 guifg=#40ffff
+                   links to GruvboxBlue
+Statement      xxx term=bold ctermfg=11 gui=bold guifg=#ffff60
+                   links to GruvboxRed
+PreProc        xxx term=underline ctermfg=81 guifg=#ff80ff
+                   links to GruvboxAqua
+Type           xxx term=underline ctermfg=121 gui=bold guifg=#60ff60
+                   links to GruvboxYellow
+Underlined     xxx term=underline cterm=underline ctermfg=109 gui=underline guifg=#83a598
+Ignore         xxx ctermfg=0 guifg=bg
+Error          xxx term=reverse cterm=bold,reverse ctermfg=167 ctermbg=235 gui=bold,reverse guifg=#fb4934 guibg=bg
+Todo           xxx term=standout cterm=bold,italic ctermfg=223 ctermbg=235 gui=bold,italic guifg=fg guibg=bg
+String         xxx ctermfg=142 guifg=#b8bb26
+Character      xxx links to GruvboxPurple
+Number         xxx links to GruvboxPurple
+Boolean        xxx links to GruvboxPurple
+Float          xxx links to GruvboxPurple
+Function       xxx links to GruvboxGreenBold
+Conditional    xxx links to GruvboxRed
+Repeat         xxx links to GruvboxRed
+Label          xxx links to GruvboxRed
+Operator       xxx links to Normal
+Keyword        xxx links to GruvboxRed
+Exception      xxx links to GruvboxRed
+Include        xxx links to GruvboxAqua
+Define         xxx links to GruvboxAqua
+Macro          xxx links to GruvboxAqua
+PreCondit      xxx links to GruvboxAqua
+StorageClass   xxx links to GruvboxOrange
+Structure      xxx links to GruvboxAqua
+Typedef        xxx links to GruvboxYellow
+Tag            xxx links to Special
+SpecialChar    xxx links to Special
+Delimiter      xxx links to Special
+SpecialComment xxx links to Special
+Debug          xxx links to Special
+GruvboxFg0     xxx ctermfg=229 guifg=#fbf1c7
+GruvboxFg1     xxx ctermfg=223 guifg=#ebdbb2
+GruvboxFg2     xxx ctermfg=250 guifg=#d5c4a1
+GruvboxFg3     xxx ctermfg=248 guifg=#bdae93
+GruvboxFg4     xxx ctermfg=246 guifg=#a89984
+GruvboxGray    xxx ctermfg=245 guifg=#928374
+GruvboxBg0     xxx ctermfg=235 guifg=#282828
+GruvboxBg1     xxx ctermfg=237 guifg=#3c3836
+GruvboxBg2     xxx ctermfg=239 guifg=#504945
+GruvboxBg3     xxx ctermfg=241 guifg=#665c54
+GruvboxBg4     xxx ctermfg=243 guifg=#7c6f64
+GruvboxRed     xxx ctermfg=167 guifg=#fb4934
+GruvboxRedBold xxx cterm=bold ctermfg=167 gui=bold guifg=#fb4934
+GruvboxGreen   xxx ctermfg=142 guifg=#b8bb26
+GruvboxGreenBold xxx cterm=bold ctermfg=142 gui=bold guifg=#b8bb26
+GruvboxYellow  xxx ctermfg=214 guifg=#fabd2f
+GruvboxYellowBold xxx cterm=bold ctermfg=214 gui=bold guifg=#fabd2f
+GruvboxBlue    xxx ctermfg=109 guifg=#83a598
+GruvboxBlueBold xxx cterm=bold ctermfg=109 gui=bold guifg=#83a598
+GruvboxPurple  xxx ctermfg=175 guifg=#d3869b
+GruvboxPurpleBold xxx cterm=bold ctermfg=175 gui=bold guifg=#d3869b
+GruvboxAqua    xxx ctermfg=108 guifg=#8ec07c
+GruvboxAquaBold xxx cterm=bold ctermfg=108 gui=bold guifg=#8ec07c
+GruvboxOrange  xxx ctermfg=208 guifg=#fe8019
+GruvboxOrangeBold xxx cterm=bold ctermfg=208 gui=bold guifg=#fe8019
+GruvboxRedSign xxx ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+GruvboxGreenSign xxx ctermfg=142 ctermbg=237 guifg=#b8bb26 guibg=#3c3836
+GruvboxYellowSign xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+GruvboxBlueSign xxx ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
+GruvboxPurpleSign xxx ctermfg=175 ctermbg=237 guifg=#d3869b guibg=#3c3836
+GruvboxAquaSign xxx ctermfg=108 ctermbg=237 guifg=#8ec07c guibg=#3c3836
+GruvboxOrangeSign xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+Cursor         xxx cterm=reverse gui=reverse
+vCursor        xxx links to Cursor
+iCursor        xxx links to Cursor
+lCursor        xxx links to Cursor
+EasyMotionTarget xxx links to Search
+EasyMotionShade xxx links to Comment
+Sneak          xxx links to Search
+SneakLabel     xxx links to Search
+IndentGuidesOdd xxx ctermfg=235 ctermbg=239 guifg=bg guibg=#504945
+IndentGuidesEven xxx ctermfg=235 ctermbg=237 guifg=bg guibg=#3c3836
+GitGutterAdd   xxx links to GruvboxGreenSign
+GitGutterChange xxx links to GruvboxAquaSign
+GitGutterDelete xxx links to GruvboxRedSign
+GitGutterChangeDelete xxx links to GruvboxAquaSign
+gitcommitSelectedFile xxx links to GruvboxGreen
+gitcommitDiscardedFile xxx links to GruvboxRed
+SignifySignAdd xxx links to GruvboxGreenSign
+SignifySignChange xxx links to GruvboxAquaSign
+SignifySignDelete xxx links to GruvboxRedSign
+SyntasticError xxx cterm=undercurl gui=undercurl guisp=#fb4934
+SyntasticWarning xxx cterm=undercurl gui=undercurl guisp=#fabd2f
+SyntasticErrorSign xxx links to GruvboxRedSign
+SyntasticWarningSign xxx links to GruvboxYellowSign
+SignatureMarkText xxx links to GruvboxBlueSign
+SignatureMarkerText xxx links to GruvboxPurpleSign
+ShowMarksHLl   xxx links to GruvboxBlueSign
+ShowMarksHLu   xxx links to GruvboxBlueSign
+ShowMarksHLo   xxx links to GruvboxBlueSign
+ShowMarksHLm   xxx links to GruvboxBlueSign
+CtrlPMatch     xxx links to GruvboxYellow
+CtrlPNoEntries xxx links to GruvboxRed
+CtrlPPrtBase   xxx links to GruvboxBg2
+CtrlPPrtCursor xxx links to GruvboxBlue
+CtrlPLinePre   xxx links to GruvboxBg2
+CtrlPMode1     xxx cterm=bold ctermfg=109 ctermbg=239 gui=bold guifg=#83a598 guibg=#504945
+CtrlPMode2     xxx cterm=bold ctermfg=235 ctermbg=109 gui=bold guifg=#282828 guibg=#83a598
+CtrlPStats     xxx cterm=bold ctermfg=246 ctermbg=239 gui=bold guifg=#a89984 guibg=#504945
+StartifyBracket xxx links to GruvboxFg3
+StartifyFile   xxx links to GruvboxFg1
+StartifyNumber xxx links to GruvboxBlue
+StartifyPath   xxx links to GruvboxGray
+StartifySlash  xxx links to GruvboxGray
+StartifySection xxx links to GruvboxYellow
+StartifySpecial xxx links to GruvboxBg2
+StartifyHeader xxx links to GruvboxOrange
+StartifyFooter xxx links to GruvboxBg2
+BufTabLineCurrent xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+BufTabLineActive xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+BufTabLineHidden xxx ctermfg=243 ctermbg=237 guifg=#7c6f64 guibg=#3c3836
+BufTabLineFill xxx ctermfg=235 ctermbg=235 guifg=#282828 guibg=#282828
+ALEError       xxx cterm=undercurl gui=undercurl guisp=#fb4934
+ALEWarning     xxx cterm=undercurl gui=undercurl guisp=#fabd2f
+ALEInfo        xxx cterm=undercurl gui=undercurl guisp=#83a598
+ALEErrorSign   xxx links to GruvboxRedSign
+ALEWarningSign xxx links to GruvboxYellowSign
+ALEInfoSign    xxx links to GruvboxBlueSign
+DirvishPathTail xxx links to GruvboxAqua
+DirvishArg     xxx links to GruvboxYellow
+netrwDir       xxx links to GruvboxAqua
+netrwClassify  xxx links to GruvboxAqua
+netrwLink      xxx links to GruvboxGray
+netrwSymLink   xxx links to GruvboxFg1
+netrwExe       xxx links to GruvboxYellow
+netrwComment   xxx links to GruvboxGray
+netrwList      xxx links to GruvboxBlue
+netrwHelpCmd   xxx links to GruvboxAqua
+netrwCmdSep    xxx links to GruvboxFg3
+netrwVersion   xxx links to GruvboxGreen
+NERDTreeDir    xxx links to GruvboxAqua
+NERDTreeDirSlash xxx links to GruvboxAqua
+NERDTreeOpenable xxx links to GruvboxOrange
+NERDTreeClosable xxx links to GruvboxOrange
+NERDTreeFile   xxx links to GruvboxFg1
+NERDTreeExecFile xxx links to GruvboxYellow
+NERDTreeUp     xxx links to GruvboxGray
+NERDTreeCWD    xxx links to GruvboxGreen
+NERDTreeHelp   xxx links to GruvboxFg1
+NERDTreeToggleOn xxx links to GruvboxGreen
+NERDTreeToggleOff xxx links to GruvboxRed
+multiple_cursors_cursor xxx cterm=reverse gui=reverse
+multiple_cursors_visual xxx ctermbg=239 guibg=#504945
+CocErrorSign   xxx links to GruvboxRedSign
+CocWarningSign xxx links to GruvboxOrangeSign
+CocInfoSign    xxx links to GruvboxYellowSign
+CocHintSign    xxx links to GruvboxBlueSign
+CocErrorFloat  xxx links to GruvboxRed
+CocWarningFloat xxx links to GruvboxOrange
+CocInfoFloat   xxx links to GruvboxYellow
+CocHintFloat   xxx links to GruvboxBlue
+CocDiagnosticsError xxx links to GruvboxRed
+CocDiagnosticsWarning xxx links to GruvboxOrange
+CocDiagnosticsInfo xxx links to GruvboxYellow
+CocDiagnosticsHint xxx links to GruvboxBlue
+CocSelectedText xxx links to GruvboxRed
+CocCodeLens    xxx links to GruvboxGray
+CocErrorHighlight xxx cterm=undercurl gui=undercurl guisp=#fb4934
+CocWarningHighlight xxx cterm=undercurl gui=undercurl guisp=#fe8019
+CocInfoHighlight xxx cterm=undercurl gui=undercurl guisp=#fabd2f
+CocHintHighlight xxx cterm=undercurl gui=undercurl guisp=#83a598
+diffAdded      xxx links to GruvboxGreen
+diffRemoved    xxx links to GruvboxRed
+diffChanged    xxx links to GruvboxAqua
+diffFile       xxx links to GruvboxOrange
+diffNewFile    xxx links to GruvboxYellow
+diffLine       xxx links to GruvboxBlue
+htmlTag        xxx links to GruvboxBlue
+htmlEndTag     xxx links to GruvboxBlue
+htmlTagName    xxx links to GruvboxAquaBold
+htmlArg        xxx links to GruvboxAqua
+htmlScriptTag  xxx links to GruvboxPurple
+htmlTagN       xxx links to GruvboxFg1
+htmlSpecialTagName xxx links to GruvboxAquaBold
+htmlLink       xxx cterm=underline ctermfg=246 gui=underline guifg=#a89984
+htmlSpecialChar xxx links to GruvboxOrange
+htmlBold       xxx cterm=bold ctermfg=223 ctermbg=235 gui=bold guifg=fg guibg=bg
+htmlBoldUnderline xxx cterm=bold,underline ctermfg=223 ctermbg=235 gui=bold,underline guifg=fg guibg=bg
+htmlBoldItalic xxx cterm=bold,italic ctermfg=223 ctermbg=235 gui=bold,italic guifg=fg guibg=bg
+htmlBoldUnderlineItalic xxx cterm=bold,underline,italic ctermfg=223 ctermbg=235 gui=bold,underline,italic guifg=fg guibg=bg
+htmlUnderline  xxx cterm=underline ctermfg=223 ctermbg=235 gui=underline guifg=fg guibg=bg
+htmlUnderlineItalic xxx cterm=underline,italic ctermfg=223 ctermbg=235 gui=underline,italic guifg=fg guibg=bg
+htmlItalic     xxx cterm=italic ctermfg=223 ctermbg=235 gui=italic guifg=fg guibg=bg
+xmlTag         xxx links to GruvboxBlue
+xmlEndTag      xxx links to GruvboxBlue
+xmlTagName     xxx links to GruvboxBlue
+xmlEqual       xxx links to GruvboxBlue
+docbkKeyword   xxx links to GruvboxAquaBold
+xmlDocTypeDecl xxx links to GruvboxGray
+xmlDocTypeKeyword xxx links to GruvboxPurple
+xmlCdataStart  xxx links to GruvboxGray
+xmlCdataCdata  xxx links to GruvboxPurple
+dtdFunction    xxx links to GruvboxGray
+dtdTagName     xxx links to GruvboxPurple
+xmlAttrib      xxx links to GruvboxAqua
+xmlProcessingDelim xxx links to GruvboxGray
+dtdParamEntityPunct xxx links to GruvboxGray
+dtdParamEntityDPunct xxx links to GruvboxGray
+xmlAttribPunct xxx links to GruvboxGray
+xmlEntity      xxx links to GruvboxOrange
+xmlEntityPunct xxx links to GruvboxOrange
+vimCommentTitle xxx cterm=bold,italic ctermfg=246 gui=bold,italic guifg=#a89984
+vimNotation    xxx links to GruvboxOrange
+vimBracket     xxx links to GruvboxOrange
+vimMapModKey   xxx links to GruvboxOrange
+vimFuncSID     xxx links to GruvboxFg3
+vimSetSep      xxx links to GruvboxFg3
+vimSep         xxx links to GruvboxFg3
+vimContinue    xxx links to GruvboxFg3
+clojureKeyword xxx links to GruvboxBlue
+clojureCond    xxx links to GruvboxOrange
+clojureSpecial xxx links to GruvboxOrange
+clojureDefine  xxx links to GruvboxOrange
+clojureFunc    xxx links to GruvboxYellow
+clojureRepeat  xxx links to GruvboxYellow
+clojureCharacter xxx links to GruvboxAqua
+clojureStringEscape xxx links to GruvboxAqua
+clojureException xxx links to GruvboxRed
+clojureRegexp  xxx links to GruvboxAqua
+clojureRegexpEscape xxx links to GruvboxAqua
+clojureRegexpCharClass xxx cterm=bold ctermfg=248 gui=bold guifg=#bdae93
+clojureRegexpMod xxx links to clojureRegexpCharClass
+clojureRegexpQuantifier xxx links to clojureRegexpCharClass
+clojureParen   xxx links to GruvboxFg3
+clojureAnonArg xxx links to GruvboxYellow
+clojureVariable xxx links to GruvboxBlue
+clojureMacro   xxx links to GruvboxOrange
+clojureMeta    xxx links to GruvboxYellow
+clojureDeref   xxx links to GruvboxYellow
+clojureQuote   xxx links to GruvboxYellow
+clojureUnquote xxx links to GruvboxYellow
+cOperator      xxx links to GruvboxPurple
+cStructure     xxx links to GruvboxOrange
+pythonBuiltin  xxx links to GruvboxOrange
+pythonBuiltinObj xxx links to GruvboxOrange
+pythonBuiltinFunc xxx links to GruvboxOrange
+pythonFunction xxx links to GruvboxAqua
+pythonDecorator xxx links to GruvboxRed
+pythonInclude  xxx links to GruvboxBlue
+pythonImport   xxx links to GruvboxBlue
+pythonRun      xxx links to GruvboxBlue
+pythonCoding   xxx links to GruvboxBlue
+pythonOperator xxx links to GruvboxRed
+pythonException xxx links to GruvboxRed
+pythonExceptions xxx links to GruvboxPurple
+pythonBoolean  xxx links to GruvboxPurple
+pythonDot      xxx links to GruvboxFg3
+pythonConditional xxx links to GruvboxRed
+pythonRepeat   xxx links to GruvboxRed
+pythonDottedName xxx links to GruvboxGreenBold
+cssBraces      xxx links to GruvboxBlue
+cssFunctionName xxx links to GruvboxYellow
+cssIdentifier  xxx links to GruvboxOrange
+cssClassName   xxx links to GruvboxGreen
+cssColor       xxx links to GruvboxBlue
+cssSelectorOp  xxx links to GruvboxBlue
+cssSelectorOp2 xxx links to GruvboxBlue
+cssImportant   xxx links to GruvboxGreen
+cssVendor      xxx links to GruvboxFg1
+cssTextProp    xxx links to GruvboxAqua
+cssAnimationProp xxx links to GruvboxAqua
+cssUIProp      xxx links to GruvboxYellow
+cssTransformProp xxx links to GruvboxAqua
+cssTransitionProp xxx links to GruvboxAqua
+cssPrintProp   xxx links to GruvboxAqua
+cssPositioningProp xxx links to GruvboxYellow
+cssBoxProp     xxx links to GruvboxAqua
+cssFontDescriptorProp xxx links to GruvboxAqua
+cssFlexibleBoxProp xxx links to GruvboxAqua
+cssBorderOutlineProp xxx links to GruvboxAqua
+cssBackgroundProp xxx links to GruvboxAqua
+cssMarginProp  xxx links to GruvboxAqua
+cssListProp    xxx links to GruvboxAqua
+cssTableProp   xxx links to GruvboxAqua
+cssFontProp    xxx links to GruvboxAqua
+cssPaddingProp xxx links to GruvboxAqua
+cssDimensionProp xxx links to GruvboxAqua
+cssRenderProp  xxx links to GruvboxAqua
+cssColorProp   xxx links to GruvboxAqua
+cssGeneratedContentProp xxx links to GruvboxAqua
+javaScriptBraces xxx links to GruvboxFg1
+javaScriptFunction xxx links to GruvboxAqua
+javaScriptIdentifier xxx links to GruvboxOrange
+javaScriptMember xxx links to GruvboxBlue
+javaScriptNumber xxx links to GruvboxPurple
+javaScriptNull xxx links to GruvboxPurple
+javaScriptParens xxx links to GruvboxFg3
+javascriptImport xxx links to GruvboxAqua
+javascriptExport xxx links to GruvboxAqua
+javascriptClassKeyword xxx links to GruvboxAqua
+javascriptClassExtends xxx links to GruvboxAqua
+javascriptDefault xxx links to GruvboxAqua
+javascriptClassName xxx links to GruvboxYellow
+javascriptClassSuperName xxx links to GruvboxYellow
+javascriptGlobal xxx links to GruvboxYellow
+javascriptEndColons xxx links to GruvboxFg1
+javascriptFuncArg xxx links to GruvboxFg1
+javascriptGlobalMethod xxx links to GruvboxFg1
+javascriptNodeGlobal xxx links to GruvboxFg1
+javascriptBOMWindowProp xxx links to GruvboxFg1
+javascriptArrayMethod xxx links to GruvboxFg1
+javascriptArrayStaticMethod xxx links to GruvboxFg1
+javascriptCacheMethod xxx links to GruvboxFg1
+javascriptDateMethod xxx links to GruvboxFg1
+javascriptMathStaticMethod xxx links to GruvboxFg1
+javascriptURLUtilsProp xxx links to GruvboxFg1
+javascriptBOMNavigatorProp xxx links to GruvboxFg1
+javascriptDOMDocMethod xxx links to GruvboxFg1
+javascriptDOMDocProp xxx links to GruvboxFg1
+javascriptBOMLocationMethod xxx links to GruvboxFg1
+javascriptBOMWindowMethod xxx links to GruvboxFg1
+javascriptStringMethod xxx links to GruvboxFg1
+javascriptVariable xxx links to GruvboxOrange
+javascriptClassSuper xxx links to GruvboxOrange
+javascriptFuncKeyword xxx links to GruvboxAqua
+javascriptAsyncFunc xxx links to GruvboxAqua
+javascriptClassStatic xxx links to GruvboxOrange
+javascriptOperator xxx links to GruvboxRed
+javascriptForOperator xxx links to GruvboxRed
+javascriptYield xxx links to GruvboxRed
+javascriptExceptions xxx links to GruvboxRed
+javascriptMessage xxx links to GruvboxRed
+javascriptTemplateSB xxx links to GruvboxAqua
+javascriptTemplateSubstitution xxx links to GruvboxFg1
+javascriptLabel xxx links to GruvboxFg1
+javascriptObjectLabel xxx links to GruvboxFg1
+javascriptPropertyName xxx links to GruvboxFg1
+javascriptLogicSymbols xxx links to GruvboxFg1
+javascriptArrowFunc xxx links to GruvboxYellow
+javascriptDocParamName xxx links to GruvboxFg4
+javascriptDocTags xxx links to GruvboxFg4
+javascriptDocNotation xxx links to GruvboxFg4
+javascriptDocParamType xxx links to GruvboxFg4
+javascriptDocNamedParamType xxx links to GruvboxFg4
+javascriptBrackets xxx links to GruvboxFg1
+javascriptDOMElemAttrs xxx links to GruvboxFg1
+javascriptDOMEventMethod xxx links to GruvboxFg1
+javascriptDOMNodeMethod xxx links to GruvboxFg1
+javascriptDOMStorageMethod xxx links to GruvboxFg1
+javascriptHeadersMethod xxx links to GruvboxFg1
+javascriptAsyncFuncKeyword xxx links to GruvboxRed
+javascriptAwaitFuncKeyword xxx links to GruvboxRed
+jsClassKeyword xxx links to GruvboxAqua
+jsExtendsKeyword xxx links to GruvboxAqua
+jsExportDefault xxx links to GruvboxAqua
+jsTemplateBraces xxx links to GruvboxAqua
+jsGlobalNodeObjects xxx links to GruvboxFg1
+jsGlobalObjects xxx links to GruvboxFg1
+jsFunction     xxx links to GruvboxAqua
+jsFuncParens   xxx links to GruvboxFg3
+jsParens       xxx links to GruvboxFg3
+jsNull         xxx links to GruvboxPurple
+jsUndefined    xxx links to GruvboxPurple
+jsClassDefinition xxx links to GruvboxYellow
+typeScriptReserved xxx links to GruvboxAqua
+typeScriptLabel xxx links to GruvboxAqua
+typeScriptFuncKeyword xxx links to GruvboxAqua
+typeScriptIdentifier xxx links to GruvboxOrange
+typeScriptBraces xxx links to GruvboxFg1
+typeScriptEndColons xxx links to GruvboxFg1
+typeScriptDOMObjects xxx links to GruvboxFg1
+typeScriptAjaxMethods xxx links to GruvboxFg1
+typeScriptLogicSymbols xxx links to GruvboxFg1
+typeScriptDocSeeTag xxx links to Comment
+typeScriptDocParam xxx links to Comment
+typeScriptDocTags xxx links to vimCommentTitle
+typeScriptGlobalObjects xxx links to GruvboxFg1
+typeScriptParens xxx links to GruvboxFg3
+typeScriptOpSymbols xxx links to GruvboxFg3
+typeScriptHtmlElemProperties xxx links to GruvboxFg1
+typeScriptNull xxx links to GruvboxPurple
+typeScriptInterpolationDelimiter xxx links to GruvboxAqua
+purescriptModuleKeyword xxx links to GruvboxAqua
+purescriptModuleName xxx links to GruvboxFg1
+purescriptWhere xxx links to GruvboxAqua
+purescriptDelimiter xxx links to GruvboxFg4
+purescriptType xxx links to GruvboxFg1
+purescriptImportKeyword xxx links to GruvboxAqua
+purescriptHidingKeyword xxx links to GruvboxAqua
+purescriptAsKeyword xxx links to GruvboxAqua
+purescriptStructure xxx links to GruvboxAqua
+purescriptOperator xxx links to GruvboxBlue
+purescriptTypeVar xxx links to GruvboxFg1
+purescriptConstructor xxx links to GruvboxFg1
+purescriptFunction xxx links to GruvboxFg1
+purescriptConditional xxx links to GruvboxOrange
+purescriptBacktick xxx links to GruvboxOrange
+coffeeExtendedOp xxx links to GruvboxFg3
+coffeeSpecialOp xxx links to GruvboxFg3
+coffeeCurly    xxx links to GruvboxOrange
+coffeeParen    xxx links to GruvboxFg3
+coffeeBracket  xxx links to GruvboxOrange
+rubyStringDelimiter xxx links to GruvboxGreen
+rubyInterpolationDelimiter xxx links to GruvboxAqua
+objcTypeModifier xxx links to GruvboxRed
+objcDirective  xxx links to GruvboxBlue
+goDirective    xxx links to GruvboxAqua
+goConstants    xxx links to GruvboxPurple
+goDeclaration  xxx links to GruvboxRed
+goDeclType     xxx links to GruvboxBlue
+goBuiltins     xxx links to GruvboxOrange
+luaIn          xxx links to GruvboxRed
+luaFunction    xxx links to GruvboxAqua
+luaTable       xxx links to GruvboxOrange
+moonSpecialOp  xxx links to GruvboxFg3
+moonExtendedOp xxx links to GruvboxFg3
+moonFunction   xxx links to GruvboxFg3
+moonObject     xxx links to GruvboxYellow
+javaAnnotation xxx links to GruvboxBlue
+javaDocTags    xxx links to GruvboxAqua
+javaCommentTitle xxx links to vimCommentTitle
+javaParen      xxx links to GruvboxFg3
+javaParen1     xxx links to GruvboxFg3
+javaParen2     xxx links to GruvboxFg3
+javaParen3     xxx links to GruvboxFg3
+javaParen4     xxx links to GruvboxFg3
+javaParen5     xxx links to GruvboxFg3
+javaOperator   xxx links to GruvboxOrange
+javaVarArg     xxx links to GruvboxGreen
+elixirDocString xxx links to Comment
+elixirStringDelimiter xxx links to GruvboxGreen
+elixirInterpolationDelimiter xxx links to GruvboxAqua
+elixirModuleDeclaration xxx links to GruvboxYellow
+scalaNameDefinition xxx links to GruvboxFg1
+scalaCaseFollowing xxx links to GruvboxFg1
+scalaCapitalWord xxx links to GruvboxFg1
+scalaTypeExtension xxx links to GruvboxFg1
+scalaKeyword   xxx links to GruvboxRed
+scalaKeywordModifier xxx links to GruvboxRed
+scalaSpecial   xxx links to GruvboxAqua
+scalaOperator  xxx links to GruvboxFg1
+scalaTypeDeclaration xxx links to GruvboxYellow
+scalaTypeTypePostDeclaration xxx links to GruvboxYellow
+scalaInstanceDeclaration xxx links to GruvboxFg1
+scalaInterpolation xxx links to GruvboxAqua
+markdownItalic xxx cterm=italic ctermfg=248 gui=italic guifg=#bdae93
+markdownH1     xxx links to GruvboxGreenBold
+markdownH2     xxx links to GruvboxGreenBold
+markdownH3     xxx links to GruvboxYellowBold
+markdownH4     xxx links to GruvboxYellowBold
+markdownH5     xxx links to GruvboxYellow
+markdownH6     xxx links to GruvboxYellow
+markdownCode   xxx links to GruvboxAqua
+markdownCodeBlock xxx links to GruvboxAqua
+markdownCodeDelimiter xxx links to GruvboxAqua
+markdownBlockquote xxx links to GruvboxGray
+markdownListMarker xxx links to GruvboxGray
+markdownOrderedListMarker xxx links to GruvboxGray
+markdownRule   xxx links to GruvboxGray
+markdownHeadingRule xxx links to GruvboxGray
+markdownUrlDelimiter xxx links to GruvboxFg3
+markdownLinkDelimiter xxx links to GruvboxFg3
+markdownLinkTextDelimiter xxx links to GruvboxFg3
+markdownHeadingDelimiter xxx links to GruvboxOrange
+markdownUrl    xxx links to GruvboxPurple
+markdownUrlTitleDelimiter xxx links to GruvboxGreen
+markdownLinkText xxx cterm=underline ctermfg=245 gui=underline guifg=#928374
+markdownIdDeclaration xxx links to markdownLinkText
+haskellType    xxx links to GruvboxFg1
+haskellIdentifier xxx links to GruvboxFg1
+haskellSeparator xxx links to GruvboxFg1
+haskellDelimiter xxx links to GruvboxFg4
+haskellOperators xxx links to GruvboxBlue
+haskellBacktick xxx links to GruvboxOrange
+haskellStatement xxx links to GruvboxOrange
+haskellConditional xxx links to GruvboxOrange
+haskellLet     xxx links to GruvboxAqua
+haskellDefault xxx links to GruvboxAqua
+haskellWhere   xxx links to GruvboxAqua
+haskellBottom  xxx links to GruvboxAqua
+haskellBlockKeywords xxx links to GruvboxAqua
+haskellImportKeywords xxx links to GruvboxAqua
+haskellDeclKeyword xxx links to GruvboxAqua
+haskellDeriving xxx links to GruvboxAqua
+haskellAssocType xxx links to GruvboxAqua
+haskellNumber  xxx links to GruvboxPurple
+haskellPragma  xxx links to GruvboxPurple
+haskellString  xxx links to GruvboxGreen
+haskellChar    xxx links to GruvboxGreen
+jsonKeyword    xxx links to GruvboxGreen
+jsonQuote      xxx links to GruvboxGreen
+jsonBraces     xxx links to GruvboxFg1
+jsonString     xxx links to GruvboxFg1
+BeaconDefault  xxx ctermbg=7 guibg=silver
+Beacon         xxx links to BeaconDefault
+GitGutterAddInvisible xxx ctermfg=237 ctermbg=237 guifg=bg guibg=#3c3836
+GitGutterChangeInvisible xxx ctermfg=237 ctermbg=237 guifg=bg guibg=#3c3836
+GitGutterDeleteInvisible xxx ctermfg=237 ctermbg=237 guifg=bg guibg=#3c3836
+GitGutterChangeDeleteInvisible xxx links to GitGutterChangeInvisible
+GitGutterAddLine xxx links to DiffAdd
+GitGutterChangeLine xxx links to DiffChange
+GitGutterDeleteLine xxx links to DiffDelete
+GitGutterChangeDeleteLine xxx links to GitGutterChangeLine
+GitGutterAddLineNr xxx links to CursorLineNr
+GitGutterChangeLineNr xxx links to CursorLineNr
+GitGutterDeleteLineNr xxx links to CursorLineNr
+GitGutterChangeDeleteLineNr xxx links to CursorLineNr
+GitGutterAddIntraLine xxx cterm=reverse gui=reverse
+GitGutterDeleteIntraLine xxx cterm=reverse gui=reverse
+               xxx cleared
+IndentGuideDraw xxx cleared
+IndentGuideSpaces xxx cleared
+LightlineLeft_normal_0 xxx term=bold cterm=bold ctermfg=235 ctermbg=246 gui=bold guifg=#282828 guibg=#a89984
+LightlineLeft_normal_0_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_normal_0_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_normal_0_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_0_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_0_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_normal_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_normal_1_2 xxx ctermfg=239 ctermbg=237 guifg=#504945 guibg=#3c3836
+LightlineLeft_normal_1_error xxx ctermfg=239 ctermbg=208 guifg=#504945 guibg=#fe8019
+LightlineLeft_normal_1_right xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineLeft_normal_1_tabsel xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineLeft_normal_1_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineLeft_normal_error xxx ctermfg=235 ctermbg=208 guifg=#282828 guibg=#fe8019
+LightlineLeft_normal_error_0 xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_normal_error_1 xxx ctermfg=208 ctermbg=239 guifg=#fe8019 guibg=#504945
+LightlineLeft_normal_error_2 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineLeft_normal_error_error xxx ctermfg=208 ctermbg=208 guifg=#fe8019 guibg=#fe8019
+LightlineLeft_normal_error_right xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_normal_error_tabsel xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_normal_error_warning xxx ctermfg=208 ctermbg=214 guifg=#fe8019 guibg=#fabd2f
+LightlineLeft_normal_right xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineLeft_normal_right_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_right_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_normal_right_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineLeft_normal_right_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_normal_right_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_right_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_right_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_normal_tabsel xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineLeft_normal_tabsel_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_tabsel_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_normal_tabsel_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineLeft_normal_tabsel_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_normal_tabsel_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_tabsel_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_normal_tabsel_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_normal_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineLeft_normal_warning_0 xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_normal_warning_1 xxx ctermfg=214 ctermbg=239 guifg=#fabd2f guibg=#504945
+LightlineLeft_normal_warning_2 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineLeft_normal_warning_error xxx ctermfg=214 ctermbg=208 guifg=#fabd2f guibg=#fe8019
+LightlineLeft_normal_warning_right xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_normal_warning_tabsel xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_normal_warning_warning xxx ctermfg=214 ctermbg=214 guifg=#fabd2f guibg=#fabd2f
+LightlineRight_normal_0 xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_normal_0_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_normal_0_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_normal_0_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_0_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_0_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_normal_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_normal_1_2 xxx ctermfg=239 ctermbg=237 guifg=#504945 guibg=#3c3836
+LightlineRight_normal_1_error xxx ctermfg=239 ctermbg=208 guifg=#504945 guibg=#fe8019
+LightlineRight_normal_1_right xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineRight_normal_1_tabsel xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineRight_normal_1_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineRight_normal_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_2_3 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_normal_2_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_normal_2_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_2_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_2_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_normal_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_3_4 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_normal_3_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_normal_3_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_3_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_3_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_normal_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_4_5 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_normal_4_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_normal_4_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_4_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_normal_4_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_normal_error xxx ctermfg=235 ctermbg=208 guifg=#282828 guibg=#fe8019
+LightlineRight_normal_error_0 xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_normal_error_1 xxx ctermfg=208 ctermbg=239 guifg=#fe8019 guibg=#504945
+LightlineRight_normal_error_2 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_normal_error_3 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_normal_error_4 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_normal_error_5 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_normal_error_error xxx ctermfg=208 ctermbg=208 guifg=#fe8019 guibg=#fe8019
+LightlineRight_normal_error_right xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_normal_error_tabsel xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_normal_error_warning xxx ctermfg=208 ctermbg=214 guifg=#fe8019 guibg=#fabd2f
+LightlineRight_normal_right xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_normal_right_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_right_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_normal_right_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_right_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_right_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_right_5 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_right_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_normal_right_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_right_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_right_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_normal_tabsel xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_normal_tabsel_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_tabsel_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_normal_tabsel_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_tabsel_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_tabsel_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_tabsel_5 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_normal_tabsel_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_normal_tabsel_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_tabsel_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_normal_tabsel_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_normal_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineRight_normal_warning_0 xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_normal_warning_1 xxx ctermfg=214 ctermbg=239 guifg=#fabd2f guibg=#504945
+LightlineRight_normal_warning_2 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_normal_warning_3 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_normal_warning_4 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_normal_warning_5 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_normal_warning_error xxx ctermfg=214 ctermbg=208 guifg=#fabd2f guibg=#fe8019
+LightlineRight_normal_warning_right xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_normal_warning_tabsel xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_normal_warning_warning xxx ctermfg=214 ctermbg=214 guifg=#fabd2f guibg=#fabd2f
+LightlineMiddle_normal xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineLeft_active_0 xxx links to LightlineLeft_normal_0
+LightlineLeft_active_0_1 xxx links to LightlineLeft_normal_0_1
+LightlineLeft_active_0_error xxx links to LightlineLeft_normal_0_error
+LightlineLeft_active_0_right xxx links to LightlineLeft_normal_0_right
+LightlineLeft_active_0_tabsel xxx links to LightlineLeft_normal_0_tabsel
+LightlineLeft_active_0_warning xxx links to LightlineLeft_normal_0_warning
+LightlineLeft_active_1 xxx links to LightlineLeft_normal_1
+LightlineLeft_active_1_2 xxx links to LightlineLeft_normal_1_2
+LightlineLeft_active_1_error xxx links to LightlineLeft_normal_1_error
+LightlineLeft_active_1_right xxx links to LightlineLeft_normal_1_right
+LightlineLeft_active_1_tabsel xxx links to LightlineLeft_normal_1_tabsel
+LightlineLeft_active_1_warning xxx links to LightlineLeft_normal_1_warning
+LightlineLeft_active_error xxx links to LightlineLeft_normal_error
+LightlineLeft_active_error_0 xxx links to LightlineLeft_normal_error_0
+LightlineLeft_active_error_1 xxx links to LightlineLeft_normal_error_1
+LightlineLeft_active_error_2 xxx links to LightlineLeft_normal_error_2
+LightlineLeft_active_error_error xxx links to LightlineLeft_normal_error_error
+LightlineLeft_active_error_right xxx links to LightlineLeft_normal_error_right
+LightlineLeft_active_error_tabsel xxx links to LightlineLeft_normal_error_tabsel
+LightlineLeft_active_error_warning xxx links to LightlineLeft_normal_error_warning
+LightlineLeft_active_right xxx links to LightlineLeft_normal_right
+LightlineLeft_active_right_0 xxx links to LightlineLeft_normal_right_0
+LightlineLeft_active_right_1 xxx links to LightlineLeft_normal_right_1
+LightlineLeft_active_right_2 xxx links to LightlineLeft_normal_right_2
+LightlineLeft_active_right_error xxx links to LightlineLeft_normal_right_error
+LightlineLeft_active_right_right xxx links to LightlineLeft_normal_right_right
+LightlineLeft_active_right_tabsel xxx links to LightlineLeft_normal_right_tabsel
+LightlineLeft_active_right_warning xxx links to LightlineLeft_normal_right_warning
+LightlineLeft_active_tabsel xxx links to LightlineLeft_normal_tabsel
+LightlineLeft_active_tabsel_0 xxx links to LightlineLeft_normal_tabsel_0
+LightlineLeft_active_tabsel_1 xxx links to LightlineLeft_normal_tabsel_1
+LightlineLeft_active_tabsel_2 xxx links to LightlineLeft_normal_tabsel_2
+LightlineLeft_active_tabsel_error xxx links to LightlineLeft_normal_tabsel_error
+LightlineLeft_active_tabsel_right xxx links to LightlineLeft_normal_tabsel_right
+LightlineLeft_active_tabsel_tabsel xxx links to LightlineLeft_normal_tabsel_tabsel
+LightlineLeft_active_tabsel_warning xxx links to LightlineLeft_normal_tabsel_warning
+LightlineLeft_active_warning xxx links to LightlineLeft_normal_warning
+LightlineLeft_active_warning_0 xxx links to LightlineLeft_normal_warning_0
+LightlineLeft_active_warning_1 xxx links to LightlineLeft_normal_warning_1
+LightlineLeft_active_warning_2 xxx links to LightlineLeft_normal_warning_2
+LightlineLeft_active_warning_error xxx links to LightlineLeft_normal_warning_error
+LightlineLeft_active_warning_right xxx links to LightlineLeft_normal_warning_right
+LightlineLeft_active_warning_tabsel xxx links to LightlineLeft_normal_warning_tabsel
+LightlineLeft_active_warning_warning xxx links to LightlineLeft_normal_warning_warning
+LightlineRight_active_0 xxx links to LightlineRight_normal_0
+LightlineRight_active_0_1 xxx links to LightlineRight_normal_0_1
+LightlineRight_active_0_error xxx links to LightlineRight_normal_0_error
+LightlineRight_active_0_right xxx links to LightlineRight_normal_0_right
+LightlineRight_active_0_tabsel xxx links to LightlineRight_normal_0_tabsel
+LightlineRight_active_0_warning xxx links to LightlineRight_normal_0_warning
+LightlineRight_active_1 xxx links to LightlineRight_normal_1
+LightlineRight_active_1_2 xxx links to LightlineRight_normal_1_2
+LightlineRight_active_1_error xxx links to LightlineRight_normal_1_error
+LightlineRight_active_1_right xxx links to LightlineRight_normal_1_right
+LightlineRight_active_1_tabsel xxx links to LightlineRight_normal_1_tabsel
+LightlineRight_active_1_warning xxx links to LightlineRight_normal_1_warning
+LightlineRight_active_2 xxx links to LightlineRight_normal_2
+LightlineRight_active_2_3 xxx links to LightlineRight_normal_2_3
+LightlineRight_active_2_error xxx links to LightlineRight_normal_2_error
+LightlineRight_active_2_right xxx links to LightlineRight_normal_2_right
+LightlineRight_active_2_tabsel xxx links to LightlineRight_normal_2_tabsel
+LightlineRight_active_2_warning xxx links to LightlineRight_normal_2_warning
+LightlineRight_active_3 xxx links to LightlineRight_normal_3
+LightlineRight_active_3_4 xxx links to LightlineRight_normal_3_4
+LightlineRight_active_3_error xxx links to LightlineRight_normal_3_error
+LightlineRight_active_3_right xxx links to LightlineRight_normal_3_right
+LightlineRight_active_3_tabsel xxx links to LightlineRight_normal_3_tabsel
+LightlineRight_active_3_warning xxx links to LightlineRight_normal_3_warning
+LightlineRight_active_4 xxx links to LightlineRight_normal_4
+LightlineRight_active_4_5 xxx links to LightlineRight_normal_4_5
+LightlineRight_active_4_error xxx links to LightlineRight_normal_4_error
+LightlineRight_active_4_right xxx links to LightlineRight_normal_4_right
+LightlineRight_active_4_tabsel xxx links to LightlineRight_normal_4_tabsel
+LightlineRight_active_4_warning xxx links to LightlineRight_normal_4_warning
+LightlineRight_active_error xxx links to LightlineRight_normal_error
+LightlineRight_active_error_0 xxx links to LightlineRight_normal_error_0
+LightlineRight_active_error_1 xxx links to LightlineRight_normal_error_1
+LightlineRight_active_error_2 xxx links to LightlineRight_normal_error_2
+LightlineRight_active_error_3 xxx links to LightlineRight_normal_error_3
+LightlineRight_active_error_4 xxx links to LightlineRight_normal_error_4
+LightlineRight_active_error_5 xxx links to LightlineRight_normal_error_5
+LightlineRight_active_error_error xxx links to LightlineRight_normal_error_error
+LightlineRight_active_error_right xxx links to LightlineRight_normal_error_right
+LightlineRight_active_error_tabsel xxx links to LightlineRight_normal_error_tabsel
+LightlineRight_active_error_warning xxx links to LightlineRight_normal_error_warning
+LightlineRight_active_right xxx links to LightlineRight_normal_right
+LightlineRight_active_right_0 xxx links to LightlineRight_normal_right_0
+LightlineRight_active_right_1 xxx links to LightlineRight_normal_right_1
+LightlineRight_active_right_2 xxx links to LightlineRight_normal_right_2
+LightlineRight_active_right_3 xxx links to LightlineRight_normal_right_3
+LightlineRight_active_right_4 xxx links to LightlineRight_normal_right_4
+LightlineRight_active_right_5 xxx links to LightlineRight_normal_right_5
+LightlineRight_active_right_error xxx links to LightlineRight_normal_right_error
+LightlineRight_active_right_right xxx links to LightlineRight_normal_right_right
+LightlineRight_active_right_tabsel xxx links to LightlineRight_normal_right_tabsel
+LightlineRight_active_right_warning xxx links to LightlineRight_normal_right_warning
+LightlineRight_active_tabsel xxx links to LightlineRight_normal_tabsel
+LightlineRight_active_tabsel_0 xxx links to LightlineRight_normal_tabsel_0
+LightlineRight_active_tabsel_1 xxx links to LightlineRight_normal_tabsel_1
+LightlineRight_active_tabsel_2 xxx links to LightlineRight_normal_tabsel_2
+LightlineRight_active_tabsel_3 xxx links to LightlineRight_normal_tabsel_3
+LightlineRight_active_tabsel_4 xxx links to LightlineRight_normal_tabsel_4
+LightlineRight_active_tabsel_5 xxx links to LightlineRight_normal_tabsel_5
+LightlineRight_active_tabsel_error xxx links to LightlineRight_normal_tabsel_error
+LightlineRight_active_tabsel_right xxx links to LightlineRight_normal_tabsel_right
+LightlineRight_active_tabsel_tabsel xxx links to LightlineRight_normal_tabsel_tabsel
+LightlineRight_active_tabsel_warning xxx links to LightlineRight_normal_tabsel_warning
+LightlineRight_active_warning xxx links to LightlineRight_normal_warning
+LightlineRight_active_warning_0 xxx links to LightlineRight_normal_warning_0
+LightlineRight_active_warning_1 xxx links to LightlineRight_normal_warning_1
+LightlineRight_active_warning_2 xxx links to LightlineRight_normal_warning_2
+LightlineRight_active_warning_3 xxx links to LightlineRight_normal_warning_3
+LightlineRight_active_warning_4 xxx links to LightlineRight_normal_warning_4
+LightlineRight_active_warning_5 xxx links to LightlineRight_normal_warning_5
+LightlineRight_active_warning_error xxx links to LightlineRight_normal_warning_error
+LightlineRight_active_warning_right xxx links to LightlineRight_normal_warning_right
+LightlineRight_active_warning_tabsel xxx links to LightlineRight_normal_warning_tabsel
+LightlineRight_active_warning_warning xxx links to LightlineRight_normal_warning_warning
+LightlineMiddle_active xxx links to LightlineMiddle_normal
+LightlineLeft_command_0 xxx term=bold cterm=bold ctermfg=235 ctermbg=246 gui=bold guifg=#282828 guibg=#a89984
+LightlineLeft_command_0_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_command_0_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_command_0_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_0_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_0_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_command_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_command_1_2 xxx ctermfg=239 ctermbg=237 guifg=#504945 guibg=#3c3836
+LightlineLeft_command_1_error xxx ctermfg=239 ctermbg=208 guifg=#504945 guibg=#fe8019
+LightlineLeft_command_1_right xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineLeft_command_1_tabsel xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineLeft_command_1_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineLeft_command_error xxx ctermfg=235 ctermbg=208 guifg=#282828 guibg=#fe8019
+LightlineLeft_command_error_0 xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_command_error_1 xxx ctermfg=208 ctermbg=239 guifg=#fe8019 guibg=#504945
+LightlineLeft_command_error_2 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineLeft_command_error_error xxx ctermfg=208 ctermbg=208 guifg=#fe8019 guibg=#fe8019
+LightlineLeft_command_error_right xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_command_error_tabsel xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineLeft_command_error_warning xxx ctermfg=208 ctermbg=214 guifg=#fe8019 guibg=#fabd2f
+LightlineLeft_command_right xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineLeft_command_right_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_right_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_command_right_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineLeft_command_right_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_command_right_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_right_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_right_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_command_tabsel xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineLeft_command_tabsel_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_tabsel_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineLeft_command_tabsel_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineLeft_command_tabsel_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineLeft_command_tabsel_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_tabsel_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineLeft_command_tabsel_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineLeft_command_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineLeft_command_warning_0 xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_command_warning_1 xxx ctermfg=214 ctermbg=239 guifg=#fabd2f guibg=#504945
+LightlineLeft_command_warning_2 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineLeft_command_warning_error xxx ctermfg=214 ctermbg=208 guifg=#fabd2f guibg=#fe8019
+LightlineLeft_command_warning_right xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_command_warning_tabsel xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineLeft_command_warning_warning xxx ctermfg=214 ctermbg=214 guifg=#fabd2f guibg=#fabd2f
+LightlineRight_command_0 xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_command_0_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_command_0_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_command_0_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_0_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_0_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_command_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_command_1_2 xxx ctermfg=239 ctermbg=237 guifg=#504945 guibg=#3c3836
+LightlineRight_command_1_error xxx ctermfg=239 ctermbg=208 guifg=#504945 guibg=#fe8019
+LightlineRight_command_1_right xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineRight_command_1_tabsel xxx ctermfg=239 ctermbg=246 guifg=#504945 guibg=#a89984
+LightlineRight_command_1_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineRight_command_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_2_3 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_command_2_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_command_2_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_2_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_2_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_command_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_3_4 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_command_3_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_command_3_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_3_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_3_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_command_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_4_5 xxx ctermfg=237 ctermbg=237 guifg=#3c3836 guibg=#3c3836
+LightlineRight_command_4_error xxx ctermfg=237 ctermbg=208 guifg=#3c3836 guibg=#fe8019
+LightlineRight_command_4_right xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_4_tabsel xxx ctermfg=237 ctermbg=246 guifg=#3c3836 guibg=#a89984
+LightlineRight_command_4_warning xxx ctermfg=237 ctermbg=214 guifg=#3c3836 guibg=#fabd2f
+LightlineRight_command_error xxx ctermfg=235 ctermbg=208 guifg=#282828 guibg=#fe8019
+LightlineRight_command_error_0 xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_command_error_1 xxx ctermfg=208 ctermbg=239 guifg=#fe8019 guibg=#504945
+LightlineRight_command_error_2 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_command_error_3 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_command_error_4 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_command_error_5 xxx ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
+LightlineRight_command_error_error xxx ctermfg=208 ctermbg=208 guifg=#fe8019 guibg=#fe8019
+LightlineRight_command_error_right xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_command_error_tabsel xxx ctermfg=208 ctermbg=246 guifg=#fe8019 guibg=#a89984
+LightlineRight_command_error_warning xxx ctermfg=208 ctermbg=214 guifg=#fe8019 guibg=#fabd2f
+LightlineRight_command_right xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_command_right_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_right_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_command_right_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_right_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_right_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_right_5 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_right_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_command_right_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_right_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_right_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_command_tabsel xxx ctermfg=235 ctermbg=246 guifg=#282828 guibg=#a89984
+LightlineRight_command_tabsel_0 xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_tabsel_1 xxx ctermfg=246 ctermbg=239 guifg=#a89984 guibg=#504945
+LightlineRight_command_tabsel_2 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_tabsel_3 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_tabsel_4 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_tabsel_5 xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
+LightlineRight_command_tabsel_error xxx ctermfg=246 ctermbg=208 guifg=#a89984 guibg=#fe8019
+LightlineRight_command_tabsel_right xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_tabsel_tabsel xxx ctermfg=246 ctermbg=246 guifg=#a89984 guibg=#a89984
+LightlineRight_command_tabsel_warning xxx ctermfg=246 ctermbg=214 guifg=#a89984 guibg=#fabd2f
+LightlineRight_command_warning xxx ctermfg=239 ctermbg=214 guifg=#504945 guibg=#fabd2f
+LightlineRight_command_warning_0 xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_command_warning_1 xxx ctermfg=214 ctermbg=239 guifg=#fabd2f guibg=#504945
+LightlineRight_command_warning_2 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_command_warning_3 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_command_warning_4 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_command_warning_5 xxx ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+LightlineRight_command_warning_error xxx ctermfg=214 ctermbg=208 guifg=#fabd2f guibg=#fe8019
+LightlineRight_command_warning_right xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_command_warning_tabsel xxx ctermfg=214 ctermbg=246 guifg=#fabd2f guibg=#a89984
+LightlineRight_command_warning_warning xxx ctermfg=214 ctermbg=214 guifg=#fabd2f guibg=#fabd2f
+LightlineMiddle_command xxx ctermfg=246 ctermbg=237 guifg=#a89984 guibg=#3c3836
