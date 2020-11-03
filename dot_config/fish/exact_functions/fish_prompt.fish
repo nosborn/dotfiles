@@ -19,6 +19,8 @@ function fish_prompt --description 'Write out the prompt'
     set color_host $fish_color_host_remote
   end
 
+  set __fish_git_prompt_use_informative_chars 1
+
   # Write pipestatus
   set -l prompt_status (__fish_print_pipestatus " [" "]" "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
 
