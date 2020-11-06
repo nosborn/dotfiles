@@ -167,6 +167,7 @@ let g:ansible_template_syntaxes = {
       \   '*.ini.j2':               'dosini',
       \   '*.json.j2':              'json',
       \   '*.sh.j2':                'sh',
+      \   '*.xml.j2':               'xml',
       \   '*.ya?ml.j2':             'yaml',
       \   'pf.conf.j2':             'pf',
       \   'resolv.conf(.tail)?.j2': 'resolv',
