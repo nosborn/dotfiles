@@ -4,6 +4,7 @@
 .azure/telemetry.txt
 .azure/telemetry/
 .config/alacritty/
+.config/base16-shell/
 .config/git/hooks/prepare-commit-msg
 .config/liquidpromptrc
 .config/pep8/
