@@ -21,7 +21,6 @@ call minpac#init()
 call minpac#add('JamshedVesuna/vim-markdown-preview')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
-call minpac#add('chriskempson/base16-vim')
 call minpac#add('dag/vim-fish')
 call minpac#add('danilamihailov/beacon.nvim')
 call minpac#add('dense-analysis/ale')
@@ -33,6 +32,7 @@ call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('maximbaz/lightline-ale')
+call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim')
 call minpac#add('satabin/hocon-vim')
@@ -58,8 +58,6 @@ set backspace=indent,eol,start
 set belloff=all
 set complete-=i
 set cscopeverbose
-" set cursorcolumn
-" set cursorline
 set display=lastline
 set fillchars=vert:│,fold:·
 set formatoptions=tcqj
@@ -136,12 +134,12 @@ augroup MyColorScheme
   autocmd ColorScheme * call MyColorSchemeHighlights()
 augroup END
 
-let base16colorspace = 256
-if filereadable(expand('~/.vimrc_background'))
-  source ~/.vimrc_background
-else
-  colorscheme base16-tomorrow-night
-endif
+let g:gruvbox_contrast_dark = 'medium'
+" let g:gruvbox_improved_strings = 1
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_italic = 1
+" let g:gruvbox_italicize_strings = 1
+colorscheme gruvbox
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -214,7 +212,7 @@ let g:lightline = {
       \       ['fileformat', 'fileencoding', 'filetype'],
       \     ]
       \   },
-      \   'colorscheme': 'Tomorrow_Night',
+      \   'colorscheme': 'gruvbox',
       \   'component_function': {
       \     'gitbranch': 'FugitiveHead',
       \     'readonly': 'LightlineReadOnly',
