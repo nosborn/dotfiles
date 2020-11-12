@@ -313,4 +313,9 @@ nmap [c <Plug>(GitGutterPrevHunk)
 
 nnoremap <silent> <leader>b :Buffers<CR>
 
+nnoremap gj j
+nnoremap gk k
+nnoremap j gj
+nnoremap k gk
+
 " vim: ft=vim
