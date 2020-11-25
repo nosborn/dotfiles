@@ -25,6 +25,9 @@ export PYTHONWARNINGS=ignore
 
 # Terraform
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
+export TF_CLI_ARGS_apply='-parallelism=20'
+export TF_CLI_ARGS_plan='-parallelism=20'
+export TF_CLI_ARGS_refresh='-parallelism=20'
 
 # XDG
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
