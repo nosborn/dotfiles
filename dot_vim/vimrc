@@ -120,8 +120,8 @@ if executable('fzf')
 endif
 
 if executable('rg')
-  set grepprg=rg\ --vimgrep
-  set grepformat=%f:%l:%c:%m
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 function! MyColorSchemeHighlights() abort
