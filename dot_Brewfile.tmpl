@@ -46,7 +46,6 @@ cask 'kitty'
 brew 'lesspipe'
 brew 'm-cli'
 brew 'mas'
-brew 'neovim'
 brew 'p7zip'
 brew 'pre-commit'
 brew 'prettier'
@@ -67,9 +66,7 @@ brew 'wget'
 brew 'yamllint'
 brew 'yarn'
 brew 'yq'
-# brew 'zsh-autosuggestions'
 brew 'zsh-completions'
-# brew 'zsh-git-prompt'
 brew 'zsh-syntax-highlighting'
 
 {{ if .home -}}
@@ -107,6 +104,7 @@ brew 'mssql-tools'
 # brew 'mysql-client'
 brew 'quazip' # for keepassxc
 cask 'slack'
+brew 'terraform@0.13'
 brew 'unixodbc'  # for msodbcsql*
 cask 'webex-meetings'
 {{ end -}}
