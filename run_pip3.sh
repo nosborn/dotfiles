@@ -18,7 +18,5 @@ case "$(hostname -s)" in
       'molecule[docker]' \
       'msrestazure' \
       'packaging'
-    #  'ansible[azure]==2.9.11' \
-    #  'ansible-lint' \
     ;;
 esac
