@@ -15,11 +15,11 @@
 	local = yellow
 	remote = green
 
-[color "diff"]
-	frag = magenta
-	meta = yellow
-	new = green
-	old = red
+; [color "diff"]
+; 	frag = magenta
+; 	meta = yellow
+; 	new = green
+; 	old = red
 
 [color "status"]
 	added = green
@@ -30,10 +30,11 @@
 [core]
 	autocrlf = input
 	editor = vim
-#	hooksPath = ~/.config/git/hooks
+;	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
+	pager = delta
 {{- if eq .chezmoi.os "darwin" }}
 	trustctime = false ; play nicely with revisiond
 {{- end }}
@@ -43,12 +44,21 @@
 	helper = osxkeychain
 {{- end }}
 
+[delta]
+	features = side-by-side line-numbers decorations
+	whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
 [diff]
-	algorithm = minimal
-	colorMoved = default
-	indentHeuristic = on
-	mnemonicprefix = true
-	renames = copies
+ 	algorithm = minimal
+ 	colorMoved = default
+ 	indentHeuristic = on
+ 	mnemonicprefix = true
+ 	renames = copies
 
 [diff "ansible-vault"]
 	cachetextconv = false
@@ -80,6 +90,9 @@
 
 [github]
 	user = {{ .github.user }}
+
+[interactive]
+	diffFilter = delta --color-only
 
 [log]
 	date = human
