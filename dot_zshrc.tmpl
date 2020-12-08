@@ -107,9 +107,6 @@ avdiffs() {
   command diff -dy -W${COLUMNS} --suppress-common-lines =(ansible-vault view "$1") =(ansible-vault view "$2")
 }
 
-if (( $+commands[kitty] )); then
-  kitty +complete setup zsh | source /dev/stdin
-fi
 if (( $+commands[molecule] )); then
   eval "$(_MOLECULE_COMPLETE=source molecule)"
 fi
