@@ -7,6 +7,7 @@ unset PYTHONPATH # just in case
 PATH="$(python3 -msite --user-base)/bin:${PATH}"
 
 python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
+  'argcomplete' \
   'vim-vint'
 
 case "$(hostname -s)" in
