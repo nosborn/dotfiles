@@ -1,7 +1,0 @@
-{{ if .github.user -}}
-set CDPATH "$HOME/src/github.com/{{ .github.user }}" $CDPATH
-{{ end -}}
-{{ if .work -}}
-set CDPATH ~ ~/src/github.com/corda $CDPATH
-{{ end -}}
-set CDPATH . $CDPATH
