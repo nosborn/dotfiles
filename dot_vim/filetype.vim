@@ -4,7 +4,6 @@ endif
 
 augroup filetypedetect
   au! BufRead,BufNewFile *.Jenkinsfile                 set ft=groovy
-  au! BufRead,BufNewFile *.fish.tmpl                   set ft=fish
   au! BufRead,BufNewFile *.ini.erb                     set ft=dosini.eruby
   au! BufRead,BufNewFile *.json.erb                    set ft=json.eruby
   au! BufRead,BufNewFile *.json.j2                     set ft=json.jinja2
