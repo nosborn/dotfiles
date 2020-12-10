@@ -39,9 +39,3 @@ find /usr/local/Caskroom -name '*.app' -type l | while read -r link; do
     xattr -d -v com.apple.quarantine "${link}"
   fi
 done
-
-for shell in bash fish zsh; do
-  [ -e /usr/local/bin/${shell} ] || continue
-  grep -Fqx /usr/local/bin/${shell} /etc/shells && continue
-  echo /usr/local/bin/${shell} | sudo tee -a /etc/shells >/dev/null
-done

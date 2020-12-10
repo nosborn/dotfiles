@@ -5,6 +5,7 @@
 .azure/telemetry/
 .config/alacritty/
 .config/base16-shell/
+.config/fish
 .config/git/hooks/prepare-commit-msg
 .config/kitty/
 .config/liquidpromptrc
