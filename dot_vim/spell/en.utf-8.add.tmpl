@@ -41,9 +41,9 @@ Nessus/=
 OSSEC/=
 PKI/=
 Percona/=
-{{ if .work -}}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 R3/=
-{{ end -}}
+{{- end }}
 SendGrid/=
 ShellCheck/=
 TeamCity/=
@@ -65,9 +65,9 @@ macOS/=
 markdownlint
 nginx
 playbook
-{{ if .work -}}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 qaops
-{{ end -}}
+{{- end }}
 shfmt
 sudo
 systemctl
