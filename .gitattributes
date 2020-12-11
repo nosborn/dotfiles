@@ -1,2 +1,0 @@
-/dot_tflint.d/ binary
-/dot_tflint.d/plugins/ filter=lfs diff=lfs merge=lfs -text

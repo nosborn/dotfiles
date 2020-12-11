@@ -11,7 +11,7 @@ python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
   'vim-vint'
 
 case "$(hostname -s)" in
-  19SGD-*)
+  19SGD-MAC11)
     python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
       'ansible>=2.10,<2.11' \
       'ansible-lint>4.3' \

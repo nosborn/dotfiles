@@ -1,6 +1,6 @@
 tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
+tap 'homebrew/cask-fonts'
 
 # cask '1password-cli'
 # brew 'aws-keychain'
@@ -11,12 +11,9 @@ brew 'bat'
 brew 'black'
 # brew 'cfn-lint'
 brew 'chezmoi'
-cask 'chromium'
 brew 'coreutils' # for timeout
 brew 'ctags'
 brew 'direnv'
-cask 'docker'
-brew 'docker-clean'
 brew 'exiftool'
 brew 'findutils'
 brew 'flake8'
@@ -29,7 +26,6 @@ brew 'git-lfs'
 brew 'git-trim'
 brew 'github-markdown-toc'
 brew 'gnu-tar'
-cask 'gpg-suite-no-mail'
 brew 'grc'
 brew 'grip' # for vim-markdown-preview
 brew 'hadolint'
@@ -44,14 +40,11 @@ brew 'pre-commit'
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
-cask 'rectangle'
 brew 'ripgrep'
 brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
 brew 'telnet'
-brew 'terraform'
-brew 'tflint'
 brew 'tig'
 brew 'vim'
 brew 'watch'
@@ -62,7 +55,17 @@ brew 'yq'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
-{{ if .home -}}
+{{- if ne .chezmoi.hostname "Nicks-Mac-mini" }}
+cask 'chromium'
+cask 'docker'
+brew 'docker-clean'
+cask 'gpg-suite-no-mail'
+cask 'rectangle'
+brew 'terraform'
+brew 'tflint'
+{{- end }}
+
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 tap 'homebrew/cask-drivers'
 
 # brew 'battle-net'
@@ -86,9 +89,9 @@ if File.writable?('/Applications')
   # mas 'Numbers', id: 409203825
   # mas 'Pages', id: 409201541
 end
-{{ end -}}
+{{- end }}
 
-{{ if .work -}}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 # cask 'adoptopenjdk'
@@ -106,6 +109,6 @@ cask 'slack'
 brew 'terraform@0.13'
 brew 'unixodbc'  # for msodbcsql*
 cask 'webex-meetings'
-{{ end -}}
+{{- end }}
 
 # vim: ft=ruby.jinja2

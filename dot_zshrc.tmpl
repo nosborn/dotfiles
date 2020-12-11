@@ -19,12 +19,12 @@ bindkey -e
 autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
-{{ if .github.user -}}
+{{- if .github.user }}
 cdpath=( "${HOME}/src/github.com/{{ .github.user }}" $cdpath )
-{{ end -}}
-{{ if .work -}}
+{{- end }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 cdpath=( ~ ~/src/github.com/corda $cdpath )
-{{ end -}}
+{{- end }}
 cdpath=( . $cdpath )
 fpath=( ~/.local/share/zsh-completions /usr/local/share/zsh-completions $fpath )
 path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin $path )

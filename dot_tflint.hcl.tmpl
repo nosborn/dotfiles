@@ -21,7 +21,7 @@ rule "terraform_documented_variables" {
 
 rule "terraform_naming_convention" {
   enabled = true
-{{ if .work }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 
   module { # DEPRECATED: should be standard `snake_case` format
     custom = "^[a-z][a-z0-9]*([-_][a-z0-9]+)*$" # snake_case + `-`
@@ -30,7 +30,7 @@ rule "terraform_naming_convention" {
   resource { # DEPRECATED: should be standard `snake_case` format
     custom = "^[a-zA-Z][a-zA-Z0-9]*([-_][a-zA-Z0-9]+)*$" # mixed_snake_case + `-`
   }
-{{ end }}
+{{- end }}
 }
 
 rule "terraform_required_providers" {

@@ -40,10 +40,10 @@ rules:
   brackets:
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
-{{ if .work }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
   comments:
     min-spaces-from-content: 1  # compatibility with VSCode
-{{ end }}
+{{- end }}
   document-end:
     present: false
   indentation:

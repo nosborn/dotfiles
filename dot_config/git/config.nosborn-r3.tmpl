@@ -1,16 +1,16 @@
 [commit]
-{{- if .work }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 	gpgSign = true
 {{- end }}
 
 [tag]
-{{- if .work }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 #	gpgSign = true
 {{- end }}
 
 [user]
 	email = nick.osborn@r3.com
-{{- if .work }}
+{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 	signingKey = 1D2CD1D2
 {{- end }}
 

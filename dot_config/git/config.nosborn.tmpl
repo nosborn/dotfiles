@@ -1,16 +1,16 @@
 [commit]
-{{- if .home }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 	gpgSign = true
 {{- end }}
 
 [tag]
-{{- if .home }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 #	gpgSign = true
 {{- end }}
 
 [user]
 	email = nosborn@users.noreply.github.com
-{{- if .home }}
+{{- if eq .chezmoi.hostname "Nicks-MBP" }}
 	signingkey = 4C036A880B354B36
 {{- end }}
 
