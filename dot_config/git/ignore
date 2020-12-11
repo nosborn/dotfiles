@@ -3,6 +3,7 @@
 *.pyc
 *.retry
 *.tfplan
+*.tfplan.*
 *.tfstate
 *.tfstate.*
 .AppleDB
@@ -14,6 +15,7 @@
 .Trashes
 ._*
 .apdisk
+.direnv/
 .envrc
 .terraform.d/
 .terraform/
