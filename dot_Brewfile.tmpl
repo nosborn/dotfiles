@@ -91,6 +91,10 @@ if File.writable?('/Applications')
 end
 {{- end }}
 
+{{- if eq .chezmoi.hostname "Nicks-Mac-mini" }}
+brew 'get_iplayer'
+{{- end }}
+
 {{- if eq .chezmoi.hostname "19SGD-MAC11" }}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
