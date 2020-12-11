@@ -39,11 +39,11 @@ for config_file (~/.zsh/lib/*.zsh); do
 done
 
 if [[ -z "${SSH_CLIENT}" ]]; then
-  prompt_host=''
+  _prompt_host=''
 else
-  prompt_host='%m '
+  _prompt_host='%m:'
 fi
-export PROMPT='$(abbreviated_path)%# '
+export PROMPT='${_prompt_host}$(abbreviated_path)%# '
 export PROMPT_EOL_MARK="%F{1}$(echo "\u23CE")%f"
 
 if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
