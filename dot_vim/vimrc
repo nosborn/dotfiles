@@ -159,6 +159,7 @@ let g:ansible_name_highlight = 'd'
 let g:ansible_template_syntaxes = {
       \   '*.ini.j2':               'dosini',
       \   '*.json.j2':              'json',
+      \   '*.py.j2':                'python',
       \   '*.sh.j2':                'sh',
       \   '*.xml.j2':               'xml',
       \   '*.ya?ml.j2':             'yaml',
