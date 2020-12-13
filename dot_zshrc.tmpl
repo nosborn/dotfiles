@@ -9,25 +9,23 @@ setopt SHARE_HISTORY
 
 export HISTORY_IGNORE='(bg|cd *|exit|fg|pwd)'
 
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -e
-# zstyle :compinstall filename ~/.zshrc
 
 autoload -Uz compinit && compinit
-autoload -Uz +X bashcompinit && bashcompinit
+# autoload -Uz +X bashcompinit && bashcompinit
 
 {{- if .github.user }}
-cdpath=( "${HOME}/src/github.com/{{ .github.user }}" $cdpath )
+cdpath=( "${HOME}/src/github.com/{{ .github.user }}" ${cdpath} )
+if [[ -e ~/src/github.com/corda ]]; then
+  cdpath=( ~/src/github.com/corda $cdpath )
+fi
 {{- end }}
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
-cdpath=( ~ ~/src/github.com/corda $cdpath )
-{{- end }}
-cdpath=( . $cdpath )
-fpath=( ~/.local/share/zsh-completions /usr/local/share/zsh-completions $fpath )
-path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin $path )
+cdpath=( . ${cdpath} )
+fpath=( ~/.local/share/zsh-completions /usr/local/share/zsh-completions ${fpath} )
+path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin ${path} )
 
 export PYTHONPATH=$(python3 -msite --user-site)
 
@@ -35,37 +33,25 @@ autoload -U colors
 colors
 
 for config_file (~/.zsh/lib/*.zsh); do
-  source $config_file
+  source "${config_file}"
 done
 
-if [[ -z "${SSH_CLIENT}" ]]; then
-  _prompt_host=''
-else
-  _prompt_host='%m:'
-fi
-export PROMPT='${_prompt_host}$(abbreviated_path)%# '
-export PROMPT_EOL_MARK="%F{1}$(echo "\u23CE")%f"
+export PROMPT='${SSH_CLIENT:+%m:}%F{2}$(abbreviated_path)%f%# '
+export PROMPT_EOL_MARK='%F{1}⏎%f'
 
-if [ -e $(brew --prefix zsh-git-prompt)/zshrc.sh ]; then
-  source $(brew --prefix zsh-git-prompt)/zshrc.sh
-  ZSH_THEME_GIT_PROMPT_PREFIX="["
-  ZSH_THEME_GIT_PROMPT_SUFFIX="]"
-  ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-else
-  autoload -Uz vcs_info
-  zstyle ':vcs_info:*' formats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-  zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-  zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' check-for-staged-changes true
-  #zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
-  #zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats \
+  '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:*' actionformats \
+  '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-staged-changes true
+#zstyle ':vcs_info:*' stagedstr '%F{green}●%f '
+#zstyle ':vcs_info:*' unstagedstr '%F{yellow}●%f '
 
-  #zstyle ':vcs_info:git:*' check-for-changes true
-  #zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
-  ###zstyle ':vcs_info:*' formats "[%b]%u%c-"
-fi
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git:*' formats "%F{blue}%b%f %u%c"
+###zstyle ':vcs_info:*' formats "[%b]%u%c-"
 
 export CLICOLOR=1
 export EDITOR=vim
@@ -110,29 +96,22 @@ avdiffs() {
 if (( $+commands[molecule] )); then
   eval "$(_MOLECULE_COMPLETE=source molecule)"
 fi
-if (( $+commands[qpdf] )); then
-  complete -o bashdefault -o default -o nospace -C $commands[qpdf] qpdf
-fi
+# if (( $+commands[qpdf] )); then
+#   eval $(/usr/local/bin/qpdf --completion-zsh) -- loads bash completion
+# fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C $commands[terraform] terraform
 fi
 
-comp_files=()
-comp_files+=(/usr/local/etc/bash_completion.d/az)
-comp_files+=(/usr/local/etc/bash_completion.d/npm)
-comp_files+=(/usr/local/etc/bash_completion.d/rg.bash)
-#comp_files+=(/usr/local/etc/bash_completion.d/vagrant)
-
-for f in $comp_files; do
-  if [[ -f "$f" ]]; then
-    source "$f"
-  fi
-done
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [[ -e /usr/local/bin/qpdf ]]; then
-  eval $(/usr/local/bin/qpdf --completion-zsh)
-fi
+#comp_files=()
+#comp_files+=(/usr/local/etc/bash_completion.d/az)
+#comp_files+=(/usr/local/etc/bash_completion.d/npm)
+#comp_files+=(/usr/local/etc/bash_completion.d/rg.bash)
+##comp_files+=(/usr/local/etc/bash_completion.d/vagrant)
+#
+#for f in ${comp_files}; do
+#  [[ -f "${f}" ]] && source "${f}"
+#done
 
 if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
   _update_terminal_cwd() {
@@ -158,8 +137,16 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
   _update_terminal_cwd
 fi
 
-[[ -s /usr/local/etc/grc.zsh ]] && source /usr/local/etc/grc.zsh
+if [[ -e /usr/local/etc/grc.zsh ]]; then
+  source /usr/local/etc/grc.zsh
+fi
 
+# Do at end.
+if [[ -e /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Do at end.
 if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
