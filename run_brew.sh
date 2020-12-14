@@ -11,8 +11,10 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 
 brew analytics off
 
-if [ "$(hostname -s)" = 19SGD-MAC11 ]; then
-  export ACCEPT_EULA=Y
-  export HOMEBREW_NO_ENV_FILTERING=1 # https://github.com/microsoft/homebrew-mssql-release/pull/26
-fi
+case "$(hostname -s)" in
+  19SGD-MAC11 | 19SGD-MAC11-*)
+    export ACCEPT_EULA=Y
+    export HOMEBREW_NO_ENV_FILTERING=1 # https://github.com/microsoft/homebrew-mssql-release/pull/26
+    ;;
+esac
 brew bundle --global

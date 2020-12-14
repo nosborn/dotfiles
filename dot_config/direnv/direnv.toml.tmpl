@@ -1,4 +1,4 @@
-{{- if ne .chezmoi.hostname "19SGD-MAC11" }}
+{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname }}
 [whitelist]
 prefix = [
   "{{ .chezmoi.homedir }}/github.com/{{ .github.user }}"

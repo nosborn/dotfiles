@@ -95,7 +95,7 @@ end
 brew 'get_iplayer'
 {{- end }}
 
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname}}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 # cask 'adoptopenjdk'
