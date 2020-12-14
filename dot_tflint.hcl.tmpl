@@ -21,7 +21,7 @@ rule "terraform_documented_variables" {
 
 rule "terraform_naming_convention" {
   enabled = true
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname }}
 
   module { # DEPRECATED: should be standard `snake_case` format
     custom = "^[a-z][a-z0-9]*([-_][a-z0-9]+)*$" # snake_case + `-`
