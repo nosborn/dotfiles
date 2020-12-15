@@ -14,8 +14,16 @@ if [ -d /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts ]; 
     /Library/Fonts/
 fi
 
+if [ -d /Applications/MacVim.app ]; then
+  defaults write -app MacVim MMLastWindowClosedBehavior -int 2
+  defaults write -app MacVim SUEnableAutomaticChecks -bool false
+  defaults write -app MacVim SUHasLaunchedBefore -bool true
+  defaults write -app MacVim SUSendProfileInfo -bool false
+fi
+
 if [ -d /Applications/Rectangle.app ]; then
   defaults write -app Rectangle SUEnableAutomaticChecks -bool false
+  defaults write -app Rectangle SUHasLaunchedBefore -bool true
   defaults write -app Rectangle SUSendProfileInfo -bool false
   defaults write -app Rectangle launchOnLogin -bool true
 fi
