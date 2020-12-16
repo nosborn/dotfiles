@@ -144,6 +144,7 @@ let g:ale_sign_info = 'ℹ'
 let g:ale_sign_warning = "\uf071" " '‼'
 let b:ale_xml_xmllint_optons = '--nonet'
 
+let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
 let g:ansible_template_syntaxes = {
       \   '*.ini.j2':               'dosini',
@@ -163,6 +164,7 @@ let g:ansible_template_syntaxes = {
       \   'resolv.conf(.tail)?.j2': 'resolv',
       \   'sshd_config.j2':         'sshdconfig',
       \ }
+let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
 
