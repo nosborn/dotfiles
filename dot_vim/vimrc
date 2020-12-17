@@ -139,9 +139,9 @@ let g:ale_fixers = {
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
-let g:ale_sign_info = 'ℹ'
+let g:ale_sign_info = 'ℹ︎'
 " let g:ale_sign_priority = 10
-let g:ale_sign_warning = "\uf071" " '‼'
+let g:ale_sign_warning = '⚠︎'
 let b:ale_xml_xmllint_optons = '--nonet'
 
 let g:ansible_extra_keywords_highlight = 1
