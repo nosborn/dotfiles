@@ -36,7 +36,7 @@ for config_file (~/.zsh/lib/*.zsh); do
   source "${config_file}"
 done
 
-export PROMPT='${SSH_CLIENT:+%m:}%F{2}$(abbreviated_path)%f%# '
+# export PROMPT='${SSH_CLIENT:+%m:}%F{2}$(abbreviated_path)%f%# '
 export PROMPT_EOL_MARK='%F{1}⏎%f'
 
 autoload -Uz vcs_info
@@ -57,51 +57,14 @@ export CLICOLOR=1
 export EDITOR=vim
 export VISUAL=vim
 
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
-export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
-export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
-export LESS_TERMCAP_mr=$(tput rev)
-export LESS_TERMCAP_mh=$(tput dim)
-export LESS_TERMCAP_ZN=$(tput ssubm)
-export LESS_TERMCAP_ZV=$(tput rsubm)
-export LESS_TERMCAP_ZO=$(tput ssupm)
-export LESS_TERMCAP_ZW=$(tput rsupm)
-
-if (( $+commands[lesspipe.sh] )); then
-  #export LESSOPEN="|$commands[lesspipe.sh] %s"
-  export LESS_ADVANCED_PREPROCESSOR=1
-fi
-
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
-alias tfdiff='command diff -dNry -W${COLUMNS} -x .terraform -x \*.tfplan -x \*.rules.tf -x \*.tfstate -x \*.tfstate.\* -x PLAN'
-alias tfdiffs='tfdiff --suppress-common-lines'
 alias timeout=gtimeout
 alias vi=vim
 
-avdiff() {
-  [[ $# -eq 2 ]] || { echo "Usage: $0 FILENAME FILENAME" >&2; exit 1 }
-  command diff -dy -W${COLUMNS} =(ansible-vault view "$1") =(ansible-vault view "$2")
-}
-
-avdiffs() {
-  [[ $# -eq 2 ]] || { echo "Usage: $0 FILENAME FILENAME" >&2; exit 1 }
-  command diff -dy -W${COLUMNS} --suppress-common-lines =(ansible-vault view "$1") =(ansible-vault view "$2")
-}
-
-if (( $+commands[molecule] )); then
-  eval "$(_MOLECULE_COMPLETE=source molecule)"
-fi
 # if (( $+commands[qpdf] )); then
 #   eval $(/usr/local/bin/qpdf --completion-zsh) -- loads bash completion
 # fi
-if (( $+commands[terraform] )); then
-  complete -o nospace -C $commands[terraform] terraform
-fi
 
 #comp_files=()
 #comp_files+=(/usr/local/etc/bash_completion.d/az)
@@ -146,6 +109,11 @@ fi
 # Do at end.
 if [[ -e /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Do at end.
+if (( $+commands[starship] )); then
+  eval "$(starship init zsh)"
 fi
 
 # Do at end.
