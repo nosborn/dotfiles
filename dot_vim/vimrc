@@ -25,8 +25,12 @@ call minpac#add('godlygeek/tabular')
 call minpac#add('hashivim/vim-terraform')
 call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('junegunn/fzf.vim', {
+  \   'do': 'set runtimepath+=/usr/local/opt/fzf'
+  \ })
+call minpac#add('k-takata/minpac', {
+  \   'type': 'opt'
+  \ })
 call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
@@ -109,10 +113,6 @@ inoremap <C-U> <C-G>u<C-U>
 if !exists(':DiffOrig')
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
         \ | wincmd p | diffthis
-endif
-
-if executable('fzf')
-  set runtimepath+=/usr/local/opt/fzf
 endif
 
 if executable('rg')
@@ -228,7 +228,13 @@ let g:lightline.component_type = {
       \   'linter_warnings': 'warning',
       \ }
 let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_ok = "\u2713"
+let g:lightline#ale#indicator_ok = '✓'
+
+"let g:lightline#ale#indicator_checking = "\uf110"
+"let g:lightline#ale#indicator_infos = "\uf129"
+"let g:lightline#ale#indicator_warnings = "\uf071"
+"let g:lightline#ale#indicator_errors = "\uf05e"
+"let g:lightline#ale#indicator_ok = "\uf00c"
 
 let g:markdown_fenced_languages = [
       \   'bash=sh',
@@ -246,8 +252,7 @@ let vim_markdown_preview_github = 1
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
-" let g:netrw_keepdir = 0
-let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_list_hide = netrw_gitignore#Hide() . '\.git$'
 let g:netrw_liststyle = 3
 
 let g:vim_json_conceal = 0
