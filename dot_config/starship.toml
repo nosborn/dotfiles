@@ -1,2 +1,8 @@
+[cmd_duration]
+disabled = true
+
 [directory]
 truncation_symbol = "…/"
+
+[python]
+disabled = true
