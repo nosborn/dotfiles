@@ -16,6 +16,7 @@
 .gradle/
 .hammerspoon/
 .local/etc/
+.local/share/fish/
 .local/share/git-core/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
