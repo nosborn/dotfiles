@@ -101,7 +101,7 @@ cask 'get-iplayer-automator'
 {{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname}}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
-# cask 'adoptopenjdk'
+cask 'adoptopenjdk' # for dbeaver-community
 brew 'azcopy'
 brew 'azure-cli'
 # cask 'datadog-agent'

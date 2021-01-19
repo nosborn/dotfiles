@@ -12,6 +12,7 @@ augroup filetypedetect
   au! BufRead,BufNewFile *.py.erb                      set ft=python.eruby
   au! BufRead,BufNewFile *.sh.erb                      set ft=sh.eruby
   au! BufRead,BufNewFile *.toml.tmpl                   set ft=toml
+  au! BufRead,BufNewFile */ansible/templates/nginx/*   set ft=nginx
   au! BufRead,BufNewFile */terraform/**/*.rules        set ft=markdown nospell nowrap
   au! BufRead,BufNewFile *_Jenkinsfile                 set ft=groovy
   au! BufRead,BufNewFile .babelrc                      set ft=json
