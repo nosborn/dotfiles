@@ -18,6 +18,7 @@ case "$(hostname -s)" in
       'azure-cli>=2.16' \
       'datadog' \
       'datadog-checks-dev[cli]' \
-      'molecule[docker]>=3.2'
+      'molecule[docker]>=3.2' \
+      'mssql-cli'
     ;;
 esac
