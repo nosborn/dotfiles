@@ -43,11 +43,14 @@ Library/Caches/com.github.atom/
 Library/Caches/com.google.Keystone/
 Library/Caches/com.google.SoftwareUpdate/
 Library/Caches/com.matryer.BitBar/
+Library/Caches/com.microsoft.VSCode/
+Library/Caches/com.microsoft.VSCode.ShipIt/
 Library/Caches/com.northnumber.Bodo/
 Library/Caches/com.pigigaldi.pock/
 Library/Caches/com.plausiblelabs.crashreporter.data/
 Library/Caches/com.qvacua.VimR/
 Library/Caches/io.fabric.sdk.mac.data/
+Library/Caches/kitty/
 Library/Caches/org.hammerspoon.Hammerspoon/
 Library/Caches/org.vim.MacVim/
 Library/LaunchAgents/com.github.facebook.watchman.plist
