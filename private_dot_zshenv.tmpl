@@ -26,6 +26,11 @@ export MSSQL_CLI_TELEMETRY_OPTOUT=True
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONWARNINGS=ignore
 
+# Rust
+if [[ -e "${HOME}/.cargo/env" ]]; then
+  source "${HOME}/.cargo/env"
+fi
+
 # Terraform
 export TF_CLI_ARGS_apply='-compact-warnings -parallelism=20'
 export TF_CLI_ARGS_plan='-compact-warnings -parallelism=20'
