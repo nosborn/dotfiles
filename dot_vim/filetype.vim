@@ -4,6 +4,7 @@ endif
 
 augroup filetypedetect
   autocmd! BufRead,BufNewFile *.Jenkinsfile    set ft=groovy
+  autocmd! BufRead,BufNewFile *.hcl            set ft=terraform
   autocmd! BufRead,BufNewFile *.ini.erb        set ft=dosini.eruby
   autocmd! BufRead,BufNewFile *.json.erb       set ft=json.eruby
   autocmd! BufRead,BufNewFile *.lua.erb        set ft=lua.eruby
