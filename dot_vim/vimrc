@@ -28,7 +28,6 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('junegunn/fzf.vim', {
   \   'do': 'set runtimepath+=/usr/local/opt/fzf'
   \ })
-call minpac#add('jvirtanen/vim-hcl')
 call minpac#add('k-takata/minpac', {
   \   'type': 'opt'
   \ })
