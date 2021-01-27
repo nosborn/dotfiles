@@ -11,6 +11,7 @@
 .config/liquidpromptrc
 .config/nvim/
 .config/pep8/
+.config/tig/
 .config/wireshark/
 .emacs.d/
 .gradle/
