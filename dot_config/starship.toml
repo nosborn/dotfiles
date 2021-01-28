@@ -4,5 +4,8 @@ disabled = true
 [directory]
 truncation_symbol = "…/"
 
+[git_commit]
+tag_disabled = false
+
 [python]
 disabled = true
