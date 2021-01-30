@@ -73,14 +73,13 @@ set mouse=a
 set nobackup
 set nofsync
 set nolangremap
-set noshowcmd
 set noshowmode
 set nospell
 set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
-set nrformats-=octal
+set nrformats=bin,hex
 set number
 set path=$PWD/**
 set relativenumber
@@ -101,6 +100,7 @@ set ttimeout
 set ttimeoutlen=50
 set ttyfast
 set updatetime=100
+set viewoptions=unix,slash
 set viminfo+=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
 set wildmenu
