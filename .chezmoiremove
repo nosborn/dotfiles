@@ -19,6 +19,8 @@
 .local/etc/
 .local/share/fish/
 .local/share/git-core/
+.local/share/nvim/
+.local/share/tig/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
