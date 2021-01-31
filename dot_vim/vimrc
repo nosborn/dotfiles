@@ -25,9 +25,6 @@ call minpac#add('godlygeek/tabular')
 call minpac#add('hashivim/vim-terraform')
 call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
-call minpac#add('junegunn/fzf.vim', {
-  \   'do': 'set runtimepath+=/usr/local/opt/fzf'
-  \ })
 call minpac#add('k-takata/minpac', {
   \   'type': 'opt'
   \ })
@@ -95,7 +92,6 @@ set signcolumn=yes
 set smarttab
 set spelllang=en_gb
 set tabpagemax=50
-set tags^=./.git/tags;
 set ttimeout
 set ttimeoutlen=50
 set ttyfast

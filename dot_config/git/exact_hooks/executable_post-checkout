@@ -3,5 +3,3 @@
 set -e
 
 git lfs post-checkout "$@"
-
-.git/hooks/ctags >/dev/null 2>&1 &
