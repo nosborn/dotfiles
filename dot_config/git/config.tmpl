@@ -4,7 +4,6 @@
 	waitingForEditor = false
 
 [alias]
-	ctags = !~/.config/git/hooks/ctags
 	wdiff = diff --word-diff
 
 [color]
@@ -30,7 +29,7 @@
 [core]
 	autocrlf = input
 	editor = vim
-;	hooksPath = ~/.config/git/hooks
+	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
