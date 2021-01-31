@@ -21,16 +21,6 @@ rule "terraform_documented_variables" {
 
 rule "terraform_naming_convention" {
   enabled = true
-{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname }}
-
-  module { # DEPRECATED: should be standard `snake_case` format
-    custom = "^[a-z][a-z0-9]*([-_][a-z0-9]+)*$" # snake_case + `-`
-  }
-
-  resource { # DEPRECATED: should be standard `snake_case` format
-    custom = "^[a-zA-Z][a-zA-Z0-9]*([-_][a-zA-Z0-9]+)*$" # mixed_snake_case + `-`
-  }
-{{- end }}
 }
 
 rule "terraform_required_providers" {

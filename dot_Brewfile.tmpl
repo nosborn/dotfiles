@@ -1,18 +1,5 @@
 tap 'homebrew/cask'
-
-brew 'chezmoi'
-brew 'direnv'
-brew 'git-lfs'
-brew 'grc'
-brew 'jq'
-brew 'm-cli'
-brew 'pstree'
-brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
-
-{{- if ne .chezmoi.hostname "Nicks-Mac-mini" }}
 tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
 
 # cask '1password-cli'
 # brew 'aws-keychain'
@@ -22,9 +9,11 @@ brew 'awscli'
 brew 'bat'
 brew 'black'
 # brew 'cfn-lint'
+brew 'chezmoi'
 cask 'chromium'
 brew 'coreutils' # for timeout
 brew 'ctags'
+brew 'direnv'
 cask 'docker'
 brew 'docker-clean'
 brew 'exiftool'
@@ -35,19 +24,25 @@ brew 'fzf'
 brew 'gh'
 brew 'git-delta'
 brew 'git-imerge'
+brew 'git-lfs'
 brew 'git-trim'
 brew 'github-markdown-toc'
 brew 'gnu-tar'
 cask 'gpg-suite-no-mail'
+brew 'grc'
 brew 'grip' # for vim-markdown-preview
 brew 'hadolint'
 brew 'html2text' # for lesspipe
+brew 'jd'
 brew 'jinja2-cli'
+brew 'jq'
 brew 'jsonlint'
 brew 'lesspipe'
+brew 'm-cli'
 brew 'p7zip'
 brew 'pre-commit'
 brew 'prettier'
+brew 'pstree'
 brew 'pwgen'
 cask 'rectangle'
 brew 'ripgrep'
@@ -64,9 +59,12 @@ brew 'wget'
 brew 'yamllint'
 brew 'yarn'
 brew 'yq'
-{{- end }}
+brew 'vultr'
+brew 'zsh-autosuggestions'
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
 
-{{- if eq .chezmoi.hostname "Nicks-MBP" }}
+{{- if eq .where "home" }}
 tap 'homebrew/cask-drivers'
 
 # brew 'battle-net'
@@ -93,7 +91,7 @@ if File.writable?('/Applications')
 end
 {{- end }}
 
-{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname}}
+{{- if eq .where "work" }}
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community

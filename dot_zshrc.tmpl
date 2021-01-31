@@ -104,9 +104,13 @@ fi
 
 if [[ -e /usr/local/etc/grc.zsh ]]; then
   source /usr/local/etc/grc.zsh
+  alias pstree='grc --colour=auto /usr/local/bin/pstree'
 fi
 
 # Do at end.
+if [[ /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 if [[ -e /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
