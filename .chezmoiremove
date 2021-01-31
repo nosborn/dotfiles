@@ -13,6 +13,7 @@
 .config/pep8/
 .config/tig/
 .config/wireshark/
+.ctags
 .emacs.d/
 .gradle/
 .hammerspoon/
