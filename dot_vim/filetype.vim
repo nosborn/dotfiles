@@ -1,7 +1,3 @@
-if exists('did_load_filetypes')
-  finish
-endif
-
 augroup filetypedetect
   autocmd! BufRead,BufNewFile *.Jenkinsfile    set ft=groovy
   autocmd! BufRead,BufNewFile *.hcl            set ft=terraform

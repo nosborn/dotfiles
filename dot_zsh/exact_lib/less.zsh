@@ -1,38 +1,23 @@
-export LESS_TERMCAP_mb=$(
-  tput bold
-  tput setaf 2
-) # green
-export LESS_TERMCAP_md=$(
-  tput bold
-  tput setaf 6
-) # cyan
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_so=$(
-  tput bold
-  tput setaf 3
-  tput setab 4
-) # yellow on blue
-export LESS_TERMCAP_se=$(
-  tput rmso
-  tput sgr0
-)
-export LESS_TERMCAP_us=$(
-  tput smul
-  tput bold
-  tput setaf 7
-) # white
-export LESS_TERMCAP_ue=$(
-  tput rmul
-  tput sgr0
-)
-export LESS_TERMCAP_mr=$(tput rev)
-export LESS_TERMCAP_mh=$(tput dim)
+# Coloured man pages.
+export LESS_TERMCAP_mb="${fg_bold[red]}"
+export LESS_TERMCAP_md="${fg_bold[red]}"
+export LESS_TERMCAP_me="${reset_color}"
+export LESS_TERMCAP_se="${reset_color}"
+export LESS_TERMCAP_so="${fg_bold[yellow]}${bg[blue]}"
+export LESS_TERMCAP_ue="${reset_color}"
+export LESS_TERMCAP_us="${fg_bold[greeen]}"
+
+# ¯\_(ツ)_/¯
 export LESS_TERMCAP_ZN=$(tput ssubm)
-export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
+export LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_mr=$(tput rev)
 
 if (( ${+commands[lesspipe.sh]} )); then
   #export LESSOPEN="|${commands[lesspipe.sh]} %s"
   export LESS_ADVANCED_PREPROCESSOR=1
 fi
+
+export PAGER=${commands[less]}
