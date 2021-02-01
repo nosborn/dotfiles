@@ -14,12 +14,6 @@
 	local = yellow
 	remote = green
 
-; [color "diff"]
-; 	frag = magenta
-; 	meta = yellow
-; 	new = green
-; 	old = red
-
 [color "status"]
 	added = green
 	changed = yellow
@@ -29,7 +23,7 @@
 [core]
 	autocrlf = input
 	editor = vim
-	hooksPath = ~/.config/git/hooks
+;	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
@@ -53,11 +47,11 @@
 	file-decoration-style = none
 
 [diff]
- 	algorithm = minimal
- 	colorMoved = default
- 	indentHeuristic = on
- 	mnemonicprefix = true
- 	renames = copies
+	algorithm = minimal
+	colorMoved = default
+	indentHeuristic = on
+	mnemonicprefix = true
+	renames = copies
 
 [diff "ansible-vault"]
 	cachetextconv = false
@@ -72,7 +66,7 @@
 	textconv = zipinfo -lZ
 
 [fetch]
-        fsckobjects = true
+	fsckobjects = true
 	prune = true
 	pruneTags = true
 
@@ -134,7 +128,7 @@
 ;	showUntrackedFiles = all
 
 [transfer]
-        fsckobjects = true
+	fsckobjects = true
 
 [user]
 	name = {{ .user.name }}
