@@ -41,7 +41,7 @@ Nessus/=
 OSSEC/=
 PKI/=
 Percona/=
-{{- if hasPrefix "19SGD-MAC11" .chezmoi.hostname }}
+{{- if eq .where "work" }}
 R3/=
 {{- end }}
 SendGrid/=
@@ -65,7 +65,7 @@ macOS/=
 markdownlint
 nginx
 playbook
-{{- if eq .chezmoi.hostname "19SGD-MAC11" }}
+{{- if eq .where "work" }}
 qaops
 {{- end }}
 shfmt
