@@ -91,7 +91,7 @@
 	date = human
 
 [merge]
-{{- if not (hasPrefix "19SGD-MAC11" .chezmoi.hostname) }}
+{{- if ne .where "work" }}
 	ff = only
 {{- end }}
 	log = false
