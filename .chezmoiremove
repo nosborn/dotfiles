@@ -3,6 +3,7 @@
 .azure/logs/telemetry.log
 .azure/telemetry.txt
 .azure/telemetry/
+.base16_theme
 .config/alacritty/
 .config/base16-shell/
 .config/fish/
