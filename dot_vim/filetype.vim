@@ -23,6 +23,7 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile nsd.conf.j2      set noet sw=8 ts=8
   autocmd! BufRead,BufNewFile rad.conf.j2      set noet sw=8 ts=8
   autocmd! BufRead,BufNewFile unbound.conf.j2  set noet sw=8 ts=8
+  autocmd! BufRead,BufNewFile ansible/*/02-static set ft=dosini
 
   autocmd! BufRead,BufNewFile \(encrypted_\|private_\|empty_\|executable_\|dot_\)*netrc\(.tmpl\)* set ft=netrc
 augroup END
