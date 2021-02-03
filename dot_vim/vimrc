@@ -143,6 +143,7 @@ let b:ale_xml_xmllint_optons = '--nonet'
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
 let g:ansible_template_syntaxes = {
+      \   '*.cnf.j2':               'dosini',
       \   '*.ini.j2':               'dosini',
       \   '*.json.j2':              'json',
       \   '*.lua.j2':               'lua',

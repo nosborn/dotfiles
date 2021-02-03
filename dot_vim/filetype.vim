@@ -1,29 +1,28 @@
 augroup filetypedetect
-  autocmd! BufRead,BufNewFile *.Jenkinsfile    set ft=groovy
-  autocmd! BufRead,BufNewFile *.hcl            set ft=terraform
-  autocmd! BufRead,BufNewFile *.ini.erb        set ft=dosini.eruby
-  autocmd! BufRead,BufNewFile *.json.erb       set ft=json.eruby
-  autocmd! BufRead,BufNewFile *.lua.erb        set ft=lua.eruby
-  autocmd! BufRead,BufNewFile *.pl.erb         set ft=perl.eruby
-  autocmd! BufRead,BufNewFile *.properties.erb set ft=jproperties.eruby
-  autocmd! BufRead,BufNewFile *.py.erb         set ft=python.eruby
-  autocmd! BufRead,BufNewFile *.sh.erb         set ft=sh.eruby
-  autocmd! BufRead,BufNewFile *.toml.tmpl      set ft=toml
-  autocmd! BufRead,BufNewFile *_Jenkinsfile    set ft=groovy
-  autocmd! BufRead,BufNewFile .babelrc         set ft=json
-  autocmd! BufRead,BufNewFile .markdownlintrc  set ft=json
-  autocmd! BufRead,BufNewFile .yamllint        set ft=yaml
-  autocmd! BufRead,BufNewFile Brewfile         set ft=ruby
-  autocmd! BufRead,BufNewFile Jenkinsfile      set ft=groovy
-  autocmd! BufRead,BufNewFile Vagrantfile      set ft=ruby
-  autocmd! BufRead,BufNewFile dhcpd.conf.j2    set noet sw=8 ts=8
-  autocmd! BufRead,BufNewFile dot_bash_profile set ft=sh
-  autocmd! BufRead,BufNewFile dot_bashrc       set ft=sh
-  autocmd! BufRead,BufNewFile nftables.conf.j2 set noet sw=8 ts=8
-  autocmd! BufRead,BufNewFile nsd.conf.j2      set noet sw=8 ts=8
-  autocmd! BufRead,BufNewFile rad.conf.j2      set noet sw=8 ts=8
-  autocmd! BufRead,BufNewFile unbound.conf.j2  set noet sw=8 ts=8
-  autocmd! BufRead,BufNewFile ansible/*/02-static set ft=dosini
-
-  autocmd! BufRead,BufNewFile \(encrypted_\|private_\|empty_\|executable_\|dot_\)*netrc\(.tmpl\)* set ft=netrc
+  autocmd! BufRead,BufNewFile *.Jenkinsfile         set filetype=groovy
+  autocmd! BufRead,BufNewFile *.hcl                 set filetype=terraform
+  autocmd! BufRead,BufNewFile *.ini.erb             set filetype=dosini.eruby
+  autocmd! BufRead,BufNewFile *.json.erb            set filetype=json.eruby
+  autocmd! BufRead,BufNewFile *.lua.erb             set filetype=lua.eruby
+  autocmd! BufRead,BufNewFile *.pl.erb              set filetype=perl.eruby
+  autocmd! BufRead,BufNewFile *.properties.erb      set filetype=jproperties.eruby
+  autocmd! BufRead,BufNewFile *.py.erb              set filetype=python.eruby
+  autocmd! BufRead,BufNewFile *.sh.erb              set filetype=sh.eruby
+  autocmd! BufRead,BufNewFile *.toml.tmpl           set filetype=toml
+  autocmd! BufRead,BufNewFile */ansible/*/02-static set filetype=dosini
+  autocmd! BufRead,BufNewFile *_Jenkinsfile         set filetype=groovy
+  autocmd! BufRead,BufNewFile *_netrc.tmpl          set filetype=netrc
+  autocmd! BufRead,BufNewFile .babelrc              set filetype=json
+  autocmd! BufRead,BufNewFile .markdownlintrc       set filetype=json
+  autocmd! BufRead,BufNewFile .yamllint             set filetype=yaml
+  autocmd! BufRead,BufNewFile Brewfile              set filetype=ruby
+  autocmd! BufRead,BufNewFile Jenkinsfile           set filetype=groovy
+  autocmd! BufRead,BufNewFile Vagrantfile           set filetype=ruby
+  autocmd! BufRead,BufNewFile dhcpd.conf.j2         set noexpandtab shiftwidth=8 tabstop=8
+  autocmd! BufRead,BufNewFile dot_bash_profile      set filetype=sh
+  autocmd! BufRead,BufNewFile dot_bashrc            set filetype=sh
+  autocmd! BufRead,BufNewFile nftables.conf.j2      set noexpandtab shiftwidth=8 tabstop=8
+  autocmd! BufRead,BufNewFile nsd.conf.j2           set noexpandtab shiftwidth=8 tabstop=8
+  autocmd! BufRead,BufNewFile rad.conf.j2           set noexpandtab shiftwidth=8 tabstop=8
+  autocmd! BufRead,BufNewFile unbound.conf.j2       set noexpandtab shiftwidth=8 tabstop=8
 augroup END
