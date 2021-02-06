@@ -14,6 +14,7 @@ command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
 let g:ale_set_balloons = 1
 
 call minpac#init()
+
 call minpac#add('JamshedVesuna/vim-markdown-preview')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('cespare/vim-toml')
@@ -25,18 +26,18 @@ call minpac#add('godlygeek/tabular')
 call minpac#add('hashivim/vim-terraform')
 call minpac#add('itchyny/lightline.vim')
 " call minpac#add('juliosueiras/vim-terraform-completion')
-call minpac#add('k-takata/minpac', {
-  \   'type': 'opt'
-  \ })
-call minpac#add('maximbaz/lightline-ale')
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('morhetz/gruvbox')
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('pearofducks/ansible-vim')
+call minpac#add('pearofducks/ansible-vim', {'rev': '3.0'})
 call minpac#add('satabin/hocon-vim')
 call minpac#add('thaerkh/vim-indentguides')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-markdown')
+
+call minpac#add('maralla/vim-toml-enhance') " needs 'cespare/vim-toml'
+call minpac#add('maximbaz/lightline-ale') " needs 'itchyny/lightline.vim'
 
 filetype plugin indent on
 syntax on
