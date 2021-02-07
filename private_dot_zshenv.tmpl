@@ -6,7 +6,7 @@ export ANSIBLE_TIMEOUT=24
 
 {{ if (index . "datadog") -}}
 # Datadog
-export DATADOG_HOST={{ .datadog.host }}
+export DATADOG_HOST='{{ .datadog.host }}'
 
 {{ end -}}
 # HashiCorp
