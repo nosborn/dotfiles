@@ -31,11 +31,6 @@ if [[ -e "${HOME}/.cargo/env" ]]; then
   source "${HOME}/.cargo/env"
 fi
 
-# Terraform
-export TF_CLI_ARGS_apply='-compact-warnings -parallelism=20'
-export TF_CLI_ARGS_plan='-compact-warnings -parallelism=20'
-export TF_CLI_ARGS_refresh='-compact-warnings -parallelism=20'
-
 # XDG
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
 export XDG_DATA_HOME="${HOME}/.local/share"
