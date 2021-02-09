@@ -19,5 +19,6 @@ if [ "$(chezmoi data | jq -r .where)" = work ]; then
     'datadog-checks-dev[cli]' \
     'molecule[docker]>=3.2.2' \
     'mssql-cli' \
+    'netaddr' \
     'openconnect-sso'
 fi
