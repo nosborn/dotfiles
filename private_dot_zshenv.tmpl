@@ -4,6 +4,9 @@ export LC_ALL=en_GB.UTF-8
 export ANSIBLE_NOCOWS=1
 export ANSIBLE_TIMEOUT=24
 
+# Azure
+export AZURE_CORE_COLLECT_TELEMETRY=false
+
 {{ if (index . "datadog") -}}
 # Datadog
 export DATADOG_HOST='{{ .datadog.host }}'
