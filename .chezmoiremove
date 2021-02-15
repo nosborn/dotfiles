@@ -24,6 +24,7 @@
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
+.parallel/runs-without-willing-to-cite
 .profile
 .pylint.d/
 .vim/gvimrc
