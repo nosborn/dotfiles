@@ -27,7 +27,7 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('morhetz/gruvbox')
-" TODO: call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
+call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim', {'rev': '3.0'})
 call minpac#add('satabin/hocon-vim')
@@ -290,5 +290,15 @@ nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+}
+EOF
 
 " vim: ft=vim
