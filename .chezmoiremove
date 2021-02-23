@@ -25,7 +25,8 @@
 .parallel/runs-without-willing-to-cite
 .profile
 .pylint.d/
-.vim/gvimrc
+.vim/
+.viminfo
 .vscode/
 .zlogin
 .zlogout
