@@ -9,6 +9,7 @@ PATH="$(python3 -msite --user-base)/bin:${PATH}"
 python3 -mpip install --user --upgrade --quiet --disable-pip-version-check \
   'argcomplete' \
   'netaddr' \
+  'pynvim' \
   'vim-vint'
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
