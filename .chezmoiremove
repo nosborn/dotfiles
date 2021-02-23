@@ -13,10 +13,13 @@
 .config/pep8/
 .config/wireshark/
 .ctags
+.eclipse/
 .emacs.d/
 .gradle/
 .hammerspoon/
+.local/bin/
 .local/etc/
+.local/libexec/
 .local/share/fish/
 .local/share/git-core/
 .local/share/zsh-completions/
@@ -25,6 +28,9 @@
 .parallel/runs-without-willing-to-cite
 .profile
 .pylint.d/
+.rspec
+.rubocop.yml
+.vagrant.d/
 .vim/
 .viminfo
 .vscode/
