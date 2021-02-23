@@ -10,7 +10,6 @@
 .config/git/hooks/prepare-commit-msg
 .config/kitty/
 .config/liquidpromptrc
-.config/nvim/
 .config/pep8/
 .config/wireshark/
 .ctags
@@ -20,7 +19,6 @@
 .local/etc/
 .local/share/fish/
 .local/share/git-core/
-.local/share/nvim/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
