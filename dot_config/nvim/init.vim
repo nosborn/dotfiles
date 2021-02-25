@@ -27,10 +27,12 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('juliosueiras/vim-terraform-completion')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('morhetz/gruvbox')
+call minpac#add('neomake/neomake')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('pearofducks/ansible-vim', {'rev': '3.0'})
 call minpac#add('satabin/hocon-vim')
+call minpac#add('sbdchd/neoformat')
 call minpac#add('thaerkh/vim-indentguides')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-fugitive')
@@ -219,6 +221,8 @@ let g:markdown_fenced_languages = [
       \   'zsh=sh',
       \ ]
 let g:markdown_syntax_conceal = 0
+
+let g:neomake_open_list = 2
 
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
