@@ -93,11 +93,13 @@ end
 {{- end }}
 
 {{- if eq .where "work" }}
+tap 'cockroachdb/tap'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community
 brew 'azcopy'
 brew 'azure-cli'
+brew 'cockroach'
 # cask 'datadog-agent'
 cask 'dbeaver-community'
 cask 'keepassxc'
@@ -105,8 +107,8 @@ cask 'microsoft-azure-storage-explorer'
 brew 'msodbcsql17' # for mssql-tools
 brew 'mssql-tools'
 # brew 'mysql-client'
-brew 'openconnect'
-cask 'openconnect-gui'
+# brew 'openconnect'
+# cask 'openconnect-gui'
 brew 'packer'
 cask 'powershell'
 brew 'quazip' # for keepassxc
