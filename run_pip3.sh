@@ -19,6 +19,7 @@ if [ "$(chezmoi data | jq -r .where)" = work ]; then
     'azure-cli>=2.19' \
     'datadog' \
     'datadog-checks-dev[cli]' \
+    'elasticsearch[async]' \
     'molecule[docker]>=3.2.3' \
     'mssql-cli' \
     'netaddr' \
