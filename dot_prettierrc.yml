@@ -3,7 +3,7 @@ overrides:
   - files:
       - "*.md"
     options:
-      proseWrap: "preserve"
+      proseWrap: preserve
   - files:
       - "*.yaml"
       - "*.yml"

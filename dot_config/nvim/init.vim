@@ -1,45 +1,9 @@
 set encoding=utf-8
 scriptencoding=utf-8
 
-if empty(glob('~/.config/nvim/pack/minpac/opt/minpac/plugin/minpac.vim'))
-  silent !git clone -- https://github.com/k-takata/minpac.git
-        \ ~/.config/nvim/pack/minpac/opt/minpac
+if &shell =~# 'fish$'
+  set shell=sh
 endif
-
-packadd minpac
-command! PackClean  call minpac#clean()
-command! PackStatus call minpac#status()
-command! PackUpdate call minpac#update('', {'do': 'helptags ALL'})
-
-let g:ale_set_balloons = 1
-
-call minpac#init()
-
-call minpac#add('JamshedVesuna/vim-markdown-preview')
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('cespare/vim-toml')
-call minpac#add('dense-analysis/ale')
-call minpac#add('digitaltoad/vim-pug')
-call minpac#add('direnv/direnv.vim')
-call minpac#add('godlygeek/tabular')
-call minpac#add('hashivim/vim-terraform')
-call minpac#add('itchyny/lightline.vim')
-call minpac#add('juliosueiras/vim-terraform-completion')
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('morhetz/gruvbox')
-call minpac#add('neomake/neomake')
-call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('pearofducks/ansible-vim', {'rev': '3.0'})
-call minpac#add('satabin/hocon-vim')
-call minpac#add('sbdchd/neoformat')
-call minpac#add('thaerkh/vim-indentguides')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-markdown')
-
-call minpac#add('maralla/vim-toml-enhance') " needs 'cespare/vim-toml'
-call minpac#add('maximbaz/lightline-ale') " needs 'itchyny/lightline.vim'
 
 filetype plugin indent on
 syntax on
@@ -90,11 +54,6 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = 1
-let g:gruvbox_sign_column = 'bg1'
-colorscheme gruvbox
-
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \   'javascript': ['eslint'],
@@ -106,6 +65,7 @@ let g:ale_fixers = {
       \   'zsh': ['shfmt'],
       \   '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }
+let g:ale_set_balloons = 1
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
@@ -144,6 +104,10 @@ let g:direnv_cmd = '/usr/local/bin/direnv'
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_sign_priority = 9
+
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 1
+let g:gruvbox_sign_column = 'bg1'
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
@@ -198,7 +162,7 @@ let g:lightline.component_type = {
       \   'linter_ok': 'right',
       \   'linter_warnings': 'warning',
       \ }
-let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_checking = '⋯' " "\uf110"
 let g:lightline#ale#indicator_ok = '✓'
 
 "let g:lightline#ale#indicator_checking = "\uf110"
@@ -207,7 +171,6 @@ let g:lightline#ale#indicator_ok = '✓'
 "let g:lightline#ale#indicator_errors = "\uf05e"
 "let g:lightline#ale#indicator_ok = "\uf00c"
 
-let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 
@@ -229,6 +192,8 @@ let g:netrw_bufsettings = 'relativenumber,number'
 let g:netrw_list_hide = netrw_gitignore#Hide() . '\.git$'
 let g:netrw_liststyle = 3
 
+let g:node_host_prog = '/usr/local/bin/node'
+
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:terraform_align = 1
@@ -241,6 +206,10 @@ let g:vim_markdown_folding_disabled = 1
 
 let g:vim_markdown_preview_browser = 'Chromium'
 let g:vim_markdown_preview_github = 1
+
+let g:vimsyn_embed = 'l'
+
+colorscheme gruvbox
 
 if $TERM_PROGRAM ==# 'Apple_Terminal'
   set mouse=a
@@ -296,13 +265,11 @@ nnoremap j gj
 nnoremap k gk
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-}
+-- require'nvim-treesitter.configs'.setup {
+--   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--   highlight = {
+--     enable = true,              -- false will disable the whole extension
+--     disable = { "c", "rust" },  -- list of language that will be disabled
+--   },
+-- }
 EOF
-
-" vim: ft=vim
