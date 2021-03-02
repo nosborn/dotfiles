@@ -6,10 +6,10 @@
 .base16_theme
 .config/alacritty/
 .config/base16-shell/
-.config/fish/
 .config/git/hooks/prepare-commit-msg
 .config/kitty/
 .config/liquidpromptrc
+.config/nvim/pack/minpac/
 .config/pep8/
 .config/wireshark/
 .ctags
@@ -20,7 +20,6 @@
 .local/bin/
 .local/etc/
 .local/libexec/
-.local/share/fish/
 .local/share/git-core/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
