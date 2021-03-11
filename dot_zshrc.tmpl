@@ -62,6 +62,7 @@ alias sdiff='command sdiff -d -w${COLUMNS}'
 alias timeout=gtimeout
 alias vi=nvim
 alias vim=nvim
+alias wdiff="command wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' -z $'\033[0m'"
 
 # if (( $+commands[qpdf] )); then
 #   eval $(/usr/local/bin/qpdf --completion-zsh) -- loads bash completion
