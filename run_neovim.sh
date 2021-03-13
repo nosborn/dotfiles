@@ -28,7 +28,6 @@ pack maralla/vim-toml-enhance
 pack maximbaz/lightline-ale
 pack morhetz/gruvbox
 pack neomake/neomake
-pack nvim-treesitter/nvim-treesitter # {'do': 'TSUpdate'})
 pack pangloss/vim-javascript
 pack pearofducks/ansible-vim # {'rev': '3.0'})
 pack satabin/hocon-vim

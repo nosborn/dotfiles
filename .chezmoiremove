@@ -10,7 +10,9 @@
 .config/kitty/
 .config/liquidpromptrc
 .config/nvim/pack/minpac/
+.config/nvim/pack/nvim-treesitter/
 .config/pep8/
+.config/tig/
 .config/wireshark/
 .ctags
 .eclipse/
@@ -29,6 +31,8 @@
 .pylint.d/
 .rspec
 .rubocop.yml
+.tig_history
+.tree-sitter/
 .vagrant.d/
 .vim/
 .viminfo

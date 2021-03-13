@@ -171,6 +171,7 @@ let g:lightline#ale#indicator_ok = '✓'
 "let g:lightline#ale#indicator_errors = "\uf05e"
 "let g:lightline#ale#indicator_ok = "\uf00c"
 
+let g:loaded_node_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_ruby_provider = 0
 
@@ -191,8 +192,6 @@ let g:netrw_banner = 0
 let g:netrw_bufsettings = 'relativenumber,number'
 let g:netrw_list_hide = netrw_gitignore#Hide() . '\.git$'
 let g:netrw_liststyle = 3
-
-let g:node_host_prog = '/usr/local/bin/node'
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -263,13 +262,3 @@ nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
-
-lua <<EOF
--- require'nvim-treesitter.configs'.setup {
---   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
---   highlight = {
---     enable = true,              -- false will disable the whole extension
---     disable = { "c", "rust" },  -- list of language that will be disabled
---   },
--- }
-EOF
