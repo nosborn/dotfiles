@@ -13,6 +13,5 @@ brew analytics off
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   export ACCEPT_EULA=Y
-  export HOMEBREW_NO_ENV_FILTERING=1 # https://github.com/microsoft/homebrew-mssql-release/pull/26
 fi
 brew bundle --global
