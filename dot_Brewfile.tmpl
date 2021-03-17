@@ -95,13 +95,11 @@ end
 {{- end }}
 
 {{- if eq .where "work" }}
-tap 'cockroachdb/tap'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community
 brew 'azcopy'
 brew 'azure-cli'
-brew 'cockroach'
 # cask 'datadog-agent'
 cask 'dbeaver-community'
 brew 'git-filter-repo'

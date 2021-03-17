@@ -11,7 +11,7 @@ case "$(uname)" in
     fi
     PATH=/usr/local/bin:${PATH}
     if ! command -v chezmoi >/dev/null 2>&1; then
-      brew install twpayne/taps/chezmoi
+      brew install chezmoi
     fi
     ;;
 esac
