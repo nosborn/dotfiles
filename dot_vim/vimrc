@@ -15,32 +15,60 @@ endif
 
 map Q <Nop>
 
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set belloff=all
+set complete-=i
+" set cscopeverbose
+set display=lastline
 " set fillchars=vert:│,fold:·
+set formatoptions=tcqj
+set history=1000
+set hlsearch
+set incsearch
 set ignorecase
+set langnoremap
+set laststatus=2
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a
 set nobackup
+set nofsync
+set nolangremap
 set noshowmode
 set nospell
 set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
+set nrformats=bin,hex
 set number
 set path=$PWD/**
 set relativenumber
+set ruler
 set scrolloff=2
 set sessionoptions-=options
 set shortmess+=I
+set showcmd
 set showmatch
+set sidescroll=1
 set sidescrolloff=5
 set signcolumn=yes
+set smarttab
 set spelllang=en_gb
+set tabpagemax=50
+set tags=./tags;,tags
 set ttimeout
+set ttimeoutlen=50
+set ttyfast
 set updatetime=100
 set viewoptions=unix,slash
+set viminfo-=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
+set wildmenu
+set wildoptions=tagfile
 
 inoremap <C-U> <C-G>u<C-U>
 

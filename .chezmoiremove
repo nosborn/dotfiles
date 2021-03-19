@@ -9,8 +9,7 @@
 .config/git/hooks/prepare-commit-msg
 .config/kitty/
 .config/liquidpromptrc
-.config/nvim/pack/minpac/
-.config/nvim/pack/nvim-treesitter/
+.config/nvim/
 .config/pep8/
 .config/tig/
 .config/wireshark/
@@ -23,6 +22,7 @@
 .local/etc/
 .local/libexec/
 .local/share/git-core/
+.local/share/nvim/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
@@ -34,8 +34,6 @@
 .tig_history
 .tree-sitter/
 .vagrant.d/
-.vim/
-.viminfo
 .vscode/
 .zlogin
 .zlogout
