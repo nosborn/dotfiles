@@ -72,7 +72,6 @@ tap 'homebrew/cask-drivers'
 # brew 'battle-net'
 brew 'ansible'
 brew 'ansible-lint'
-cask 'crossover'
 brew 'eslint'
 # cask 'ftdi-vcp-driver'
 cask 'karabiner-elements'
@@ -84,14 +83,14 @@ brew 'qpdf'
 brew 'rustup-init'
 brew 'vultr'
 
-if File.writable?('/Applications')
-  mas '1Blocker', id: 1107421413
-  mas 'Discovery', id: 1381004916
-  # mas 'Microsoft Excel', id: 462058435
-  # mas 'Microsoft Word', id: 462054704
-  # mas 'Numbers', id: 409203825
-  # mas 'Pages', id: 409201541
-end
+# if File.writable?('/Applications')
+#   mas '1Blocker', id: 1107421413
+#   mas 'Discovery', id: 1381004916
+#   # mas 'Microsoft Excel', id: 462058435
+#   # mas 'Microsoft Word', id: 462054704
+#   # mas 'Numbers', id: 409203825
+#   # mas 'Pages', id: 409201541
+# end
 {{- end }}
 
 {{- if eq .where "work" }}
