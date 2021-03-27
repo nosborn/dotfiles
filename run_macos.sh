@@ -30,14 +30,14 @@ fi
 
 if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
   for cmd in docker docker-compose; do
-    [ -e /usr/local/share/zsh/site-functions/_${cmd} ] || {
+    [ -e "$(brew --prefix)/share/zsh/site-functions/_${cmd}" ] || {
       ln -sv /Applications/Docker.app/Contents/Resources/etc/${cmd}.zsh-completion \
-        /usr/local/share/zsh/site-functions/_${cmd}
+        "$(brew --prefix)/share/zsh/site-functions/_${cmd}"
     }
   done
 fi
 
-find /usr/local/Caskroom -name '*.app' -type l | while read -r link; do
+find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
   if xattr "${link}" | grep -Fqx com.apple.quarantine; then
     xattr -d -v com.apple.quarantine "${link}"
   fi

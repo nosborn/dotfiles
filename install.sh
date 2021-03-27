@@ -1,19 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o errexit
 set -o nounset
 
 case "$(uname)" in
   Darwin)
+    case "$(uname -m)" in
+      arm64) readonly PREFIX=/opt/homebrew ;;
+      x86_64) readonly PREFIX=/usr/local ;;
+    esac
     PATH=/usr/sbin:/usr/bin:/sbin:/bin
-    if [ ! -e /usr/local/bin/brew ]; then
-      ruby -e "$(curl -fLsS https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if [[ ! -e "${PREFIX}/bin/brew" ]]; then
+      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
-    PATH=/usr/local/bin:${PATH}
+    PATH="${PREFIX}/bin:${PATH}"
     if ! command -v chezmoi >/dev/null 2>&1; then
       brew install chezmoi
     fi
     ;;
 esac
 
-chezmoi init "${CHEZMOI_REPO:-git@github.com:nosborn/dotfiles.git}" --apply
+chezmoi init "${CHEZMOI_REPO:-nosborn}" --apply

@@ -21,6 +21,7 @@ pack dag/vim-fish
 pack dense-analysis/ale
 pack digitaltoad/vim-pug
 pack direnv/direnv.vim
+pack fatih/vim-go
 pack godlygeek/tabular
 pack hashivim/vim-terraform
 pack itchyny/lightline.vim

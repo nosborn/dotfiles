@@ -1,0 +1,27 @@
+{{- $where := get . "where" -}}
+{{- if not $where -}}
+{{-   $where := promptString "where" -}}
+{{- end -}}
+
+{{- $github_user := get .github "user" -}}
+{{- if not $github_user -}}
+{{-   $github_user := promptString "github_user" -}}
+{{- end -}}
+
+remove = true
+
+[data]
+  where = {{ $where | quote }}
+
+  [data.github]
+    user = {{ $github_user | quote }}
+
+  [data.homebrew]
+    prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
+
+  [data.user]
+    name = "Nick Osborn"
+
+[git]
+  autoCommit = true
+  autoPush = true

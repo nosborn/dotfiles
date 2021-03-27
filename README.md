@@ -5,7 +5,7 @@ My dotfiles using [chezmoi](https://www.chezmoi.io).
 ## Installation
 
 ```sh
-curl https://raw.githubusercontent.com/nosborn/dotfiles/master/install.sh | sh -
+curl https://raw.githubusercontent.com/nosborn/dotfiles/master/install.sh | bash -
 ```
 
 ## License

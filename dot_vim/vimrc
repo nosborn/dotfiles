@@ -127,7 +127,7 @@ let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
 
-let g:direnv_cmd = '/usr/local/bin/direnv'
+let g:direnv_cmd = '{{ .homebrew.prefix }}/bin/direnv'
 
 let g:gitgutter_map_keys = 0
 let g:gitgutter_preview_win_floating = 1
@@ -232,7 +232,7 @@ let g:neomake_open_list = 2
 "   autocmd VimEnter * :Vexplore | wincmd p
 " augroup END
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '{{ .homebrew.prefix }}/bin/python3'
 
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1

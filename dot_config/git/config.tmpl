@@ -81,7 +81,7 @@
 
 [gpg]
 {{- if eq .chezmoi.os "darwin" }}
-	program = /usr/local/MacGPG2/bin/gpg2
+	program = {{ .homebrew.prefix }}/MacGPG2/bin/gpg2
 {{- end }}
 
 [grep]
