@@ -3,6 +3,11 @@
 {{-   $where := promptString "where" -}}
 {{- end -}}
 
+{{- $datadog_host := get .datadog "host" -}}
+{{- if not $datadog_host -}}
+{{-   $datadog_host := promptString "datadog_host" -}}
+{{- end -}}
+
 {{- $github_user := get .github "user" -}}
 {{- if not $github_user -}}
 {{-   $github_user := promptString "github_user" -}}
@@ -11,10 +16,13 @@
 remove = true
 
 [data]
-  where = {{ $where | quote }}
+  where = "{{ $where }}"
+
+  [data.datadog]
+    host = "{{ $datadog_host }}"
 
   [data.github]
-    user = {{ $github_user | quote }}
+    user = "{{ $github_user }}"
 
   [data.homebrew]
     prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
