@@ -17,6 +17,7 @@ pack() {
 pack Xuyuanp/nerdtree-git-plugin
 pack airblade/vim-gitgutter
 pack cespare/vim-toml
+pack chr4/nginx.vim
 pack dag/vim-fish
 pack dense-analysis/ale
 pack digitaltoad/vim-pug
