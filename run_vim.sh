@@ -5,12 +5,16 @@ set -o nounset
 
 pack() {
   [ -d "${HOME}/.vim/pack/${1%/*}/start/${1#*/}/.git" ] || {
-    git clone --depth 1 --single-branch --no-tags -- \
+    git clone --depth 1 --single-branch -- \
       "https://github.com/${1}.git" \
       "${HOME}/.vim/pack/${1%/*}/start/${1#*/}"
   }
-  git -C "${HOME}/.vim/pack/${1%/*}/start/${1#*/}" \
-    pull --ff-only --no-tags --no-verify
+  (
+    cd "${HOME}/.vim/pack/${1%/*}/start/${1#*/}" || exit
+    git checkout -q master
+    git pull --ff-only --no-verify
+    [ -z "${2:-}" ] || git checkout "$2"
+  )
 }
 
 # pack JamshedVesuna/vim-markdown-preview
@@ -32,7 +36,7 @@ pack maralla/vim-toml-enhance
 pack maximbaz/lightline-ale
 pack morhetz/gruvbox
 pack pangloss/vim-javascript
-pack pearofducks/ansible-vim # {'rev': '3.0'})
+pack pearofducks/ansible-vim
 pack preservim/nerdtree
 pack satabin/hocon-vim
 pack thaerkh/vim-indentguides

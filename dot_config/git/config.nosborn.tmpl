@@ -1,17 +1,17 @@
 [commit]
 {{- if eq .where "home" }}
-	gpgSign = true
+;	gpgSign = true
 {{- end }}
 
 [tag]
 {{- if eq .where "home" }}
-	gpgSign = true
+;	gpgSign = true
 {{- end }}
 
 [user]
 	email = nosborn@users.noreply.github.com
 {{- if eq .where "home" }}
-	signingkey = 4C036A880B354B36
+;	signingkey = 4C036A880B354B36
 {{- end }}
 
 # vim: ft=gitconfig
