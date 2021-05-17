@@ -5,10 +5,10 @@ grep-flag-available() {
 GREP_OPTIONS=""
 
 if grep-flag-available --color=auto; then
-    GREP_OPTIONS+=" --color=auto"
+  GREP_OPTIONS+=" --color=auto"
 fi
 
-VCS_FOLDERS="{CVS,.bzr,.git,.hg,.svn}"
+VCS_FOLDERS="{CVS,.bzr,.cache,.git,.hg,.svn}"
 
 if grep-flag-available --exclude-dir=.git; then
   GREP_OPTIONS+=" --exclude-dir=${VCS_FOLDERS}"

@@ -6,7 +6,6 @@
 .config/alacritty/
 .config/base16-shell/
 .config/git/hooks/prepare-commit-msg
-.config/kitty/
 .config/liquidpromptrc
 .config/nvim/
 .config/pep8/
@@ -60,7 +59,6 @@ Library/Caches/com.pigigaldi.pock/
 Library/Caches/com.plausiblelabs.crashreporter.data/
 Library/Caches/com.qvacua.VimR/
 Library/Caches/io.fabric.sdk.mac.data/
-Library/Caches/kitty/
 Library/Caches/org.hammerspoon.Hammerspoon/
 Library/Caches/org.vim.MacVim/
 Library/LaunchAgents/com.github.facebook.watchman.plist
