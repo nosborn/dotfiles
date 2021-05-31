@@ -46,12 +46,12 @@ pack tpope/vim-fugitive
 # pack tpope/vim-markdown
 pack tpope/vim-vinegar
 
-# $(brew --prefix)/bin/vim -n -u NORC \
-#   +'helptags ALL' \
-#   +'quit'
+$(brew --prefix)/bin/vim -n -u NONE \
+  +'helptags ALL' \
+  +'quit'
 
-# for add in ~/.vim/spell/*.add; do
-#   $(brew --prefix)/bin/vim -n -u NORC \
-#     +"mkspell! ${add}" \
-#     +'quit'
-# done
+for add in ~/.vim/spell/*.add; do
+  "$(brew --prefix)/bin/vim" -n -u NONE \
+    "+mkspell! ${add}" \
+    '+quit'
+done
