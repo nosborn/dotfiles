@@ -51,12 +51,12 @@ if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim/.git ]; then
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-"$(brew --prefix)/bin/nvim" -n -u NONE \
+"$(brew --prefix)/bin/nvim" -n -u NONE --headless \
   +'helptags ALL' \
   +'quit'
 
 for add in ~/.config/nvim/spell/*.add; do
-  "$(brew --prefix)/bin/nvim" -n -u NONE \
+  "$(brew --prefix)/bin/nvim" -n -u NONE --headless \
     "+mkspell! ${add}" \
     '+quit'
 done
