@@ -5,9 +5,9 @@
 .base16_theme
 .config/alacritty/
 .config/base16-shell/
+.config/fish/
 .config/git/hooks/prepare-commit-msg
 .config/liquidpromptrc
-.config/nvim/
 .config/pep8/
 .config/tig/
 .config/wireshark/
@@ -19,8 +19,6 @@
 .local/bin/
 .local/etc/
 .local/libexec/
-.local/share/git-core/
-.local/share/nvim/
 .local/share/zsh-completions/
 .npm/anonymous-cli-metrics.json
 .oracle_jre_usage/
@@ -30,7 +28,6 @@
 .rspec
 .rubocop.yml
 .tig_history
-.tree-sitter/
 .vagrant.d/
 .vscode/
 .zlogin
@@ -47,8 +44,8 @@ Library/Application Support/marktext/
 Library/Caches/com.crashlytics.data/
 Library/Caches/com.divisiblebyzero.Spectacle/
 Library/Caches/com.electron.shiba/
-Library/Caches/com.github.atom.ShipIt/
 Library/Caches/com.github.atom/
+Library/Caches/com.github.atom.ShipIt/
 Library/Caches/com.google.Keystone/
 Library/Caches/com.google.SoftwareUpdate/
 Library/Caches/com.matryer.BitBar/
