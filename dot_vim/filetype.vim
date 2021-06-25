@@ -15,6 +15,7 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile *_netrc.tmpl                        set filetype=netrc
   autocmd! BufRead,BufNewFile .ansible-lint                       set filetype=yaml
   autocmd! BufRead,BufNewFile .babelrc                            set filetype=json
+  autocmd! BufRead,BufNewFile .envrc.example                      set filetype=direnv
   autocmd! BufRead,BufNewFile .markdownlintrc                     set filetype=json
   autocmd! BufRead,BufNewFile .yamllint                           set filetype=yaml
   autocmd! BufRead,BufNewFile Brewfile                            set filetype=ruby
