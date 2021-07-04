@@ -18,7 +18,7 @@ pack() {
 }
 
 # pack JamshedVesuna/vim-markdown-preview
-pack PProvost/ps1
+pack PProvost/vim-ps1
 pack Xuyuanp/nerdtree-git-plugin
 pack airblade/vim-gitgutter
 pack cespare/vim-toml
