@@ -6,6 +6,7 @@ tap 'homebrew/cask-fonts'
 # cask 'aws-vault'
 # brew 'awslogs'
 brew 'awscli'
+brew 'azcopy'
 brew 'azure-cli'
 brew 'bat'
 brew 'black'
@@ -87,7 +88,6 @@ brew 'mas'
 cask 'vagrant'
 cask 'virtualbox'
 brew 'vultr'
-cask 'wireshark'
 
 # if File.writable?('/Applications')
 #   mas '1Blocker', id: 1107421413
@@ -100,11 +100,12 @@ cask 'wireshark'
 {{- end }}
 
 {{- if eq .where "work" }}
+tap 'azure/functions'
 tap 'cockroachdb/tap'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community
-brew 'azcopy'
+brew 'azure-functions-core-tools@3'
 brew 'cockroach'
 cask 'dbeaver-community'
 brew 'git-filter-repo'
@@ -116,7 +117,8 @@ brew 'mssql-tools' # needs ACCEPT_EULA=Y
 brew 'packer'
 cask 'powershell'
 brew 'quazip' # for keepassxc
-brew 'unixodbc'  # for msodbcsql*
+brew 'unixodbc' # for msodbcsql*
+cask 'visual-studio-code'
 {{- end }}
 
 # vim: ft=ruby.jinja2
