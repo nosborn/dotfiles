@@ -1,44 +1,27 @@
-export LC_ALL=en_GB.UTF-8
-
-# Ansible
 export ANSIBLE_NOCOWS=1
 export ANSIBLE_TIMEOUT=24
-
-# Azure
-export AZURE_CORE_COLLECT_TELEMETRY=false
-export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=true
-
 {{ if (index . "datadog") -}}
-# Datadog
 export DATADOG_HOST='{{ .datadog.host }}'
-
 {{ end -}}
-# HashiCorp
-export CHECKPOINT_DISABLE=1
-
-# Homebrew
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
-
-# Microsoft
-export MSSQL_CLI_TELEMETRY_OPTOUT=True
-export POWERSHELL_TELEMETRY_OPTOUT=1
-
-# Python
+export LC_ALL=en_GB.UTF-8
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONWARNINGS=ignore
-
-# Terraform
-export ARM_DISABLE_TERRAFORM_PARTNER_ID=true
-
-# XDG
+export SUDO_PROMPT="[sudo] password for $(id -un): "
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
-# sudo
-export SUDO_PROMPT="[sudo] password for $(id -un): "
+export ARM_DISABLE_TERRAFORM_PARTNER_ID=true # Terraform
+export AZURE_CORE_COLLECT_TELEMETRY=0
+export CHECKPOINT_DISABLE=1 # Hashicorp
+export DO_NOT_TRACK=1 # https://consoledonottrack.com
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
+export HOMEBREW_NO_ANALYTICS=1
+export MSSQL_CLI_TELEMETRY_OPTOUT=1
+export POWERSHELL_TELEMETRY_OPTOUT=1
+export SAM_CLI_TELEMETRY=0
 
 # vim: ft=zsh
