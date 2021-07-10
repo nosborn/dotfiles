@@ -1,3 +1,4 @@
+tap 'azure/functions'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 
@@ -8,6 +9,7 @@ tap 'homebrew/cask-fonts'
 brew 'awscli'
 brew 'azcopy'
 brew 'azure-cli'
+brew 'azure-functions-core-tools@3'
 brew 'bat'
 brew 'black'
 brew 'chezmoi'
@@ -42,6 +44,7 @@ cask 'kitty'
 brew 'lesspipe'
 brew 'm-cli'
 brew 'neovim'
+brew 'node@14'
 brew 'p7zip'
 brew 'parallel'
 brew 'pipx'
@@ -88,39 +91,26 @@ brew 'mas'
 # brew 'qpdf'
 cask 'vagrant'
 cask 'virtualbox'
+cask 'visual-studio-code'
 brew 'vultr'
 
-# if File.writable?('/Applications')
-#   mas '1Blocker', id: 1107421413
-#   mas 'Discovery', id: 1381004916
-#   # mas 'Microsoft Excel', id: 462058435
-#   # mas 'Microsoft Word', id: 462054704
-#   # mas 'Numbers', id: 409203825
-#   # mas 'Pages', id: 409201541
-# end
 {{- end }}
-
 {{- if eq .where "work" }}
-tap 'azure/functions'
 tap 'cockroachdb/tap'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community
-brew 'azure-functions-core-tools@3'
 brew 'cockroach'
 cask 'dbeaver-community'
 brew 'git-filter-repo'
-cask 'github'
 cask 'keepassxc'
 cask 'microsoft-azure-storage-explorer'
 brew 'msodbcsql17' # for mssql-tools
 brew 'mssql-tools' # needs ACCEPT_EULA=Y
-brew 'node@14'
 brew 'packer'
 cask 'powershell'
 brew 'quazip' # for keepassxc
 brew 'unixodbc' # for msodbcsql*
-cask 'visual-studio-code'
-{{- end }}
 
+{{- end }}
 # vim: ft=ruby.jinja2
