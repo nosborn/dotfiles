@@ -3,7 +3,6 @@ name = AzureCloud
 
 [core]
 collect_telemetry = no
-first_run = yes
 
 [logging]
 enable_log_file = no
