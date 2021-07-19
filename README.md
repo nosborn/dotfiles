@@ -5,8 +5,10 @@ My dotfiles using [chezmoi](https://www.chezmoi.io).
 ## Installation
 
 ```sh
-curl https://raw.githubusercontent.com/nosborn/dotfiles/master/install.sh | bash -
+sh -c "$(curl -fLsS https://raw.githubusercontent.com/nosborn/dotfiles/master/install.sh)"
 ```
+
+_Don't actually do that unless you're me._
 
 ## License
 

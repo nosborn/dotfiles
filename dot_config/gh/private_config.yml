@@ -1,0 +1,8 @@
+---
+aliases:
+  co: pr checkout
+editor: vim
+git_protocol: https
+http_unix_socket:
+pager: less
+prompt: enabled

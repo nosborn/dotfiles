@@ -1,7 +1,4 @@
-#!/bin/bash
-
-set -o errexit
-set -o nounset
+#!/bin/sh
 
 case "$(uname)" in
   Darwin)
@@ -10,7 +7,7 @@ case "$(uname)" in
       x86_64) readonly PREFIX=/usr/local ;;
     esac
     PATH=/usr/sbin:/usr/bin:/sbin:/bin
-    if [[ ! -e "${PREFIX}/bin/brew" ]]; then
+    if [ ! -e "${PREFIX}/bin/brew" ]; then
       bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
     PATH="${PREFIX}/bin:${PATH}"
