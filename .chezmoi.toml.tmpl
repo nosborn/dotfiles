@@ -8,6 +8,11 @@
 {{-   $datadog_host := promptString "datadog_host" -}}
 {{- end -}}
 
+{{- $github_org := get .github "org" -}}
+{{- if not $github_org -}}
+{{-   $github_org := promptString "github_org" -}}
+{{- end -}}
+
 {{- $github_user := get .github "user" -}}
 {{- if not $github_user -}}
 {{-   $github_user := promptString "github_user" -}}
@@ -22,6 +27,9 @@ remove = true
     host = "{{ $datadog_host }}"
 
   [data.github]
+{{- if $github_org -}}
+    org = "{{ $github_org }}"
+{{- end -}}
     user = "{{ $github_user }}"
 
   [data.homebrew]

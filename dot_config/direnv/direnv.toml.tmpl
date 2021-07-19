@@ -1,6 +1,7 @@
-{{- if eq .where "work" }}
 [whitelist]
 prefix = [
-  "{{ .chezmoi.homedir }}/github.com/{{ .github.user }}"
-]
+{{- if get .github "org" }}
+  "{{ .chezmoi.homeDir }}/github.com/{{ .github.org }}",
 {{- end }}
+  "{{ .chezmoi.homeDir }}/github.com/{{ .github.user }}"
+]

@@ -8,7 +8,8 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile *.properties.erb                    set filetype=jproperties.eruby
   autocmd! BufRead,BufNewFile *.py.erb                            set filetype=python.eruby
   autocmd! BufRead,BufNewFile *.sh.erb                            set filetype=sh.eruby
-  autocmd! BufRead,BufNewFile *.toml.tmpl                         set filetype=toml
+  autocmd! BufRead,BufNewFile *.toml.tmpl                         set filetype=toml.gotexttmpl
+  autocmd! BufRead,BufNewFile *.vim.tmpl                          set filetype=vim.gotexttmpl
   autocmd! BufRead,BufNewFile */ansible/*/02-static               set filetype=dosini
   autocmd! BufRead,BufNewFile */ansible/templates/nginx/*.conf.j2 set filetype=nginx
   autocmd! BufRead,BufNewFile *_Jenkinsfile                       set filetype=groovy

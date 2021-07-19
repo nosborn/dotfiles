@@ -17,37 +17,37 @@ pack() {
   )
 }
 
-# pack JamshedVesuna/vim-markdown-preview
-pack PProvost/vim-ps1
-pack Xuyuanp/nerdtree-git-plugin
-pack airblade/vim-gitgutter
-pack cespare/vim-toml
-pack chr4/nginx.vim
-pack dag/vim-fish
-pack dense-analysis/ale
-pack digitaltoad/vim-pug
-pack direnv/direnv.vim
-pack fatih/vim-go
-pack godlygeek/tabular
-pack hashivim/vim-terraform
-pack itchyny/lightline.vim
-# pack juliosueiras/vim-terraform-completion
-pack junegunn/fzf.vim
-pack maralla/vim-toml-enhance
-pack maximbaz/lightline-ale
-pack morhetz/gruvbox
-pack pangloss/vim-javascript
-pack pearofducks/ansible-vim
-pack preservim/nerdtree
-pack satabin/hocon-vim
-pack thaerkh/vim-indentguides
-pack tpope/vim-commentary
-pack tpope/vim-endwise
-pack tpope/vim-fugitive
-# pack tpope/vim-markdown
-pack tpope/vim-vinegar
+# pack JamshedVesuna/vim-markdown-preview &
+pack PProvost/vim-ps1 &
+pack Xuyuanp/nerdtree-git-plugin &
+pack airblade/vim-gitgutter &
+pack cespare/vim-toml &
+pack chr4/nginx.vim &
+pack dense-analysis/ale &
+pack digitaltoad/vim-pug &
+pack direnv/direnv.vim &
+pack fatih/vim-go &
+pack godlygeek/tabular &
+pack hashivim/vim-terraform &
+pack itchyny/lightline.vim &
+# pack juliosueiras/vim-terraform-completion &
+pack junegunn/fzf.vim &
+pack maralla/vim-toml-enhance &
+pack maximbaz/lightline-ale &
+pack morhetz/gruvbox &
+pack pangloss/vim-javascript &
+pack pearofducks/ansible-vim &
+pack preservim/nerdtree &
+pack satabin/hocon-vim &
+pack thaerkh/vim-indentguides &
+pack tpope/vim-commentary &
+pack tpope/vim-endwise &
+pack tpope/vim-fugitive &
+# pack tpope/vim-markdown &
+pack tpope/vim-vinegar &
+wait
 
-$(brew --prefix)/bin/vim -n -u NONE \
+"$(brew --prefix)/bin/vim" -n -u NONE \
   +'helptags ALL' \
   +'quit'
 
