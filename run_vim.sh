@@ -19,7 +19,6 @@ pack() {
 
 # pack JamshedVesuna/vim-markdown-preview &
 pack PProvost/vim-ps1 &
-# pack Xuyuanp/nerdtree-git-plugin &
 pack airblade/vim-gitgutter &
 pack cespare/vim-toml &
 pack chr4/nginx.vim &
@@ -31,13 +30,12 @@ pack godlygeek/tabular &
 pack hashivim/vim-terraform &
 pack itchyny/lightline.vim &
 # pack juliosueiras/vim-terraform-completion &
-# pack junegunn/fzf.vim &
+pack junegunn/fzf.vim &
 pack maralla/vim-toml-enhance &
 pack maximbaz/lightline-ale &
 pack morhetz/gruvbox &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
-# pack preservim/nerdtree &
 pack satabin/hocon-vim &
 pack thaerkh/vim-indentguides &
 pack tpope/vim-commentary &
