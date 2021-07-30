@@ -42,3 +42,9 @@ find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
     xattr -d -v com.apple.quarantine "${link}"
   fi
 done
+
+if [[ -e "$(brew --prefix)/bin/fish" ]]; then
+  if ! grep -Fqx "$(brew --prefix)/bin/fish" /etc/shells; then
+    echo "$(brew --prefix)/bin/fish" | tee -a /etc/shells >/dev/null
+  fi
+fi
