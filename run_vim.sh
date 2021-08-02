@@ -43,6 +43,7 @@ pack tpope/vim-endwise &
 pack tpope/vim-fugitive &
 # pack tpope/vim-markdown &
 pack tpope/vim-vinegar &
+pack wgwoods/vim-systemd-syntax &
 wait
 
 "$(brew --prefix)/bin/vim" -n -u NONE \
