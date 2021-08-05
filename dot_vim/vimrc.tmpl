@@ -81,7 +81,7 @@ endif
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \   'javascript': ['eslint'],
-      \   'json': ['prettier'],
+      \   'json': ['jq'],
       \   'python': ['black'],
       \   'sh': ['shfmt'],
       \   'terraform': ['terraform'],
@@ -89,6 +89,7 @@ let g:ale_fixers = {
       \   'zsh': ['shfmt'],
       \   '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }
+let g:ale_json_jq_options = '-S'
 let g:ale_set_balloons = 1
 let g:ale_sh_shfmt_options = '-i 2 -ci'
 let g:ale_sign_column_always = 1
