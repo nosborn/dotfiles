@@ -25,7 +25,12 @@ fi
 {{- end }}
 cdpath=( . ${cdpath} )
 fpath=( ~/.local/share/zsh-completions {{ .homebrew.prefix }}/share/zsh-completions ${fpath} )
-path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin {{ .homebrew.prefix }}/sbin ${path} )
+path=( {{ .homebrew.prefix }}/sbin ${path} )
+if [[ -d "$(brew --prefix ruby)" ]]; then
+  path=( "$(brew --prefix ruby)/bin" ${path} )
+  path=( "$(gem env gemdir)/bin" ${path} )
+fi
+path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin ${path} )
 
 autoload -U colors
 colors
