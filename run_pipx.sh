@@ -18,17 +18,17 @@ set -o nounset
 #    jq --arg p "${package}" -r '.venvs[$p].metadata.injected_packages|keys[]'
 #}
 
-#_main_package() {
-#  local -r package="$1"
+_main_package() {
+  local -r package="${1:?}"
 
-#  pipx list --json |
-#    jq --arg p "${package}" '.venvs[$p].metadata.main_package'
-#}
+  pipx list --json |
+    jq --arg p "${package}" '.venvs[$p].metadata.main_package'
+}
 
-#_venvs() {
-#  pipx list --json 2>/dev/null |
-#    jq -r '.venvs|keys[]'
-#}
+_venvs() {
+  pipx list --json 2>/dev/null |
+    jq -r '.venvs | keys[]'
+}
 
 #pipx_inject() {
 #  local -r package="${1}"
@@ -40,45 +40,35 @@ set -o nounset
 #  fi
 #}
 
-#pipx_install() {
-#  local -r package="${1}"
-#  local -r version_spec="${2:-}"
+pipx_install() {
+  local -r package="${1}"
+  local -r version="${2:-}"
 
-#  if ! _venvs | grep -Fx "$1" >/dev/null; then
-#    pipx install --include-deps "${package}${version_spec}"
-#  else
-#    if [[ -n "${version_spec}" ]]; then
-#      _main_package "${package}" | jq -r .package_or_url
-#      if [[ "$(_main_package "${package}" | jq -r .package_or_url)" != "${version_spec}" ]]; then
-#        pipx install --force --include-deps "${package}${version_spec}"
-#      fi
-#    fi
-#  fi
-#}
+  if ! _venvs | grep -Fx "$1" >/dev/null; then
+    pipx install --include-deps "${package}${version:+==${version}}"
+  else
+    if [[ -n "${version}" ]]; then
+      if [[ "$(_main_package "${package}" | jq -r .package_version)" != "${version}" ]]; then
+        pipx install --force --include-deps "${package}==${version}"
+      fi
+    fi
+  fi
+}
 
-#brew_version() {
-#  brew info --json ansible | jq --raw-output '.[].versions.stable'
-#}
+brew_version() {
+  brew info --json "${1:?}" | jq --raw-output '.[].versions.stable'
+}
 
-#ansible_version="$(brew info --json ansible | jq -r '.[].versions.stable')"
-#unset PYTHONPATH # just in case
-#PATH="${HOME}/.local.bin:$(python3 -msite --user-base)/bin:${PATH}"
+unset PYTHONPATH # just in case
+export PIPX_DEFAULT_PYTHON=/usr/bin/python3
+export PATH="${HOME}/.local.bin:$(${PIPX_DEFAULT_PYTHON} -msite --user-base)/bin:${PATH}"
 
-## python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-check \
-##   'argcomplete' \
-##   'netaddr' \
-##   'vim-vint'
-
-## if [ "$(chezmoi data | jq -r .where)" = work ]; then
-##   python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-check \
-##     'ansible>=3.1,<3.2' \
-##     "ansible-lint==$(brew info ansible-lint --json | jq -r '.[].versions.stable')" \
-##     "azure-cli==$(brew info azure-cli --json | jq -r '.[].versions.stable')" \
-##     'datadog' \
-##     'datadog-checks-dev[cli]' \
-##     "molecule[docker]==$(brew info molecule --json | jq -r '.[].versions.stable')" \
-##     'mssql-cli'
-## fi
+if ! command -v pipx; then
+  "${PIPX_DEFAULT_PYTHON}" -m pip install --user pipx
+else
+  "${PIPX_DEFAULT_PYTHON}" -m pip install --user --upgrade pipx
+fi
+ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 
 ## ansible_version="$(brew_version ansible)"
 ## ansible_lint_version="$(brew info --json ansible-lint | jq -r '.[].versions.stable')"
@@ -95,3 +85,5 @@ set -o nounset
 
 #pipx_install ansible '>=3.1,<3.3'
 ##pipx_inject ansible ansible-base
+
+pipx_install "pre-commit" "$(brew_version pre-commit)"
