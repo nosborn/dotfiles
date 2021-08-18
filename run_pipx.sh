@@ -60,8 +60,9 @@ brew_version() {
 }
 
 unset PYTHONPATH # just in case
-export PIPX_DEFAULT_PYTHON=/usr/bin/python3
-export PATH="${HOME}/.local.bin:$(${PIPX_DEFAULT_PYTHON} -msite --user-base)/bin:${PATH}"
+PIPX_DEFAULT_PYTHON=/usr/bin/python3
+PATH="${HOME}/.local.bin:$(${PIPX_DEFAULT_PYTHON} -msite --user-base)/bin:${PATH}"
+export PIPX_DEFAULT_PYTHON PATH
 
 if ! command -v pipx; then
   "${PIPX_DEFAULT_PYTHON}" -m pip install --user pipx
@@ -88,17 +89,17 @@ ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 
 # ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli, ssh-audit, vim and yamllint
 
-pipx_install 'ansible' "$(brew_version ansible)"
-pipx_inject ansible 'ansible-lint' "$(brew_version ansible-lint)"
-pipx_inject ansible 'molecule[docker]' "$(brew_version molecule)"
-pipx_inject ansible 'netaddr'
+pipx install "ansible==$(brew_version ansible)" || :
+pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
+pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
+pipx inject ansible netaddr || :
 
-pipx_install 'azure-cli' "$(brew_version azure-cli)"
-pipx_install 'pre-commit' "$(brew_version pre-commit)"
-pipx_install 'vim-vint'
-pipx_install 'yamllint' "$(brew_version yamllint)"
+pipx install "azure-cli==$(brew_version azure-cli)" || :
+pipx install "pre-commit==$(brew_version pre-commit)" || :
+pipx install vim-vint || :
+pipx install "yamllint==$(brew_version yamllint)" || :
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  pipx_install "datadog"
-  pipx_install "mssql-cli"
+  pipx install datadog || :
+  pipx install mssql-cli || :
 fi
