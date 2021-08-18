@@ -7,10 +7,10 @@ unset PYTHONPATH # just in case
 PATH="$(python3 -msite --user-base)/bin:${PATH}"
 
 python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-check \
-  'argcomplete' \
-  'netaddr'
+  'argcomplete'
 
 python3 -mpip uninstall --yes --quiet --no-input --disable-pip-version-check \
+  'netaddr' \
   'vim-vint'
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then

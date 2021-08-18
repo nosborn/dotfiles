@@ -91,6 +91,7 @@ ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 pipx_install 'ansible' "$(brew_version ansible)"
 pipx_inject ansible 'ansible-lint' "$(brew_version ansible-lint)"
 pipx_inject ansible 'molecule[docker]' "$(brew_version molecule)"
+pipx_inject ansible 'netaddr'
 
 pipx_install 'azure-cli' "$(brew_version azure-cli)"
 pipx_install 'pre-commit' "$(brew_version pre-commit)"
