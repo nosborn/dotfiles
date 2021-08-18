@@ -15,12 +15,12 @@ python3 -mpip uninstall --yes --quiet --no-input --disable-pip-version-check \
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-check \
-    'ansible>=3.1,<3.2' \
-    'datadog-checks-dev[cli]' \
-    "molecule[docker]==$(brew info --json molecule | jq -r '.[].versions.stable')"
+    'datadog-checks-dev[cli]'
 
   python3 -mpip uninstall --yes --quiet --no-input --disable-pip-version-check \
+    'ansible' \
     'ansible-lint' \
     'datadog' \
+    'molecule' \
     'mssql-cli'
 fi

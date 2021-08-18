@@ -11,12 +11,12 @@ set -o nounset
 #    jq --arg d "${dependency}" --arg p "${package}" '.venvs[$p].metadata.injected_packages[$d]'
 #}
 
-#_injected_packages() {
-#  local -r package="$1"
+_injected_packages() {
+  local -r package="${1:-}"
 
-#  pipx list --json |
-#    jq --arg p "${package}" -r '.venvs[$p].metadata.injected_packages|keys[]'
-#}
+  pipx list --json |
+    jq --arg p "${package}" -r '.venvs[$p].metadata.injected_packages|keys[]'
+}
 
 _main_package() {
   local -r package="${1:?}"
@@ -30,15 +30,15 @@ _venvs() {
     jq -r '.venvs | keys[]'
 }
 
-#pipx_inject() {
-#  local -r package="${1}"
-#  local -r dependency="${2}"
-#  local -r version_spec="${3:-}"
+pipx_inject() {
+  local -r package="${1:?}"
+  local -r dependency="${2:?}"
+  local -r version="${3:-}"
 
-#  if ! _injected_packages "${package}" | grep -Fx "${dependency}" >/dev/null; then
-#    pipx inject "${package}" "${dependency}${version_spec}"
-#  fi
-#}
+  if ! _injected_packages "${package}" | grep -Fx "${dependency}" >/dev/null; then
+    pipx inject "${package}" "${dependency}${version:+==${version}}"
+  fi
+}
 
 pipx_install() {
   local -r package="${1}"
@@ -88,11 +88,14 @@ ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 
 # ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli, ssh-audit, vim and yamllint
 
-pipx_install "ansible-lint" "$(brew_version ansible-lint)"
-pipx_install "azure-cli" "$(brew_version azure-cli)"
-pipx_install "pre-commit" "$(brew_version pre-commit)"
-pipx_install "vim-vint"
-pipx_install "yamllint" "$(brew_version yamllint)"
+pipx_install 'ansible' "$(brew_version ansible)"
+pipx_inject ansible 'ansible-lint' "$(brew_version ansible-lint)"
+pipx_inject ansible 'molecule[docker]' "$(brew_version molecule)"
+
+pipx_install 'azure-cli' "$(brew_version azure-cli)"
+pipx_install 'pre-commit' "$(brew_version pre-commit)"
+pipx_install 'vim-vint'
+pipx_install 'yamllint' "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   pipx_install "datadog"
