@@ -14,4 +14,5 @@ brew analytics off
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   export ACCEPT_EULA=Y
 fi
-brew bundle --global
+brew bundle install --global
+brew bundle cleanup --global --force

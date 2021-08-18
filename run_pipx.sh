@@ -91,5 +91,10 @@ ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 pipx_install "ansible-lint" "$(brew_version ansible-lint)"
 pipx_install "azure-cli" "$(brew_version azure-cli)"
 pipx_install "pre-commit" "$(brew_version pre-commit)"
-# pipx_install "vim-vint" "$(brew_version yamllint)" -- TODO
+pipx_install "vim-vint"
 pipx_install "yamllint" "$(brew_version yamllint)"
+
+if [ "$(chezmoi data | jq -r .where)" = work ]; then
+  pipx_install "datadog"
+  pipx_install "mssql-cli"
+fi
