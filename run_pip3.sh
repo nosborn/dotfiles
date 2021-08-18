@@ -14,8 +14,6 @@ python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   python3 -mpip install --user --upgrade --quiet --no-input --disable-pip-version-check \
     'ansible>=3.1,<3.2' \
-    "ansible-lint==$(brew info --json ansible-lint | jq -r '.[].versions.stable')" \
-    "azure-cli==$(brew info --json azure-cli | jq -r '.[].versions.stable')" \
     'datadog' \
     'datadog-checks-dev[cli]' \
     "molecule[docker]==$(brew info --json molecule | jq -r '.[].versions.stable')" \

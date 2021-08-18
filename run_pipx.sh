@@ -86,4 +86,10 @@ ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 #pipx_install ansible '>=3.1,<3.3'
 ##pipx_inject ansible ansible-base
 
+# ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli, ssh-audit, vim and yamllint
+
+pipx_install "ansible-lint" "$(brew_version ansible-lint)"
+pipx_install "azure-cli" "$(brew_version azure-cli)"
 pipx_install "pre-commit" "$(brew_version pre-commit)"
+# pipx_install "vim-vint" "$(brew_version yamllint)" -- TODO
+pipx_install "yamllint" "$(brew_version yamllint)"
