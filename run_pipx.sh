@@ -71,25 +71,11 @@ else
 fi
 ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
 
-## ansible_version="$(brew_version ansible)"
-## ansible_lint_version="$(brew info --json ansible-lint | jq -r '.[].versions.stable')"
-## azure_cli_version="$(brew info --json azure-cli | jq -r '.[].versions.stable')"
-## molecule_version="$(brew info --json molecule | jq -r '.[].versions.stable')"
-
-##if ! pipx list --json | jq -r '.venvs|keys[]' | grep -Fx ansible >/dev/null; then
-##  pipx install --include-deps 'ansible>=3.1,<3.2'
-##fi
-##if ! pipx list --json | jq -r '.venvs["ansible"].metadata.injected_packages|keys[]' | grep -Fx ansible-lint >/dev/null; then
-##  pipx inject ansible "ansible-lint==$(brew_version ansible-lint)"
-##fi
-##pipx inject ansible "molecule==$(brew_version molecule)" ansible
-
-#pipx_install ansible '>=3.1,<3.3'
-##pipx_inject ansible ansible-base
-
-# ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli, ssh-audit, vim and yamllint
+# ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli,
+# ssh-audit, vim and yamllint
 
 pipx install "ansible==$(brew_version ansible)" || :
+pipx inject ansible ansible-base || :
 pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
 pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
 pipx inject ansible netaddr || :
