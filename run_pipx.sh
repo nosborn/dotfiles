@@ -87,6 +87,9 @@ pipx_install vim-vint
 pipx_install yamllint "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
+  pipx inject ansible azure-common
+  pipx inject ansible msrestazure
+
   pipx_install datadog
   pipx inject datadog 'datadog-checks-dev[cli]' || :
 

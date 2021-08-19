@@ -18,18 +18,18 @@
 {{-   $github_user := promptString "github_user" -}}
 {{- end -}}
 
-remove = true
-
 [data]
   where = "{{ $where }}"
+{{- if $datadog_host }}
 
   [data.datadog]
     host = "{{ $datadog_host }}"
+{{- end }}
 
   [data.github]
-{{- if $github_org -}}
+{{- if $github_org }}
     org = "{{ $github_org }}"
-{{- end -}}
+{{- end }}
     user = "{{ $github_user }}"
 
   [data.homebrew]
