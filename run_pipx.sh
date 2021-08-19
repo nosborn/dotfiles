@@ -77,17 +77,18 @@ ln -sf "$(which pipx)" "${HOME}/.local/bin/pipx"
 # ssh-audit, vim and yamllint
 
 pipx_install ansible "$(brew_version ansible)"
-# pipx inject ansible ansible-core
 pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
 pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
-pipx inject ansible netaddr
+pipx inject ansible netaddr || :
 
 pipx_install azure-cli "$(brew_version azure-cli)"
 pipx_install pre-commit "$(brew_version pre-commit)"
-pipx_install vim-vint || :
+pipx_install vim-vint
 pipx_install yamllint "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   pipx_install datadog
+  pipx inject datadog 'datadog-checks-dev[cli]' || :
+
   pipx_install mssql-cli
 fi
