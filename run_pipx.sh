@@ -51,6 +51,8 @@ pipx_install() {
       if [[ "$(_main_package "${package}" | jq -r .package_version)" != "${version}" ]]; then
         pipx install --force --include-deps "${package}==${version}"
       fi
+    else
+      pipx upgrade "${package}"
     fi
   fi
 }
@@ -69,23 +71,23 @@ if ! command -v pipx; then
 else
   "${PIPX_DEFAULT_PYTHON}" -m pip install --user --upgrade pipx
 fi
-ln -sfv "$(which pipx)" "${HOME}/.local/bin/pipx"
+ln -sf "$(which pipx)" "${HOME}/.local/bin/pipx"
 
 # ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli,
 # ssh-audit, vim and yamllint
 
-pipx install "ansible==$(brew_version ansible)" || :
-pipx inject ansible ansible-base || :
+pipx_install ansible "$(brew_version ansible)"
+# pipx inject ansible ansible-core
 pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
 pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
-pipx inject ansible netaddr || :
+pipx inject ansible netaddr
 
-pipx install "azure-cli==$(brew_version azure-cli)" || :
-pipx install "pre-commit==$(brew_version pre-commit)" || :
-pipx install vim-vint || :
-pipx install "yamllint==$(brew_version yamllint)" || :
+pipx_install azure-cli "$(brew_version azure-cli)"
+pipx_install pre-commit "$(brew_version pre-commit)"
+pipx_install vim-vint || :
+pipx_install yamllint "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  pipx install datadog || :
-  pipx install mssql-cli || :
+  pipx_install datadog
+  pipx_install mssql-cli
 fi
