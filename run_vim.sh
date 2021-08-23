@@ -17,6 +17,8 @@ pack() {
   )
 }
 
+[ -e "$(brew --prefix vim)/bin/vim" ] || exit
+
 # pack JamshedVesuna/vim-markdown-preview &
 pack PProvost/vim-ps1 &
 pack airblade/vim-gitgutter &
@@ -46,12 +48,12 @@ pack tpope/vim-vinegar &
 pack wgwoods/vim-systemd-syntax &
 wait
 
-"$(brew --prefix)/bin/vim" -n -u NONE \
+"$(brew --prefix vim)/bin/vim" -n -u NONE \
   +'helptags ALL' \
   +'quit'
 
 for add in ~/.vim/spell/*.add; do
-  "$(brew --prefix)/bin/vim" -n -u NONE \
+  "$(brew --prefix vim)/bin/vim" -n -u NONE \
     "+mkspell! ${add}" \
     '+quit'
 done

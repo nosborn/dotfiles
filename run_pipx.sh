@@ -63,20 +63,25 @@ brew_version() {
 
 unset PYTHONPATH # just in case
 PIPX_DEFAULT_PYTHON=/usr/bin/python3
-PATH="${HOME}/.local.bin:$(${PIPX_DEFAULT_PYTHON} -msite --user-base)/bin:${PATH}"
+PATH="${HOME}/.local/bin:$(${PIPX_DEFAULT_PYTHON} -msite --user-base)/bin:${PATH}"
 export PIPX_DEFAULT_PYTHON PATH
 
-if ! command -v pipx; then
+if ! command -v pipx >/dev/null; then
   "${PIPX_DEFAULT_PYTHON}" -m pip install --user pipx
 else
   "${PIPX_DEFAULT_PYTHON}" -m pip install --user --upgrade pipx
 fi
-ln -sf "$(which pipx)" "${HOME}/.local/bin/pipx"
+# ln -sf "$(which pipx)" "${HOME}/.local/bin/pipx"
 
 # ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli,
 # ssh-audit, vim and yamllint
 
-pipx_install ansible "$(brew_version ansible)"
+if [ "$(chezmoi data | jq -r .where)" = work ]; then
+  ansible_version='3.1.0'
+else
+  ansible_version="$(brew_version ansible)"
+fi
+pipx_install ansible "${ansible_version}"
 pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
 pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
 pipx inject ansible netaddr || :
@@ -87,7 +92,7 @@ pipx_install vim-vint
 pipx_install yamllint "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  pipx inject ansible azure-common
+  pipx inject ansible ansible-common
   pipx inject ansible msrestazure
 
   pipx_install datadog
