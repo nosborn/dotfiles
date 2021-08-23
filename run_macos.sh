@@ -48,3 +48,9 @@ if [[ -e "$(brew --prefix)/bin/fish" ]]; then
     echo "$(brew --prefix)/bin/fish" | tee -a /etc/shells >/dev/null
   fi
 fi
+
+if [ "$(chezmoi data | jq -r .where)" = work ]; then
+  [ $(pmset -g live | awk '$1=="disksleep" {print $2}') -eq 10 ] || sudo pmset -a disksleep 10
+  [ $(pmset -g live | awk '$1=="displaysleep" {print $2}') -eq 60 ] || sudo pmset -c displaysleep 60
+  [ $(pmset -g live | awk '$1=="sleep" {print $2}') -eq 0 ] || sudo pmset -c sleep 0
+fi
