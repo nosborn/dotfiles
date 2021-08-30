@@ -102,25 +102,30 @@ let b:ale_xml_xmllint_optons = '--nonet'
 
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
-" let g:ansible_template_syntaxes = {
+let g:ansible_template_syntaxes = {
+  \   '*.conf.j2':      'conf',
+  \   '*.ini.j2':       'dosini',
+  \   '*.json.j2':      'json',
+  \   '*.sh.j2':        'sh',
+  \   '*.yaml.j2':      'yaml',
+  \   '*.yml.j2':       'yaml',
+  \   'Dockerfile.j2':  'dockerfile',
+  \   'named.conf.j2':  'named',
+  \   'nginx.conf.j2':  'nginx',
+  \   'smb.conf.j2':    'dosini',
+  \   'sshd_config.j2': 'sshdconfig',
+  \ }
 "       \   '*.cnf.j2':               'dosini',
-"       \   '*.ini.j2':               'dosini',
-"       \   '*.json.j2':              'json',
 "       \   '*.lua.j2':               'lua',
 "       \   '*.pl.j2':                'perl',
 "       \   '*.properties.j2':        'jproperties',
 "       \   '*.py.j2':                'python',
-"       \   '*.sh.j2':                'sh',
 "       \   '*.toml.j2':              'toml',
 "       \   '*.xml.j2':               'xml',
-"       \   '*.ya?ml.j2':             'yaml',
-"       \   'Dockerfile.j2':          'dockerfile',
 "       \   'bash{_profile,rc}.j2':   'sh',
 "       \   'gemrc.j2':               'yaml',
 "       \   'pf.conf.j2':             'pf',
 "       \   'resolv.conf(.tail)?.j2': 'resolv',
-"       \   'sshd_config.j2':         'sshdconfig',
-"       \ }
 let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
