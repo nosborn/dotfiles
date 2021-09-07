@@ -305,6 +305,12 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
-highlight SpellBad cterm=underline
+if $TERM ==# 'xterm-kitty'
+  let &t_Cs = "\e[4:3m"
+  let &t_Ce = "\e[4:0m"
+  highlight SpellBad cterm=undercurl
+else
+  highlight SpellBad cterm=underline
+endif
 
 " vim: ft=vim
