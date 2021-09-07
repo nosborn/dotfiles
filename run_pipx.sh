@@ -91,6 +91,11 @@ pipx_install pre-commit "$(brew_version pre-commit)"
 pipx_install vim-vint
 pipx_install yamllint "$(brew_version yamllint)"
 
+if [ "$(chezmoi data | jq -r .where)" = home ]; then
+  pipx_install certbot
+  pipx inject certbot 'certbot-dns-vultr' || :
+fi
+
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
   pipx inject ansible azure-common
   pipx inject ansible msrestazure
