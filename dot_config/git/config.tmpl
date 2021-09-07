@@ -63,6 +63,9 @@
 	cachetextconv = true
 	textconv = exiftool
 
+[diff "git-crypt"]
+	textconv = git-crypt diff
+
 [diff "zipinfo"]
 	cachetextconv = true
 	textconv = zipinfo -lZ
@@ -71,6 +74,11 @@
 	fsckobjects = true
 	prune = true
 	pruneTags = true
+
+[filter "git-crypt"]
+	clean = git-crypt clean
+	required = true
+	smudge = git-crypt smudge
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
