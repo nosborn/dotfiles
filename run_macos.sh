@@ -43,14 +43,14 @@ find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
   fi
 done
 
-if [[ -e "$(brew --prefix)/bin/fish" ]]; then
+if [ -e "$(brew --prefix)/bin/fish" ]; then
   if ! grep -Fqx "$(brew --prefix)/bin/fish" /etc/shells; then
     echo "$(brew --prefix)/bin/fish" | tee -a /etc/shells >/dev/null
   fi
 fi
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  [ $(pmset -g live | awk '$1=="disksleep" {print $2}') -eq 10 ] || sudo pmset -a disksleep 10
-  [ $(pmset -g live | awk '$1=="displaysleep" {print $2}') -eq 60 ] || sudo pmset -c displaysleep 60
-  [ $(pmset -g live | awk '$1=="sleep" {print $2}') -eq 0 ] || sudo pmset -c sleep 0
+  [ "$(pmset -g live | awk '$1=="disksleep" {print $2}')" -eq 10 ] || sudo pmset -a disksleep 10
+  [ "$(pmset -g live | awk '$1=="displaysleep" {print $2}')" -eq 60 ] || sudo pmset -c displaysleep 60
+  [ "$(pmset -g live | awk '$1=="sleep" {print $2}')" -eq 0 ] || sudo pmset -c sleep 0
 fi

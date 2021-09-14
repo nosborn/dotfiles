@@ -36,7 +36,7 @@ pipx_inject() {
   local -r version="${3:-}"
 
   if ! _injected_packages "${package}" | grep -Fx "${dependency}" >/dev/null; then
-    pipx inject "${package}" "${dependency}${version:+==${version}}"
+    pipx inject --include-apps "${package}" "${dependency}${version:+==${version}}"
   fi
 }
 
@@ -82,9 +82,11 @@ else
   ansible_version="$(brew_version ansible)"
 fi
 pipx_install ansible "${ansible_version}"
-pipx inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
-pipx inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
-pipx inject ansible netaddr || :
+#pipx_inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
+#pipx_inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
+pipx_inject ansible "ansible-lint==$(brew_version ansible-lint)" || :
+pipx_inject ansible "molecule[docker]==$(brew_version molecule)" || :
+pipx_inject ansible netaddr || :
 
 pipx_install azure-cli "$(brew_version azure-cli)"
 pipx_install pre-commit "$(brew_version pre-commit)"
@@ -93,15 +95,17 @@ pipx_install yamllint "$(brew_version yamllint)"
 
 if [ "$(chezmoi data | jq -r .where)" = home ]; then
   pipx_install certbot
-  pipx inject certbot 'certbot-dns-vultr' || :
+  pipx_inject certbot 'certbot-dns-vultr' || :
+
+  pipx_install ovhcli
 fi
 
 if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  pipx inject ansible azure-common
-  pipx inject ansible msrestazure
+  pipx_inject ansible azure-common
+  pipx_inject ansible msrestazure
 
   pipx_install datadog
-  pipx inject datadog 'datadog-checks-dev[cli]' || :
+  pipx_inject datadog 'datadog-checks-dev[cli]' || :
 
   pipx_install mssql-cli
 fi
