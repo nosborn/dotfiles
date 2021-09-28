@@ -36,7 +36,8 @@ pipx_inject() {
   local -r version="${3:-}"
 
   if ! _injected_packages "${package}" | grep -Fx "${dependency}" >/dev/null; then
-    pipx inject --include-apps "${package}" "${dependency}${version:+==${version}}"
+    pipx inject --include-apps "${package}" "${dependency}${version:+==${version}}" ||
+      pipx inject "${package}" "${dependency}${version:+==${version}}"
   fi
 }
 
@@ -76,14 +77,7 @@ fi
 # ansible, awscli, b2-tools, black, diceware, flake8, grc, grip, jinja2-cli,
 # ssh-audit, vim and yamllint
 
-if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  ansible_version='3.1.0'
-else
-  ansible_version="$(brew_version ansible)"
-fi
-pipx_install ansible "${ansible_version}"
-#pipx_inject --include-apps ansible "ansible-lint==$(brew_version ansible-lint)" || :
-#pipx_inject --include-apps ansible "molecule[docker]==$(brew_version molecule)" || :
+pipx_install ansible "$(brew_version ansible)"
 pipx_inject ansible "ansible-lint==$(brew_version ansible-lint)" || :
 pipx_inject ansible "molecule[docker]==$(brew_version molecule)" || :
 pipx_inject ansible netaddr || :
