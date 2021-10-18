@@ -93,16 +93,15 @@ brew 'wireguard-tools'
 
 {{- end }}
 {{- if eq .where "work" }}
-tap 'cockroachdb/tap'
 tap 'microsoft/mssql-release', 'https://github.com/Microsoft/homebrew-mssql-release'
 
 cask 'adoptopenjdk' # for dbeaver-community
-brew 'cockroach'
 cask 'dbeaver-community'
 cask 'keepassxc'
 cask 'microsoft-azure-storage-explorer'
 brew 'msodbcsql17' # for mssql-tools
 brew 'mssql-tools' # needs ACCEPT_EULA=Y
+brew 'openssl@3' # for msodbssql*, mssql-tools
 brew 'quazip' # for keepassxc
 brew 'unixodbc' # for msodbcsql*
 
