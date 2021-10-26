@@ -19,9 +19,6 @@ autoload -Uz +X bashcompinit && bashcompinit
 
 {{- if .github.user }}
 cdpath=( "${HOME}/src/github.com/{{ .github.user }}" ${cdpath} )
-if [[ -e ~/src/github.com/corda ]]; then
-  cdpath=( ~/src/github.com/corda $cdpath )
-fi
 {{- end }}
 cdpath=( . ${cdpath} )
 fpath=( ~/.local/share/zsh-completions {{ .homebrew.prefix }}/share/zsh-completions ${fpath} )

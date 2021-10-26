@@ -93,13 +93,3 @@ if [ "$(chezmoi data | jq -r .where)" = home ]; then
 
   pipx_install ovhcli
 fi
-
-if [ "$(chezmoi data | jq -r .where)" = work ]; then
-  pipx_inject ansible azure-common
-  pipx_inject ansible msrestazure
-
-  pipx_install datadog
-  pipx_inject datadog 'datadog-checks-dev[cli]' || :
-
-  pipx_install mssql-cli
-fi

@@ -107,9 +107,7 @@
 	date = human
 
 [merge]
-{{- if ne .where "work" }}
 	ff = only
-{{- end }}
 	log = false
 
 [pull]
@@ -145,17 +143,8 @@
 	name = {{ .user.name }}
 	useConfigOnly = true
 
-[includeIf "gitdir:~/.ansible/roles/ansible-r3-roles/"]
-	path = config.nosborn-r3
-
 [includeIf "gitdir:~/.local/share/chezmoi/"]
 	path = config.nosborn
-
-[includeIf "gitdir:~/corda-*/"]
-	path = config.nosborn-r3
-
-[includeIf "gitdir:~/src/github.com/corda/"]
-	path = config.nosborn-r3
 
 [includeIf "gitdir:~/src/github.com/nosborn/"]
 	path = config.nosborn

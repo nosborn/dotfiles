@@ -40,10 +40,6 @@ rules:
   brackets:
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
-{{- if eq .where "work" }}
-  comments:
-    min-spaces-from-content: 1  # compatibility with VSCode
-{{- end }}
   document-end:
     present: false
   indentation:
