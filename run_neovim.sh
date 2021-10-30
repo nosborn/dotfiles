@@ -11,9 +11,7 @@ pack() {
   }
   (
     cd "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${1#*/}" || exit
-    git checkout -q master
     git pull --ff-only --no-verify
-    [ -z "${2:-}" ] || git checkout "$2"
   )
 }
 
