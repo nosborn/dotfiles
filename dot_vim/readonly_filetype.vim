@@ -4,8 +4,6 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile *.vim.tmpl                                    set filetype=vim.gotexttmpl
   autocmd! BufRead,BufNewFile */.github/workflows/*.yml                     set filetype=yaml
   autocmd! BufRead,BufNewFile */SynoBuildConf/depends                       set ft=dosini
-  autocmd! BufRead,BufNewFile */ansible/*/02-static                         set filetype=dosini
-  autocmd! BufRead,BufNewFile */ansible/templates/nginx/*.conf.j2           set filetype=nginx
   autocmd! BufRead,BufNewFile */synology-packages/source/*/conf/privilege   set ft=json
   autocmd! BufRead,BufNewFile */synology-packages/source/*/conf/resource    set ft=json
   autocmd! BufRead,BufNewFile */synology-packages/source/*/ui/config        set ft=json
