@@ -13,3 +13,5 @@ brew analytics off
 
 brew bundle install --global
 brew bundle cleanup --global --force
+
+exit 0

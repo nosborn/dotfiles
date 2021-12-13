@@ -14,6 +14,9 @@ case "$(uname)" in
     if ! command -v chezmoi >/dev/null 2>&1; then
       brew install chezmoi
     fi
+    if ! command -v git >/dev/null 2>&1; then
+      brew install git
+    fi
     if ! command -v jq >/dev/null 2>&1; then
       brew install jq
     fi

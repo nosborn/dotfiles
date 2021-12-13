@@ -15,7 +15,7 @@ pack() {
   )
 }
 
-[ -e "$(brew --prefix vim)/bin/vim" ] || exit
+[ -e "$(brew --prefix vim)/bin/vim" ] || exit 0
 
 # pack JamshedVesuna/vim-markdown-preview &
 pack PProvost/vim-ps1 &
@@ -55,3 +55,5 @@ for add in ~/.vim/spell/*.add; do
     "+mkspell! ${add}" \
     '+quit'
 done
+
+exit 0

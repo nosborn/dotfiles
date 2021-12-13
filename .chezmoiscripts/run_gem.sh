@@ -11,3 +11,5 @@ export PKG_CONFIG_PATH="$(brew --prefix ruby)/lib/pkgconfig"
 if [ -z "$(gem info --quiet github-linguist)" ]; then
   gem install github-linguist
 fi
+
+exit 0

@@ -77,9 +77,11 @@ alias wdiff="command wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' 
 #  [[ -f "${f}" ]] && source "${f}"
 #done
 
-eval "$(register-python-argcomplete az)"
+if (( $+commands[az] )); then
+  eval "$(register-python-argcomplete az)"
+fi
 
-if [[ "${TERM_PROGRAM}" = Apple_Terminal ]] && [[ -z "${INSIDE_EMACS}" ]]; then
+if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
   _update_terminal_cwd() {
     local url_path=''
     {

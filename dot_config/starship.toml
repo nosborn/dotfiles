@@ -7,5 +7,10 @@ truncation_symbol = "…/"
 [git_commit]
 tag_disabled = false
 
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
 [python]
 disabled = true
