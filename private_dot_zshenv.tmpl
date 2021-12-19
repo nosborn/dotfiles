@@ -1,5 +1,4 @@
 export ANSIBLE_NOCOWS=1
-export ANSIBLE_TIMEOUT=24
 {{ if (index . "datadog") -}}
 export DATADOG_HOST='{{ .datadog.host }}'
 {{ end -}}

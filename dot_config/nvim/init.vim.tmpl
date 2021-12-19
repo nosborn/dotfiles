@@ -1,0 +1,96 @@
+set encoding=utf-8
+scriptencoding=utf-8
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+map Q <Nop>
+
+set ignorecase
+set list
+set listchars=tab:»·,trail:▿,nbsp:▿
+set mouse=a
+set nobackup
+set noshowmode
+set nospell
+set noswapfile
+set nowrap
+set nowritebackup
+set number
+set path=$PWD/**
+set relativenumber
+set scrolloff=2
+set shortmess+=I
+set showmatch
+set sidescrolloff=5
+set signcolumn=yes
+set spelllang=en_gb
+set tabpagemax=50
+set ttimeout
+" set updatetime=100
+set viewoptions=unix,slash
+set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
+
+inoremap <C-U> <C-G>u<C-U>
+
+if !exists(':DiffOrig')
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+let g:bash_is_sh = 1
+
+let g:highlight_balanced_quotes = 1
+let g:highlight_function_names = 1
+let g:highlight_sedtabs = 1
+
+let g:loaded_node_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+
+let g:markdown_fenced_languages = [
+      \   'bash=sh',
+      \   'gitconfig',
+      \   'json',
+      \   'sh',
+      \   'terraform',
+      \   'yaml',
+      \   'zsh=sh',
+      \ ]
+let g:markdown_syntax_conceal = 0
+
+let g:python3_host_prog = '{{ .homebrew.prefix }}/bin/python3'
+
+let g:vim_json_conceal = 0
+
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+
+" let g:vim_markdown_preview_browser = 'Chromium'
+" let g:vim_markdown_preview_github = 1
+
+let g:vimsyn_embed = 'l'
+
+if $TERM_PROGRAM ==# 'Apple_Terminal'
+  set mouse=a
+  let &t_ZH = "\e[3m"
+  let &t_ZR = "\e[23m"
+endif
+
+nnoremap <silent> <leader>b :Buffers<CR>
+
+nnoremap gj j
+nnoremap gk k
+nnoremap j gj
+nnoremap k gk
+
+highlight SpellBad cterm=underline
+
+" vim: ft=vim
