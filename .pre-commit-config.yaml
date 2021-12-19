@@ -27,8 +27,8 @@ repos:
         exclude: ^dot_config/git/ignore$
 
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v7.5.0
+    rev: v8.2.3
     hooks:
       - id: gitleaks
 
-minimum_pre_commit_version: !!str 2.13
+minimum_pre_commit_version: !!str 2.15
