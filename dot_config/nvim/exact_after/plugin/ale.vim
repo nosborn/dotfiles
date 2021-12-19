@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \   'javascript': ['eslint'],

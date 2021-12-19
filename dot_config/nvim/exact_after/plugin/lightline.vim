@@ -1,5 +1,5 @@
 lua << END
-require'lualine'.setup {
+require("lualine").setup({
   options = {
     icons_enabled = false,
     theme = 'gruvbox',
@@ -14,5 +14,5 @@ require'lualine'.setup {
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
-}
+})
 END

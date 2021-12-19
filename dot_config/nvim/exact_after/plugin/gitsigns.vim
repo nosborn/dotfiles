@@ -1,6 +1,10 @@
 lua <<EOT
-require('gitsigns').setup()
+require("gitsigns").setup({
+  current_line_blame_opts = {
+    delay = 500,
+  },
+  current_line_blame_formatter_opts = {
+    relative_time = true,
+  },
+})
 EOT
-
-nmap ]c <Plug>(Gitsigns next_hunk)
-nmap [c <Plug>(Gitsigns prev_hunk)
