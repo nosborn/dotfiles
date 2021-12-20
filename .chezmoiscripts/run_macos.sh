@@ -20,21 +20,13 @@ if [ -d /Applications/Rectangle.app ]; then
   defaults write -app Rectangle SUEnableAutomaticChecks -bool false
   defaults write -app Rectangle SUHasLaunchedBefore -bool true
   defaults write -app Rectangle SUSendProfileInfo -bool false
+  defaults write -app Rectangle disabledApps -string '["com.apple.finder"]'
   defaults write -app Rectangle launchOnLogin -bool true
 fi
 
 if [ -d "${HOME}/Library/Screen Savers/Aerial.saver" ]; then
   defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
   defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
-fi
-
-if [ -d /Applications/Docker.app/Contents/Resources/etc ]; then
-  for cmd in docker docker-compose; do
-    [ -e "$(brew --prefix)/share/zsh/site-functions/_${cmd}" ] || {
-      ln -sv /Applications/Docker.app/Contents/Resources/etc/${cmd}.zsh-completion \
-        "$(brew --prefix)/share/zsh/site-functions/_${cmd}"
-    }
-  done
 fi
 
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
