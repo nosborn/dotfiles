@@ -163,6 +163,8 @@
 	<false/>
 	<key>BlinkText</key>
 	<true/>
+	<key>CharacterEncoding</key>
+	<integer>4</integer>
 	<key>CursorBlink</key>
 	<true/>
 	<key>CursorColor</key>
@@ -176,14 +178,16 @@
 	</data>
 	<key>DisableANSIColor</key>
 	<false/>
+	<key>EastAsianAmbiguousWide</key>
+	<false/>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
 	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
-	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNALAAAAAAAABAQgAKAA18QJFNh
-	dWNlQ29kZVByb05lcmRGb250Q29tcGxldGUtUmVndWxhctIXGBkaWiRjbGFzc25hbWVY
-	JGNsYXNzZXNWTlNGb250ohkbWE5TT2JqZWN0CBEaJCkyN0lMUVNYXmdud36FjpCSlLvA
-	y9Tb3gAAAAAAAAEBAAAAAAAAABwAAAAAAAAAAAAAAAAAAADn
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNAMgAAAAAAABAQgAKAA18QFkNh
+	c2NhZGlhTW9ub1BMLVJlZ3VsYXLSFxgZGlokY2xhc3NuYW1lWCRjbGFzc2VzVk5TRm9u
+	dKIZG1hOU09iamVjdAgRGiQpMjdJTFFTWF5nbnd+hY6QkpStsr3GzdAAAAAAAAABAQAA
+	AAAAAAAcAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>FontAntialias</key>
 	<true/>

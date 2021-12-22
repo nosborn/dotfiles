@@ -54,14 +54,13 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 ###zstyle ':vcs_info:*' formats "[%b]%u%c-"
 
 export CLICOLOR=1
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=vim
+export VISUAL=vim
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
 alias timeout=gtimeout
-alias vi=nvim
-alias vim=nvim
+alias vi=vim
 alias wdiff="command wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' -z $'\033[0m'"
 
 # if (( $+commands[qpdf] )); then
