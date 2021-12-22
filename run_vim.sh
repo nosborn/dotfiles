@@ -46,14 +46,14 @@ pack tpope/vim-vinegar &
 pack wgwoods/vim-systemd-syntax &
 wait
 
-"$(brew --prefix vim)/bin/vim" -n -u NONE \
-  +'helptags ALL' \
-  +'quit'
+"$(brew --prefix vim)/bin/vim" -n \
+  -c 'helptags ALL' \
+  -c 'quit'
 
 for add in ~/.vim/spell/*.add; do
   "$(brew --prefix vim)/bin/vim" -n -u NONE \
-    "+mkspell! ${add}" \
-    '+quit'
+    -c "mkspell! ${add}" \
+    -c 'quit'
 done
 
 exit 0
