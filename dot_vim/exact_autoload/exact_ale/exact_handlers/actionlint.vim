@@ -4,10 +4,12 @@ function! ale#handlers#actionlint#GetCommand(buffer) abort
 endfunction
 
 function! ale#handlers#actionlint#Handle(buffer, lines) abort
-  let l:pattern = '\v^.*:(\d+):(\d+): (.+)$'
+  let l:pyflakes_pattern = '\v^.*:(\d+):(\d+): (pyflakes reported issue in this script: .+) \[.+\]$'
+  let l:shellcheck_pattern = '\v^.*:(\d+):(\d+): (shellcheck reported issue in this script: .+) \[.+\]$'
+  let l:pattern = '\v^.*:(\d+):(\d+): (.+) \[.+\]$'
   let l:output = []
 
-  for l:match in ale#util#GetMatches(a:lines, l:pattern)
+  for l:match in ale#util#GetMatches(a:lines, [l:pyflakes_pattern, l:shellcheck_pattern, l:pattern])
     let l:item = {
           \   'lnum': l:match[1] + 0,
           \   'col': l:match[2] + 0,
