@@ -54,23 +54,21 @@ zstyle ':vcs_info:*' check-for-staged-changes true
 ###zstyle ':vcs_info:*' formats "[%b]%u%c-"
 
 export CLICOLOR=1
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias sdiff='command sdiff -d -w${COLUMNS}'
-alias timeout=gtimeout
-alias vi=vim
-alias wdiff="command wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' -z $'\033[0m'"
+alias vi=nvim
+alias vim=nvim
 
-# if (( $+commands[qpdf] )); then
-#   eval $({{ .homebrew.prefix }}/bin/qpdf --completion-zsh) -- loads bash completion
-# fi
+if [ "${TERM}" = xterm-kitty ]; then
+  alias ssh='kitty +kitten ssh'
+fi
 
 #comp_files=()
 #comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/az)
 #comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/npm)
-#comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/rg.bash)
 ##comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/vagrant)
 #
 #for f in ${comp_files}; do
@@ -111,7 +109,7 @@ if [[ -e {{ .homebrew.prefix }}/etc/grc.zsh ]]; then
 fi
 
 # Do at end.
-if [[ {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+if [[ -e {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 if [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then

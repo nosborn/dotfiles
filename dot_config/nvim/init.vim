@@ -1,8 +1,4 @@
-set encoding=utf-8
-scriptencoding=utf-8
-
-filetype plugin indent on
-syntax on
+scriptencoding utf-8
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -11,56 +7,31 @@ endif
 
 map Q <Nop>
 
-set autoindent
-set autoread
-set background=dark
-set backspace=indent,eol,start
-set belloff=all
-set complete-=i
-set display=lastline
-set formatoptions=tcqj
-set history=1000
-set hlsearch
-set incsearch
 set ignorecase
-set langnoremap
-set laststatus=2
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a
 set nobackup
-set nofsync
-set nolangremap
 set noshowmode
 set nospell
-set nostartofline
 set noswapfile
 set nowrap
 set nowritebackup
-set nrformats=bin,hex
 set number
 set path=$PWD/**
 set relativenumber
-set ruler
 set scrolloff=2
-set sessionoptions-=options
 set shortmess+=I
 set showcmd
 set showmatch
-set sidescroll=1
 set sidescrolloff=5
 set signcolumn=yes
 set smarttab
 set spelllang=en_gb
-set tabpagemax=50
 set tags=./tags;,tags
 set ttimeout
-set ttimeoutlen=50
-set ttyfast
-set viewoptions=unix,slash
 set viminfo-=!
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
-set wildmenu
 set wildoptions=tagfile
 
 inoremap <C-U> <C-G>u<C-U>
@@ -68,11 +39,6 @@ inoremap <C-U> <C-G>u<C-U>
 if !exists(':DiffOrig')
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
         \ | wincmd p | diffthis
-endif
-
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 let g:ale_fix_on_save = 1
@@ -117,77 +83,18 @@ let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
 
-let g:gitgutter_map_keys = 0
-let g:gitgutter_preview_win_floating = 1
-" let g:gitgutter_sign_added = '│'
-" let g:gitgutter_sign_modified = '│'
-let g:gitgutter_sign_priority = 9
-
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_italic = 1
-let g:gruvbox_sign_column = 'bg1'
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
 
-let g:indentguides_ignorelist = [
-      \   'text'
-      \ ]
-let g:indentguides_spacechar = '┊'
-let g:indentguides_tabchar = '┋'
-
-function! LightlineReadOnly()
-  return &readonly && &filetype !=# 'help' ? "\uE0A2" : ''
-endfunction
-
-let g:lightline = {
-      \   'active': {
-      \     'left': [
-      \       ['mode', 'paste'],
-      \       ['gitbranch', 'readonly', 'filename', 'modified'],
-      \     ],
-      \     'right': [
-      \       ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
-      \       ['lineinfo'],
-      \       ['wordcount'],
-      \       ['percent'],
-      \       ['fileformat', 'fileencoding', 'filetype'],
-      \     ]
-      \   },
-      \   'colorscheme': 'gruvbox',
-      \   'component_function': {
-      \     'gitbranch': 'FugitiveHead',
-      \     'readonly': 'LightlineReadOnly',
-      \     'wordcount': 'lightline#wordcount#words',
-      \   },
-      \   'subseparator': {
-      \     'left': '│',
-      \     'right': '│',
-      \   }
-      \ }
-let g:lightline.component_expand = {
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_errors': 'lightline#ale#errors',
-      \   'linter_infos': 'lightline#ale#infos',
-      \   'linter_ok': 'lightline#ale#ok',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \ }
-let g:lightline.component_type = {
-      \   'linter_checking': 'right',
-      \   'linter_errors': 'error',
-      \   'linter_infos': 'right',
-      \   'linter_ok': 'right',
-      \   'linter_warnings': 'warning',
-      \ }
-let g:lightline#ale#indicator_checking = '⋯' " "\uf110"
-let g:lightline#ale#indicator_ok = '✓'
-
-"let g:lightline#ale#indicator_checking = "\uf110"
-"let g:lightline#ale#indicator_infos = "\uf129"
-"let g:lightline#ale#indicator_warnings = "\uf071"
-"let g:lightline#ale#indicator_errors = "\uf05e"
-"let g:lightline#ale#indicator_ok = "\uf00c"
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
 
 let g:markdown_fenced_languages = [
       \   'bash=sh',
@@ -246,17 +153,10 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-" augroup git-blame
-"   autocmd!
-"   autocmd BufEnter * EnableBlameLine
-" augroup END
-
 nmap [A :ALEFirst<CR>
 nmap ]A :ALELast<CR>
 nmap [a :ALEPreviousWrap<CR>
 nmap ]a :ALENextWrap<CR>
-nmap ]c <Plug>(GitGutterNextHunk)
-nmap [c <Plug>(GitGutterPrevHunk)
 
 nnoremap <silent> <leader>b :Buffers<CR>
 
@@ -264,11 +164,3 @@ nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
-
-if $TERM ==# 'xterm-kitty'
-  let &t_Cs = "\e[4:3m"
-  let &t_Ce = "\e[4:0m"
-  highlight SpellBad cterm=undercurl
-else
-  highlight SpellBad cterm=underline
-endif
