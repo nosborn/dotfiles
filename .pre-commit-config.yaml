@@ -1,9 +1,11 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 ---
+minimum_pre_commit_version: !!str 2.16
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -27,8 +29,6 @@ repos:
         exclude: ^dot_config/git/ignore$
 
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.2.3
+    rev: v8.2.7
     hooks:
       - id: gitleaks
-
-minimum_pre_commit_version: !!str 2.15
