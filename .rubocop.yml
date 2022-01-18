@@ -1,0 +1,4 @@
+---
+Naming/FileName:
+  Exclude:
+    - dot_Brewfile.tmpl

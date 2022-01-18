@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+codebase=$(git rev-parse --show-toplevel)
+readonly codebase
+
+docker run \
+  --env IGNORE_GITIGNORED_FILES=true \
+  --env RUN_LOCAL=true \
+  --env VALIDATE_JSCPD=false \
+  --volume "${codebase?}:/tmp/lint" \
+  github/super-linter:slim-v4

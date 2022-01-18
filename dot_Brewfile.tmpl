@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 WHERE = '{{ .where }}'
 
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 
+brew 'act'
 brew 'actionlint'
 brew 'ansible'
 brew 'ansible-lint'
@@ -15,6 +18,7 @@ brew 'bat'
 brew 'black'
 brew 'chezmoi'
 cask 'chromium'
+brew 'clang-format'
 # brew 'cmake' # for building gems
 brew 'diceware'
 brew 'direnv'
@@ -50,6 +54,7 @@ cask 'monitorcontrol'
 brew 'neovim'
 brew 'node@14'
 cask 'oversight'
+brew 'packer' if WHERE == 'home'
 # brew 'pkg-config' # for building gems
 brew 'pre-commit'
 brew 'prettier'
@@ -65,6 +70,7 @@ brew 'telnet'
 brew 'terraform'
 brew 'terraform-ls'
 brew 'tflint'
+brew 'tintin' if WHERE == 'home'
 brew 'vint'
 brew 'yaml-language-server'
 brew 'yamllint'

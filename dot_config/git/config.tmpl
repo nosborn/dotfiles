@@ -137,7 +137,8 @@
 	fsckobjects = true
 
 [trim]
-	bases = master
+	bases = main,master
+	protected = releases/*
 
 [user]
 	name = {{ .user.name }}

@@ -41,8 +41,11 @@ if !exists(':DiffOrig')
         \ | wincmd p | diffthis
 endif
 
+let g:ale_c_clangformat_use_local_file = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+      \   'c': ['clang-format'],
+      \   'cpp': ['clang-format'],
       \   'javascript': ['eslint'],
       \   'json': ['jq'],
       \   'python': ['black'],
