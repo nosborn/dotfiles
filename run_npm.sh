@@ -8,6 +8,7 @@ command -v npm >/dev/null 2>&1 || exit 0
 npm install \
   --fund=false \
   --global \
-  --prefix="${HOME}/.local"
+  --prefix="${HOME}/.local" \
+  "$(chezmoi source-path)"
 
 exit 0
