@@ -45,16 +45,16 @@ pack tpope/vim-vinegar &
 pack wgwoods/vim-systemd-syntax &
 wait
 
-"$(brew --prefix neovim)/bin/nvim" -n \
+"$(brew --prefix neovim)/bin/nvim" -n --headless \
   -c 'helptags ALL' \
   -c 'quit'
 
-"$(brew --prefix neovim)/bin/nvim" -n \
+"$(brew --prefix neovim)/bin/nvim" -n --headless \
   -c 'TSUpdateSync' \
   -c 'quit'
 
 for add in ~/.config/nvim/spell/*.add; do
-  "$(brew --prefix neovim)/bin/nvim" -n \
+  "$(brew --prefix neovim)/bin/nvim" -n --headless --noplugin \
     -c "mkspell! ${add}" \
     -c 'quit'
 done
