@@ -1,0 +1,7 @@
+{
+  "name": "dotfiles",
+  "dependencies": {
+    "vim-language-server": "2.2.5"
+  },
+  "private": true
+}

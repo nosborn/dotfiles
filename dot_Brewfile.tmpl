@@ -2,10 +2,10 @@
 
 WHERE = '{{ .where }}'
 
-tap "homebrew/bundle"
+tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
-tap "homebrew/core"
+tap 'homebrew/core'
 
 brew 'act'
 brew 'actionlint'
@@ -50,7 +50,6 @@ brew 'm-cli'
 brew 'markdownlint-cli'
 brew 'neovim'
 brew 'node'
-# brew 'packer' if WHERE == 'home'
 # brew 'pkg-config' # for building gems
 brew 'pre-commit'
 brew 'prettier'
@@ -70,7 +69,6 @@ brew 'tintin' if WHERE == 'home'
 brew 'vint'
 brew 'yaml-language-server'
 brew 'yamllint'
-brew 'yarn'
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
