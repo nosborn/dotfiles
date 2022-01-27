@@ -11,7 +11,9 @@ else
   let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
 endif
 
-let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
+{{ if eq .where "work" -}}
+let b:ale_fix_on_save = 0
+{{- end }}
 
 " Stolen from https://github.com/plasticboy/vim-markdown
 function! s:TableFormat()

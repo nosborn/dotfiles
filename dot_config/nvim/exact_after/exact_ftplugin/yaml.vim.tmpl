@@ -9,3 +9,9 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal colorcolumn< expandtab< shiftwidth< spell< tabstop<'
 endif
+
+{{ if eq .where "work" -}}
+let b:ale_fix_on_save = 0
+{{- end }}
+
+" vim: ft=vim
