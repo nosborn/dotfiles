@@ -15,9 +15,4 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 export LESS_TERMCAP_mh=$(tput dim)
 export LESS_TERMCAP_mr=$(tput rev)
 
-if (( ${+commands[lesspipe.sh]} )); then
-  export LESSOPEN="|${commands[lesspipe.sh]} %s"
-  export LESSQUIET=1
-fi
-
 export PAGER=${commands[less]}
