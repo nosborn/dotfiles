@@ -7,10 +7,12 @@ let g:ale_fixers = {
       \   'cpp': ['clang-format'],
       \   'javascript': ['eslint'],
       \   'json': ['jq'],
+      \   'markdown': ['prettier'],
       \   'python': ['black'],
       \   'sh': ['shfmt'],
       \   'terraform': ['terraform'],
       \   'xml': ['xmllint'],
+      \   'yaml': ['prettier'],
       \   'zsh': ['shfmt'],
       \   '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }
