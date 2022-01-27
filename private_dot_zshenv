@@ -1,7 +1,4 @@
 export ANSIBLE_NOCOWS=1
-{{ if (index . "datadog") -}}
-export DATADOG_HOST='{{ .datadog.host }}'
-{{ end -}}
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
@@ -16,7 +13,7 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export ARM_DISABLE_TERRAFORM_PARTNER_ID=true # Terraform
 export AZURE_CORE_COLLECT_TELEMETRY=0
 export CHECKPOINT_DISABLE=1 # Hashicorp
-export DO_NOT_TRACK=1 # https://consoledonottrack.com
+export DO_NOT_TRACK=1       # https://consoledonottrack.com
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export HOMEBREW_NO_ANALYTICS=1

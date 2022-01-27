@@ -146,9 +146,12 @@
 	useConfigOnly = true
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
-	path = config.nosborn
+	path = config.personal
+
+[includeIf "gitdir:~/src/github.com/hyphengroup/"]
+	path = config.work
 
 [includeIf "gitdir:~/src/github.com/nosborn/"]
-	path = config.nosborn
+	path = config.personal
 
 ; vim: ft=gitconfig

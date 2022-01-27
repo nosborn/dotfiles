@@ -3,11 +3,6 @@
 {{-   $where := promptString "where" -}}
 {{- end -}}
 
-{{- $datadog_host := get .datadog "host" -}}
-{{- if not $datadog_host -}}
-{{-   $datadog_host := promptString "datadog_host" -}}
-{{- end -}}
-
 {{- $github_org := get .github "org" -}}
 {{- if not $github_org -}}
 {{-   $github_org := promptString "github_org" -}}
@@ -20,11 +15,6 @@
 
 [data]
   where = "{{ $where }}"
-{{- if $datadog_host }}
-
-  [data.datadog]
-    host = "{{ $datadog_host }}"
-{{- end }}
 
   [data.github]
 {{- if $github_org }}
