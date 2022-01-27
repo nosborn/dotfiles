@@ -17,7 +17,7 @@ export LESS_TERMCAP_mr=$(tput rev)
 
 if (( ${+commands[lesspipe.sh]} )); then
   export LESSOPEN="|${commands[lesspipe.sh]} %s"
-  export LESS_ADVANCED_PREPROCESSOR=1
+  export LESSQUIET=1
 fi
 
 export PAGER=${commands[less]}

@@ -17,6 +17,9 @@ bindkey -e
 autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
+{{- if .github.org }}
+cdpath=( "${HOME}/src/github.com/{{ .github.org }}" ${cdpath} )
+{{- end }}
 {{- if .github.user }}
 cdpath=( "${HOME}/src/github.com/{{ .github.user }}" ${cdpath} )
 {{- end }}
