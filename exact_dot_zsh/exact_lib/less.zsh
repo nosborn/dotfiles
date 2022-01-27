@@ -16,7 +16,7 @@ export LESS_TERMCAP_mh=$(tput dim)
 export LESS_TERMCAP_mr=$(tput rev)
 
 if (( ${+commands[lesspipe.sh]} )); then
-  #export LESSOPEN="|${commands[lesspipe.sh]} %s"
+  export LESSOPEN="|${commands[lesspipe.sh]} %s"
   export LESS_ADVANCED_PREPROCESSOR=1
 fi
 
