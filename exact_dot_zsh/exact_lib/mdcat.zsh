@@ -1,0 +1,1 @@
+alias mdless='mdcat -p'
