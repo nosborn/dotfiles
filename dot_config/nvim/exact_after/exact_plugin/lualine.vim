@@ -11,7 +11,7 @@ require'lualine'.setup {
     lualine_b = {
       {'branch', icons_enabled = true},
       'diff',
-      'diagnostics'
+      {'diagnostics', sources = {'ale'}},
     }
   }
 }
