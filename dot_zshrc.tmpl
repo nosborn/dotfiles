@@ -97,11 +97,6 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
   _update_terminal_cwd
 fi
 
-if [[ -e {{ .homebrew.prefix }}/etc/grc.zsh ]]; then
-  source {{ .homebrew.prefix }}/etc/grc.zsh
-  alias pstree='grc --colour=auto {{ .homebrew.prefix }}/bin/pstree'
-fi
-
 # Do at end.
 if [[ -e {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
