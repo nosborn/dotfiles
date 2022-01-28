@@ -4,3 +4,4 @@
 /install.sh
 /package.json
 /requirements.txt
+*.log
