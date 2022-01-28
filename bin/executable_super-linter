@@ -7,6 +7,7 @@ codebase=$(git rev-parse --show-toplevel)
 readonly codebase
 
 docker run \
+  --env DEFAULT_BRANCH="$(git symbolic-ref refs/remotes/origin/HEAD | cut -d/ -f4)" \
   --env IGNORE_GITIGNORED_FILES=true \
   --env RUN_LOCAL=true \
   --env VALIDATE_JSCPD=false \
