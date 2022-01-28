@@ -66,17 +66,12 @@ alias vi=nvim
 alias vim=nvim
 
 #comp_files=()
-#comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/az)
 #comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/npm)
 ##comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/vagrant)
 #
 #for f in ${comp_files}; do
 #  [[ -f "${f}" ]] && source "${f}"
 #done
-
-if (( $+commands[az] )); then
-  eval "$(register-python-argcomplete az)"
-fi
 
 if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
   _update_terminal_cwd() {
