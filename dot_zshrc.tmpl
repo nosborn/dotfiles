@@ -35,6 +35,12 @@ path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin ${path} )
 autoload -U colors
 colors
 
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
 for config_file (~/.zsh/lib/*.zsh); do
   source "${config_file}"
 done
