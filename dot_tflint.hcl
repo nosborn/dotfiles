@@ -1,3 +1,7 @@
+plugin "aws" {
+  enabled = true
+}
+
 rule "terraform_comment_syntax" {
   enabled = true
 }
@@ -27,7 +31,7 @@ rule "terraform_required_version" {
 }
 
 rule "terraform_standard_module_structure" {
-  enabled = false # TODO: true
+  enabled = true
 }
 
 rule "terraform_typed_variables" {
@@ -35,7 +39,7 @@ rule "terraform_typed_variables" {
 }
 
 rule "terraform_unused_declarations" {
-  enabled = true # May prove to be problematic
+  enabled = true
 }
 
 rule "terraform_unused_required_providers" {
