@@ -3,16 +3,12 @@ scriptencoding utf-8
 let g:ale_c_clangformat_use_local_file = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-      \   'c': ['clang-format'],
-      \   'cpp': ['clang-format'],
       \   'javascript': ['eslint'],
       \   'json': ['jq'],
-      \   'markdown': ['prettier'],
       \   'python': ['black'],
       \   'sh': ['shfmt'],
       \   'terraform': ['terraform'],
       \   'xml': ['xmllint'],
-      \   'yaml': ['prettier'],
       \   'zsh': ['shfmt'],
       \   '*': ['remove_trailing_lines', 'trim_whitespace']
       \ }

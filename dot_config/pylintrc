@@ -1,0 +1,7 @@
+[MESSAGES CONTROL]
+disable = C0330, C0326
+
+[FORMAT]
+max-line-length = 88
+
+# vim: ft=dosini

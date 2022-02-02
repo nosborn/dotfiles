@@ -41,7 +41,7 @@ pack tpope/vim-commentary &
 pack tpope/vim-endwise &
 pack tpope/vim-fugitive &
 # pack tpope/vim-markdown &
-pack tpope/vim-vinegar &
+# pack tpope/vim-vinegar &
 pack wgwoods/vim-systemd-syntax &
 wait
 

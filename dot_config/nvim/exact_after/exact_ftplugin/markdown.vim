@@ -11,10 +11,6 @@ else
   let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
 endif
 
-{{ if eq .where "work" -}}
-let b:ale_fix_on_save = 0
-{{- end }}
-
 " Stolen from https://github.com/plasticboy/vim-markdown
 function! s:TableFormat()
   let l:pos = getpos('.')
@@ -40,5 +36,3 @@ function! s:TableFormat()
 endfunction
 
 command! -buffer TableFormat call s:TableFormat()
-
-" vim: ft=vim

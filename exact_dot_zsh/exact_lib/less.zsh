@@ -20,5 +20,5 @@ if (( ${+commands[lesspipe.sh]} )); then
   export LESSQUIET=1
 fi
 
-export LESS=-R
+# export LESS=-R
 export PAGER=${commands[less]}

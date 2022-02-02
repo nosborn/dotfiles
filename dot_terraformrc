@@ -1,2 +1,4 @@
 disable_checkpoint = true
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
+
+# vim: ft=hcl
