@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org'
 
-gem 'github-linguist', '7.16.1'
+gem 'github-linguist', '7.18.0'
 gem 'rubocop', '1.24.1'
