@@ -22,6 +22,7 @@ pack chr4/nginx.vim &
 # pack dense-analysis/ale &
 # pack digitaltoad/vim-pug &
 pack direnv/direnv.vim &
+pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
 pack hashivim/vim-terraform &
