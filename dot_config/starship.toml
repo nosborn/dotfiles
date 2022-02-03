@@ -15,5 +15,11 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
 [python]
 disabled = true
