@@ -17,16 +17,15 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
-# pack JamshedVesuna/vim-markdown-preview &
 pack cespare/vim-toml &
 pack chr4/nginx.vim &
-pack dense-analysis/ale &
+# pack dense-analysis/ale &
 # pack digitaltoad/vim-pug &
 pack direnv/direnv.vim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
 pack hashivim/vim-terraform &
-# pack juliosueiras/vim-terraform-completion &
+pack jose-elias-alvarez/null-ls.nvim &
 pack lewis6991/gitsigns.nvim &
 pack maralla/vim-toml-enhance &
 pack morhetz/gruvbox &
