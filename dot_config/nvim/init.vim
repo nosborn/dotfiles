@@ -49,6 +49,7 @@ let g:ansible_template_syntaxes = {
   \   '*.json.j2':      'json',
   \   '*.php.j2':       'php',
   \   '*.sh.j2':        'sh',
+  \   '*.service.j2':   'systemd',
   \   '*.yaml.j2':      'yaml',
   \   '*.yml.j2':       'yaml',
   \   'Dockerfile.j2':  'dockerfile',
