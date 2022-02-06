@@ -1,6 +1,6 @@
 lua <<EOT
 local null_ls = require("null-ls")
-local helpers = require("null-ls.helpers") -- TODO: actionlint
+local helpers = require("null-ls.helpers")
 
 local on_attach = function(client)
   if client.resolved_capabilities.document_formatting then
@@ -45,4 +45,26 @@ null_ls.setup({
   on_attach = on_attach,
   sources = sources,
 })
+
+local actionlint = {
+  method = null_ls.methods.DIAGNOSTICS,
+  filetypes = { "yaml.gha" },
+  generator = null_ls.generator({
+    args = { "-no-color", "-oneline", "-" },
+    check_exit_code = function(code)
+      return code <= 1
+    end,
+    command = "actionlint",
+    format = "line",
+    on_output = helpers.diagnostics.from_patterns({
+      {
+        pattern = ":(%d+):(%d+): (.+) %[.+%]",
+        groups = { "row", "col", "message" },
+      }
+    }),
+    to_stdin = true,
+  }),
+}
+
+null_ls.register(actionlint)
 EOT
