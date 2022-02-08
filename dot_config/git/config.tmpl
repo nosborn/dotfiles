@@ -6,8 +6,9 @@
 [alias]
 	wdiff = diff --word-diff
 
-; [blame]
-; 	ignoreRevsFile = .git-blame-ignore-revs
+[blame]
+	markIgnoredLines = true
+	markUnblamableLines = true
 
 [color]
 	ui = auto
@@ -26,7 +27,6 @@
 [core]
 	autocrlf = input
 	editor = nvim
-;	hooksPath = ~/.config/git/hooks
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
@@ -122,7 +122,6 @@
 	followTags = true
 
 [rebase]
-;	autoSquash = true
 	autoStash = true
 	missingCommitsCheck = warn
 
@@ -135,7 +134,6 @@
 [status]
 	relativePaths = false
 	showStash = true
-;	showUntrackedFiles = all
 
 [transfer]
 	fsckobjects = true
