@@ -7,9 +7,6 @@ disabled = true
 [cmake]
 disabled = true
 
-[cobol]
-disabled = true
-
 [directory]
 truncation_symbol = "…/"
 
@@ -50,3 +47,6 @@ disabled = false
 
 [sudo]
 disabled = false
+
+[terraform]
+detect_files = [".terraform-version"]
