@@ -133,10 +133,10 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
-augroup diagnostics-float
-  autocmd!
-  autocmd CursorHold * lua vim.diagnostic.open_float()
-augroup END
+" augroup diagnostics-float
+"   autocmd!
+"   autocmd CursorHold * lua vim.diagnostic.open_float()
+" augroup END
 
 lua <<EOT
 vim.diagnostic.config({
