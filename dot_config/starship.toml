@@ -4,6 +4,12 @@ disabled = true
 [cmd_duration]
 disabled = true
 
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
 [directory]
 truncation_symbol = "…/"
 
@@ -15,11 +21,32 @@ ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
+[helm]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[lua]
+disabled = true
+
 [nodejs]
+disabled = true
+
+[perl]
+disabled = true
+
+[python]
 disabled = true
 
 [ruby]
 disabled = true
 
-[python]
-disabled = true
+# [shlvl]
+# disabled = false
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
