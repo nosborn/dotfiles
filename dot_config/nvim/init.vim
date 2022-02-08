@@ -31,6 +31,7 @@ set spelllang=en_gb
 set tags=./tags;,tags
 set ttimeout
 set viminfo-=!
+set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
 set wildoptions=tagfile
 
@@ -131,3 +132,24 @@ nnoremap gj j
 nnoremap gk k
 nnoremap j gj
 nnoremap k gk
+
+augroup diagnostics-float
+  autocmd!
+  autocmd CursorHold * lua vim.diagnostic.open_float()
+augroup END
+
+lua <<EOT
+vim.diagnostic.config({
+  virtual_text = {
+    source = 'if_many',
+    spacing = 1,
+  },
+  float = {
+    focusable = false,
+  },
+})
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '[a', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']a', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+EOT

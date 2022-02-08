@@ -19,8 +19,6 @@ pack() {
 
 pack cespare/vim-toml &
 pack chr4/nginx.vim &
-# pack dense-analysis/ale &
-# pack digitaltoad/vim-pug &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
@@ -28,6 +26,7 @@ pack godlygeek/tabular &
 pack hashivim/vim-terraform &
 pack jose-elias-alvarez/null-ls.nvim &
 pack lewis6991/gitsigns.nvim &
+pack lukas-reineke/indent-blankline.nvim &
 pack maralla/vim-toml-enhance &
 pack morhetz/gruvbox &
 pack nvim-lua/plenary.nvim & # common dependency
@@ -36,7 +35,6 @@ pack nvim-treesitter/nvim-treesitter &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
 # pack satabin/hocon-vim &
-pack thaerkh/vim-indentguides &
 pack tpope/vim-commentary &
 pack tpope/vim-endwise &
 pack tpope/vim-fugitive &

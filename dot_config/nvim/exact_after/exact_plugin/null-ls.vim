@@ -19,11 +19,14 @@ local sources = {
   null_ls.builtins.formatting.fish_indent,
   null_ls.builtins.formatting.rubocop,
   null_ls.builtins.formatting.shfmt.with({
-    extra_args = { "-i", "2", "-ci" }
+    extra_args = { "-i", "2", "-ci" },
   }),
   null_ls.builtins.formatting.terraform_fmt,
   null_ls.builtins.formatting.trim_newlines,
   null_ls.builtins.formatting.trim_whitespace,
+  null_ls.builtins.formatting.xmllint.with({
+  extra_args = { '--nonet' },
+  }),
   -- Diagnostics
   null_ls.builtins.diagnostics.ansiblelint,
   null_ls.builtins.diagnostics.codespell,
