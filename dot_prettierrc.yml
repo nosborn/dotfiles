@@ -1,11 +1,18 @@
 ---
 overrides:
   - files:
+      - .markdownlintrc
+    options:
+      parser: json
+  - files:
+      - "*.markdown"
       - "*.md"
     options:
       proseWrap: preserve
   - files:
       - "*.yaml"
       - "*.yml"
+      - .yamllint
     options:
       bracketSpacing: false
+      parser: yaml
