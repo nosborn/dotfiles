@@ -1,0 +1,26 @@
+#compdef vint
+
+function _vint() {
+  local options=(
+    {-h,--help}'[show this help message and exit]'
+    {-v,--version}"[show program's version number and exit]"
+    {-V,--verbose}'[output verbose message]'
+    {-e,--error}'[report only errors]'
+    {-w,--warning}'[report errors and warnings]'
+    {-s,--style-problem}'[report errors, warnings and style problems]'
+    {-m,--max-violations}'[limit max violations count]'
+    {-c,--color}'[colorize output when possible]'
+    '--no-color[do not colorize output]'
+    {-j,--json}'[output json style]'
+    {-t,--stat}'[output statistic info]'
+    '--enable-neovim[Enable Neovim syntax]'
+    {-f,--format}'[set output format]'
+    '*:filename:_files'
+  )
+
+  _arguments -s "${options[@]}"
+}
+
+_vint "$*"
+
+# vim: ft=zsh

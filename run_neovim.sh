@@ -25,13 +25,13 @@ pack fatih/vim-go &
 pack godlygeek/tabular &
 pack hashivim/vim-terraform &
 pack jose-elias-alvarez/null-ls.nvim &
-pack kyazdani42/nvim-tree.lua &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &
 pack maralla/vim-toml-enhance &
 pack morhetz/gruvbox &
 pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
+pack nvim-telescope/telescope.nvim &
 pack nvim-treesitter/nvim-treesitter &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &

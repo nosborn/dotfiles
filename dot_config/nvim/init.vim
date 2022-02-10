@@ -33,7 +33,6 @@ set ttimeout
 set viminfo-=!
 set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/node_modules/**
-set wildoptions=tagfile
 
 inoremap <C-U> <C-G>u<C-U>
 
@@ -126,8 +125,6 @@ augroup ansible-vault
   autocmd BufWritePost,FileWritePost */vars/vault.yml silent undo
 augroup END
 
-nnoremap <silent> <leader>b :Buffers<CR>
-
 nnoremap gj j
 nnoremap gk k
 nnoremap j gj
@@ -153,3 +150,9 @@ local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '[a', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']a', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 EOT
+
+set wildcharm=<C-Z>
+cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
+cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
+cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
+cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"

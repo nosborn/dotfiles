@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 lua <<EOT
 local null_ls = require("null-ls")
 local helpers = require("null-ls.helpers")
