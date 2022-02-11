@@ -35,13 +35,11 @@ pack nvim-telescope/telescope.nvim &
 pack nvim-treesitter/nvim-treesitter &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
-# pack satabin/hocon-vim &
 pack tpope/vim-commentary &
 pack tpope/vim-endwise &
 pack tpope/vim-fugitive &
 # pack tpope/vim-markdown &
 # pack tpope/vim-vinegar &
-pack wgwoods/vim-systemd-syntax &
 wait
 
 "$(brew --prefix neovim)/bin/nvim" -n --headless \
