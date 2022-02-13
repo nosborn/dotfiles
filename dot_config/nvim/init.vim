@@ -132,17 +132,18 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
-" augroup diagnostics-float
-"   autocmd!
-"   autocmd CursorHold * lua vim.diagnostic.open_float()
-" augroup END
+augroup diagnostics-float
+  autocmd!
+  autocmd CursorHold * lua vim.diagnostic.open_float()
+augroup END
 
 lua <<EOT
 vim.diagnostic.config({
-  virtual_text = {
-    source = 'if_many',
-    spacing = 1,
-  },
+  -- virtual_text = {
+  --   source = 'if_many',
+  --   spacing = 1,
+  -- },
+  virtual_text = false,
   float = {
     focusable = false,
   },
@@ -158,3 +159,8 @@ cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
 cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
+
+sign define DiagnosticSignError text=Ⓔ texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignHint text=Ⓗ texthl=DiagnosticSignHint linehl= numhl=
+sign define DiagnosticSignInfo text=Ⓘ texthl=DiagnosticSignInfo linehl= numhl=
+sign define DiagnosticSignWarn text=Ⓦ texthl=DiagnosticSignWarn linehl= numhl=

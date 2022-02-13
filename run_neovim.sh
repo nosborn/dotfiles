@@ -17,19 +17,15 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
-pack cespare/vim-toml &
-pack chr4/nginx.vim &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
+pack gruvbox-community/gruvbox &
 pack hashivim/vim-terraform &
 pack jose-elias-alvarez/null-ls.nvim &
-pack kyazdani42/nvim-web-devicons &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &
-pack maralla/vim-toml-enhance &
-pack morhetz/gruvbox &
 pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
 pack nvim-telescope/telescope.nvim &
@@ -39,8 +35,6 @@ pack pearofducks/ansible-vim &
 pack tpope/vim-commentary &
 pack tpope/vim-endwise &
 pack tpope/vim-fugitive &
-# pack tpope/vim-markdown &
-# pack tpope/vim-vinegar &
 wait
 
 "$(brew --prefix neovim)/bin/nvim" -n --headless \
