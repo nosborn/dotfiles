@@ -1,0 +1,13 @@
+complete -c vint -s c -l color -f -d 'colorize output when possible'
+complete -c vint -s e -l error -f -d 'report only errors'
+complete -c vint -s f -l format -x -d 'set output format'
+complete -c vint -s h -l help -f -d 'show this help message and exit'
+complete -c vint -s j -l json -f -d 'output json style'
+complete -c vint -s m -l max-violations -x -d 'limit max violations count'
+complete -c vint -s s -l style-problem -f -d 'report errors, warnings and style problems'
+complete -c vint -s t -l stat -f -d 'output statistic info'
+complete -c vint -s V -l verbose -f -d 'output verbose message'
+complete -c vint -s v -l version -f -d "show program's version number and exit"
+complete -c vint -s w -l warning -f -d 'report errors and warnings'
+complete -c vint -l enable-neovim -f -d 'Enable Neovim syntax'
+complete -c vint -l no-color -f -d 'do not colorize output'

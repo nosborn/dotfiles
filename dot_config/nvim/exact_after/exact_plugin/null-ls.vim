@@ -27,7 +27,7 @@ local sources = {
   null_ls.builtins.formatting.trim_newlines,
   null_ls.builtins.formatting.trim_whitespace,
   null_ls.builtins.formatting.xmllint.with({
-  extra_args = { '--nonet' },
+    extra_args = { '--nonet' },
   }),
   -- Diagnostics
   null_ls.builtins.diagnostics.ansiblelint,

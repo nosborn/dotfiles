@@ -6,5 +6,4 @@
 /install.sh
 /package.json
 /requirements.txt
-/scripts/
 *.log
