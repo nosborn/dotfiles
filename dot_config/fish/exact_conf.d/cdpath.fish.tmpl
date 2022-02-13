@@ -1,7 +1,0 @@
-{{- if (hasKey .github "org") }}
-set --prepend CDPATH "$HOME/src/github.com/{{ .github.org }}"
-{{- end }}
-{{- if .github.user }}
-set --prepend CDPATH "$HOME/src/github.com/{{ .github.user }}"
-{{- end }}
-set --prepend CDPATH .

@@ -1,2 +1,0 @@
-set --export PYTHONDONTWRITEBYTECODE 1
-set --export PYTHONWARNINGS ignore

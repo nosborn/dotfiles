@@ -60,15 +60,14 @@
 	renames = copies
 
 [diff "ansible-vault"]
-	cachetextconv = false
 	textconv = ansible-vault view
 
 [diff "exiftool"]
 	cachetextconv = true
 	textconv = exiftool
 
-[diff "git-crypt"]
-	textconv = git-crypt diff
+[diff "sops"]
+	textconv = sops --decrypt
 
 [diff "zipinfo"]
 	cachetextconv = true
@@ -79,23 +78,15 @@
 	prune = true
 	pruneTags = true
 
-[filter "git-crypt"]
-	clean = git-crypt clean
-	required = true
-	smudge = git-crypt smudge
-
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
 	required = true
 	smudge = git-lfs smudge -- %f
 
-[github]
-	user = {{ .github.user }}
-
 [gpg]
 {{- if eq .chezmoi.os "darwin" }}
-	program = {{ .homebrew.prefix }}/MacGPG2/bin/gpg2
+	program = {{ .homebrew_prefix }}/MacGPG2/bin/gpg2
 {{- end }}
 
 [grep]
@@ -111,8 +102,7 @@
 	date = human
 
 [merge]
-	; conflictStyle = zdiff3
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 	ff = only
 	log = false
 
@@ -145,7 +135,7 @@
 	protected = bugfix/*,docs/*,releases/*,sync
 
 [user]
-	name = {{ .user.name }}
+	name = "Nick Osborn"
 	useConfigOnly = true
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]

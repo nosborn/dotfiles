@@ -1,0 +1,10 @@
+{{- if ne "" .bitbucket_team }}
+set --prepend CDPATH "$HOME/src/bitbucket.org/{{ .bitbucket_team }}"
+{{- end }}
+{{- if ne "" .github_org }}
+set --prepend CDPATH "$HOME/src/github.com/{{ .github_org }}"
+{{- end }}
+{{- if ne "" .github_user }}
+set --prepend CDPATH "$HOME/src/github.com/{{ .github_user }}"
+{{- end }}
+set --prepend CDPATH .

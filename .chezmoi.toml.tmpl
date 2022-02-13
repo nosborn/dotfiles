@@ -1,32 +1,15 @@
-{{- $where := get . "where" -}}
-{{- if not $where -}}
-{{-   $where := promptString "where" -}}
-{{- end -}}
-
-{{- $github_org := get .github "org" -}}
-{{- if not $github_org -}}
-{{-   $github_org := promptString "github_org" -}}
-{{- end -}}
-
-{{- $github_user := get .github "user" -}}
-{{- if not $github_user -}}
-{{-   $github_user := promptString "github_user" -}}
-{{- end -}}
+{{- $bitbucket_team := promptString "bitbucket_team" -}}
+{{- $github_org := promptString "github_org" -}}
+{{- $github_user := promptString "github_user" -}}
+{{- $where := promptString "where" -}}
 
 [data]
+  bitbucket_team = "{{ $bitbucket_team }}"
+  github_org = "{{ $github_org }}"
+  github_user = "{{ $github_user }}"
+  homebrew_prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
+  name = "Nick Osborn"
   where = "{{ $where }}"
-
-  [data.github]
-{{- if $github_org }}
-    org = "{{ $github_org }}"
-{{- end }}
-    user = "{{ $github_user }}"
-
-  [data.homebrew]
-    prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
-
-  [data.user]
-    name = "Nick Osborn"
 
 [diff]
   pager = "less -R"

@@ -17,15 +17,18 @@ bindkey -e
 autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
-{{- if (hasKey .github "org") }}
-cdpath=( "${HOME}/src/github.com/{{ .github.org }}" ${cdpath} )
+{{- if ne "" .bitbucket_team }}
+cdpath=( "${HOME}/src/bitbucket.org/{{ .bitbucket_team }}" ${cdpath} )
 {{- end }}
-{{- if .github.user }}
-cdpath=( "${HOME}/src/github.com/{{ .github.user }}" ${cdpath} )
+{{- if ne "" .github_org }}
+cdpath=( "${HOME}/src/github.com/{{ .github_org }}" ${cdpath} )
+{{- end }}
+{{- if ne "" .github_user }}
+cdpath=( "${HOME}/src/github.com/{{ .github_user }}" ${cdpath} )
 {{- end }}
 cdpath=( . ${cdpath} )
-fpath=( ~/.local/share/zsh-completions {{ .homebrew.prefix }}/share/zsh-completions ${fpath} )
-path=( {{ .homebrew.prefix }}/sbin ${path} )
+fpath=( ~/.local/share/zsh-completions {{ .homebrew_prefix }}/share/zsh-completions ${fpath} )
+path=( {{ .homebrew_prefix }}/sbin ${path} )
 if [[ -d "$(brew --prefix ruby)" ]]; then
   path=( "$(brew --prefix ruby)/bin" ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )
@@ -73,8 +76,8 @@ alias vi=nvim
 alias vim=nvim
 
 #comp_files=()
-#comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/npm)
-##comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/vagrant)
+#comp_files+=({{ .homebrew_prefix }}/etc/bash_completion.d/npm)
+##comp_files+=({{ .homebrew_prefix }}/etc/bash_completion.d/vagrant)
 #
 #for f in ${comp_files}; do
 #  [[ -f "${f}" ]] && source "${f}"
@@ -105,15 +108,15 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
 fi
 
 # Do at end.
-if [[ -e {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-  source {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -e {{ .homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source {{ .homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Do at end.
-if [[ -e {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
-  source {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-elif [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -e {{ .homebrew_prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+  source {{ .homebrew_prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+elif [[ -e {{ .homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source {{ .homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Do at end.

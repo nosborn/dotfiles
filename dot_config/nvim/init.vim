@@ -89,6 +89,8 @@ let g:markdown_syntax_conceal = 0
 
 let g:vim_json_conceal = 0
 
+let g:vimsyn_embed = 'l'
+
 colorscheme gruvbox
 
 if $TERM_PROGRAM ==# 'Apple_Terminal'

@@ -1,1 +1,0 @@
-set --export POWERSHELL_TELEMETRY_OPTOUT 1
