@@ -132,19 +132,26 @@
 
 [trim]
 	bases = main,master
-	protected = bugfix/*,docs/*,releases/*,sync
+	protected = bugfix/*,docs/*,release/*,sync
 
 [user]
 	name = "Nick Osborn"
 	useConfigOnly = true
 
-[includeIf "gitdir:~/.local/share/chezmoi/"]
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/.local/share/chezmoi/"]
 	path = config.personal
 
-[includeIf "gitdir:~/src/github.com/hyphengroup/"]
+{{- if ne "" .bitbucket_team }}
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/bitbucket.org/{{ .bitbucket_team }}/"]
 	path = config.work
 
-[includeIf "gitdir:~/src/github.com/nosborn/"]
+{{- end }}
+{{- if ne "" .github_org }}
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/github.com/{{ .github_org }}/"]
+	path = config.work
+
+{{- end }}
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/github.com/nosborn/"]
 	path = config.personal
 
-; vim: ft=gitconfig
+; vim: ft=gitconfig.gohtmltmpl

@@ -17,8 +17,8 @@
 .apdisk
 .direnv/
 .envrc
-.terraform.d/
 .terraform/
+.terraform.d/
 .vagrant/
 Icon
 NetrwTreeListing
