@@ -24,6 +24,9 @@ disabled = true
 [kubernetes]
 disabled = false
 
+[kubernetes.context_aliases]
+"arn:aws:eks:.+:cluster/(?P<cluster>.+)" = "eks:${cluster}"
+
 [lua]
 disabled = true
 
