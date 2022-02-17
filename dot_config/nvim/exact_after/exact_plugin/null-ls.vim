@@ -19,6 +19,9 @@ local sources = {
   -- Formatting
   null_ls.builtins.formatting.black,
   null_ls.builtins.formatting.fish_indent,
+  null_ls.builtins.formatting.prettier.with({
+    filetypes = { "json" },
+  }),
   null_ls.builtins.formatting.rubocop,
   null_ls.builtins.formatting.shfmt.with({
     extra_args = { "-i", "2", "-ci" },

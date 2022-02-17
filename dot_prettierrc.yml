@@ -4,15 +4,16 @@ overrides:
       - .markdownlintrc
     options:
       parser: json
+
   - files:
       - "*.markdown"
       - "*.md"
     options:
       proseWrap: preserve
+
   - files:
-      - "*.yaml"
-      - "*.yml"
+      - .ansible-lint
+      - .prettierrc
       - .yamllint
     options:
-      bracketSpacing: false
       parser: yaml
