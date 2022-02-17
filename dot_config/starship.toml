@@ -25,7 +25,8 @@ disabled = true
 disabled = false
 
 [kubernetes.context_aliases]
-"arn:aws:eks:.+:cluster/(?P<cluster>.+)" = "eks:${cluster}"
+".+\\.teleport\\.sh-(?P<cluster>.+)" = "${cluster}"
+"arn:aws:eks:.+:cluster/(?P<cluster>.+)" = "${cluster}"
 
 [lua]
 disabled = true
