@@ -1,4 +1,4 @@
-function tfdiff --wraps=diff
+function tfdiff --wraps diff
     command diff \
         --exclude='*.bak' \
         --exclude='*.tfplan' \
