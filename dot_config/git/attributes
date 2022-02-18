@@ -15,8 +15,6 @@
 *.png diff=exiftool
 *.py diff=python
 *.rb diff=ruby
-*.sops.yaml diff=sops
-*.sops.yml diff=sops
 *.tf diff=terraform
 *.zip diff=zipinfo
 vault.yml diff=ansible-vault
