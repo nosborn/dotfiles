@@ -1,5 +1,8 @@
 command_timeout = 1000
 
+[aws.region_aliases]
+ap-southeast-1 = "SG"
+
 [battery]
 disabled = true
 
