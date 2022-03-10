@@ -30,6 +30,7 @@ disabled = true
 disabled = false
 
 [kubernetes.context_aliases]
+"(?P<cluster>.+)\\.cag\\.systems" = "${cluster}"
 ".+\\.teleport\\.sh-(?P<cluster>.+)" = "${cluster}"
 "arn:aws:eks:.+:cluster/(?P<cluster>.+)" = "${cluster}"
 
