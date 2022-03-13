@@ -49,9 +49,6 @@ disabled = true
 [ruby]
 disabled = true
 
-# [shlvl]
-# disabled = false
-
 [status]
 disabled = false
 
