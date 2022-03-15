@@ -84,11 +84,6 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
-[gpg]
-{{- if eq .chezmoi.os "darwin" }}
-	program = {{ .homebrew_prefix }}/MacGPG2/bin/gpg2
-{{- end }}
-
 [grep]
 	extendedRegexp = true
 
