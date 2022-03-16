@@ -23,5 +23,7 @@ rules:
   quoted-strings:
     quote-type: double
     required: only-when-needed
+  truthy:
+    check-keys: false
 
 # vim: ft=yaml
