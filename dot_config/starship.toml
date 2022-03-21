@@ -1,7 +1,9 @@
 command_timeout = 1000
 
 [aws.region_aliases]
+ap-east-1 = "HK"
 ap-southeast-1 = "SG"
+us-east-1 = "use1"
 
 [battery]
 disabled = true
