@@ -26,7 +26,9 @@ local sources = {
   null_ls.builtins.formatting.shfmt.with({
     extra_args = { "-i", "2", "-ci" },
   }),
-  null_ls.builtins.formatting.terraform_fmt,
+  null_ls.builtins.formatting.terraform_fmt.with({
+    extra_filetypes = { "hcl" },
+  }),
   null_ls.builtins.formatting.trim_newlines,
   null_ls.builtins.formatting.trim_whitespace,
   -- null_ls.builtins.formatting.xmllint.with({
