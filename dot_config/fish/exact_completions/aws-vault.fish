@@ -6,7 +6,7 @@ function __fish_aws_vault_complete_keychains
 end
 
 function __fish_aws_vault_complete_profiles
-    aws-vault list --profiles
+    aws-vault list --profiles | sed 's/^"//;s/"$//'
 end
 
 # general options
