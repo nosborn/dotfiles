@@ -1,2 +1,0 @@
-set --export --global AZURE_CORE_COLLECT_TELEMETRY 0
-set --export --global FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT 1

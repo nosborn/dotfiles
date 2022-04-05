@@ -18,7 +18,6 @@ end
 local sources = {
   -- Formatting
   null_ls.builtins.formatting.black,
-  null_ls.builtins.formatting.fish_indent,
   null_ls.builtins.formatting.prettier.with({
     filetypes = { "json", "markdown", "yaml" },
   }),
