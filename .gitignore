@@ -1,3 +1,2 @@
-.github/workflows/test.yml
-.mypy_cache/
-.nerd-fonts/
+/.chezmoidata.*
+/.mypy_cache/
