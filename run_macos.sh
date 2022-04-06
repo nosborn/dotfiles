@@ -5,10 +5,6 @@ set -o nounset
 
 [ "$(uname -s)" = Darwin ] || exit 0
 
-if [ -d ~/bin ]; then
-  SetFile -a V ~/bin
-fi
-
 if [ -d /Applications/MacVim.app ]; then
   defaults write -app MacVim MMLastWindowClosedBehavior -int 2
   defaults write -app MacVim SUEnableAutomaticChecks -bool false

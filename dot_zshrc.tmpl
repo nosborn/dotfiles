@@ -33,7 +33,7 @@ if [[ -d '{{ .homebrew_prefix }}/opt/ruby' ]]; then
   path=( '{{ .homebrew_prefix }}/opt/ruby/bin' ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )
 fi
-path=( ~/bin $(python3 -msite --user-base)/bin ~/.local/bin ${path} )
+path=( ~/.local/bin $(python3 -msite --user-base)/bin ${path} )
 
 autoload -U colors
 colors
