@@ -1,2 +1,3 @@
-/.chezmoidata.*
-/.mypy_cache/
+.bundle/
+.chezmoidata.*
+.mypy_cache/

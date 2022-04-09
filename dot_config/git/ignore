@@ -9,18 +9,39 @@
 .AppleDB
 .AppleDesktop
 .AppleDouble
+.CFUserTextEncoding
 .DS_Store
+.DocumentRevisions-V100
 .LSOverride
 .Spotlight-V100
+.Temporary-Items
+.Trash
 .Trashes
+.VolumeIcons.icns
 ._*
+.ansible
 .apdisk
-.direnv/
+.bash_history
+.bundle
+.cache
+.com.apple.timemachine.donotpresent
+.direnv
+.docker
 .envrc
-.terraform/
-.terraform.d/
-.vagrant/
+.fsenventd
+.histfile
+.lesshst
+.node_repl_history
+.terraform
+.terraform.d
+.terragrunt-cache
+.tflint.d
+.vagrant
+.zcompcache
+.zcompdump
+.zsh_sessions
 Icon
 NetrwTreeListing
 Network Trash Folder
 Temporary Items
+VirtualBox VMs

@@ -20,6 +20,12 @@ if [ -d /Applications/Rectangle.app ]; then
   defaults write -app Rectangle launchOnLogin -bool true
 fi
 
+if [ -d /Applications/VimR.app ]; then
+  defaults write -app VimR SUEnableAutomaticChecks -bool false
+  defaults write -app VimR SUHasLaunchedBefore -bool true
+  defaults write -app VimR SUSendProfileInfo -bool false
+fi
+
 if [ -d "${HOME}/Library/Screen Savers/Aerial.saver" ]; then
   defaults write com.JohnCoates.Aerial SUEnableAutomaticChecks -bool false
   defaults write com.JohnCoates.Aerial SUSendProfileInfo -bool false
