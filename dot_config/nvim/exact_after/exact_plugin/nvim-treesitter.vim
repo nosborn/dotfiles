@@ -2,14 +2,10 @@ scriptencoding utf-8
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  -- ignore_install = { "javascript" },
-
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },
+  sync_install = false,
 }
 EOF
