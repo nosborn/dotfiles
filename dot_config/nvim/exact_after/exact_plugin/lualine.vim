@@ -11,7 +11,7 @@ require'lualine'.setup {
       {'branch', icons_enabled = true},
       'diff',
       'diagnostics',
-    }
+    },
   }
 }
 EOT
