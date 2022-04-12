@@ -18,24 +18,30 @@ end
 local sources = {
   -- Formatting
   null_ls.builtins.formatting.black,
-  null_ls.builtins.formatting.prettier.with({
-    filetypes = { "json", "markdown", "yaml" },
-  }),
+  null_ls.builtins.formatting.codespell,
+  null_ls.builtins.formatting.eslint,
+  null_ls.builtins.formatting.prettier,
   null_ls.builtins.formatting.rubocop,
+  null_ls.builtins.formatting.shellharden,
   null_ls.builtins.formatting.shfmt.with({
     extra_args = { "-i", "2", "-ci" },
   }),
+  null_ls.builtins.formatting.sqlfluff,
   null_ls.builtins.formatting.terraform_fmt.with({
     extra_filetypes = { "hcl" },
   }),
   null_ls.builtins.formatting.trim_newlines,
   null_ls.builtins.formatting.trim_whitespace,
-  -- null_ls.builtins.formatting.xmllint.with({
-  --   extra_args = { '--nonet' },
-  -- }),
+  null_ls.builtins.formatting.xmllint.with({
+    extra_args = { '--nonet' },
+  }),
   -- Diagnostics
+  null_ls.builtins.diagnostics.actionlint,
+  null_ls.builtins.diagnostics.alex,
   null_ls.builtins.diagnostics.ansiblelint,
+  null_ls.builtins.diagnostics.checkmake,
   null_ls.builtins.diagnostics.codespell,
+  null_ls.builtins.diagnostics.eslint,
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.gitlint,
   null_ls.builtins.diagnostics.hadolint,
@@ -43,9 +49,15 @@ local sources = {
   null_ls.builtins.diagnostics.markdownlint,
   null_ls.builtins.diagnostics.rubocop,
   null_ls.builtins.diagnostics.shellcheck,
+  null_ls.builtins.diagnostics.sqlfluff,
+  null_ls.builtins.diagnostics.trail_space,
+  null_ls.builtins.diagnostics.tsc,
   null_ls.builtins.diagnostics.vint,
+  null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.yamllint,
+  null_ls.builtins.diagnostics.zsh,
   -- Code actions
+  null_ls.builtins.code_actions.eslint,
   null_ls.builtins.code_actions.gitsigns,
   null_ls.builtins.code_actions.shellcheck,
   -- Completion
