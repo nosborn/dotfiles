@@ -14,9 +14,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 bindkey -e
 
-autoload -Uz compinit && compinit
-autoload -Uz +X bashcompinit && bashcompinit
-
 {{- if ne "" .bitbucket_team }}
 cdpath=( "${HOME}/src/bitbucket.org/{{ .bitbucket_team }}" ${cdpath} )
 {{- end }}
@@ -27,13 +24,16 @@ cdpath=( "${HOME}/src/github.com/{{ .github_org }}" ${cdpath} )
 cdpath=( "${HOME}/src/github.com/{{ .github_user }}" ${cdpath} )
 {{- end }}
 cdpath=( . ${cdpath} )
-fpath=( ~/.local/share/zsh-completions '{{ .homebrew_prefix }}/share/zsh-completions' ${fpath} )
+fpath=( '{{ .homebrew_prefix }}/share/zsh-completions' ${fpath} )
 path=( '{{ .homebrew_prefix }}/sbin' ${path} )
 if [[ -d '{{ .homebrew_prefix }}/opt/ruby' ]]; then
   path=( '{{ .homebrew_prefix }}/opt/ruby/bin' ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )
 fi
-path=( ~/.local/bin $(python3 -msite --user-base)/bin ${path} )
+path=( ~/.local/bin "$(python3 -msite --user-base)/bin" ${path} )
+
+autoload -Uz compinit && compinit
+autoload -Uz +X bashcompinit && bashcompinit
 
 autoload -U colors
 colors
