@@ -22,7 +22,6 @@ local sources = {
   null_ls.builtins.formatting.eslint,
   null_ls.builtins.formatting.prettier,
   null_ls.builtins.formatting.rubocop,
-  null_ls.builtins.formatting.shellharden,
   null_ls.builtins.formatting.shfmt.with({
     extra_args = { "-i", "2", "-ci" },
   }),

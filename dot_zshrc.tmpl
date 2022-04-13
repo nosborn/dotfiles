@@ -1,17 +1,14 @@
-setopt HIST_FCNTL_LOCK
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt PROMPT_SP
 setopt PROMPT_SUBST
 setopt SHARE_HISTORY
 
-export HISTORY_IGNORE='(bg|cd *|exit|fg|pwd)'
-
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$((HISTSIZE/2))
 bindkey -e
 
 {{- if ne "" .bitbucket_team }}
@@ -58,6 +55,7 @@ export VISUAL=nvim
 alias diff='command diff -W${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
 alias sdiff='command sdiff -d -w${COLUMNS}'
+alias tg-clean='find . -type d -name .terragrunt-cache -prune -exec rm -rf {} \;'
 alias vi=nvim
 alias vim=nvim
 
