@@ -52,7 +52,6 @@ local sources = {
   null_ls.builtins.diagnostics.trail_space,
   null_ls.builtins.diagnostics.tsc,
   null_ls.builtins.diagnostics.vint,
-  null_ls.builtins.diagnostics.write_good,
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.zsh,
   -- Code actions
