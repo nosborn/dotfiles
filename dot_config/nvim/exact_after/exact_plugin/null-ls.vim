@@ -20,12 +20,14 @@ local sources = {
   null_ls.builtins.formatting.black,
   null_ls.builtins.formatting.codespell,
   null_ls.builtins.formatting.eslint,
-  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.prettier.with({
+    extra_filetypes = { "toml" },
+  }),
   null_ls.builtins.formatting.rubocop,
   null_ls.builtins.formatting.shfmt.with({
     extra_args = { "-i", "2", "-ci" },
   }),
-  null_ls.builtins.formatting.sqlfluff,
+  null_ls.builtins.formatting.stylua,
   null_ls.builtins.formatting.terraform_fmt.with({
     extra_filetypes = { "hcl" },
   }),

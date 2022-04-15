@@ -1,17 +1,19 @@
 scriptencoding utf-8
 
 lua <<EOT
-require'lualine'.setup {
+require("lualine").setup({
   options = {
     icons_enabled = false,
     theme = 'gruvbox',
+    component_separators = '|',
+    section_separators = '',
   },
   sections = {
     lualine_b = {
-      {'branch', icons_enabled = true},
+      { 'branch', icons_enabled = true },
       'diff',
       'diagnostics',
     },
   }
-}
+})
 EOT

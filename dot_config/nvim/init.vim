@@ -8,6 +8,7 @@ endif
 map Q <Nop>
 
 set ignorecase
+set laststatus=3
 set list
 set listchars=tab:»·,trail:▿,nbsp:▿
 set mouse=a

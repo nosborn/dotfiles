@@ -7,6 +7,7 @@ command -v npm >/dev/null 2>&1 || exit 0
 
 # Nothing to see here!
 packages="
+  prettier-plugin-toml
 "
 
 for package in ${packages}; do
