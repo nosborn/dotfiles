@@ -1,0 +1,2 @@
+-- vim.opt.guifont = "CascadiaCodePL-Regular:h18"
+-- vim.opt.laststatus = 2

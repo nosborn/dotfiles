@@ -26,16 +26,18 @@ pack hashivim/vim-terraform &
 pack jose-elias-alvarez/null-ls.nvim &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &
+pack numToStr/Comment.nvim &
 pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
 pack nvim-telescope/telescope.nvim &
 pack nvim-treesitter/nvim-treesitter &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
-pack tpope/vim-commentary &
 pack tpope/vim-endwise &
 pack tpope/vim-fugitive &
 wait
+
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 "$(brew --prefix neovim)/bin/nvim" -n --headless \
   -c 'helptags ALL' \

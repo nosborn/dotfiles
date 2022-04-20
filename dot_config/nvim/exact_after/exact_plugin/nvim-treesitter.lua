@@ -1,6 +1,3 @@
-scriptencoding utf-8
-
-lua <<EOF
 require("nvim-treesitter.configs").setup({
   ensure_installed = "all",
   highlight = {
@@ -8,4 +5,3 @@ require("nvim-treesitter.configs").setup({
   },
   sync_install = false,
 })
-EOF

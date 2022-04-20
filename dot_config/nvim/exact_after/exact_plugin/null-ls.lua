@@ -1,6 +1,3 @@
-scriptencoding utf-8
-
-lua <<EOT
 local null_ls = require("null-ls")
 local helpers = require("null-ls.helpers")
 
@@ -33,7 +30,7 @@ local sources = {
   null_ls.builtins.formatting.trim_newlines,
   null_ls.builtins.formatting.trim_whitespace,
   null_ls.builtins.formatting.xmllint.with({
-    extra_args = { '--nonet' },
+    extra_args = { "--nonet" },
   }),
   -- Diagnostics
   null_ls.builtins.diagnostics.actionlint,
@@ -81,11 +78,10 @@ local actionlint = {
       {
         pattern = ":(%d+):(%d+): (.+) %[.+%]",
         groups = { "row", "col", "message" },
-      }
+      },
     }),
     to_stdin = true,
   }),
 }
 
 null_ls.register(actionlint)
-EOT
