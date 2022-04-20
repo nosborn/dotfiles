@@ -51,6 +51,9 @@ disabled = true
 [ruby]
 disabled = true
 
+[shlvl]
+disabled = false
+
 [status]
 disabled = false
 
@@ -58,4 +61,4 @@ disabled = false
 disabled = false
 
 [terraform]
-detect_files = [".terraform-version"]
+detect_files = [".terraform-version", ".terragrunt-version"]
