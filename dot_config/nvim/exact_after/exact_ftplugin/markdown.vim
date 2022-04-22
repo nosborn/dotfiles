@@ -20,7 +20,7 @@ function! s:TableFormat()
   call search('|')
   normal! j
   " Remove everything that is not a pipe, colon or hyphen next to a colon
-  " othewise well formated tables would grow because of addition of 2 spaces
+  " otherwise well formatted tables would grow because of addition of 2 spaces
   " on the separator line by Tabularize /|.
   let l:flags = (&gdefault ? '' : 'g')
   execute 's/\(:\@<!-:\@!\|[^|:-]\)//e' . l:flags

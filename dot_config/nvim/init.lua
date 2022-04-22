@@ -1,5 +1,3 @@
--- scriptencoding utf-8
-
 -- " Use <C-L> to clear the highlighting of :set hlsearch.
 -- if maparg('<C-L>', 'n') ==# ''
 --   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
@@ -93,7 +91,6 @@ vim.g.highlight_sedtabs = 1
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
-vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
