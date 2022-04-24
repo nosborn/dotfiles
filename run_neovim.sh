@@ -22,7 +22,6 @@ pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
 pack gruvbox-community/gruvbox &
-pack hashivim/vim-terraform &
 pack jose-elias-alvarez/null-ls.nvim &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &
@@ -34,7 +33,6 @@ pack nvim-treesitter/nvim-treesitter &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
 pack tpope/vim-endwise &
-pack tpope/vim-fugitive &
 wait
 
 # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

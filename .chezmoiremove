@@ -1,2 +1,4 @@
 .config/nvim/ginit.vim
 .config/nvim/init.vim
+.share/local/nvim/site/pack/hashivim
+.share/local/nvim/site/pack/tpope/start/vim-fugitive
