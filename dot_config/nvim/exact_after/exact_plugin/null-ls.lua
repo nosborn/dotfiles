@@ -15,7 +15,7 @@ end
 local sources = {
   -- Formatting
   null_ls.builtins.formatting.black,
-  null_ls.builtins.formatting.eslint,
+  -- null_ls.builtins.formatting.eslint,
   null_ls.builtins.formatting.prettier.with({
     extra_filetypes = { "toml" },
   }),
@@ -33,12 +33,16 @@ local sources = {
     extra_args = { "--nonet" },
   }),
   -- Diagnostics
-  null_ls.builtins.diagnostics.actionlint,
+  null_ls.builtins.diagnostics.actionlint.with({
+    runtime_condition = function(params)
+      return params.bufname:match("/.github/workflows/") ~= nil
+    end,
+  }),
   null_ls.builtins.diagnostics.alex,
   null_ls.builtins.diagnostics.ansiblelint,
   null_ls.builtins.diagnostics.checkmake,
   null_ls.builtins.diagnostics.codespell,
-  null_ls.builtins.diagnostics.eslint,
+  -- null_ls.builtins.diagnostics.eslint,
   null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.diagnostics.gitlint,
   null_ls.builtins.diagnostics.hadolint,
@@ -53,7 +57,7 @@ local sources = {
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.zsh,
   -- Code actions
-  null_ls.builtins.code_actions.eslint,
+  -- null_ls.builtins.code_actions.eslint,
   null_ls.builtins.code_actions.gitsigns,
   null_ls.builtins.code_actions.shellcheck,
   -- Completion
@@ -63,25 +67,3 @@ null_ls.setup({
   on_attach = on_attach,
   sources = sources,
 })
-
-local actionlint = {
-  method = null_ls.methods.DIAGNOSTICS,
-  filetypes = { "yaml.gha" },
-  generator = null_ls.generator({
-    args = { "-no-color", "-oneline", "-" },
-    check_exit_code = function(code)
-      return code <= 1
-    end,
-    command = "actionlint",
-    format = "line",
-    on_output = helpers.diagnostics.from_patterns({
-      {
-        pattern = ":(%d+):(%d+): (.+) %[.+%]",
-        groups = { "row", "col", "message" },
-      },
-    }),
-    to_stdin = true,
-  }),
-}
-
-null_ls.register(actionlint)
