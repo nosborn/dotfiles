@@ -1,11 +1,7 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 ---
-minimum_pre_commit_version: !!str 2.17
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -27,3 +23,5 @@ repos:
       - id: requirements-txt-fixer
       - id: trailing-whitespace
         exclude: ^dot_config/git/ignore$
+
+minimum_pre_commit_version: !!str 2.18
