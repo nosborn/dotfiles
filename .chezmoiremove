@@ -1,4 +1,12 @@
+.azure/
+.config/fish/
 .config/nvim/ginit.vim
 .config/nvim/init.vim
+.local/bin/catj
+.local/bin/j2lint
+.local/bin/ppyaml
 .share/local/nvim/site/pack/hashivim
 .share/local/nvim/site/pack/tpope/start/vim-fugitive
+.terraformrc
+.tflint.d/plugins/tflint-ruleset-azurerm
+.viminfo

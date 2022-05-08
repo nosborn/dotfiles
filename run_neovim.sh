@@ -35,8 +35,6 @@ pack pearofducks/ansible-vim &
 pack tpope/vim-endwise &
 wait
 
-# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 "$(brew --prefix neovim)/bin/nvim" -n --headless \
   -c 'helptags ALL' \
   -c 'quit'

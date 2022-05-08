@@ -5,11 +5,9 @@ set -o nounset
 
 readonly VERSION=0.24
 
-if [ ! -e "mbt-${VERSION}" ]; then
+if [ ! -s "mbt-${VERSION}" ]; then
   curl -fLsS -o "mbt-${VERSION}" \
     "https://github.com/mbtproject/mbt/releases/download/v${VERSION}/mbt_{{ .chezmoi.os }}_x86_64"
 fi
 chmod +x "mbt-${VERSION}"
 ln -sf "mbt-${VERSION}" mbt
-
-# vim: ft=sh
