@@ -20,12 +20,15 @@ pack() {
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
+pack folke/trouble.nvim &
 pack godlygeek/tabular &
 pack gruvbox-community/gruvbox &
 pack jose-elias-alvarez/null-ls.nvim &
+pack kyazdani42/nvim-web-devicons &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &
 pack numToStr/Comment.nvim &
+pack neovim/nvim-lspconfig &
 pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
 pack nvim-telescope/telescope.nvim &

@@ -5,8 +5,8 @@ set -o nounset
 
 command -v npm >/dev/null 2>&1 || exit 0
 
-# Nothing to see here!
 packages="
+  typescript-language-server
   prettier-plugin-toml
 "
 

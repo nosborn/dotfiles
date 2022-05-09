@@ -10,7 +10,12 @@ require("lualine").setup({
     lualine_b = {
       { "branch", icons_enabled = true },
       "diff",
-      "diagnostics",
+      { "diagnostics", icons_enabled = true },
+    },
+    lualine_x = {
+      "encoding",
+      "fileformat",
+      { "filetype", icons_enabled = true },
     },
   },
 })
