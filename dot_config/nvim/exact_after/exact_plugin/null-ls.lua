@@ -38,7 +38,6 @@ local sources = {
       return params.bufname:match("/.github/workflows/") ~= nil
     end,
   }),
-  null_ls.builtins.diagnostics.alex,
   null_ls.builtins.diagnostics.ansiblelint,
   null_ls.builtins.diagnostics.checkmake,
   null_ls.builtins.diagnostics.codespell,
