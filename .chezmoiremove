@@ -6,8 +6,10 @@
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
-.share/local/nvim/site/pack/hashivim
-.share/local/nvim/site/pack/tpope/start/vim-fugitive
+.local/share/nvim/site/pack/folke/start/trouble.nvim
+.local/share/nvim/site/pack/hashivim
+.local/share/nvim/site/pack/neovim/start/nvim-lspconfig
+.local/share/nvim/site/pack/tpope/start/vim-fugitive
 .terraformrc
 .tflint.d/plugins/tflint-ruleset-azurerm
 .viminfo
