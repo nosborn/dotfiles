@@ -8,8 +8,9 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile .ansible-lint       set filetype=yaml
   autocmd! BufRead,BufNewFile .chezmoiignore      set filetype=gitignore
   autocmd! BufRead,BufNewFile .envrc.example      set filetype=direnv
+  autocmd! BufRead,BufNewFile .gomtemplateignore  set filetype=gitignore
   autocmd! BufRead,BufNewFile .markdownlintignore set filetype=gitignore
-  autocmd! BufRead,BufNewFile .markdownlintrc     set filetype=json
+  autocmd! BufRead,BufNewFile .markdownlintrc     set filetype=yaml
   autocmd! BufRead,BufNewFile .prettierignore     set filetype=gitignore
   autocmd! BufRead,BufNewFile .prettierrc         set filetype=yaml
   autocmd! BufRead,BufNewFile .yamllint           set filetype=yaml

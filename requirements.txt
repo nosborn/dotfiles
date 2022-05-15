@@ -1,2 +1,3 @@
-pyflakes == 2.4.0
-pyyaml == 6.0
+identify==2.5.0
+pyflakes==2.4.0
+pyyaml==6.0
