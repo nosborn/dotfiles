@@ -5,3 +5,8 @@ require("nvim-treesitter.configs").setup({
   },
   sync_install = false,
 })
+
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+
+--- autocmd BufReadPost,FileReadPost * normal zR

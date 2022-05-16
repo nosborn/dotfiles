@@ -12,4 +12,3 @@
 .local/share/nvim/site/pack/tpope/start/vim-fugitive
 .terraformrc
 .tflint.d/plugins/tflint-ruleset-azurerm
-.viminfo
