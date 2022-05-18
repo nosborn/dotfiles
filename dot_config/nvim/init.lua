@@ -82,6 +82,8 @@ vim.g.ansible_unindent_after_newline = 1
 
 vim.g.bash_is_sh = 1
 
+vim.g.direnv_silent_load = 1
+
 vim.g.gruvbox_contrast_dark = "hard"
 vim.g.gruvbox_italic = 1
 
