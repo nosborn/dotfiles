@@ -6,11 +6,6 @@
 -- map Q <Nop>
 
 vim.opt.backup = false
-vim.opt.fillchars = {
-  fold = " ",
-}
-vim.opt.foldnestmax = 3
-vim.opt.foldtext = "getline(v:foldstart).'...'.trim(getline(v:foldend))"
 vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true

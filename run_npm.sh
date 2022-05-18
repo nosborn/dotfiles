@@ -16,7 +16,7 @@ for package in ${packages}; do
   else
     command=install
   fi
-  npm "${command}" --global --prefix="${HOME}/.local" --production "${package}"
+  npm "${command}" --global --omit=dev --prefix="${HOME}/.local" "${package}"
 done
 
 exit 0

@@ -15,7 +15,6 @@ issuesSections:
   - title: Assigned
     filters: is:open assignee:@me
   - title: Subscribed
-    # filters: is:open -author:@me repo:microsoft/vscode repo:dlvhdr/gh-dash
     filters: is:open -author:@me
 
 defaults:
