@@ -19,7 +19,7 @@ pack() {
 
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
-pack fatih/vim-go &
+# pack fatih/vim-go & -- also .chezmoiremove
 pack godlygeek/tabular &
 pack gruvbox-community/gruvbox &
 pack jose-elias-alvarez/null-ls.nvim &
