@@ -7,7 +7,6 @@
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
-.local/share/nvim/site/pack/fatih/
 .local/share/nvim/site/pack/folke/start/trouble.nvim/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
