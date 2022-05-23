@@ -12,9 +12,10 @@ rules:
     min-spaces-from-content: 1 # agree with Prettier
   document-end:
     present: false
+  empty-lines:
+    max: 1
   indentation:
     spaces: 2
-    indent-sequences: true
   line-length:
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true

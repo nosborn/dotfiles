@@ -99,6 +99,11 @@ fi
 # Do at end.
 if [[ -e {{ .homebrew_prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
   source {{ .homebrew_prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+  # Temporary fix:
+  if [[ $(uname -a) = (#i)*darwin* ]] {
+    typeset -gA FAST_HIGHLIGHT
+    FAST_HIGHLIGHT[chroma-man]=
+  }
 elif [[ -e {{ .homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source {{ .homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
