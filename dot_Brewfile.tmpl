@@ -46,10 +46,10 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'exiftool'
   brew 'fd'
   brew 'flake8'
-  cask 'font-sauce-code-pro-nerd-font'
+  cask 'font-sauce-code-pro-nerd-font', require_sha: true
   brew 'gh'
   brew 'git-trim'
-  cask 'gitify'
+  cask 'gitify', require_sha: true
   brew 'gitlint'
   brew 'glow'
   brew 'go'
@@ -66,17 +66,17 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   # brew 'lesspipe'
   brew 'lua'
   brew 'markdownlint-cli'
-  cask 'monitorcontrol'
+  cask 'monitorcontrol', require_sha: true
   brew 'neovim'
   brew 'node@16'
-  cask 'oversight'
+  cask 'oversight', require_sha: true
   brew 'packer'
   brew 'parallel'
   brew 'pinentry-mac'
   brew 'pre-commit'
   brew 'prettier'
   brew 'pwgen'
-  cask 'rectangle'
+  cask 'rectangle', require_sha: true
   brew 'rg'
   brew 'ruby'
   brew 'shellcheck'
@@ -91,11 +91,11 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'tfsec'
   brew 'tfupdate'
   brew 'typescript'
-  cask 'vagrant'
-  cask 'vimr'
+  cask 'vagrant', require_sha: true
+  cask 'vimr', require_sha: true
   brew 'vint'
-  cask 'virtualbox'
-  cask 'virtualbox-extension-pack'
+  cask 'virtualbox', require_sha: true
+  cask 'virtualbox-extension-pack', require_sha: true
   brew 'yamllint'
   brew 'yq'
 end
@@ -112,17 +112,17 @@ end
 
 if '{{ .where }}' == 'work'
   brew 'cloud-nuke'
-  cask 'google-drive'
+  cask 'google-drive', require_sha: true
   brew 'helm'
   brew 'helmfile'
   brew 'kops'
   brew 'kubectl'
   brew 'kubectx'
   brew 'kubie'
-  cask 'lastpass'
+  cask 'lastpass', require_sha: true
   brew 'lastpass-cli'
-  cask 'pritunl'
-  cask 'slack'
+  cask 'pritunl', require_sha: true
+  cask 'slack', require_sha: true
   brew 'terraform-docs'
   brew 'tfenv'
   brew 'tgenv', args: ['HEAD'] # for TGENV_AUTO_INSTALL
