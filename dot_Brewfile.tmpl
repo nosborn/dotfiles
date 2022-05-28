@@ -54,7 +54,8 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'gitlint'
   brew 'glow'
   brew 'go'
-  # brew 'gopls'
+  brew 'golangci-lint'
+  brew 'gopls'
   cask 'google-chrome'
   brew 'gomplate'
   brew 'gpg2'
@@ -127,6 +128,7 @@ if '{{ .where }}' == 'work'
   brew 'terraform-docs'
   brew 'tfenv'
   brew 'tgenv', args: ['HEAD'] # for TGENV_AUTO_INSTALL
+  cask 'visual-studio-code'
 end
 
 # vim: ft=ruby

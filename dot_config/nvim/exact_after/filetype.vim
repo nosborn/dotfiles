@@ -1,5 +1,6 @@
 augroup filetypedetect
   autocmd! BufRead,BufNewFile *.json.tmpl              set filetype=json.gotexttmpl
+  autocmd! BufRead,BufNewFile *.lua.tmpl               set filetype=lua.gotexttmpl
   autocmd! BufRead,BufNewFile *.md.tmpl                set filetype=markdown.gotexttmpl
   autocmd! BufRead,BufNewFile *.sh.tmpl                set filetype=sh.gotexttmpl
   autocmd! BufRead,BufNewFile *.toml.tmpl              set filetype=toml.gotexttmpl
