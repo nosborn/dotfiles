@@ -40,6 +40,7 @@ local sources = {
   null_ls.builtins.diagnostics.sqlfluff,
   null_ls.builtins.diagnostics.trail_space,
   null_ls.builtins.diagnostics.tsc,
+  null_ls.builtins.diagnostics.vale,
   null_ls.builtins.diagnostics.vint,
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.zsh,
