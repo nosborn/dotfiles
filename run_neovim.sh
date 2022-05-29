@@ -18,11 +18,11 @@ pack() {
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
 pack direnv/direnv.vim &
-pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
 pack gruvbox-community/gruvbox &
 pack jose-elias-alvarez/null-ls.nvim &
+pack jvirtanen/vim-hcl &
 pack kyazdani42/nvim-web-devicons &
 pack lewis6991/gitsigns.nvim &
 pack lukas-reineke/indent-blankline.nvim &

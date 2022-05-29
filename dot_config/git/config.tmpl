@@ -61,8 +61,8 @@
 	cachetextconv = true
 	textconv = exiftool
 
-; [diff "sops"]
-; 	textconv = sops --decrypt
+[diff "sops"]
+	textconv = sopsx --decrypt --config /dev/null
 
 [diff "zipinfo"]
 	cachetextconv = true

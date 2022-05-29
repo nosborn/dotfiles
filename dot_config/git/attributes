@@ -1,3 +1,4 @@
+*.bash diff=bash
 *.bmp diff=exiftool
 *.c diff=cpp
 *.cpp diff=cpp
@@ -9,12 +10,21 @@
 *.java diff=java
 *.jpeg diff=exiftool
 *.jpg diff=exiftool
+*.kt diff=kotlin
 *.markdown diff=markdown
 *.md diff=markdown
+*.php diff=php
 *.pl diff=perl
 *.png diff=exiftool
 *.py diff=python
 *.rb diff=ruby
+*.rs diff=rust
+*.sh diff=bash
+*.sops.env diff=sops
+*.sops.ini diff=sops
+*.sops.json diff=sops
+# *.sops.yaml diff=sops
+# *.sops.yml diff=sops
 *.tf diff=terraform
 *.zip diff=zipinfo
 vault.yml diff=ansible-vault
