@@ -4,13 +4,13 @@ set -o errexit
 set -o nounset
 
 pack() {
-  [ -d "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${1#*/}/.git" ] || {
+  [ -d "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}/.git" ] || {
     git clone --depth 1 --no-tags --single-branch -- \
       "https://github.com/${1}.git" \
-      "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${1#*/}"
+      "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}"
   }
   (
-    cd "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${1#*/}" || exit
+    cd "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}" || exit
     git pull --ff-only --no-tags --prune
   )
 }

@@ -12,6 +12,7 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile .prettierignore     set filetype=gitignore
   autocmd BufRead,BufNewFile .prettierrc         set filetype=yaml
   autocmd BufRead,BufNewFile .yamllint           set filetype=yaml
+  autocmd BufRead,BufNewFile CODEOWNERS          set noexpandtab shiftwidth=8 tabstop=8
   autocmd BufRead,BufNewFile Vagrantfile         set filetype=ruby
   autocmd BufRead,BufNewFile unbound.conf.j2     set noexpandtab shiftwidth=8 tabstop=8
 augroup END

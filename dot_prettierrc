@@ -17,3 +17,5 @@ overrides:
       - .yamllint
     options:
       parser: yaml
+
+# vim: ft=yaml
