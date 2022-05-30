@@ -15,12 +15,6 @@ if [ -d /Applications/Rectangle.app ]; then
   defaults write -app Rectangle subsequentExecutionMode -bool true
 fi
 
-if [ -d /Applications/VimR.app ]; then
-  defaults write -app VimR SUEnableAutomaticChecks -bool false
-  defaults write -app VimR SUHasLaunchedBefore -bool true
-  defaults write -app VimR SUSendProfileInfo -bool false
-fi
-
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
   if xattr "${link}" | grep -Fqx com.apple.quarantine; then
     xattr -d -v com.apple.quarantine "${link}"

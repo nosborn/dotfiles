@@ -2,8 +2,10 @@
 .config/fish/
 .config/git/config.*
 .config/nvim/ftdetect/
+.config/nvim/ginit.lua
 .config/nvim/ginit.vim
 .config/nvim/init.vim
+.config/proselint/
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml

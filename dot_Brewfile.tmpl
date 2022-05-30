@@ -18,7 +18,6 @@ brew 'starship'
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-fast-syntax-highlighting'
-# brew 'zsh-syntax-highlighting'
 
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   tap 'homebrew/cask-fonts'
@@ -55,9 +54,9 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'glow'
   brew 'go'
   brew 'golangci-lint'
-  brew 'gopls'
-  cask 'google-chrome'
   brew 'gomplate'
+  cask 'google-chrome'
+  brew 'gopls'
   brew 'gpg2'
   brew 'hadolint'
   brew 'hcledit'
@@ -95,7 +94,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'typescript'
   cask 'vagrant', require_sha: true
   brew 'vale'
-  cask 'vimr', require_sha: true
   brew 'vint'
   cask 'virtualbox', require_sha: true
   cask 'virtualbox-extension-pack', require_sha: true
