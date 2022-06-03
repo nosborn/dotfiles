@@ -11,12 +11,12 @@ packages="
 "
 
 for package in ${packages}; do
-  if npm ls --global --prefix="${HOME}/.local" "${package}" >/dev/null; then
+  if npm ls --location=global --prefix="${HOME}/.local" "${package}" >/dev/null; then
     command=update
   else
     command=install
   fi
-  npm "${command}" --global --omit=dev --prefix="${HOME}/.local" "${package}"
+  npm "${command}" --location=global --omit=dev --prefix="${HOME}/.local" "${package}"
 done
 
 exit 0
