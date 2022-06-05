@@ -30,6 +30,7 @@ vim.opt.spell = false
 vim.opt.spelllang = "en_gb"
 vim.opt.swapfile = false
 -- vim.opt.tags = './tags;,tags'
+vim.opt.termguicolors = true
 vim.opt.ttimeout = true
 -- set viminfo-=!
 vim.opt.updatetime = 250
@@ -118,7 +119,6 @@ vim.g.vimsyn_embed = "l"
 vim.cmd([[colorscheme gruvbox]])
 
 if vim.env.TERM_PROGRAM == "Apple_Terminal" then
-  vim.opt.mouse = "a"
   -- let &t_ZH = "\e[3m"
   -- let &t_ZR = "\e[23m"
 end

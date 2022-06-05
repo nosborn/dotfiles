@@ -8,3 +8,5 @@ require("gitsigns").setup({
     relative_time = true,
   },
 })
+
+vim.api.nvim_set_keymap("n", "<Leader>gp", "<CMD>Gitsigns preview_hunk<CR>", { noremap = true })

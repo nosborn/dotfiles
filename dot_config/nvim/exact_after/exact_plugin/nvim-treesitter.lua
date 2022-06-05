@@ -24,6 +24,7 @@ require("nvim-treesitter.configs").setup({
     "regex",
     "rego",
     "ruby",
+    "swift",
     "toml",
     "typescript",
     "vim",
@@ -31,5 +32,6 @@ require("nvim-treesitter.configs").setup({
   },
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = true,
   },
 })
