@@ -31,6 +31,7 @@ pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
 pack nvim-telescope/telescope.nvim &
 pack nvim-treesitter/nvim-treesitter &
+pack nvim-treesitter/nvim-treesitter-textobjects &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
 pack tpope/vim-endwise &

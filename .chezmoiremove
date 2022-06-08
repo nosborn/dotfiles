@@ -1,6 +1,7 @@
 .azure/
 .config/fish/
 .config/git/config.*
+.config/nvim/after/plugin/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
