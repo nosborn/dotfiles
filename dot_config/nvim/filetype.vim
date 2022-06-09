@@ -14,5 +14,6 @@ augroup filetypedetect
   autocmd BufRead,BufNewFile .yamllint           set filetype=yaml
   autocmd BufRead,BufNewFile CODEOWNERS          set noexpandtab shiftwidth=8 tabstop=8
   autocmd BufRead,BufNewFile Vagrantfile         set filetype=ruby
+  autocmd BufRead,BufNewFile tsconfig.json       set filetype=jsonc
   autocmd BufRead,BufNewFile unbound.conf.j2     set noexpandtab shiftwidth=8 tabstop=8
 augroup END
