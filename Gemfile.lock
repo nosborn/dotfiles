@@ -10,11 +10,11 @@ GEM
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
-    escape_utils (1.2.1)
+    escape_utils (1.2.2)
     eventmachine (1.2.7)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
-    github-linguist (7.20.0)
+    github-linguist (7.21.0)
       charlock_holmes (~> 0.7.7)
       escape_utils (~> 1.2.0)
       mini_mime (~> 1.0)
@@ -97,7 +97,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  github-linguist (= 7.20.0)
+  github-linguist (= 7.21.0)
   jekyll (= 4.2.2)
   just-the-docs (= 0.3.3)
   kramdown-parser-gfm (= 1.1.0)
