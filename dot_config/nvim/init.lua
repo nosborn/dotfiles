@@ -13,7 +13,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 2
 vim.opt.shortmess = vim.opt.shortmess + "I"
-vim.opt.showcmd = true
+vim.opt.showcmd = false
 vim.opt.showmatch = true
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 5
@@ -47,8 +47,6 @@ vim.opt.wildignore = {
 }
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
-vim.g.AngryReviewerEnglish = "british"
 
 vim.g.ansible_extra_keywords_highlight = 1
 vim.g.ansible_name_highlight = "d"
@@ -103,11 +101,6 @@ vim.g.vim_json_conceal = 0
 vim.g.vimsyn_embed = "l"
 
 vim.cmd([[colorscheme gruvbox]])
-
-if vim.env.TERM_PROGRAM == "Apple_Terminal" then
-  --let &t_ZH = "\e[3m"
-  --let &t_ZR = "\e[23m"
-end
 
 vim.diagnostic.config({
   virtual_text = false,
