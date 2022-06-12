@@ -33,14 +33,13 @@
 .lesshst
 .node_repl_history
 .terraform
-.terraform.d
 .terragrunt-cache
 .tflint.d
 .vagrant
 .zcompcache
 .zcompdump
 .zsh_sessions
-Icon
+
 NetrwTreeListing
 Network Trash Folder
 Temporary Items
