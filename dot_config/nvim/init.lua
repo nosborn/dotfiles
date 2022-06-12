@@ -92,7 +92,7 @@ vim.g.markdown_fenced_languages = {
   "hcl",
   "json",
   "sh",
-  --"terraform",
+  "terraform=hcl",
   "yaml",
   "zsh",
 }
