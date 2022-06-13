@@ -11,7 +11,7 @@ pack() {
   }
   (
     cd "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}" || exit
-    git pull --ff-only --no-tags --prune
+    git pull --no-tags --prune
   )
 }
 
