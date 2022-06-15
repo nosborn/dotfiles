@@ -7,6 +7,7 @@
 .config/nvim/ginit.vim
 .config/nvim/init.vim
 .config/proselint/
+.config/tig/
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml

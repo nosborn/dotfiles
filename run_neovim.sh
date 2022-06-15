@@ -17,6 +17,7 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
+pack catppuccin/nvim catppuccin &
 pack direnv/direnv.vim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
