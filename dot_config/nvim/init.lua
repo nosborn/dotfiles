@@ -100,7 +100,7 @@ vim.g.vim_json_conceal = 0
 
 vim.g.vimsyn_embed = "l"
 
---vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme gruvbox]])
 
 vim.diagnostic.config({
   virtual_text = false,
@@ -117,10 +117,6 @@ vim.cmd([[
 ]])
 
 require("Comment").setup()
-
-require("catppuccin").setup()
-vim.g.catppuccin_flavour = "mocha"
-vim.cmd([[colorscheme catppuccin]])
 
 require("gitsigns").setup({
   current_line_blame = true,
@@ -141,7 +137,7 @@ require("indent_blankline").setup({
 require("lualine").setup({
   options = {
     icons_enabled = false,
-    theme = "catppuccin",
+    theme = "gruvbox",
     component_separators = "│",
     section_separators = "",
     globalstatus = true,

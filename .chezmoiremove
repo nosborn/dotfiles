@@ -1,4 +1,5 @@
 .azure/
+.config/bat/themes/
 .config/fish/
 .config/git/config.*
 .config/nvim/after/plugin/
@@ -8,6 +9,10 @@
 .config/nvim/init.vim
 .config/proselint/
 .config/tig/
+.config/kitty/themes/catppuccin-frappe.conf
+.config/kitty/themes/catppuccin-latte.conf
+.config/kitty/themes/catppuccin-macchiato.conf
+.config/kitty/themes/catppuccin-mocha.conf
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
