@@ -8,7 +8,8 @@ case "$(uname)" in
     esac
     PATH=/usr/sbin:/usr/bin:/sbin:/bin
     if [ ! -e "${PREFIX:?}/bin/brew" ]; then
-      bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      install="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      bash -c "${install}"
     fi
     PATH="${PREFIX:?}/bin:${PATH}"
     if ! command -v chezmoi >/dev/null 2>&1; then

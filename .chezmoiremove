@@ -1,12 +1,12 @@
 .azure/
 .config/bat/themes/
+.config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
-.config/nvim/after/plugin/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
-.config/nvim/init.vim
+.config/nvim/init.lua
 .config/proselint/
 .config/tig/
 .config/kitty/themes/catppuccin-frappe.conf
@@ -16,6 +16,7 @@
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
+.local/share/nvim/site/pack/catppuccin/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/hashivim/
