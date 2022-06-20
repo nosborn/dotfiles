@@ -1,7 +1,7 @@
 scriptencoding utf8
 
-set foldexpr=nvim_treesitter#foldexpr()
-set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
+" set foldmethod=expr
 set ignorecase
 set laststatus=3
 set list
@@ -87,10 +87,10 @@ colorscheme gruvbox
 
 lua <<EOT
 vim.diagnostic.config({
-  virtual_text = false,
   float = {
     focusable = false,
   },
+  virtual_text = false,
 })
 EOT
 
@@ -127,10 +127,10 @@ augroup AnsibleVault
   autocmd BufWritePost,FileWritePost */vars/*/vault.yml       silent undo
 augroup END
 
-augroup OpenAllFolds
-  autocmd!
-  autocmd Syntax * normal zR
-augroup END
+" augroup OpenAllFolds
+"   autocmd!
+"   autocmd Syntax * normal zR
+" augroup END
 
 augroup OpenDiagnosticFloat
   autocmd!
