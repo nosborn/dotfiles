@@ -17,6 +17,9 @@ disabled = true
 [directory]
 truncation_symbol = "…/"
 
+[git_branch]
+symbol = " "
+
 [git_commit]
 tag_disabled = false
 
@@ -61,4 +64,4 @@ disabled = false
 disabled = false
 
 [terraform]
-detect_files = [".terraform-version", ".terragrunt-version"]
+# detect_files = [".terraform-version", ".terragrunt-version"]
