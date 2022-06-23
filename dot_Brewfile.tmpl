@@ -64,13 +64,14 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'jinja2-cli'
   brew 'jsonlint'
   cask 'kitty'
+  brew 'kubectl'
+  brew 'kubectx'
   brew 'lua'
   brew 'markdownlint-cli'
   cask 'monitorcontrol', require_sha: true
   brew 'neovim'
   brew 'node@16'
   cask 'oversight', require_sha: true
-  brew 'packer'
   brew 'parallel'
   brew 'pinentry-mac'
   brew 'pre-commit'
@@ -91,11 +92,8 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'tflint'
   brew 'tfsec'
   brew 'typescript'
-  cask 'vagrant', require_sha: true
   brew 'vale'
   brew 'vint'
-  cask 'virtualbox', require_sha: true
-  cask 'virtualbox-extension-pack', require_sha: true
   brew 'yamllint'
   brew 'yq'
 end
@@ -113,13 +111,13 @@ if '{{ .where }}' == 'work'
   brew 'helm'
   brew 'helmfile'
   brew 'kops'
-  brew 'kubectl'
-  brew 'kubectx'
   brew 'kubie'
   cask 'lastpass', require_sha: true
   brew 'lastpass-cli'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
+  brew 'terraform@0.12'
+  brew 'terraform@0.13'
   brew 'terragrunt'
 end
 
