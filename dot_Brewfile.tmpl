@@ -21,7 +21,6 @@ brew 'zsh-fast-syntax-highlighting'
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   tap 'homebrew/cask-fonts'
   tap 'minamijoyo/hcledit'
-  tap 'minamijoyo/tfupdate'
 
   brew 'act'
   brew 'actionlint'
@@ -88,9 +87,9 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'stylua'
   brew 'teleport'
   brew 'telnet'
+  brew 'terraform'
   brew 'tflint'
   brew 'tfsec'
-  brew 'tfupdate'
   brew 'typescript'
   cask 'vagrant', require_sha: true
   brew 'vale'
@@ -105,8 +104,6 @@ if '{{ .where }}' == 'home'
   unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
     brew 'ansible'
     brew 'b2-tools'
-    brew 'terraform'
-    brew 'terragrunt'
   end
 end
 
@@ -123,10 +120,7 @@ if '{{ .where }}' == 'work'
   brew 'lastpass-cli'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
-  brew 'terraform-docs'
-  brew 'tfenv'
-  brew 'tgenv', args: ['HEAD'] # for TGENV_AUTO_INSTALL
-  cask 'visual-studio-code'
+  brew 'terragrunt'
 end
 
 # vim: ft=ruby
