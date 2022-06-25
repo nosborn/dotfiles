@@ -22,7 +22,7 @@ cdpath=( "${HOME}/src/github.com/{{ .github_user }}" ${cdpath} )
 {{- end }}
 cdpath=( . ${cdpath} )
 fpath=( "${HOME}/.local/share/zsh-completions" '{{ .homebrew_prefix }}/share/zsh-completions' ${fpath} )
-path=( '{{ .homebrew_prefix }}/sbin' ${path} )
+path=( '{{ .homebrew_prefix }}/bin' '{{ .homebrew_prefix }}/sbin' ${path} )
 if [[ -d '{{ .homebrew_prefix }}/opt/ruby' ]]; then
   path=( '{{ .homebrew_prefix }}/opt/ruby/bin' ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )

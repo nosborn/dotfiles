@@ -5,7 +5,7 @@ set -o nounset
 
 readonly VERSION=0.4.0
 
-command -v go >/dev/null || exit
+command -v go >/dev/null || exit 0
 
 if [ ! -s "terrafmt-${VERSION}" ]; then
   go install github.com/katbyte/terrafmt@v${VERSION}
@@ -13,5 +13,7 @@ if [ ! -s "terrafmt-${VERSION}" ]; then
 fi
 chmod +x "terrafmt-${VERSION}"
 ln -sf "terrafmt-${VERSION}" terrafmt
+
+exit 0
 
 # vim: ft=sh

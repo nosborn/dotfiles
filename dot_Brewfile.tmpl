@@ -53,12 +53,12 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'glow'
   brew 'go'
   brew 'golangci-lint'
-  brew 'gomplate'
   cask 'google-chrome'
   brew 'gopls'
   brew 'gpg2'
   brew 'hadolint'
   brew 'hcledit'
+  brew 'helm'
   brew 'http-prompt'
   brew 'httpie'
   brew 'jinja2-cli'
@@ -89,6 +89,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'teleport'
   brew 'telnet'
   brew 'terraform'
+  brew 'terragrunt'
   brew 'tflint'
   brew 'tfsec'
   brew 'typescript'
@@ -98,17 +99,15 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'yq'
 end
 
-if '{{ .where }}' == 'home'
-  unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
-    brew 'ansible'
-    brew 'b2-tools'
-  end
+if '{{ .where }}' == 'home' && !('{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini')
+  brew 'ansible'
+  brew 'b2-tools'
 end
 
 if '{{ .where }}' == 'work'
   brew 'cloud-nuke'
+  brew 'gomplate'
   cask 'google-drive', require_sha: true
-  brew 'helm'
   brew 'helmfile'
   brew 'kops'
   brew 'kubie'
@@ -118,7 +117,6 @@ if '{{ .where }}' == 'work'
   cask 'slack', require_sha: true
   brew 'terraform@0.12'
   brew 'terraform@0.13'
-  brew 'terragrunt'
 end
 
 # vim: ft=ruby
