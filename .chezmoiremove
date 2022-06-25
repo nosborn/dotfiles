@@ -17,7 +17,6 @@
 .local/bin/j2lint
 .local/bin/ppyaml
 .local/share/nvim/site/pack/catppuccin/
-.local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
