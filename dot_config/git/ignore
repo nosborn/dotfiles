@@ -33,6 +33,7 @@
 .lesshst
 .node_repl_history
 .terraform
+.terraform.tfstate.lock.info
 .terragrunt-cache
 .tflint.d
 .vagrant
