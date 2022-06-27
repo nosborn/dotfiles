@@ -89,8 +89,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'stylua'
   brew 'teleport'
   brew 'telnet'
-  brew 'terraform'
-  brew 'terragrunt'
   brew 'tflint'
   brew 'tfsec'
   brew 'typescript'
@@ -103,6 +101,8 @@ end
 if '{{ .where }}' == 'home' && !('{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini')
   brew 'ansible'
   brew 'b2-tools'
+  brew 'terraform'
+  brew 'terragrunt'
 end
 
 if '{{ .where }}' == 'work'
@@ -116,8 +116,8 @@ if '{{ .where }}' == 'work'
   brew 'lastpass-cli'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
-  brew 'terraform@0.12'
-  brew 'terraform@0.13'
+  brew 'tfenv'
+  brew 'tgenv'
 end
 
 # vim: ft=ruby
