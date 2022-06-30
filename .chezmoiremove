@@ -13,6 +13,7 @@
 .config/kitty/themes/catppuccin-latte.conf
 .config/kitty/themes/catppuccin-macchiato.conf
 .config/kitty/themes/catppuccin-mocha.conf
+.digrc
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
