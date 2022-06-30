@@ -31,9 +31,6 @@
 	autocrlf = input
 	editor = nvim
 {{- if eq .chezmoi.os "darwin" }}
-	fsmonitor = true
-{{- end }}
-{{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
 	pager = delta
