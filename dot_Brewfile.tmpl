@@ -32,7 +32,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'cmake' # for building gems
   brew 'codespell'
   brew 'colima'
-  brew 'conftest'
   brew 'corepack'
   brew 'diceware'
   brew 'docker'
@@ -62,7 +61,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'jsonlint'
   cask 'kitty'
   brew 'kubectl'
-  brew 'kubectx'
   brew 'lua'
   brew 'markdownlint-cli'
   # cask 'monitorcontrol', require_sha: true
@@ -100,10 +98,12 @@ if '{{ .where }}' == 'home' && !('{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini')
 end
 
 if '{{ .where }}' == 'work'
+  brew 'conftest'
   brew 'gomplate'
   cask 'google-drive', require_sha: true
   brew 'helmfile'
   brew 'kops'
+  brew 'kubectx'
   brew 'kubie'
   cask 'lastpass', require_sha: true
   brew 'lastpass-cli'

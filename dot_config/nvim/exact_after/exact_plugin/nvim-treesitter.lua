@@ -18,6 +18,8 @@ require("nvim-treesitter.configs").setup({
     "kotlin",
     "lua",
     "make",
+    -- "markdown",
+    -- "markdown_inline",
     "perl",
     "php",
     "python",
