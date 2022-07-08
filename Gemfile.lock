@@ -72,7 +72,7 @@ GEM
     regexp_parser (2.5.0)
     rexml (3.2.5)
     rouge (3.28.0)
-    rubocop (1.31.1)
+    rubocop (1.31.2)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
@@ -104,7 +104,7 @@ DEPENDENCIES
   jekyll (= 4.2.2)
   just-the-docs (= 0.3.3)
   kramdown-parser-gfm (= 1.1.0)
-  rubocop (= 1.31.1)
+  rubocop (= 1.31.2)
   webrick (= 1.7.0)
 
 BUNDLED WITH
