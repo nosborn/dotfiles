@@ -11,23 +11,33 @@ HISTSIZE=10000
 SAVEHIST=$((HISTSIZE/2))
 bindkey -e
 
-{{- if ne "" .bitbucket_team }}
-cdpath=( "${HOME}/src/bitbucket.org/{{ .bitbucket_team }}" ${cdpath} )
-{{- end }}
-{{- if ne "" .github_org }}
-cdpath=( "${HOME}/src/github.com/{{ .github_org }}" ${cdpath} )
-{{- end }}
-{{- if ne "" .github_user }}
-cdpath=( "${HOME}/src/github.com/{{ .github_user }}" ${cdpath} )
-{{- end }}
-cdpath=( . ${cdpath} )
-fpath=( "${HOME}/.local/share/zsh-completions" '{{ .homebrew_prefix }}/share/zsh-completions' ${fpath} )
-path=( '{{ .homebrew_prefix }}/bin' '{{ .homebrew_prefix }}/sbin' ${path} )
+cdpath=(
+  .
+  {{ if ne "" .github_user }}"${HOME}/src/github.com/{{ .github_user }}"{{ end }}
+  {{ if ne "" .github_org }}"${HOME}/src/github.com/{{ .github_org }}"{{ end }}
+  {{ if ne "" .bitbucket_team }}"${HOME}/src/bitbucket.org/{{ .bitbucket_team }}"{{ end }}
+  ${cdpath}
+)
+fpath=(
+  "${HOME}/.local/share/zsh-completions"
+  '{{ .homebrew_prefix }}/share/zsh-completions'
+  '{{ .homebrew_prefix }}/share/zsh/site-functions'
+  ${fpath}
+)
+path=(
+  '{{ .homebrew_prefix }}/bin'
+  '{{ .homebrew_prefix }}/sbin'
+  ${path}
+)
 if [[ -d '{{ .homebrew_prefix }}/opt/ruby' ]]; then
   path=( '{{ .homebrew_prefix }}/opt/ruby/bin' ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )
 fi
-path=( ~/.local/bin "$(python3 -msite --user-base)/bin" ${path} )
+path=(
+  ~/.local/bin
+  "$(python3 -msite --user-base)/bin"
+  ${path}
+)
 
 autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
