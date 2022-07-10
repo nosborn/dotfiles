@@ -17,7 +17,7 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
-pack cuducos/yaml.nvim &
+# pack cuducos/yaml.nvim &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
@@ -33,6 +33,7 @@ pack nvim-lua/plenary.nvim & # common dependency
 pack nvim-lualine/lualine.nvim &
 pack nvim-telescope/telescope.nvim &
 pack nvim-treesitter/nvim-treesitter &
+# pack nvim-treesitter/nvim-treesitter-context &
 pack nvim-treesitter/nvim-treesitter-textobjects &
 pack pangloss/vim-javascript &
 pack pearofducks/ansible-vim &
