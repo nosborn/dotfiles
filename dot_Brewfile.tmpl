@@ -58,7 +58,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'jinja2-cli'
   brew 'jsonlint'
   cask 'kitty'
-  brew 'kubectl'
+  brew 'kubernetes-cli'
   brew 'lua'
   brew 'markdownlint-cli'
   # cask 'monitorcontrol', require_sha: true
@@ -100,6 +100,7 @@ if '{{ .where }}' == 'work'
   brew 'conftest'
   brew 'gomplate'
   cask 'google-drive', require_sha: true
+  brew 'grep' # for tfenv
   brew 'helmfile'
   brew 'kops'
   brew 'kubectx'
