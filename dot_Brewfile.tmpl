@@ -69,6 +69,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'pinentry-mac'
   brew 'pre-commit'
   brew 'prettier'
+  brew 'protobuf'
   brew 'pwgen'
   cask 'rectangle', require_sha: true
   brew 'rg'
@@ -89,7 +90,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'yq'
 end
 
-if '{{ .where }}' == 'home' && !('{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini')
+if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
   brew 'ansible'
   brew 'b2-tools'
   brew 'terraform'

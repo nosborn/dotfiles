@@ -1,4 +1,7 @@
 ---
+AllCops:
+  NewCops: enable
+
 Naming/FileName:
   Exclude:
     - dot_Brewfile.tmpl
