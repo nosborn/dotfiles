@@ -94,16 +94,63 @@ colorscheme gruvbox
 lua <<EOT
 vim.diagnostic.config({
   float = {
+    border = "rounded",
     focusable = false,
+    header = "",
+    prefix = "",
+    source = "always",
+    style = "minimal",
   },
-  virtual_text = false,
+  severity_sort = true,
+  signs = {
+    active = signs,
+  },
+  underline = true,
+  update_in_insert = true,
+  virtual_text = {
+    prefix = "",
+  },
 })
 EOT
 
-sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+" lua <<EOT
+" vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+"   border = "single"
+" })
+"
+" vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+"   border = "single",
+"   focusable = true,
+"   relative = "cursor"
+" })
+"
+" -- Suppress error messages from language servers.
+" vim.notify = function(msg, log_level)
+"   if msg:match "exit code" then
+"     return
+"   end
+"   if log_level == vim.log.levels.ERROR then
+"     vim.api.nvim_err_writeln(msg)
+"   else
+"     vim.api.nvim_echo({ { msg } }, true, {})
+"   end
+" end
+"
+" -- Borders for LspInfo window.
+" local win = require "lspconfig.ui.windows"
+" local _default_opts = win.default_opts
+"
+" win.default_opts = function(options)
+"   local opts = _default_opts(options)
+"   opts.border = "single"
+"   return opts
+" end
+" EOT
+
+sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
-sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
+sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
+sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 
 nnoremap          <Leader>fb <Cmd>Telescope buffers<CR>
 nnoremap          <Leader>ff <Cmd>Telescope find_files<CR>
