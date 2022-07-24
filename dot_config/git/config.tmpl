@@ -1,3 +1,6 @@
+[add.interactive]
+	useBuiltin = false ; required for git 2.37.0
+
 [advice]
 	detachedHead = false
 	statusHints = false
@@ -45,15 +48,16 @@
 
 [delta]
 	features = line-numbers
-	light = false
+ 	light = false
 	navigate = true
+	syntax-theme = gruvbox-dark
 
 [diff]
-	algorithm = histogram
+;	algorithm = histogram
 	colorMoved = default
-	indentHeuristic = on
-	mnemonicprefix = true
-	renames = copies
+;	indentHeuristic = on
+;	mnemonicprefix = true
+;	renames = copies
 
 [diff "ansible-vault"]
 	textconv = ansible-vault view
@@ -86,8 +90,8 @@
 [init]
 	defaultBranch = main
 
-[interactive]
-	diffFilter = delta --color-only
+; [interactive]
+; 	diffFilter = delta --color-only
 
 [log]
 	date = human

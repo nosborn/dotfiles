@@ -107,9 +107,7 @@ vim.diagnostic.config({
   },
   underline = true,
   update_in_insert = true,
-  virtual_text = {
-    prefix = "",
-  },
+  virtual_text = false
 })
 EOT
 

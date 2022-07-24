@@ -102,6 +102,8 @@ if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
   _update_terminal_cwd
 fi
 
+zle_highlight=('paste:none')
+
 # Do at end.
 if [[ -e {{ .homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
   source {{ .homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh

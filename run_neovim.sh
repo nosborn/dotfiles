@@ -3,20 +3,24 @@
 set -o errexit
 set -o nounset
 
-pack() {
-  [ -d "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}/.git" ] || {
+_pack() {
+  [ -d "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}/.git" ] || {
     git clone --depth 1 --no-tags --single-branch -- \
-      "https://github.com/${1}.git" \
-      "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}"
+      "${1}" "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}"
   }
   (
-    cd "${HOME}/.local/share/nvim/site/pack/${1%/*}/start/${2:-${1#*/}}" || exit
+    cd "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}" || exit
     git pull --no-tags --prune
   )
 }
 
+pack() {
+  _pack "https://github.com/${1}.git" "${1%/*}" "${2:-${1#*/}}"
+}
+
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
+_pack https://git.sr.ht/~whynothugo/lsp_lines.nvim whynothugo lsp_lines.nvim &
 # pack cuducos/yaml.nvim &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
