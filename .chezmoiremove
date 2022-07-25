@@ -1,3 +1,4 @@
+.actrc
 .azure/
 .config/bat/themes/
 .config/direnv/direnvrc
@@ -22,7 +23,9 @@
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
+.local/share/vale/
 .terraformrc
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.0/
 .tflint.d/plugins/tflint-ruleset-azurerm/
+.vale.ini
 styles/

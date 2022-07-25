@@ -1,8 +1,0 @@
-{{- if eq .chezmoi.os "darwin" }}
---container-daemon-socket {{ .chezmoi.homeDir }}/.colima/docker.sock
-{{- end }}
---platform ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest
---platform ubuntu-20.04=ghcr.io/catthehacker/ubuntu:act-20.04
---platform ubuntu-18.04=ghcr.io/catthehacker/ubuntu:act-18.04
---platform self-hosted=ghcr.io/catthehacker/ubuntu:act-18.04
---rm

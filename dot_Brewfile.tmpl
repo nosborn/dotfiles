@@ -45,7 +45,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   cask 'font-sauce-code-pro-nerd-font', require_sha: true
   brew 'gh'
   brew 'git-trim'
-  brew 'gitlint'
   brew 'glow'
   brew 'go'
   brew 'golangci-lint'
@@ -84,7 +83,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'tflint'
   brew 'tfsec'
   brew 'typescript'
-  brew 'vale'
   brew 'vint'
   brew 'yamllint'
   brew 'yq'
@@ -98,6 +96,8 @@ if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
 end
 
 if '{{ .where }}' == 'work'
+  tap 'oktadeveloper/tap'
+
   brew 'conftest'
   brew 'gomplate'
   cask 'google-drive', require_sha: true
@@ -107,6 +107,7 @@ if '{{ .where }}' == 'work'
   brew 'kubectx'
   cask 'lastpass', require_sha: true
   brew 'lastpass-cli'
+  cask 'okta'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
   brew 'teleport'
