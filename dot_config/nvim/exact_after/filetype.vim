@@ -9,6 +9,7 @@ augroup filetypedetect
   autocmd! BufRead,BufNewFile *.vim.tmpl               set filetype=vim.gotexttmpl
   autocmd! BufRead,BufNewFile *.yaml.tmpl              set filetype=yaml.gotexttmpl
   autocmd! BufRead,BufNewFile *.yml.tmpl               set filetype=yaml.gotexttmpl
+  autocmd! BufRead,BufNewFile *.zsh.tmpl               set filetype=zsh.gotexttmpl
   autocmd! BufRead,BufNewFile .markdownlintignore.tmpl set filetype=gitignore.gotexttmpl
   autocmd! BufRead,BufNewFile .markdownlintrc.tmpl     set filetype=json.gotexttmpl
   autocmd! BufRead,BufNewFile .prettierignore.tmpl     set filetype=gitignore.gotexttmpl
