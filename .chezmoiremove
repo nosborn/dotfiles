@@ -30,4 +30,5 @@
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.0/
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
+.zsh/
 styles/

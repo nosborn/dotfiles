@@ -52,7 +52,7 @@ colors
 # autoload -Uz url-quote-magic
 # zle -N self-insert url-quote-magic
 
-for config_file (~/.zsh/lib/*.zsh); do
+for config_file (~/.zshrc.d/*.zsh); do
   source "${config_file}"
 done
 

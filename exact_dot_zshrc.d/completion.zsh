@@ -1,6 +1,13 @@
 zmodload -i zsh/complist
 
-autoload -U compinit && compinit
+autoload -Uz compinit
+if [[ "$(uname -s)" == Darwin ]]; then
+  compinit -d "${HOME}/Library/Caches/zsh/zcompdump"
+  zstyle ':completion:*' use-cache on
+  zstyle ':completion:*' cache-path "${HOME}/Library/Caches/zsh"
+else
+  compinit
+fi
 autoload -U +X bashcompinit && bashcompinit
 
 WORDCHARS=''
@@ -10,6 +17,8 @@ unsetopt flowcontrol
 setopt auto_menu # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
+
+zstyle ':completion:*' accept-exact '*(N)'
 
 # should this be in keybindings?
 bindkey -M menuselect '^o' accept-and-infer-next-history
