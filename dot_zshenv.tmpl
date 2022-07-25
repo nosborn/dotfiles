@@ -1,4 +1,10 @@
 export ANSIBLE_NOCOWS=1
+{{ if eq .chezmoi.os "darwin" -}}
+{{/* export BUNDLE_USER_HOME="${HOME}/.bundle" */ -}}
+export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
+{{/* export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config" */ -}}
+{{/* export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin" */ -}}
+{{ end -}}
 export CHECKPOINT_DISABLE=1 # Hashicorp
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
