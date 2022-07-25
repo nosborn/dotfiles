@@ -1,5 +1,6 @@
 .actrc
 .azure/
+.cache/starship/
 .config/bat/themes/
 .config/direnv/direnvrc
 .config/fish/
