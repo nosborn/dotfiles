@@ -3,13 +3,15 @@
 set -o errexit
 set -o nounset
 
-readonly VERSION=0.4.0
-
 command -v go >/dev/null || exit 0
+command -v jq >/dev/null || exit 0
+
+VERSION="$(curl -fsS https://api.github.com/repos/katbyte/terrafmt/releases/latest | jq -r .name | sed 's/^v//')"
+readonly VERSION
 
 if [ ! -s "terrafmt-${VERSION}" ]; then
-  go install github.com/katbyte/terrafmt@v${VERSION}
-  mv "${GOPATH:-"${HOME}/go"}/bin/terrafmt" "terrafmt-${VERSION}"
+  go install "github.com/katbyte/terrafmt@v${VERSION}"
+  cp -f "${GOPATH:-"${HOME}/go"}/bin/terrafmt" "terrafmt-${VERSION}"
 fi
 chmod +x "terrafmt-${VERSION}"
 ln -sf "terrafmt-${VERSION}" terrafmt

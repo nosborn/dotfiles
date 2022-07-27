@@ -23,7 +23,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   tap 'minamijoyo/hcledit'
 
   brew 'actionlint'
-  brew 'ansible-lint'
   brew 'aws-vault'
   brew 'awscli'
   brew 'bat'
@@ -59,6 +58,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   cask 'kitty'
   brew 'kubernetes-cli'
   brew 'lua'
+  brew 'luarocks'
   brew 'markdownlint-cli'
   # cask 'monitorcontrol', require_sha: true
   brew 'neovim'
@@ -90,6 +90,7 @@ end
 
 if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
   brew 'ansible'
+  brew 'ansible-lint'
   brew 'b2-tools'
   brew 'terraform'
   brew 'terragrunt'

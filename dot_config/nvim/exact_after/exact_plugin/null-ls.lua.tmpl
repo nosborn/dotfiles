@@ -33,7 +33,9 @@ null_ls.setup({
         return params.bufname:match("/.github/workflows/") ~= nil
       end,
     }),
+    {{ if ne .where "home" -}}
     null_ls.builtins.diagnostics.ansiblelint,
+    {{ end -}}
     null_ls.builtins.diagnostics.checkmake,
     null_ls.builtins.diagnostics.codespell,
     null_ls.builtins.diagnostics.editorconfig_checker,

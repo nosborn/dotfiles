@@ -5,8 +5,6 @@ set -o nounset
 
 readonly VERSION=0.24
 
-# [ "$(uname -m)" = x86_64 ] || exit 0
-
 if [ ! -s "mbt-${VERSION}" ]; then
   curl -fLsS -o "mbt-${VERSION}" \
     "https://github.com/mbtproject/mbt/releases/download/v${VERSION}/mbt_{{ .chezmoi.os }}_x86_64"
