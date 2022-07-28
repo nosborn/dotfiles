@@ -94,20 +94,12 @@ colorscheme gruvbox
 lua <<EOT
 vim.diagnostic.config({
   float = {
-    border = "rounded",
+    border = "single",
     focusable = false,
-    header = "",
-    prefix = "",
-    source = "always",
-    style = "minimal",
   },
   severity_sort = true,
-  signs = {
-    active = signs,
-  },
-  underline = true,
+  underline = false,
   update_in_insert = true,
-  virtual_text = false
 })
 EOT
 

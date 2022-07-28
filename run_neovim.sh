@@ -20,7 +20,6 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
-_pack https://git.sr.ht/~whynothugo/lsp_lines.nvim whynothugo lsp_lines.nvim &
 # pack cuducos/yaml.nvim &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
