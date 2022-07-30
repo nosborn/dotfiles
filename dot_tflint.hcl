@@ -20,6 +20,10 @@ rule "terraform_documented_variables" {
   enabled = true
 }
 
+rule "terraform_empty_list_equality" {
+  enabled = true
+}
+
 rule "terraform_naming_convention" {
   enabled = true
 }
