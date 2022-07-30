@@ -27,9 +27,11 @@
 	unmerged = red
 	untracked = magenta
 
+{{- if ne "" .git.signingkey }}
 [commit]
         gpgSign = true
 
+{{- end }}
 [core]
 	autocrlf = input
 	editor = nvim
@@ -122,16 +124,20 @@
 	relativePaths = false
 	showStash = true
 
+{{- if ne "" .git.signingkey }}
 [tag]
         gpgSign = true
 
+{{- end }}
 [transfer]
 	fsckobjects = true
 
 [user]
-	email = {{ .git_email }}
+	email = {{ .git.email }}
 	name = {{ .name }}
-	signingKey = {{ .git_signing_key }}
+{{- if ne "" .git.signingkey }}
+	signingKey = {{ .git.signingkey }}
+{{- end }}
 	useConfigOnly = true
 
 ; vim: ft=gitconfig.gohtmltmpl

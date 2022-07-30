@@ -1,19 +1,27 @@
-{{- $bitbucket_team := promptString "bitbucket_team" -}}
-{{- $git_email := promptString "git_email" -}}
-{{- $git_signing_key := promptString "git_signing_key" -}}
-{{- $github_org := promptString "github_org" -}}
-{{- $github_user := promptString "github_user" -}}
-{{- $where := promptString "where" -}}
+{{- $bitbucketTeam := promptStringOnce .bitbucket "team" "bitbucket.team" -}}
+{{- $gitEmail := promptStringOnce .git "email" "git.email" -}}
+{{- $gitSigningKey := promptStringOnce .git "signingKey" "git.signingKey" -}}
+{{- $githubOrg := promptStringOnce .github "org" "github.org" -}}
+{{- $githubUser := promptStringOnce .github "user" "github.user" -}}
+{{- $where := promptStringOnce . "where" "where" -}}
 
 [data]
-bitbucket_team = "{{ $bitbucket_team }}"
-git_email = "{{ $git_email }}"
-git_signing_key = "{{ $git_signing_key }}"
-github_org = "{{ $github_org }}"
-github_user = "{{ $github_user }}"
-homebrew_prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
 name = "Nick Osborn"
 where = "{{ $where }}"
+
+[data.bitbucket]
+team = "{{ $bitbucketTeam }}"
+
+[data.git]
+email = "{{ $gitEmail }}"
+signingKey = "{{ $gitSigningKey }}"
+
+[data.github]
+org = "{{ $githubOrg }}"
+user = "{{ $githubUser }}"
+
+[data.homebrew]
+prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
 
 [diff]
 pager = "less -R"

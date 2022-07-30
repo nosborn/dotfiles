@@ -1,9 +1,12 @@
 [whitelist]
 prefix = [
-{{- if ne "" .github_org }}
-  "{{ .chezmoi.homeDir }}/github.com/{{ .github_org }}",
+{{- if ne "" .bitbucket.team }}
+  "{{ .chezmoi.homeDir }}/src/github.com/{{ .bitbucket.team }}",
 {{- end }}
-{{- if ne "" .github_user }}
-  "{{ .chezmoi.homeDir }}/github.com/{{ .github_user }}"
+{{- if ne "" .github.org }}
+  "{{ .chezmoi.homeDir }}/src/github.com/{{ .github.org }}",
+{{- end }}
+{{- if ne "" .github.user }}
+  "{{ .chezmoi.homeDir }}/src/github.com/{{ .github.user }}"
 {{- end }}
 ]
