@@ -1,6 +1,6 @@
 cffi==1.15.1
 cryptography==37.0.4
-identify==2.5.2
+identify==2.5.3
 pyOpenSSL==22.0.0
 pyflakes==2.5.0
 pyyaml==6.0
