@@ -53,6 +53,8 @@ let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
 
+let g:catppuccin_flavour = 'mocha'
+
 let g:did_load_filetypes = 0
 
 let g:direnv_auto = 0
@@ -61,8 +63,8 @@ let g:do_filetype_lua = 1
 
 let g:glow_style = 'dark'
 
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = 1
+" let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_italic = 1
 
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
@@ -89,7 +91,8 @@ let g:vim_json_conceal = 0
 
 let g:vimsyn_embed = 'l'
 
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme catppuccin
 
 lua <<EOT
 vim.diagnostic.config({

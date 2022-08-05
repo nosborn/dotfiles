@@ -12,16 +12,12 @@
 .config/nvim/init.lua
 .config/proselint/
 .config/tig/
-.config/kitty/themes/catppuccin-frappe.conf
-.config/kitty/themes/catppuccin-latte.conf
-.config/kitty/themes/catppuccin-macchiato.conf
-.config/kitty/themes/catppuccin-mocha.conf
 .digrc
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
-.local/share/nvim/site/pack/catppuccin/
 .local/share/nvim/site/pack/folke/
+.local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/

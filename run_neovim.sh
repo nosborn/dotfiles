@@ -20,12 +20,12 @@ pack() {
 
 [ -e "$(brew --prefix nvim)/bin/nvim" ] || exit 0
 
+pack catppuccin/nvim catppuccin &
 # pack cuducos/yaml.nvim &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
 pack godlygeek/tabular &
-pack gruvbox-community/gruvbox &
 pack jose-elias-alvarez/null-ls.nvim &
 pack jvirtanen/vim-hcl &
 pack kyazdani42/nvim-web-devicons &
