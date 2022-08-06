@@ -63,9 +63,6 @@ let g:do_filetype_lua = 1
 
 let g:glow_style = 'dark'
 
-" let g:gruvbox_contrast_dark = 'hard'
-" let g:gruvbox_italic = 1
-
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
@@ -91,7 +88,6 @@ let g:vim_json_conceal = 0
 
 let g:vimsyn_embed = 'l'
 
-" colorscheme gruvbox
 colorscheme catppuccin
 
 lua <<EOT

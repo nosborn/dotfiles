@@ -1,8 +1,9 @@
-if exists('did_load_filetypes')
-  finish
-endif
+" if exists('did_load_filetypes')
+"   finish
+" endif
 
 augroup filetypedetect
+  autocmd BufRead,BufNewFile *.tmTheme           set filetype=xml
   autocmd BufRead,BufNewFile .ansible-lint       set filetype=yaml
   autocmd BufRead,BufNewFile .chezmoiignore      set filetype=gitignore
   autocmd BufRead,BufNewFile .envrc.example      set filetype=direnv

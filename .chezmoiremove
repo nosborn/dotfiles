@@ -2,7 +2,6 @@
 .azure/
 .bundle/
 .cache/starship/
-.config/bat/themes/
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
