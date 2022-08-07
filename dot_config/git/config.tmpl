@@ -27,11 +27,11 @@
 	unmerged = red
 	untracked = magenta
 
-{{- if ne "" .git.signingkey }}
 [commit]
+{{- if ne "" .git.signingkey }}
         gpgSign = true
-
 {{- end }}
+
 [core]
 	autocrlf = input
 	editor = nvim
@@ -49,10 +49,10 @@
 {{- end }}
 
 [delta]
-	features = line-numbers
+	features = line-numbers zebra-dark
  	light = false
 	navigate = true
-	syntax-theme = Catppuccin-Mocha
+;	syntax-theme = Catppuccin-Mocha
 
 [diff]
 ;	algorithm = histogram
@@ -92,8 +92,8 @@
 [init]
 	defaultBranch = main
 
-; [interactive]
-; 	diffFilter = delta --color-only
+[interactive]
+	diffFilter = delta --color-only
 
 [log]
 	date = human
@@ -124,11 +124,11 @@
 	relativePaths = false
 	showStash = true
 
-{{- if ne "" .git.signingkey }}
 [tag]
+{{- if ne "" .git.signingkey }}
         gpgSign = true
-
 {{- end }}
+
 [transfer]
 	fsckobjects = true
 
