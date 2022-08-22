@@ -5,6 +5,7 @@
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
+.config/kitty/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
