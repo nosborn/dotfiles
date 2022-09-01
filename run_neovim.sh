@@ -25,6 +25,7 @@ pack catppuccin/nvim catppuccin &
 pack direnv/direnv.vim &
 pack ellisonleao/glow.nvim &
 pack fatih/vim-go &
+pack folke/trouble.nvim &
 pack godlygeek/tabular &
 pack jose-elias-alvarez/null-ls.nvim &
 pack jvirtanen/vim-hcl &
