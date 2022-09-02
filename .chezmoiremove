@@ -16,7 +16,6 @@
 .local/bin/catj
 .local/bin/j2lint
 .local/bin/ppyaml
-.local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
