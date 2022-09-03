@@ -22,6 +22,7 @@ require("nvim-treesitter.configs").setup({
     -- "markdown_inline",
     "perl",
     "php",
+    "pug",
     "python",
     "regex",
     "rego",
