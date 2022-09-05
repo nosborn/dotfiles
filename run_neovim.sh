@@ -31,6 +31,7 @@ pack jose-elias-alvarez/null-ls.nvim &
 pack jvirtanen/vim-hcl &
 pack kyazdani42/nvim-web-devicons &
 pack lewis6991/gitsigns.nvim &
+pack lewis6991/spellsitter.nvim &
 pack lukas-reineke/indent-blankline.nvim &
 pack numToStr/Comment.nvim &
 pack nvim-lua/plenary.nvim & # common dependency
