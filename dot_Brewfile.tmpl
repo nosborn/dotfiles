@@ -80,6 +80,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'sqlfluff'
   brew 'stylua'
   brew 'telnet'
+  brew 'terraform'
   brew 'tflint'
   brew 'tfsec'
   brew 'typescript'
@@ -93,7 +94,6 @@ if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
   brew 'ansible'
   brew 'ansible-lint'
   brew 'b2-tools'
-  brew 'terraform'
 end
 
 if '{{ .where }}' == 'work'
@@ -103,7 +103,6 @@ if '{{ .where }}' == 'work'
   brew 'gomplate'
   cask 'google-drive', require_sha: true
   brew 'graphviz'
-  brew 'grep' # for tfenv
   brew 'helmfile'
   brew 'istioctl'
   brew 'kops'
@@ -114,8 +113,7 @@ if '{{ .where }}' == 'work'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
   brew 'teleport'
-  brew 'tfenv'
-  brew 'tgenv'
+  brew 'terragrunt'
 end
 
 # vim: ft=ruby

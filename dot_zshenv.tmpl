@@ -1,4 +1,6 @@
+{{ if eq .where "home" -}}
 export ANSIBLE_NOCOWS=1
+{{ end -}}
 {{ if eq .chezmoi.os "darwin" -}}
 {{/* export BUNDLE_USER_HOME="${HOME}/.bundle" */ -}}
 export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
@@ -29,9 +31,6 @@ export TF_CLI_ARGS_refresh='-compact-warnings'
 export TF_CLI_ARGS_test='-compact-warnings'
 export TF_IN_AUTOMATION=1
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
-{{ if and (eq .where "work") (ne .chezmoi.arch "amd64") -}}
-export TFENV_ARCH='{{ .chezmoi.arch }}'
-{{ end -}}
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
