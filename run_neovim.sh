@@ -5,12 +5,12 @@ set -o nounset
 
 _pack() {
   [ -d "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}/.git" ] || {
-    git clone --depth 1 --no-tags --single-branch -- \
+    git clone --depth 1 --single-branch -- \
       "${1}" "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}"
   }
   (
     cd "${HOME}/.local/share/nvim/site/pack/${2}/start/${3}" || exit
-    git pull --no-tags --prune
+    git pull --force
   )
 }
 
