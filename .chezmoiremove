@@ -20,6 +20,7 @@
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
+.local/share/terminfo/
 .local/share/vale/
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
