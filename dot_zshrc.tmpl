@@ -25,6 +25,10 @@ fpath=(
   '{{ .homebrew.prefix }}/share/zsh/site-functions'
   ${fpath}
 )
+manpath=(
+  '{{ .homebrew.prefix }}/share/man'
+  ${manpath}
+)
 path=(
   '{{ .homebrew.prefix }}/bin'
   '{{ .homebrew.prefix }}/sbin'
