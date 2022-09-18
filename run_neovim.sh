@@ -53,10 +53,6 @@ wait
   -c 'TSUpdateSync' \
   -c 'quit'
 
-"$(brew --prefix neovim)/bin/nvim" -n --headless \
-  -c 'CatppuccinCompile' \
-  -c 'quit'
-
 for add in ~/.config/nvim/spell/*.add; do
   "$(brew --prefix neovim)/bin/nvim" -n --headless --noplugin \
     -c "mkspell! ${add}" \
