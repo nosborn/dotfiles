@@ -5,6 +5,9 @@
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
+.config/kitty/themes/catppuccin-frappe.conf
+.config/kitty/themes/catppuccin-latte.conf
+.config/kitty/themes/catppuccin-macchiato.conf
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
@@ -14,11 +17,15 @@
 .config/wezterm/
 .digrc
 .local/bin/catj
+.local/bin/ec-2.4.0
 .local/bin/j2lint
+{{ if ne .where "work" }}.local/bin/mbt{{ end }}
+.local/bin/mbt-0.24
 .local/bin/ppyaml
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
+{{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
 .local/share/terminfo/
 .local/share/vale/
