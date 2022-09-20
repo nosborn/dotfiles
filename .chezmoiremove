@@ -35,4 +35,8 @@
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/
+{{ if ne .where "work" }}Library/Caches/com.google.Keystone/{{ end }}
+{{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.agent.plist{{ end }}
+{{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.xpcservice.plist{{ end }}
+{{ if ne .where "work" }}Library/Preferences/com.google.Keystone.Agent.plist{{ end }}
 styles/
