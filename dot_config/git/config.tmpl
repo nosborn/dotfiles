@@ -17,7 +17,7 @@
 	ui = auto
 
 [commit]
-{{- if ne "" .git.signingkey }}
+{{- if ne "" .git.signingKey }}
 	gpgSign = true
 {{- end }}
 
@@ -112,7 +112,7 @@
 	showStash = true
 
 [tag]
-{{- if ne "" .git.signingkey }}
+{{- if ne "" .git.signingKey }}
 	gpgSign = true
 {{- end }}
 
@@ -122,8 +122,8 @@
 [user]
 	email = {{ .git.email }}
 	name = {{ .name }}
-{{- if ne "" .git.signingkey }}
-	signingKey = {{ .git.signingkey }}
+{{- if ne "" .git.signingKey }}
+	signingKey = {{ .git.signingKey }}
 {{- end }}
 	useConfigOnly = true
 
