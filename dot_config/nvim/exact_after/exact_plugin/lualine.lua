@@ -12,6 +12,9 @@ require("lualine").setup({
       "diff",
       { "diagnostics", icons_enabled = true },
     },
+    lualine_c = {
+      { "filename", path = 1 },
+    },
     lualine_x = {
       "encoding",
       "fileformat",

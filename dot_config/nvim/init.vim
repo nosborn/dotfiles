@@ -10,7 +10,7 @@ set mouse=a
 set nobackup
 set noshowcmd
 set noshowmode
-set nospell
+" set nospell
 set noswapfile
 set nowrap
 set nowritebackup
@@ -24,16 +24,13 @@ set showmatch
 set sidescrolloff=5
 set signcolumn=yes
 set smarttab
+set spell
 set spelllang=en_gb
 " set tags=./tags;,tags
 set termguicolors
 set ttimeout
 set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/.terraform.d/**,**/.terragrunt-cache/**,**/node_modules/**
-
-" if $TERM_PROGRAM ==# 'Apple_Terminal'
-"   set notermguicolors
-" endif
 
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
@@ -59,11 +56,7 @@ let g:bash_is_sh = 1
 
 let g:catppuccin_flavour = 'mocha'
 
-let g:did_load_filetypes = 0
-
 let g:direnv_auto = 0
-
-let g:do_filetype_lua = 1
 
 let g:glow_style = 'dark'
 

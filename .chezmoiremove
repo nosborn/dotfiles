@@ -24,6 +24,7 @@
 .local/bin/ppyaml
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
+.local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
@@ -32,6 +33,8 @@
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.0/
+{{ if ne .where "work" }}.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.0/{{ end }}
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.17.0/
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/

@@ -29,7 +29,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'black'
   brew 'checkmake'
   brew 'cmake' # for building gems
-  brew 'codespell'
   brew 'colima'
   brew 'corepack'
   brew 'diceware'
@@ -99,6 +98,7 @@ end
 
 if '{{ .where }}' == 'work'
   tap 'oktadeveloper/tap'
+  tap 'turbot/tap'
 
   brew 'argocd'
   brew 'conftest'
@@ -115,8 +115,10 @@ if '{{ .where }}' == 'work'
   cask 'okta'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
+  brew 'steampipe'
   brew 'teleport'
   brew 'terragrunt'
+  brew 'terramate'
 end
 
 # vim: ft=ruby

@@ -1,14 +1,13 @@
 setlocal expandtab
 setlocal linebreak
 setlocal shiftwidth=2
-setlocal spell
 setlocal tabstop=2
 setlocal wrap
 
 if exists('b:undo_ftplugin')
-  let b:undo_ftplugin .= ' | setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
+  let b:undo_ftplugin .= ' | setlocal expandtab< filetype< linebreak< shiftwidth< tabstop< wrap<'
 else
-  let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< spell< tabstop< wrap<'
+  let b:undo_ftplugin = 'setlocal expandtab< filetype< linebreak< shiftwidth< tabstop< wrap<'
 endif
 
 " Stolen from https://github.com/plasticboy/vim-markdown
