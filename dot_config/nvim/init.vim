@@ -27,7 +27,7 @@ set smarttab
 set spell
 set spelllang=en_gb
 " set tags=./tags;,tags
-set termguicolors
+" set termguicolors
 set ttimeout
 set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/.terraform.d/**,**/.terragrunt-cache/**,**/node_modules/**
