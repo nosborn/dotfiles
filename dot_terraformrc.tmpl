@@ -1,13 +1,2 @@
 disable_checkpoint = true
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
-{{ if eq .where "work" }}
-provider_installation {
-  filesystem_mirror {
-    path    = "{{ .chezmoi.homeDir }}/.local/share/terraform/providers"
-    include = ["terraform.releases.teleport.dev/*/*"]
-  }
-  direct {
-    exclude = ["terraform.releases.teleport.dev/*/*"]
-  }
-}
-{{ end -}}
