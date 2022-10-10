@@ -23,6 +23,7 @@
 .local/bin/mbt-0.24
 .local/bin/ppyaml
 .local/share/nvim/shada/
+.local/share/nvim/site/pack/SmiteshP/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim

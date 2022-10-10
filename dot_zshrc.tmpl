@@ -25,6 +25,12 @@ fpath=(
   '{{ .homebrew.prefix }}/share/zsh/site-functions'
   ${fpath}
 )
+if [[ $(uname) == Darwin ]]; then
+  manpath=(
+    "$(xcode-select --print-path)/usr/share/man"
+    ${manpath}
+  )
+fi
 manpath=(
   '{{ .homebrew.prefix }}/share/man'
   ${manpath}
