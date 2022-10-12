@@ -30,6 +30,7 @@
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
+.local/share/zsh-completions/_wezterm
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/vale/

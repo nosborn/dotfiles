@@ -1,6 +1,4 @@
-{{ if eq .where "home" -}}
 export ANSIBLE_NOCOWS=1
-{{ end -}}
 {{ if eq .chezmoi.os "darwin" -}}
 {{/* export BUNDLE_USER_HOME="${HOME}/.bundle" */ -}}
 export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
@@ -23,6 +21,8 @@ export SAM_CLI_TELEMETRY=0 # AWS SAM CLI
 {{ if eq .chezmoi.os "darwin" -}}
 export STARSHIP_CACHE="${HOME}/Library/Caches/starship"
 {{ end -}}
+export STEAMPIPE_TELEMETRY='none'
+export STEAMPIPE_UPDATE_CHECK=false
 export SUDO_PROMPT='[sudo] password for %p: '
 export TF_CLI_ARGS_apply='-compact-warnings'
 export TF_CLI_ARGS_destroy='-compact-warnings'
