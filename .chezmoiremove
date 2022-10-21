@@ -46,4 +46,5 @@
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.agent.plist{{ end }}
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.xpcservice.plist{{ end }}
 {{ if ne .where "work" }}Library/Preferences/com.google.Keystone.Agent.plist{{ end }}
+default.profraw
 styles/
