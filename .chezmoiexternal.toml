@@ -1,8 +1,3 @@
-[".config/kitty/themes/catppuccin-mocha.conf"]
-  type = "file"
-  refreshPeriod = "24h"
-  url = "https://raw.githubusercontent.com/catppuccin/kitty/main/mocha.conf"
-
 [".config/kitty/themes/tokyonight-day.conf"]
   type = "file"
   refreshPeriod = "24h"
@@ -37,13 +32,6 @@
   executable = true
   url = "https://github.com/mbtproject/mbt/releases/download/v0.24/mbt_{{ .chezmoi.os }}_x86_64"
 {{ end }}
-
-[".local/share/nvim/site/pack/catppuccin/start/catppuccin"]
-  type = "git-repo"
-  refreshPeriod = "24h"
-  url = "https://github.com/catppuccin/nvim.git"
-  [".local/share/nvim/site/pack/catppuccin/start/catppuccin".pull]
-    args = ["--force"]
 
 [".local/share/nvim/site/pack/direnv/start/direnv.vim"]
   type = "git-repo"

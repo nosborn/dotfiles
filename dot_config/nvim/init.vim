@@ -27,7 +27,7 @@ set smarttab
 set spell
 set spelllang=en_gb
 " set tags=./tags;,tags
-" set termguicolors
+set termguicolors
 set ttimeout
 set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/.terraform.d/**,**/.terragrunt-cache/**,**/node_modules/**
@@ -53,8 +53,6 @@ let g:ansible_template_syntaxes = {
 let g:ansible_unindent_after_newline = 1
 
 let g:bash_is_sh = 1
-
-let g:catppuccin_flavour = 'mocha'
 
 let g:direnv_auto = 0
 
@@ -84,9 +82,6 @@ let g:markdown_syntax_conceal = 0
 let g:vim_json_conceal = 0
 
 let g:vimsyn_embed = 'l'
-
-colorscheme catppuccin
-" colorscheme tokyonight
 
 lua <<EOT
 vim.diagnostic.config({
