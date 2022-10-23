@@ -1,6 +1,5 @@
 require("lualine").setup({
   options = {
-    icons_enabled = false,
     theme = "catppuccin",
     component_separators = "│",
     section_separators = "",
@@ -10,14 +9,20 @@ require("lualine").setup({
     lualine_b = {
       {
         "branch",
+        cond = function()
+          return vim.fn.winwidth(0) > 80
+        end,
         icon = "",
-        icons_enabled = true,
+        -- icons_enabled = true,
       },
-      "diff",
       {
-        "diagnostics",
-        icons_enabled = true,
+        "diff",
+        cond = function()
+          return vim.fn.winwidth(0) > 80
+        end,
+        symbols = { added = " ", modified = " ", removed = " " },
       },
+      "diagnostics",
     },
     lualine_c = {
       {
@@ -28,14 +33,8 @@ require("lualine").setup({
     },
     lualine_x = {
       "encoding",
-      {
-        "fileformat",
-        icons_enabled = true,
-      },
-      {
-        "filetype",
-        icons_enabled = true,
-      },
+      "fileformat",
+      "filetype",
     },
   },
 })

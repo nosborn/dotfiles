@@ -86,6 +86,7 @@ let g:vim_json_conceal = 0
 let g:vimsyn_embed = 'l'
 
 colorscheme catppuccin
+" colorscheme tokyonight
 
 lua <<EOT
 vim.diagnostic.config({
