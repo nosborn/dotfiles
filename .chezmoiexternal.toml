@@ -54,6 +54,13 @@
   [".local/share/nvim/site/pack/fatih/start/vim-go".pull]
     args = ["--force"]
 
+[".local/share/nvim/site/pack/fladson/start/vim-kitty"]
+  type = "git-repo"
+  refreshPeriod = "24h"
+  url = "https://github.com/fladson/vim-kitty.git"
+  [".local/share/nvim/site/pack/fladson/start/vim-kitty".pull]
+    args = ["--force"]
+
 [".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
   type = "git-repo"
   refreshPeriod = "24h"
