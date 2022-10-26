@@ -1,5 +1,8 @@
 command_timeout = 1000
 
+[aws]
+symbol = "☁️ "
+
 [aws.region_aliases]
 ap-east-1 = "HK"
 ap-southeast-1 = "SG"
