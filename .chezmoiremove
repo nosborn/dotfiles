@@ -1,13 +1,11 @@
-.Library/Colors/Catppuccin *.clr
 .actrc
 .azure/
 .bundle/
 .cache/starship/
-.config/bat/themes/Catppuccin-*.tmTheme
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
-.config/kitty/themes/catppuccin-*.conf
+.config/kitty/themes/tokyonight-*.conf
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
@@ -24,7 +22,7 @@
 .local/bin/ppyaml
 .local/share/nvim/shada/
 .local/share/nvim/site/pack/SmiteshP/
-.local/share/nvim/site/pack/catppuccin/
+.local/share/nvim/site/pack/folke/start/tokyonight.nvim/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim
