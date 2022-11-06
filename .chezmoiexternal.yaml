@@ -1,0 +1,160 @@
+# yamllint disable rule:line-length
+---
+.config/kitty/themes/catppuccin-mocha.conf:
+  type: file
+  refreshPeriod: 24h
+  url: https://raw.githubusercontent.com/catppuccin/kitty/main/mocha.conf
+
+.local/bin/mbt:
+  type: file
+  executable: true
+  url: https://github.com/mbtproject/mbt/releases/download/v0.24/mbt_{{ .chezmoi.os }}_x86_64
+
+.local/share/nvim/site/pack/catppuccin/start/catppuccin:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/catppuccin/nvim.git
+
+.local/share/nvim/site/pack/direnv/start/direnv.vim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/direnv/direnv.vim.git
+
+.local/share/nvim/site/pack/ellisonleao/start/glow.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/ellisonleao/glow.nvim.git
+
+.local/share/nvim/site/pack/fatih/start/vim-go:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/fatih/vim-go.git
+
+.local/share/nvim/site/pack/fladson/start/vim-kitty:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/fladson/vim-kitty.git
+
+.local/share/nvim/site/pack/folke/start/trouble.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/folke/trouble.nvim.git
+
+.local/share/nvim/site/pack/godlygeek/start/tabular:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/godlygeek/tabular.git
+
+.local/share/nvim/site/pack/jose-elias-alvarez/start/null-ls.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/jose-elias-alvarez/null-ls.nvim.git
+
+.local/share/nvim/site/pack/jvirtanen/start/vim-hcl:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/jvirtanen/vim-hcl.git
+
+.local/share/nvim/site/pack/kyazdani42/start/nvim-web-devicons:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/kyazdani42/nvim-web-devicons.git
+
+.local/share/nvim/site/pack/lewis6991/start/gitsigns.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/lewis6991/gitsigns.nvim.git
+
+.local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/lukas-reineke/indent-blankline.nvim.git
+
+.local/share/nvim/site/pack/numToStr/start/Comment.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/numToStr/Comment.nvim.git
+
+.local/share/nvim/site/pack/nvim-lua/start/plenary.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/nvim-lua/plenary.nvim.git
+
+.local/share/nvim/site/pack/nvim-lualine/start/lualine.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/nvim-lualine/lualine.nvim.git
+
+.local/share/nvim/site/pack/nvim-telescope/start/telescope.nvim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/nvim-telescope/telescope.nvim.git
+
+.local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/nvim-treesitter/nvim-treesitter.git
+
+.local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+
+.local/share/nvim/site/pack/pangloss/start/vim-javascript:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/pangloss/vim-javascript.git
+
+{{ if eq .where "home" }}
+.local/share/nvim/site/pack/pearofducks/start/ansible-vim:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/pearofducks/ansible-vim.git
+{{ end }}
+
+.local/share/nvim/site/pack/tpope/start/vim-endwise:
+  type: git-repo
+  pull.args:
+    - --force
+  refreshPeriod: 24h
+  url: https://github.com/tpope/vim-endwise.git

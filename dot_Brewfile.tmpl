@@ -18,6 +18,7 @@ brew 'zsh-completions'
 brew 'zsh-fast-syntax-highlighting'
 
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
+  tap 'hidetatz/tap'
   tap 'homebrew/cask-fonts'
   tap 'minamijoyo/hcledit'
 
@@ -60,6 +61,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'jsonlint'
   cask 'kitty', require_sha: true
   brew 'kubernetes-cli'
+  # brew 'kubecolor' -- TODO
   brew 'kubectx'
   brew 'lua'
   brew 'luarocks'
