@@ -73,11 +73,11 @@ export CLICOLOR=1
 export EDITOR=nvim
 export VISUAL=nvim
 
-alias diff='command diff -W${COLUMNS} -x .terraform -d'
+alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
 alias k=kubectl
 alias kubectl=kubecolor
-alias sdiff='command sdiff -d -w${COLUMNS}'
+alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vi=nvim
 alias vim=nvim
 
