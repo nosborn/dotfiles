@@ -25,14 +25,9 @@ fpath=(
   '{{ .homebrew.prefix }}/share/zsh/site-functions'
   ${fpath}
 )
-if [[ $(uname) == Darwin ]]; then
-  manpath=(
-    "$(xcode-select --print-path)/usr/share/man"
-    ${manpath}
-  )
-fi
 manpath=(
   '{{ .homebrew.prefix }}/share/man'
+  {{ if eq .chezmoi.os "darwin" }}/Library/Developer/CommandLineTools/usr/share/man{{ end }}
   ${manpath}
 )
 path=(
@@ -123,11 +118,11 @@ fi
 # Do at end.
 if [[ -e {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-  # Temporary(?) fix:
-  if [[ $(uname) == Darwin ]] {
-    FAST_HIGHLIGHT[chroma-man]=
-    FAST_HIGHLIGHT[chroma-whatis]=
-  }
+  # # Temporary(?) fix:
+  # if [[ $(uname) == Darwin ]] {
+  #   FAST_HIGHLIGHT[chroma-man]=
+  #   FAST_HIGHLIGHT[chroma-whatis]=
+  # }
 elif [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi

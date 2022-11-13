@@ -23,6 +23,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   tap 'minamijoyo/hcledit'
 
   brew 'actionlint'
+  brew 'argocd'
   brew 'argocd-autopilot'
   brew 'aws-vault'
   brew 'awscli'
@@ -108,13 +109,11 @@ if '{{ .where }}' == 'work'
   tap 'oktadeveloper/tap'
   tap 'turbot/tap'
 
-  brew 'argocd'
   brew 'conftest'
   brew 'eksctl'
   cask 'google-chrome'
   cask 'google-drive', require_sha: true
   brew 'graphviz'
-  brew 'helmfile'
   brew 'istioctl'
   brew 'kops'
   cask 'lastpass', require_sha: true
