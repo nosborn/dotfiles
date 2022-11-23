@@ -18,6 +18,7 @@
 .local/bin/ec
 .local/bin/ec-2.4.0
 .local/bin/j2lint
+.local/bin/kubecolor
 .local/bin/mbt-0.24
 .local/bin/ppyaml
 .local/bin/terrafmt-0.4.*
@@ -38,9 +39,10 @@
 .local/share/vale/
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
-.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.0/
-{{ if ne .where "work" }}.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.0/{{ end }}
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.*/
+{{ if ne .where "work" }}.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.*/{{ end }}
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.17.*/
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.18.*/
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/
