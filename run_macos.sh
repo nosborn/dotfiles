@@ -17,7 +17,7 @@ fi
 
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
   if xattr "${link}" | grep -Fqx com.apple.quarantine; then
-    xattr -d -v com.apple.quarantine "${link}"
+    xattr -d -v com.apple.quarantine "${link}" || :
   fi
 done
 
