@@ -60,11 +60,8 @@ disabled = true
 [shlvl]
 disabled = false
 
-[status]
-disabled = false
-
 [sudo]
 disabled = false
 
-[terraform]
+# [terraform]
 # detect_files = [".terraform-version", ".terragrunt-version"]
