@@ -40,9 +40,10 @@
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.*/
-{{ if ne .where "work" }}.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.*/{{ end }}
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.*/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.17.*/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.18.*/
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.19.*/
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/
