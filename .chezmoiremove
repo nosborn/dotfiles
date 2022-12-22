@@ -39,6 +39,7 @@
 .local/share/vale/
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
+.steampipe/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.14.*/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.15.*/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-aws/0.17.*/
