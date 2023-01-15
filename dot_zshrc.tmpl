@@ -61,11 +61,22 @@ for config_file (~/.zshrc.d/*.zsh); do
   source "${config_file}"
 done
 
-# export PROMPT='${SSH_CLIENT:+%m:}%F{2}$(abbreviated_path)%f%# '
-export PROMPT_EOL_MARK='%F{1}⏎%f'
+if (( $+commands[aws_completer] )); then
+  complete -o nospace -C "${commands[aws_completer]}" aws
+fi
+if (( $+commands[kubectl] )); then
+  source <("${commands[kubectl]}" completion zsh)
+fi
+if (( $+commands[terraform] )); then
+  complete -o nospace -C "${commands[terraform]}" terraform
+fi
+if (( $+commands[terramate] )); then
+  complete -o nospace -C "${commands[terramate]}" terramate
+fi
 
 export CLICOLOR=1
 export EDITOR=nvim
+export PROMPT_EOL_MARK='%F{1}⏎%f'
 export VISUAL=nvim
 
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
@@ -73,6 +84,7 @@ alias glow='command glow -w ${COLUMNS}'
 alias k=kubectl
 alias k9s='command k9s --headless --logoless --readonly'
 alias kubectl=kubecolor
+alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vi=nvim
 alias vim=nvim
