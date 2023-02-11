@@ -109,6 +109,8 @@ if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
   brew 'b2-tools'
   cask 'mono-mdk'
   cask 'suuntodm5'
+  brew 'yubico-piv-tool'
+  brew 'yubikey-personalization'
 end
 
 if '{{ .where }}' == 'work'
