@@ -24,6 +24,7 @@
 .local/bin/terrafmt-0.4.*
 .local/bin/terrafmt-0.5.0
 .local/bin/terrafmt-0.5.1
+.local/share/nvim/neovide-settings.json
 .local/share/nvim/shada/
 .local/share/nvim/site/pack/SmiteshP/
 .local/share/nvim/site/pack/folke/start/tokyonight.nvim/
