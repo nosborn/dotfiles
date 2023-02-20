@@ -1,7 +1,7 @@
 [".config/kitty/themes/catppuccin-mocha.conf"]
 type = "file"
 refreshPeriod = "24h"
-url = "https://raw.githubusercontent.com/catppuccin/kitty/main/mocha.conf"
+url = "https://raw.githubusercontent.com/catppuccin/kitty/main/themes/mocha.conf"
 
 [".local/bin/mbt"]
 type = "file"
