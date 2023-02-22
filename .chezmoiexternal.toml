@@ -14,6 +14,12 @@ pull.args = ["--force"]
 refreshPeriod = "24h"
 url = "https://github.com/catppuccin/nvim.git"
 
+[".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
+type = "git-repo"
+pull.args = ["--force"]
+refreshPeriod = "24h"
+url = "https://github.com/cuducos/yaml.nvim.git"
+
 [".local/share/nvim/site/pack/direnv/start/direnv.vim"]
 type = "git-repo"
 pull.args = ["--force"]
@@ -26,11 +32,11 @@ pull.args = ["--force"]
 refreshPeriod = "24h"
 url = "https://github.com/ellisonleao/glow.nvim.git"
 
-[".local/share/nvim/site/pack/fatih/start/vim-go"]
+[".local/share/nvim/site/pack/ray-x/start/go.nvim"]
 type = "git-repo"
 pull.args = ["--force"]
 refreshPeriod = "24h"
-url = "https://github.com/fatih/vim-go.git"
+url = "https://github.com/ray-x/go.nvim.git"
 
 [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
 type = "git-repo"
