@@ -21,9 +21,8 @@
 .local/bin/kubecolor
 .local/bin/mbt-0.24
 .local/bin/ppyaml
-.local/bin/terrafmt-0.4.*
-.local/bin/terrafmt-0.5.0
-.local/bin/terrafmt-0.5.1
+.local/bin/terrafmt
+.local/bin/terrafmt-0.*
 .local/share/nvim/neovide-settings.json
 .local/share/nvim/shada/
 .local/share/nvim/site/pack/SmiteshP/
