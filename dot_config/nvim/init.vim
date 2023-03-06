@@ -1,5 +1,6 @@
 scriptencoding utf8
 
+set colorcolumn=80
 " set foldexpr=nvim_treesitter#foldexpr()
 " set foldmethod=expr
 set ignorecase

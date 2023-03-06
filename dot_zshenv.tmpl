@@ -1,4 +1,5 @@
 export ANSIBLE_NOCOWS=1
+export AWS_VAULT_DISABLE_HELP_MESSAGE=1
 {{ if eq .chezmoi.os "darwin" -}}
 {{/* export BUNDLE_USER_HOME="${HOME}/.bundle" */ -}}
 export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
