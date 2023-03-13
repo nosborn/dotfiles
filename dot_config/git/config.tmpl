@@ -53,7 +53,7 @@
 	textconv = exiftool
 
 [diff "sops"]
-	textconv = sops --decrypt --config /dev/null
+	textconv = sops --config /dev/null --decrypt --ignore-mac
 
 [diff "zipinfo"]
 	cachetextconv = true
