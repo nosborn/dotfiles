@@ -57,8 +57,6 @@ let g:bash_is_sh = 1
 
 let g:direnv_auto = 0
 
-let g:glow_style = 'dark'
-
 let g:highlight_balanced_quotes = 1
 let g:highlight_function_names = 1
 let g:highlight_sedtabs = 1
