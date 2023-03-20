@@ -5,6 +5,8 @@ set -o nounset
 
 readonly plugins="
   aws
+  github
+  splunk
   steampipe
 "
 
