@@ -10,6 +10,8 @@ require("nvim-treesitter.configs").setup({
     "diff",
     "dockerfile",
     "dot",
+    "fish",
+    "git_config",
     "git_rebase",
     "gitattributes",
     "gitcommit",
@@ -44,9 +46,11 @@ require("nvim-treesitter.configs").setup({
     "vim",
     "yaml",
   },
+
   highlight = {
     enable = true,
   },
+
   indent = {
     enable = true,
   },
