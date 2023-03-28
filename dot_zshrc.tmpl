@@ -134,11 +134,10 @@ fi
 # Do at end.
 if [[ -e {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-  # # Temporary(?) fix:
-  # if [[ $(uname) == Darwin ]] {
-  #   FAST_HIGHLIGHT[chroma-man]=
-  #   FAST_HIGHLIGHT[chroma-whatis]=
-  # }
+  if [[ $(uname) == Darwin ]]; then
+    FAST_HIGHLIGHT[chroma-man]=
+    FAST_HIGHLIGHT[chroma-whatis]=
+  fi
 elif [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
