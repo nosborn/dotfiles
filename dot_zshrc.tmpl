@@ -20,7 +20,6 @@ cdpath=(
 )
 fpath=(
   "${HOME}/.local/share/zsh-completions"
-  '{{ .homebrew.prefix }}/opt/aws-vault/share/zsh/site-functions'
   '{{ .homebrew.prefix }}/share/zsh-completions'
   '{{ .homebrew.prefix }}/share/zsh/site-functions'
   ${fpath}
@@ -145,14 +144,6 @@ fi
 # Do at end.
 if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
-  if (( $+commands[aws-vault] )); then
-    function fixup_aws_vault_7() {
-      if (( ${+AWS_CREDENTIAL_EXPIRATION} )); then
-        export AWS_SESSION_EXPIRATION="${AWS_CREDENTIAL_EXPIRATION}"
-      fi
-    }
-    precmd_functions+=(fixup_aws_vault_7)
-  fi
 fi
 
 # Do at end.
