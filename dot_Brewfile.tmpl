@@ -102,11 +102,10 @@ if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
 end
 
 if '{{ .where }}' == 'work'
-  tap 'coretech/terrafile'
   tap 'oktadeveloper/tap'
 
   brew 'argocd'
-  brew 'argocd-autopilot'
+  brew 'aws-vault'
   brew 'bfg'
   brew 'chart-testing'
   cask 'google-chrome'
@@ -124,7 +123,6 @@ if '{{ .where }}' == 'work'
   brew 'sops'
   brew 'steampipe'
   brew 'teleport'
-  brew 'terrafile'
   brew 'terragrunt'
   brew 'terramate'
   cask 'tunnelblick', require_sha: true
