@@ -85,16 +85,18 @@
 [merge]
 	conflictStyle = diff3
 	ff = only
-	log = false
 
 [pull]
 	rebase = true
 
 [push]
-	default = current
+	autoSetupRemote = true
+	default = upstream
 	followTags = true
+	useForceIfIncludes = true
 
 [rebase]
+	autoSquash = true
 	autoStash = true
 	missingCommitsCheck = warn
 

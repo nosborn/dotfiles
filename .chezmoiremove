@@ -11,7 +11,7 @@
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
-.config/nvim/init.lua
+.config/nvim/init.vim
 .config/proselint/
 .config/tig/
 .config/wezterm/
@@ -33,6 +33,7 @@
 .local/share/nvim/site/pack/fatih/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
+.local/share/nvim/site/pack/kyazdani42/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim/
 .local/share/nvim/site/pack/neovim/start/nvim-lspconfig/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}

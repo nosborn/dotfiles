@@ -8,14 +8,12 @@ null_ls.setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.formatting_sync()
-          -- 0.8 TODO:
-          --vim.lsp.buf.format({
-          --  bufnr = bufnr,
-          --  filter = function(client)
-          --    return client.name == "null-ls"
-          --  end
-          --})
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            filter = function(client)
+              return client.name == "null-ls"
+            end,
+          })
         end,
       })
     end
@@ -33,9 +31,7 @@ null_ls.setup({
         return params.bufname:match("/.github/workflows/") ~= nil
       end,
     }),
-    {{ if ne .where "home" -}}
     null_ls.builtins.diagnostics.ansiblelint,
-    {{ end -}}
     null_ls.builtins.diagnostics.checkmake,
     --null_ls.builtins.diagnostics.editorconfig_checker,
     --null_ls.builtins.diagnostics.eslint,
@@ -64,8 +60,6 @@ null_ls.setup({
     null_ls.builtins.formatting.terraform_fmt.with({
       extra_filetypes = { "hcl" },
     }),
-    -- null_ls.builtins.formatting.trim_newlines,
-    -- null_ls.builtins.formatting.trim_whitespace,
     null_ls.builtins.formatting.xmllint.with({
       extra_args = { "--nonet" },
     }),
