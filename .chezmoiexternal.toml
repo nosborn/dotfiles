@@ -1,11 +1,11 @@
 [".config/bat/themes/TokyoNight.tmTheme"]
 type = "file"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
 
 [".config/kitty/themes/tokyonight-night.conf"]
 type = "file"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty/tokyonight_night.conf"
 
 [".local/bin/mbt"]
@@ -15,141 +15,163 @@ url = "https://github.com/mbtproject/mbt/releases/download/v0.24/mbt_{{ .chezmoi
 
 [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/cappyzawa/trim.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/cuducos/yaml.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/direnv/start/direnv.vim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/direnv/direnv.vim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/ray-x/start/go.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/ray-x/go.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/fladson/vim-kitty.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/folke/tokyonight.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/folke/start/trouble.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/folke/trouble.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/godlygeek/start/tabular"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/godlygeek/tabular.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/jose-elias-alvarez/start/null-ls.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/jose-elias-alvarez/null-ls.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/jvirtanen/start/vim-hcl"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/jvirtanen/vim-hcl.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/lewis6991/start/gitsigns.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/lewis6991/gitsigns.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/indent-blankline.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/lukas-reineke/start/virt-column.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/virt-column.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/numToStr/start/Comment.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/numToStr/Comment.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-lua/plenary.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-lualine/start/lualine.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-lualine/lualine.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-telescope/start/telescope.nvim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-telescope/telescope.nvim.git"
-clone.args = ["--branch=0.1.x"]
+clone.args = ["--branch=0.1.x", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-tree/start/nvim-web-devicons"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-tree/nvim-web-devicons.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/pangloss/start/vim-javascript"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/pangloss/vim-javascript.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 {{ if eq .where "home" }}
 [".local/share/nvim/site/pack/pearofducks/start/ansible-vim"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/pearofducks/ansible-vim.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 {{ end }}
 
 [".local/share/nvim/site/pack/tpope/start/vim-endwise"]
 type = "git-repo"
-refreshPeriod = "24h"
+refreshPeriod = "1h"
 url = "https://github.com/tpope/vim-endwise.git"
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]

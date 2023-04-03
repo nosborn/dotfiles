@@ -15,7 +15,6 @@ cdpath=(
   .
   {{ if ne "" .github.user }}"${HOME}/src/github.com/{{ .github.user }}"{{ end }}
   {{ if ne "" .github.org }}"${HOME}/src/github.com/{{ .github.org }}"{{ end }}
-  {{ if ne "" .bitbucket.team }}"${HOME}/src/bitbucket.org/{{ .bitbucket.team }}"{{ end }}
   ${cdpath}
 )
 fpath=(

@@ -28,7 +28,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'checkmake'
   brew 'cmake' # for building gems
   brew 'colima'
-  brew 'corepack'
   brew 'coreutils'
   brew 'diceware'
   brew 'diffutils'
@@ -92,7 +91,7 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'yq'
 end
 
-if '{{ .where }}' == 'home' && ('{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini')
+if '{{ .where }}' == 'home' && '{{ .chezmoi.hostname }}' != 'Nicks-Mac-mini'
   brew 'ansible'
   brew 'ansible-lint'
   brew 'b2-tools'

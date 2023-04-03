@@ -1,4 +1,3 @@
-{{- $bitbucketTeam := promptStringOnce .bitbucket "team" "bitbucket.team" -}}
 {{- $gitEmail := promptStringOnce .git "email" "git.email" -}}
 {{- $gitSigningKey := promptStringOnce .git "signingKey" "git.signingKey" -}}
 {{- $githubOrg := promptStringOnce .github "org" "github.org" -}}
@@ -8,9 +7,6 @@
 [data]
 name = "Nick Osborn"
 where = "{{ $where }}"
-
-[data.bitbucket]
-team = "{{ $bitbucketTeam }}"
 
 [data.git]
 email = "{{ $gitEmail }}"

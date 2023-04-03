@@ -62,7 +62,7 @@
 [fetch]
 	fsckobjects = true
 	prune = true
-	pruneTags = true
+	; pruneTags = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -71,7 +71,7 @@
 	smudge = git-lfs smudge -- %f
 
 [grep]
-	extendedRegexp = true
+	patternType = "extended"
 
 [init]
 	defaultBranch = main
@@ -92,7 +92,7 @@
 [push]
 	autoSetupRemote = true
 	default = upstream
-	followTags = true
+	; followTags = true
 	useForceIfIncludes = true
 
 [rebase]
