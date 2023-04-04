@@ -3,4 +3,4 @@
 source 'https://rubygems.org'
 
 gem 'github-linguist', '7.25.0'
-gem 'rubocop', '1.48.1'
+gem 'rubocop', '1.49.0'
