@@ -104,6 +104,13 @@ url = "https://github.com/lukas-reineke/virt-column.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/neovim/nvim-lspconfig.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/numToStr/start/Comment.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
