@@ -1,9 +1,9 @@
 require("lualine").setup({
   options = {
-    theme = "tokyonight",
     component_separators = "│",
-    section_separators = "",
     globalstatus = true,
+    section_separators = "",
+    theme = "tokyonight",
   },
   sections = {
     lualine_b = {
@@ -20,7 +20,11 @@ require("lualine").setup({
         cond = function()
           return vim.fn.winwidth(0) > 80
         end,
-        symbols = { added = " ", modified = " ", removed = " " },
+        symbols = {
+          added = " ",
+          modified = " ",
+          removed = " ",
+        },
       },
       "diagnostics",
     },

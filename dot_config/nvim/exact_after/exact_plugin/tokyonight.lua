@@ -1,4 +1,5 @@
 require("tokyonight").setup({
+  sidebars = {},
   style = "night",
 })
 

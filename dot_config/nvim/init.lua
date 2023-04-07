@@ -1,11 +1,17 @@
+vim.loader.enable()
+
 vim.opt.backup = false
 vim.opt.colorcolumn = "80"
--- vim.opt.foldexpr = nvim_treesitter#foldexpr()
--- vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
 vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true
-vim.opt.listchars = "nbsp:▿,tab:»·,trail:▿"
+vim.opt.listchars = {
+  nbsp = "▿",
+  tab = "»·",
+  trail = "▿",
+}
 vim.opt.mouse = "a"
 vim.opt.number = true
 -- vim.opt.path = "$PWD/**"
@@ -159,30 +165,21 @@ vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
 vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })
 
 local ansible_vault_group = vim.api.nvim_create_augroup("AnsibleVault", { clear = true })
-vim.api.nvim_create_autocmd(
-  { "BufReadPre", "FileReadPre" },
-  {
-    pattern = "*/group_vars/*/vault.yml",
-    command = "setlocal nobackup noswapfile noundofile viminfo=",
-    group = ansible_vault_group,
-  }
-)
-vim.api.nvim_create_autocmd(
-  { "BufReadPre", "FileReadPre" },
-  {
-    pattern = "*/host_vars/*/vault.yml",
-    command = "setlocal nobackup noswapfile noundofile viminfo=",
-    group = ansible_vault_group,
-  }
-)
-vim.api.nvim_create_autocmd(
-  { "BufReadPre", "FileReadPre" },
-  {
-    pattern = "*/vars/*/vault.yml",
-    command = "setlocal nobackup noswapfile noundofile viminfo=",
-    group = ansible_vault_group,
-  }
-)
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+  pattern = "*/group_vars/*/vault.yml",
+  command = "setlocal nobackup noswapfile noundofile viminfo=",
+  group = ansible_vault_group,
+})
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+  pattern = "*/host_vars/*/vault.yml",
+  command = "setlocal nobackup noswapfile noundofile viminfo=",
+  group = ansible_vault_group,
+})
+vim.api.nvim_create_autocmd({ "BufReadPre", "FileReadPre" }, {
+  pattern = "*/vars/*/vault.yml",
+  command = "setlocal nobackup noswapfile noundofile viminfo=",
+  group = ansible_vault_group,
+})
 vim.api.nvim_create_autocmd(
   { "BufReadPost", "FileReadPost" },
   { pattern = "*/group_vars/*/vault.yml", command = "call ansible#vault#decrypt()", group = ansible_vault_group }
@@ -220,15 +217,16 @@ vim.api.nvim_create_autocmd(
   { pattern = "*/vars/*/vault.yml", command = "silent undo", group = ansible_vault_group }
 )
 
--- " augroup OpenAllFolds
--- "   autocmd!
--- "   autocmd Syntax * normal zR
--- " augroup END
-
 local open_diagnostic_float_group = vim.api.nvim_create_augroup("OpenDiagnosticFloat", { clear = true })
 vim.api.nvim_create_autocmd(
   "CursorHold",
   { pattern = "*", command = "lua vim.diagnostic.open_float()", group = open_diagnostic_float_group }
+)
+
+local open_folds_group = vim.api.nvim_create_augroup("OpenFolds", { clear = true })
+vim.api.nvim_create_autocmd(
+  { "BufReadPost", "FileReadPost" },
+  { pattern = "*", command = "normal zR", group = open_folds_group }
 )
 
 -- " " Use <C-L> to clear the highlighting of :set hlsearch.

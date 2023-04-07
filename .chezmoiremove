@@ -1,4 +1,6 @@
-.Library/Colors/Catppuccin *.clr
+Library/Colors/Catppuccin *.clr
+Library/Caches/nvim/catppuccin/
+Library/Caches/nvim/lazy/
 .actrc
 .azure/
 .bundle/
