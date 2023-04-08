@@ -47,7 +47,9 @@ null_ls.setup({
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.diagnostics.shellcheck,
     --null_ls.builtins.diagnostics.terraform_validate,
-    null_ls.builtins.diagnostics.tfsec,
+    null_ls.builtins.diagnostics.tfsec.with({
+      method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+    }),
     null_ls.builtins.diagnostics.tsc,
     null_ls.builtins.diagnostics.trail_space,
     null_ls.builtins.diagnostics.vint,
