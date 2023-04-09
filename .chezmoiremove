@@ -1,15 +1,17 @@
 Library/Colors/Catppuccin *.clr
+Library/Caches/helix/
 Library/Caches/nvim/catppuccin/
 Library/Caches/nvim/lazy/
 .actrc
 .azure/
 .bundle/
-.cache/starship/
+.cache/
 .config/bat/themes/Catppuccin-*.tmTheme
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
 .config/kitty/themes/catppuccin-*.conf
+.config/kitty/themes/gruvbox-*.conf
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
@@ -17,7 +19,9 @@ Library/Caches/nvim/lazy/
 .config/proselint/
 .config/tig/
 .config/wezterm/
+.curlrc
 .digrc
+.lesshst
 .local/bin/catj
 .local/bin/ec
 .local/bin/ec-2.4.0
@@ -46,10 +50,16 @@ Library/Caches/nvim/lazy/
 .local/share/vale/
 .local/share/wezterm/
 .local/share/zsh/completions/_wezterm
+.minikube/
+.mono/
+.rubocop.yml
+.shellcheckrc
 {{ if ne .where "work" }}.steampipe/{{ end }}
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/
+.zsh_history
+.zsh_sessions/
 {{ if ne .where "work" }}Library/Caches/com.google.Keystone/{{ end }}
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.agent.plist{{ end }}
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.xpcservice.plist{{ end }}

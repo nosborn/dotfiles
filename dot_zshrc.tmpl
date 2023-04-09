@@ -6,7 +6,12 @@ setopt PROMPT_SP
 setopt PROMPT_SUBST
 setopt SHARE_HISTORY
 
-HISTFILE=~/.zsh_history
+if [[ -n "${XDG_CACHE_HOME}" ]]; then
+  HISTFILE="${XDG_CACHE_HOME}/zsh/history"
+  mkdir -p "${HISTFILE:h}"
+else
+  HISTFILE=~/.zsh_history
+fi
 HISTSIZE=10000
 SAVEHIST=$((HISTSIZE/2))
 bindkey -e

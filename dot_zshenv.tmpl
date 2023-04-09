@@ -1,11 +1,9 @@
 export ANSIBLE_NOCOWS=1
 export AWS_VAULT_DISABLE_HELP_MESSAGE=1
-{{ if eq .chezmoi.os "darwin" -}}
-{{/* export BUNDLE_USER_HOME="${HOME}/.bundle" */ -}}
+# export BUNDLE_USER_HOME="${HOME}/.bundle"
 export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
-{{/* export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config" */ -}}
-{{/* export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin" */ -}}
-{{ end -}}
+# export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config"
+# export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin"
 export CHECKPOINT_DISABLE=1 # Hashicorp
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
@@ -20,9 +18,8 @@ export PRE_COMMIT_ALLOW_NO_CONFIG=1
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONWARNINGS=ignore
 export SAM_CLI_TELEMETRY=0 # AWS SAM CLI
-{{ if eq .chezmoi.os "darwin" -}}
+export SHELL_SESSIONS_DISABLE=1
 export STARSHIP_CACHE="${HOME}/Library/Caches/starship"
-{{ end -}}
 export STEAMPIPE_TELEMETRY=none
 export STEAMPIPE_UPDATE_CHECK=false
 export SUDO_PROMPT='[sudo] password for %p: '
@@ -31,6 +28,7 @@ export TF_CLI_ARGS_destroy=-compact-warnings
 export TF_IN_AUTOMATION=1
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
+# export XDG_CONFIG_HOME="${HOME}/Library/Application Support"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
 if [[ -e .zshenv.local ]]; then
