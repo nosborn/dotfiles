@@ -10,7 +10,6 @@ require("nvim-treesitter.configs").setup({
     "diff",
     "dockerfile",
     "dot",
-    "fish",
     "git_config",
     "git_rebase",
     "gitattributes",
@@ -20,8 +19,11 @@ require("nvim-treesitter.configs").setup({
     "gomod",
     "graphql",
     "hcl",
+    "hocon",
     "html",
-    -- "ini",
+    "http",
+    "ini", -- experimental
+    "java",
     "javascript",
     "jq",
     "json",
@@ -29,11 +31,11 @@ require("nvim-treesitter.configs").setup({
     "kotlin",
     "lua",
     "make",
-    -- "markdown",
-    -- "markdown_inline",
+    "markdown", -- experimental
+    "markdown_inline", -- experimental
+    "passwd",
     "perl",
     "php",
-    -- "pug",
     "python",
     "regex",
     "rego",
@@ -44,6 +46,7 @@ require("nvim-treesitter.configs").setup({
     "toml",
     "typescript",
     "vim",
+    "vimdoc",
     "yaml",
   },
 
