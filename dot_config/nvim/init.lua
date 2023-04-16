@@ -56,22 +56,21 @@ vim.opt.writebackup = false
 
 vim.g.ansible_extra_keywords_highlight = 1
 vim.g.ansible_name_highlight = "d"
--- let g:ansible_template_syntaxes = {
---       \   '*.conf.j2': 'conf',
---       \   '*.ini.j2': 'dosini',
---       \   '*.json.j2': 'json',
---       \   '*.php.j2': 'php',
---       \   '*.sh.j2': 'sh',
---       \   '*.service.j2': 'systemd',
---       \   '*.yaml.j2': 'yaml',
---       \   '*.yml.j2': 'yaml',
---       \   'Dockerfile.j2': 'dockerfile',
---       \   'my.cnf.j2': 'dosini',
---       \   'named.conf.j2': 'named',
---       \   'nginx.conf.j2': 'nginx',
---       \   'smb.conf.j2': 'dosini',
---       \   'sshd_config.j2': 'sshdconfig',
---       \ }
+vim.g.ansible_template_syntaxes = {
+  ["*.conf.j2"] = "conf",
+  ["*.ini.j2"] = "dosini",
+  ["*.json.j2"] = "json",
+  ["*.sh.j2"] = "sh",
+  ["*.service.j2"] = "systemd",
+  ["*.yaml.j2"] = "yaml",
+  ["*.yml.j2"] = "yaml",
+  ["Dockerfile.j2"] = "dockerfile",
+  ["my.cnf.j2"] = "dosini",
+  ["named.conf.j2"] = "named",
+  ["nginx.conf.j2"] = "nginx",
+  ["smb.conf.j2"] = "dosini",
+  ["sshd_config.j2"] = "sshdconfig",
+}
 vim.g.ansible_unindent_after_newline = 1
 
 vim.g.bash_is_sh = 1
