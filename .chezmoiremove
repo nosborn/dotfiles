@@ -15,7 +15,7 @@ Library/Caches/nvim/lazy/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
-.config/nvim/init.vim
+.config/nvim/init.lua
 .config/proselint/
 .config/tig/
 .curlrc
@@ -36,6 +36,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/catppuccin/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
+.local/share/nvim/site/pack/folke/start/trouble.nvim/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/kyazdani42/
