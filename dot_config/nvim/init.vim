@@ -32,10 +32,6 @@ set ttimeout
 set updatetime=250
 set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/.terraform.d/**,**/.terraform.lock.hcl,**/.terragrunt-cache/**,**/node_modules/**
 
-if !empty($WEZTERM_PANE)
-  let $TERM = 'wezterm'
-endif
-
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
 " let g:ansible_template_syntaxes = {

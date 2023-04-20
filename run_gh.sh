@@ -6,6 +6,8 @@ set -o nounset
 readonly extensions="
   actions/gh-actions-cache
   dlvhdr/gh-dash
+  matt-bartel/gh-clone-org
+  rnorth/gh-combine-prs
 "
 
 [ -e "$(brew --prefix gh)/bin/gh" ] || exit 0

@@ -18,6 +18,7 @@ Library/Caches/nvim/lazy/
 .config/nvim/init.lua
 .config/proselint/
 .config/tig/
+.config/wezterm/
 .curlrc
 .digrc
 .lesshst
@@ -47,11 +48,13 @@ Library/Caches/nvim/lazy/
 .local/share/terraform/
 .local/share/vale/
 .local/share/zsh-completions/_aws_vault
+.local/share/zsh-completions/_wezterm
 .minikube/
 .mono/
 .rubocop.yml
 .shellcheckrc
 {{ if ne .where "work" }}.steampipe/{{ end }}
+.terminfo/
 .tflint.d/plugins/tflint-ruleset-azurerm/
 .vale.ini
 .zsh/

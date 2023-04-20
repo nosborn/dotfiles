@@ -18,7 +18,8 @@ disabled = true
 disabled = true
 
 [directory]
-truncation_symbol = "…/"
+fish_style_pwd_dir_length = 1
+# truncation_symbol = "…/"
 
 [git_branch]
 symbol = " "
