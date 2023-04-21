@@ -42,6 +42,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/kyazdani42/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim/
+.local/share/nvim/site/pack/neovim/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
 .local/share/terminfo/
