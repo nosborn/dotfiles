@@ -3,10 +3,13 @@ command_timeout = 1000
 [aws]
 symbol = "☁️ "
 
+# [aws.profile_aliases]
+# Enterprise_Naming_Scheme-voidstars = 'void**'
+
 [aws.region_aliases]
 ap-east-1 = "HK"
 ap-southeast-1 = "SG"
-us-east-1 = "use1"
+us-east-1 = "US"
 
 [battery]
 disabled = true

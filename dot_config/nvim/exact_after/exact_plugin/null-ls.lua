@@ -39,7 +39,7 @@ null_ls.setup({
     --null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.gitlint,
-    null_ls.builtins.diagnostics.golangci_lint,
+    --null_ls.builtins.diagnostics.golangci_lint,
     null_ls.builtins.diagnostics.hadolint,
     null_ls.builtins.diagnostics.jsonlint,
     --null_ls.builtins.diagnostics.ktlint,
