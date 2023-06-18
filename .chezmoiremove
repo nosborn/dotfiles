@@ -57,7 +57,7 @@ Library/Caches/nvim/lazy/
 .shellcheckrc
 {{ if ne .where "work" }}.steampipe/{{ end }}
 .terminfo/
-.tflint.d/plugins/tflint-ruleset-azurerm/
+.tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
 .zsh/
 .zsh_history
