@@ -4,7 +4,7 @@ GEM
     ast (2.4.2)
     cgi (0.3.6)
     charlock_holmes (0.7.7)
-    github-linguist (7.25.0)
+    github-linguist (7.26.0)
       cgi
       charlock_holmes (~> 0.7.7)
       mini_mime (~> 1.0)
@@ -42,7 +42,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  github-linguist (= 7.25.0)
+  github-linguist (= 7.26.0)
   rubocop (= 1.52.1)
 
 BUNDLED WITH
