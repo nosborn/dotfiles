@@ -49,13 +49,14 @@ Library/Caches/nvim/lazy/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/vale/
+.local.share/wezterm/
 .local/share/zsh-completions/_aws_vault
 .local/share/zsh-completions/_wezterm
 .minikube/
 .mono/
 .rubocop.yml
 .shellcheckrc
-{{ if ne .where "work" }}.steampipe/{{ end }}
+.steampipe/
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
