@@ -103,6 +103,7 @@ end
 
 if '{{ .where }}' == 'work'
   tap 'oktadeveloper/tap'
+  tap 'quarkusio/tap'
 
   brew 'aws-vault'
   brew 'bfg'
@@ -116,7 +117,9 @@ if '{{ .where }}' == 'work'
   cask 'lastpass', require_sha: true
   brew 'node@16'
   cask 'okta'
+  brew 'openjdk'
   brew 'postgresql@14'
+  brew 'quarkus'
   brew 'skopeo'
   cask 'slack', require_sha: true
   brew 'sops'
