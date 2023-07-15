@@ -35,6 +35,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.cfn_lint,
     null_ls.builtins.diagnostics.checkmake,
     --null_ls.builtins.diagnostics.commitlint,
+    null_ls.builtins.diagnostics.dotenv_linter,
     --null_ls.builtins.diagnostics.editorconfig_checker,
     --null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.diagnostics.flake8,
