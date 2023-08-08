@@ -57,7 +57,6 @@ Library/Caches/nvim/lazy/
 .mono/
 .rubocop.yml
 .shellcheckrc
-.steampipe/
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
