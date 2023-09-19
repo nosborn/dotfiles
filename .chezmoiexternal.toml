@@ -9,7 +9,7 @@ refreshPeriod = "1h"
 url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty/tokyonight_night.conf"
 
 [".local/bin/riverfmt"]
-type = "file"
+type = "archive-file"
 executable = true
 path = "riverfmt"
 url = "https://github.com/grafana/river/releases/download/v0.1.1/riverfmt_darwin_arm64.tar.gz"
