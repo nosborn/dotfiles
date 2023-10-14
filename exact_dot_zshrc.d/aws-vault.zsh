@@ -1,0 +1,5 @@
+# alias av='aws-vault'
+alias ave='aws-vault exec'
+# alias avl='aws-vault login'
+# alias avll='aws-vault login -s'
+# alias avs='aws-vault server'
