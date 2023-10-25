@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 tap 'homebrew/bundle'
-tap 'jorgelbg/tap'
 
 brew 'chezmoi'
 brew 'direnv'
@@ -74,7 +73,6 @@ unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   brew 'node@18'
   brew 'parallel'
   brew 'pinentry-mac'
-  brew 'pinentry-touchid'
   brew 'pkg-config' # for building gems
   brew 'pre-commit'
   brew 'prettier'
