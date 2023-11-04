@@ -190,3 +190,10 @@ refreshPeriod = "1h"
 url = "https://github.com/tpope/vim-endwise.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/yasuhiroki/github-actions-yaml.vim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
