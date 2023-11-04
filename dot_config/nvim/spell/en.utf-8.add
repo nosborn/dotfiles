@@ -57,6 +57,7 @@ KeyStore/=
 Kibana/=
 Kubernetes/=
 Logstash/=
+MHG/=
 Money101/=
 MoneyGuru/=
 MoneyHero/=
