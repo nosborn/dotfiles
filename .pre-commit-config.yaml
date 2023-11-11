@@ -24,4 +24,4 @@ repos:
       - id: trailing-whitespace
         exclude: ^dot_config/git/ignore$
 
-minimum_pre_commit_version: !!str 2.18
+minimum_pre_commit_version: !!str 3.0

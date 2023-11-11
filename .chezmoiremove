@@ -11,6 +11,7 @@ Library/Caches/nvim/lazy/
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
+.config/http-prompt/
 .config/kitty/themes/catppuccin-*.conf
 .config/kitty/themes/gruvbox-*.conf
 .config/nvim/ftdetect/
@@ -60,6 +61,7 @@ Library/Caches/nvim/lazy/
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
+.vim/
 .zsh/
 .zsh_history
 .zsh_sessions/

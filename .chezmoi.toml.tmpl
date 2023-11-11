@@ -1,20 +1,14 @@
-{{- $gitEmail := promptStringOnce .git "email" "git.email" -}}
-{{- $gitSigningKey := promptStringOnce .git "signingKey" "git.signingKey" -}}
-{{- $githubOrg := promptStringOnce .github "org" "github.org" -}}
-{{- $githubUser := promptStringOnce .github "user" "github.user" -}}
-{{- $where := promptStringOnce . "where" "where" -}}
-
 [data]
 name = "Nick Osborn"
-where = "{{ $where }}"
+where = "{{ $where := promptStringOnce . "where" "where" }}"
 
 [data.git]
-email = "{{ $gitEmail }}"
-signingKey = "{{ $gitSigningKey }}"
+email = "{{ promptStringOnce .git "email" "git.email" }}"
+signingKey = "{{ promptStringOnce .git "signingKey" "git.signingKey" }}"
 
 [data.github]
-org = "{{ $githubOrg }}"
-user = "{{ $githubUser }}"
+org = "{{ promptStringOnce .github "org" "github.org" }}"
+user = "{{ promptStringOnce .github "user" "github.user" }}"
 
 [data.homebrew]
 prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"
