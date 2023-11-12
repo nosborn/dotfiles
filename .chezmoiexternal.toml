@@ -63,17 +63,17 @@ url = "https://github.com/godlygeek/tabular.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/hashivim/start/vim-terraform"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/hashivim/vim-terraform.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/jose-elias-alvarez/start/null-ls.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/jose-elias-alvarez/null-ls.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/jvirtanen/start/vim-hcl"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/jvirtanen/vim-hcl.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 

@@ -54,26 +54,5 @@ null_ls.setup({
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
-    -- Formatting
-    null_ls.builtins.formatting.black,
-    --null_ls.builtins.formatting.eslint,
-    --null_ls.builtins.formatting.ktlint,
-    --null_ls.builtins.formatting.packer,
-    null_ls.builtins.formatting.prettier.with({
-      extra_filetypes = { "toml" },
-    }),
-    null_ls.builtins.formatting.rubocop,
-    null_ls.builtins.formatting.shfmt.with({
-      extra_args = { "-i", "2", "-ci" },
-    }),
-    null_ls.builtins.formatting.stylua,
-    --null_ls.builtins.formatting.terrafmt
-    null_ls.builtins.formatting.terraform_fmt.with({
-      extra_filetypes = { "hcl" },
-    }),
-    null_ls.builtins.formatting.xmllint.with({
-      extra_args = { "--nonet" },
-    }),
-    -- Hover
   },
 })
