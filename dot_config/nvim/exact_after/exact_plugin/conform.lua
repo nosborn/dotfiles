@@ -1,40 +1,38 @@
 require("conform").setup({
+  format_on_save = { -- These options will be passed to conform.format()
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
   formatters = {
     shfmt = {
       prepend_args = { "-i", "2", "-ci" },
     },
   },
   formatters_by_ft = {
-    ["markdown.mdx"] = { "prettier" }, -- TODO
     css = { "prettier" },
     graphql = { "prettier" },
     handlebars = { "prettier" },
-    hcl = { "terraform_fmt", "trim_newlines" },
+    hcl = { "terraform_fmt" },
     html = { "prettier" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
-    json = { "prettier", "trim_newlines" },
+    json = { "prettier" },
     jsonc = { "prettier" },
     less = { "prettier" },
     lua = { "stylua" },
     luau = { "stylua" },
-    markdown = { "prettier", "trim_newlines" }, -- TODO
+    markdown = { "prettier" }, -- TODO
     python = { "black" },
     ruby = { "rubocop" },
     scss = { "prettier" },
-    sh = { "shfmt", "trim_newlines" },
-    terraform = { "terraform_fmt", "trim_newlines" },
-    toml = { "prettier", "trim_newlines" },
+    sh = { "shfmt" },
+    terraform = { "terraform_fmt" },
+    toml = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     vue = { "prettier" },
     xml = { "trim_newlines", "xmlformat" },
-    yaml = { "prettier", "trim_newlines" }, -- TODO
-    zsh = { "shfmt", "trim_newlines" },
-  },
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_fallback = true,
+    yaml = { "prettier" }, -- TODO
+    zsh = { "shfmt" },
   },
 })
