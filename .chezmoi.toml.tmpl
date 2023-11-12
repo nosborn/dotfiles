@@ -1,6 +1,6 @@
 [data]
 name = "Nick Osborn"
-where = "{{ $where := promptStringOnce . "where" "where" }}"
+where = "{{ promptStringOnce . "where" "where" }}"
 
 [data.git]
 email = "{{ promptStringOnce .git "email" "git.email" }}"

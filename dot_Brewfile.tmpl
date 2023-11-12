@@ -17,6 +17,7 @@ brew 'zsh-syntax-highlighting'
 
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
   tap 'aws/tap'
+  tap 'hashicorp/tap' if '{{ .where }}' == 'home'
   tap 'homebrew/cask-fonts'
   tap 'kubecolor/tap'
 
