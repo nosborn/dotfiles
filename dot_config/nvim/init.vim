@@ -78,7 +78,6 @@ vim.diagnostic.config({
     focusable = false,
   },
   severity_sort = true,
-  signs = false,
   underline = false,
   update_in_insert = true,
 })
@@ -118,10 +117,10 @@ EOT
 " end
 " EOT
 
-sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
-sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
-sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
+sign define DiagnosticSignError text=󰅚 texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignHint text=󰌶 texthl=DiagnosticSignHint linehl= numhl=
+sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl=
+sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 
 nnoremap <Leader>fb <Cmd>Telescope buffers<CR>
 nnoremap <Leader>ff <Cmd>Telescope find_files<CR>

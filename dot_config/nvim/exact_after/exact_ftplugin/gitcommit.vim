@@ -1,4 +1,4 @@
-setlocal colorcolumn=73
+setlocal colorcolumn=72
 setlocal textwidth=72
 
 if exists('b:undo_ftplugin')
@@ -8,4 +8,4 @@ else
 endif
 
 " Warning if first line is too long.
-match ErrorMsg /\%1l.\%>51v/
+"match ErrorMsg /\%1l.\%>51v/
