@@ -16,18 +16,15 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
-  tap 'aws/tap'
   tap 'hashicorp/tap'
   tap 'homebrew/cask-fonts'
   tap 'kubecolor/tap'
 
   brew 'actionlint'
-  brew 'aws-cdk'
   brew 'aws-vault'
   brew 'awscli'
   brew 'bat'
   brew 'black'
-  brew 'cfn-lint'
   brew 'checkmake'
   brew 'cmake' # for building gems
   brew 'colima'
@@ -115,7 +112,6 @@ if '{{ .where }}' == 'work'
   tap 'quarkusio/tap'
 
   brew 'bfg'
-  brew 'detect-secrets'
   # brew 'go'
   # cask 'google-chrome'
   cask 'google-drive', require_sha: true
