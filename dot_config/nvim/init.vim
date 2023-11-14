@@ -64,7 +64,16 @@ let g:loaded_perl_provider = 0
 let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 
-let g:markdown_fenced_languages = ['bash', 'gitconfig', 'hcl', 'json', 'sh', 'terraform=hcl', 'yaml', 'zsh']
+let g:markdown_fenced_languages = [
+      \   'bash',
+      \   'gitconfig',
+      \   'hcl',
+      \   'json',
+      \   'sh',
+      \   'terraform=hcl',
+      \   'yaml',
+      \   'zsh'
+      \ ]
 let g:markdown_syntax_conceal = 0
 
 let g:vim_json_conceal = 0
