@@ -16,6 +16,7 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 unless '{{ .chezmoi.hostname }}' == 'Nicks-Mac-mini'
+  tap 'aws/tap'
   tap 'hashicorp/tap'
   tap 'homebrew/cask-fonts'
   tap 'kubecolor/tap'
