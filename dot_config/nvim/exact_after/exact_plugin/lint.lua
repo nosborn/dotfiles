@@ -1,11 +1,12 @@
 require("lint").linters_by_ft = {
   dockerfile = { "hadolint" },
+  dotenv = { "dotenv_linter" },
   gitcommit = { "gitlint" },
   json = { "jsonlint" },
   lua = { "luacheck" },
   python = { "flake8" },
   ruby = { "rubocop" },
-  sh = { "dotenv_linter", "shellcheck" },
+  sh = { "shellcheck" },
   terraform = { "terraform_validate", "tflint", "tfsec" },
   vim = { "vint" },
   yaml = { "actionlint", "yamllint" },

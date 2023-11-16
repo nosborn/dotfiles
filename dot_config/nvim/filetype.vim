@@ -1,4 +1,5 @@
 augroup filetypedetect
+  autocmd BufRead,BufNewFile *.env               set filetype=dotenv syntax=sh
   autocmd BufRead,BufNewFile .ansible-lint       set filetype=yaml
   autocmd BufRead,BufNewFile .chezmoiignore      set filetype=gitignore
   autocmd BufRead,BufNewFile .envrc.example      set filetype=direnv
