@@ -26,6 +26,7 @@ set signcolumn=yes
 set smarttab
 set spell
 set spelllang=en_gb
+set spelloptions=camel,noplainbuffer
 " set tags./tags;,tags
 set termguicolors
 set ttimeout
