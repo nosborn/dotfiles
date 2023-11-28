@@ -91,13 +91,6 @@ url = "https://github.com/lukas-reineke/virt-column.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/mfussenegger/start/nvim-lint"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/mfussenegger/nvim-lint.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/numToStr/start/Comment.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -147,6 +140,13 @@ url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/nvimtools/start/null-ls.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/nvimtools/none-ls.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/pangloss/start/vim-javascript"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -174,13 +174,6 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/rfratto/vim-river.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/stevearc/start/conform.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/stevearc/conform.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
