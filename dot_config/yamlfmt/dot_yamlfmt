@@ -1,0 +1,6 @@
+---
+formatter:
+  include_document_start: true
+  type: basic
+
+# vim: ft=yaml
