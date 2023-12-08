@@ -6,4 +6,4 @@ git_protocol: https
 http_unix_socket:
 pager: less
 prompt: enabled
-version: !!str 1
+version: "1"
