@@ -15,9 +15,6 @@ if [ -d /Applications/Rectangle.app ]; then
 fi
 
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
-  case "${link}" in
-    */Tunnelblick.app) continue ;;
-  esac
   if xattr "${link}" | grep -Fqx com.apple.quarantine; then
     xattr -d -v com.apple.quarantine "${link}"
   fi
