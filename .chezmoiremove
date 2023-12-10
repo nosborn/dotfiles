@@ -52,7 +52,7 @@ Library/Caches/nvim/lazy/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/vale/
-.local.share/wezterm/
+.local/share/wezterm/
 .local/share/zsh-completions/_aws_vault
 .local/share/zsh-completions/_wezterm
 .minikube/
