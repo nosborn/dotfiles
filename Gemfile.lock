@@ -2,9 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    cgi (0.3.6)
+    cgi (0.4.1)
     charlock_holmes (0.7.7)
-    github-linguist (7.27.0)
+    github-linguist (7.28.0)
       cgi
       charlock_holmes (~> 0.7.7)
       mini_mime (~> 1.0)
@@ -45,7 +45,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  github-linguist (= 7.27.0)
+  github-linguist (= 7.28.0)
   rubocop (= 1.58.0)
 
 BUNDLED WITH
