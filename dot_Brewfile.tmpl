@@ -111,7 +111,6 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
-  tap 'oktadeveloper/tap'
   tap 'quarkusio/tap'
 
   brew 'bfg'
@@ -123,7 +122,6 @@ if '{{ .where }}' == 'work'
   brew 'kyverno'
   cask 'lastpass', require_sha: true
   brew 'mysql-client'
-  cask 'okta'
   brew 'openjdk'
   brew 'postgresql@14'
   cask 'pritunl'
