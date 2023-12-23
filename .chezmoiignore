@@ -1,11 +1,8 @@
 *.log
 /Gemfile
 /Gemfile.lock
-/LICENSE
+/LICENSE.md
 /README.md
-/Terminal/
-/install
 /install.sh
-/package.json
 /requirements.txt
 default.profraw
