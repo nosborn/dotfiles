@@ -12,7 +12,14 @@ url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty
 type = "archive-file"
 executable = true
 path = "riverfmt"
-url = "https://github.com/grafana/river/releases/download/v0.1.1/riverfmt_darwin_arm64.tar.gz"
+url = "https://github.com/grafana/river/releases/download/v0.3.0/riverfmt_darwin_arm64.tar.gz"
+
+[".local/share/nvim/site/pack/MunifTanjim/start/nui.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/MunifTanjim/nui.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
 type = "git-repo"
@@ -42,6 +49,13 @@ url = "https://github.com/fladson/vim-kitty.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/folke/start/noice.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/folke/noice.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -63,13 +77,6 @@ url = "https://github.com/hashivim/vim-terraform.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/jose-elias-alvarez/start/null-ls.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/jose-elias-alvarez/null-ls.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/lewis6991/start/gitsigns.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -88,6 +95,13 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/virt-column.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/neovim/nvim-lspconfig.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
@@ -140,7 +154,7 @@ url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/nvimtools/start/null-ls.nvim"]
+[".local/share/nvim/site/pack/nvimtools/start/none-ls.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvimtools/none-ls.nvim.git"
