@@ -3,21 +3,6 @@ type = "file"
 refreshPeriod = "1h"
 url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
 
-[".config/kitty/themes/modus_operandi.conf"]
-type = "file"
-refreshPeriod = "1h"
-url = "https://raw.githubusercontent.com/miikanissi/modus-themes.nvim/master/extras/kitty/modus_operandi.conf"
-
-[".config/kitty/themes/modus_vivendi.conf"]
-type = "file"
-refreshPeriod = "1h"
-url = "https://raw.githubusercontent.com/miikanissi/modus-themes.nvim/master/extras/kitty/modus_vivendi.conf"
-
-[".config/kitty/themes/tokyonight-night.conf"]
-type = "file"
-refreshPeriod = "1h"
-url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty/tokyonight_night.conf"
-
 [".local/bin/riverfmt"]
 type = "archive-file"
 executable = true
@@ -63,13 +48,6 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/folke/noice.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/folke/tokyonight.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 

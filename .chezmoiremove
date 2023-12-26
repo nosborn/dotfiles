@@ -12,8 +12,7 @@ Library/Caches/nvim/lazy/
 .config/fish/
 .config/git/config.*
 .config/http-prompt/
-.config/kitty/themes/catppuccin-*.conf
-.config/kitty/themes/gruvbox-*.conf
+.config/kitty/themes/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
@@ -41,6 +40,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/catppuccin/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
+.local/share/nvim/site/pack/folke/start/tokyonight.nvim/
 .local/share/nvim/site/pack/folke/start/trouble.nvim/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/jose-elias-alvarez/
