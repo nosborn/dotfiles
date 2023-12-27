@@ -9,13 +9,6 @@ executable = true
 path = "riverfmt"
 url = "https://github.com/grafana/river/releases/download/v0.3.0/riverfmt_darwin_arm64.tar.gz"
 
-[".local/share/nvim/site/pack/MunifTanjim/start/nui.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/MunifTanjim/nui.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -41,13 +34,6 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/fladson/vim-kitty.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/folke/start/noice.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/folke/noice.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 

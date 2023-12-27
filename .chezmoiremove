@@ -36,12 +36,12 @@ Library/Caches/nvim/lazy/
 .local/bin/terrafmt-0.*
 .local/share/nvim/neovide-settings.json
 .local/share/nvim/shada/
+.local/share/nvim/site/pack/MunifTanjim/
 .local/share/nvim/site/pack/SmiteshP/
 .local/share/nvim/site/pack/catppuccin/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
-.local/share/nvim/site/pack/folke/start/tokyonight.nvim/
-.local/share/nvim/site/pack/folke/start/trouble.nvim/
+.local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/jose-elias-alvarez/
 .local/share/nvim/site/pack/jvirtanen/
