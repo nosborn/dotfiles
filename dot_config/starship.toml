@@ -41,10 +41,17 @@ disabled = true
 [kubernetes]
 disabled = false
 
-[kubernetes.context_aliases]
-"(?P<cluster>.+)\\.cag\\.systems" = "${cluster}"
-".+\\.teleport\\.sh-(?P<cluster>.+)" = "${cluster}[t]"
-"arn:aws:eks:.+:cluster/(?P<cluster>.+)" = "${cluster}[e]"
+[[kubernetes.contexts]]
+context_alias = "${cluster}"
+context_pattern = "(?P<cluster>.+)\\.cag\\.systems"
+
+[[kubernetes.contexts]]
+context_alias = "${cluster}[t]"
+context_pattern = ".+\\.teleport\\.sh-(?P<cluster>.+)"
+
+[[kubernetes.contexts]]
+context_alias = "${cluster}[e]"
+context_pattern = "arn:aws:eks:.+:cluster/(?P<cluster>.+)"
 
 [lua]
 disabled = true
