@@ -38,15 +38,12 @@ GEM
     unicode-display_width (2.5.0)
 
 PLATFORMS
-  arm64-darwin-21
-  arm64-darwin-22
   arm64-darwin-23
-  x86_64-darwin-21
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   github-linguist (= 7.28.0)
   rubocop (= 1.60.1)
 
 BUNDLED WITH
-   2.4.10
+   2.5.4
