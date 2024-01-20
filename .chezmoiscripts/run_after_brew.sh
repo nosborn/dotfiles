@@ -15,4 +15,6 @@ brew analytics off
 brew bundle install --global
 brew bundle cleanup --global --force
 
+chmod g-w "$(brew --prefix)/opt/homebrew/share"
+
 exit 0
