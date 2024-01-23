@@ -8,7 +8,6 @@ command -v npm >/dev/null 2>&1 || exit 0
 packages="
   ajv-cli
   prettier-plugin-toml
-  typescript-language-server
 "
 
 for package in ${packages}; do
