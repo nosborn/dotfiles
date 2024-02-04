@@ -32,7 +32,7 @@ null_ls.setup({
       end,
     }),
     null_ls.builtins.diagnostics.ansiblelint,
-    null_ls.builtins.diagnostics.cfn_lint,
+    --null_ls.builtins.diagnostics.cfn_lint,
     null_ls.builtins.diagnostics.checkmake,
     --null_ls.builtins.diagnostics.commitlint,
     null_ls.builtins.diagnostics.dotenv_linter,
