@@ -47,10 +47,9 @@ null_ls.setup({
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.diagnostics.shellcheck,
-    --null_ls.builtins.diagnostics.terraform_validate,
     null_ls.builtins.diagnostics.tfsec,
     null_ls.builtins.diagnostics.tsc,
-    null_ls.builtins.diagnostics.trail_space,
+    --null_ls.builtins.diagnostics.trail_space,
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
@@ -67,10 +66,6 @@ null_ls.setup({
     --   extra_args = { "-i", "2", "-ci" },
     -- }),
     -- null_ls.builtins.formatting.stylua,
-    -- --null_ls.builtins.formatting.terrafmt
-    -- null_ls.builtins.formatting.terraform_fmt.with({
-    --   extra_filetypes = { "hcl" },
-    -- }),
     null_ls.builtins.formatting.xmllint.with({
       extra_args = { "--nonet" },
     }),
