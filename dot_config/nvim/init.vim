@@ -76,7 +76,7 @@ let g:markdown_fenced_languages = [
       \   'hcl',
       \   'json',
       \   'sh',
-      \   'terraform=hcl',
+      \   'terraform',
       \   'yaml',
       \   'zsh'
       \ ]

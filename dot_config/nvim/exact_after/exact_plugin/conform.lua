@@ -3,11 +3,6 @@ require("conform").setup({
     lsp_fallback = true,
     timeout_ms = 500,
   },
-  formatters = {
-    shfmt = {
-      prepend_args = { "-i", "2", "-ci" },
-    },
-  },
   formatters_by_ft = {
     css = { "prettier" },
     graphql = { "prettier" },
@@ -19,14 +14,11 @@ require("conform").setup({
     json = { "prettier" },
     jsonc = { "prettier" },
     less = { "prettier" },
-    lua = { "stylua" },
-    luau = { "stylua" },
     markdown = { "prettier" }, -- TODO
     python = { "black" },
     ruby = { "rubocop" },
     scss = { "prettier" },
     sh = { "shfmt" },
-    terraform = { "terraform_fmt" },
     toml = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
