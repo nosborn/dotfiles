@@ -1,4 +1,4 @@
 jsonpatch==1.33
 jsonpointer>=1.9
 mkdocs==1.5.3
-mkdocs-material==9.5.8
+mkdocs-material==9.5.9
