@@ -53,6 +53,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/nvim-telescope/
 .local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
+.local/share/nvim/site/pack/stevearc/
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/
 .local/share/terminfo/
 .local/share/terraform/
