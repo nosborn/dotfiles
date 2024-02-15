@@ -47,7 +47,6 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/jvirtanen/
 .local/share/nvim/site/pack/kyazdani42/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim/
-.local/share/nvim/site/pack/lukas-reineke/start/lsp-format.nvim/
 .local/share/nvim/site/pack/mfussenegger/
 .local/share/nvim/site/pack/nvim-telescope/
 .local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
