@@ -86,6 +86,13 @@ url = "https://github.com/miikanissi/modus-themes.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/mrded/start/nvim-lsp-notify"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/mrded/nvim-lsp-notify.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
 type = "git-repo"
 refreshPeriod = "1h"
