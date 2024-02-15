@@ -66,9 +66,9 @@ null_ls.setup({
       extra_args = { "-i", "2", "-ci" },
     }),
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.terraform_fmt.with({
-      extra_filetypes = { "hcl" },
-    }),
+    -- null_ls.builtins.formatting.terraform_fmt.with({
+    --   extra_filetypes = { "hcl" },
+    -- }),
     null_ls.builtins.formatting.xmllint.with({
       extra_args = { "--nonet" },
     }),
