@@ -165,6 +165,13 @@ url = "https://github.com/ray-x/go.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/rcarriga/start/nvim-notify"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/rcarriga/nvim-notify.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/rfratto/start/vim.river"]
 type = "git-repo"
 refreshPeriod = "1h"
