@@ -71,6 +71,9 @@ fi
 if (( $+commands[kubectl] )); then
   source <("${commands[kubectl]}" completion zsh)
 fi
+if (( $+commands[steampipe] )); then
+  source <("${commands[steampipe]}" completion zsh)
+fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C "${commands[terraform]}" terraform
 fi
