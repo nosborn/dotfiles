@@ -1,4 +1,3 @@
-
 #
 # For detailed descriptions, see the reference documentation
 # at https://steampipe.io/docs/reference/cli-args
@@ -20,12 +19,10 @@
 #   listen = "local" # local, network
 # }
 
-# options "general" {
-#   update_check = true    		# true, false
-#   telemetry    = "info"  		# info, none
-#   log_level    = "info"  		# trace, debug, info, warn, error
-#   memory_max_mb    = "1024"	# the maximum memory to allow the CLI process in MB 
-# }
+options "general" {
+  telemetry    = "none"
+  update_check = false
+}
 
 # options "plugin" {
 #   memory_max_mb    = "1024"	# the default maximum memory to allow a plugin process - used if there is not max memory specified in the 'plugin' block' for that plugin
