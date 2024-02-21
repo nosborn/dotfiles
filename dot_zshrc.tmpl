@@ -71,6 +71,9 @@ fi
 if (( $+commands[kubectl] )); then
   source <("${commands[kubectl]}" completion zsh)
 fi
+if (( $+commands[pipx] )); then
+  eval "$(register-python-argcomplete pipx)"
+fi
 if (( $+commands[steampipe] )); then
   source <("${commands[steampipe]}" completion zsh)
 fi

@@ -5,6 +5,8 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'kubecolor/tap'
 
+cask_args adopt: true
+
 brew 'actionlint'
 brew 'aws-vault'
 brew 'awscli'
@@ -81,11 +83,13 @@ brew 'node@20'
 brew 'openapi-generator'
 brew 'parallel'
 brew 'pinentry-mac'
+brew 'pipx'
 brew 'pkg-config' # for building gems
 brew 'pre-commit'
 brew 'prettier'
 brew 'pstree'
 brew 'pwgen'
+brew 'python-argcomplete'
 brew 'qrencode'
 cask 'rectangle', require_sha: true
 brew 'rg'
@@ -111,7 +115,6 @@ brew 'vscode-langservers-extracted'
 brew 'wdiff'
 brew 'wireguard-tools'
 brew 'yaml-language-server'
-brew 'yamlfmt'
 brew 'yamllint'
 brew 'yq'
 brew 'zsh-autosuggestions'
@@ -135,18 +138,17 @@ if '{{ .where }}' == 'work'
 
   brew 'bfg'
   cask 'google-chrome'
-  cask 'google-drive', require_sha: true
+  cask 'google-drive'
   brew 'gradle'
   brew 'mysql-client'
   brew 'openjdk'
   brew 'postgresql@14'
   brew 'postgresql@15'
-  cask 'pritunl'
+  cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
   brew 'sops'
   brew 'teleport'
   cask 'teleport-connect', require_sha: true
-  cask 'zoom', require_sha: true
 end
 
 # vim: ft=ruby
