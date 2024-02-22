@@ -1,42 +1,6 @@
 scriptencoding utf-8
 
-set colorcolumn=80
-" set foldexpr=lua vim.treesitter.foldexpr()
-" set foldmethod=expr
-set ignorecase
-set laststatus=3
-set list
-set listchars=nbsp:▿,tab:»·,trail:▿
-set mouse=a
-set nobackup
-set noshowcmd
-set noshowmode
-set noswapfile
-set nowrap
-set nowritebackup
-set number
-" set path=$PWD/**
-set relativenumber
-set scrolloff=2
-" set shada-=!
-set shortmess+=I
-set showmatch
-set sidescrolloff=5
-set signcolumn=yes
-set smarttab
-set spell
-set spelllang=en_gb
-set spelloptions=camel,noplainbuffer
-" set tags./tags;,tags
-set termguicolors
-set ttimeout
-set updatetime=250
-set wildignore=*~,*.class,*.o,*.obj,*.pyc,*.swp,*.tar.gz,*.tgz,*.tmp,*.zip,**/.DS_Store,**/.git/**,**/.terraform/**,**/.terraform.d/**,**/.terraform.lock.hcl,**/.terragrunt-cache/**,**/node_modules/**
-
-if executable('rg')
-  set grepformat=%f:%l:%c:%m
-  set grepprg=rg\ --smart-case\ --vimgrep
-endif
+lua require('config/options')
 
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'd'
@@ -137,17 +101,7 @@ sign define DiagnosticSignHint text=󰌶 texthl=DiagnosticSignHint linehl= numhl
 sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 
-nnoremap <Leader>fb <Cmd>Telescope buffers<CR>
-nnoremap <Leader>ff <Cmd>Telescope find_files<CR>
-nnoremap <Leader>fg <Cmd>Telescope live_grep<CR>
-nnoremap <Leader>fh <Cmd>Telescope help_tags<CR>
-nnoremap <Leader>gp <Cmd>Gitsigns preview_hunk<CR>
-nnoremap <silent> [d <Cmd>lua vim.diagnostic.goto_prev({float = false})<CR>
-nnoremap <silent> ]d <Cmd>lua vim.diagnostic.goto_next({float = false})<CR>
-nnoremap gj j
-nnoremap gk k
-nnoremap j gj
-nnoremap k gk
+lua require("config/keymaps")
 
 augroup AnsibleVault
   autocmd!

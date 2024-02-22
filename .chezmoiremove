@@ -17,7 +17,6 @@ Library/Caches/nvim/lazy/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
 .config/nvim/init.lua
-.config/nvim/lua/
 .config/proselint/
 .config/tig/
 .config/wezterm/
