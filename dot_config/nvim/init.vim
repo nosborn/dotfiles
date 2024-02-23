@@ -84,7 +84,9 @@ EOT
 "     vim.api.nvim_echo({ { msg } }, true, {})
 "   end
 " end
-"
+" EOT
+
+" lua <<EOT
 " -- Borders for LspInfo window.
 " local win = require "lspconfig.ui.windows"
 " local _default_opts = win.default_opts
@@ -102,34 +104,7 @@ sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl
 sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 
 lua require("config/keymaps")
-
-augroup AnsibleVault
-  autocmd!
-  autocmd BufReadPre,FileReadPre */group_vars/*/vault.yml setlocal nobackup noswapfile noundofile viminfo=
-  autocmd BufReadPre,FileReadPre */host_vars/*/vault.yml setlocal nobackup noswapfile noundofile viminfo=
-  autocmd BufReadPre,FileReadPre */vars/*/vault.yml setlocal nobackup noswapfile noundofile viminfo=
-  autocmd BufReadPost,FileReadPost */group_vars/*/vault.yml call ansible#vault#decrypt()
-  autocmd BufReadPost,FileReadPost */host_vars/*/vault.yml call ansible#vault#decrypt()
-  autocmd BufReadPost,FileReadPost */vars/*/vault.yml, call ansible#vault#decrypt()
-  autocmd BufWritePre,FileWritePre */group_vars/*/vault.yml call ansible#vault#encrypt()
-  autocmd BufWritePre,FileWritePre */host_vars/*/vault.yml call ansible#vault#encrypt()
-  autocmd BufWritePre,FileWritePre */vars/*/vault.yml call ansible#vault#encrypt()
-  autocmd BufWritePost,FileWritePost */group_vars/*/vault.yml silent undo
-  autocmd BufWritePost,FileWritePost */host_vars/*/vault.yml silent undo
-  autocmd BufWritePost,FileWritePost */vars/*/vault.yml silent undo
-augroup END
-
-" -- local open_diagnostic_float_group = vim.api.nvim_create_augroup("OpenDiagnosticFloat", { clear = true })
-" -- vim.api.nvim_create_autocmd(
-" --   "CursorHold",
-" --   { pattern = "*", command = "lua vim.diagnostic.open_float()", group = open_diagnostic_float_group }
-" -- )
-
-" local open_folds_group = vim.api.nvim_create_augroup("OpenFolds", { clear = true })
-" vim.api.nvim_create_autocmd(
-"   { "BufReadPost", "FileReadPost" },
-"   { pattern = "*", command = "normal zR", group = open_folds_group }
-" )
+lua require("config/autocmds")
 
 " " Use <C-L> to clear the highlighting of :set hlsearch.
 " if maparg('<C-L>', 'n') ==# ''
