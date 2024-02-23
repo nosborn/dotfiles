@@ -5,13 +5,13 @@ set -o nounset
 
 [ -e "$(brew --prefix gh)/bin/gh" ] || exit 0
 
-pipx ensurepath
+pipx install --quiet --system-site-packages jsonpatch
 
-pipx install --system-site-packages 'jsonpatch==1.33'
+pipx install --quiet --system-site-packages jsonpointer
 
-pipx install --system-site-packages 'jsonpointer>=1.9'
+pipx install --quiet --system-site-packages mkdocs
+pipx inject --quiet --system-site-packages mkdocs mkdocs-material
 
-pipx install --system-site-packages 'mkdocs==1.5.3'
-pipx inject --system-site-packages mkdocs 'mkdocs-material==9.5.10'
+pipx upgrade-all --quiet
 
 exit 0
