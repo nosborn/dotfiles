@@ -11,7 +11,7 @@ vim.opt.ignorecase = true
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = { nbsp = "▿", tab = "»·", trail = "▿" }
-vim.opt.mouse = a
+vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 2

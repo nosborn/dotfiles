@@ -21,6 +21,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
   pattern = "*/group_vars/*/vault.yml,*/host_vars/*/vault.yml,*/vars/*/vault.yml",
 })
 
+local lsp_format_group = vim.api.nvim_create_augroup("LSPFormat", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+  group = lsp_format_group,
+  pattern = "*",
+})
+
 local open_diagnostic_float_group = vim.api.nvim_create_augroup("OpenDiagnosticFloat", { clear = true })
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
