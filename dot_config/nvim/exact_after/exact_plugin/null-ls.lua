@@ -7,11 +7,7 @@ null_ls.setup({
     -- Completion
     null_ls.builtins.completion.spell,
     -- Diagnostics
-    null_ls.builtins.diagnostics.actionlint.with({
-      runtime_condition = function(params)
-        return params.bufname:match("/.github/workflows/") ~= nil
-      end,
-    }),
+    null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.ansiblelint,
     null_ls.builtins.diagnostics.dotenv_linter,
     null_ls.builtins.diagnostics.hadolint,
