@@ -38,11 +38,11 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/MunifTanjim/
 .local/share/nvim/site/pack/SmiteshP/
 .local/share/nvim/site/pack/catppuccin/
+.local/share/nvim/site/pack/creativenull/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
 .local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/gruvbox-community/
-.local/share/nvim/site/pack/hashivim/
 .local/share/nvim/site/pack/jose-elias-alvarez/
 .local/share/nvim/site/pack/jvirtanen/
 .local/share/nvim/site/pack/kyazdani42/
@@ -50,6 +50,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/lukas-reineke/start/lsp-format.nvim/
 .local/share/nvim/site/pack/mfussenegger/
 .local/share/nvim/site/pack/mrded/
+.local/share/nvim/site/pack/neovim/
 .local/share/nvim/site/pack/nvim-telescope/
 .local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
