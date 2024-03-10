@@ -18,14 +18,12 @@ null_ls.setup({
     null_ls.builtins.diagnostics.rubocop,
     --null_ls.builtins.diagnostics.terraform_validate,
     --null_ls.builtins.diagnostics.tfsec, -- DEPRECATED
-    --null_ls.builtins.diagnostics.todo_comments,
     --null_ls.builtins.diagnostics.trivy,
     null_ls.builtins.diagnostics.vint,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.zsh,
     -- Formatting
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.prettier.with({
       extra_filetypes = { "toml" },
     }),
@@ -35,7 +33,7 @@ null_ls.setup({
     }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt.with({
-      extra_filetypes = { "hcl" },
+      filetypes = { "hcl" },
     }),
     -- Hover
   },

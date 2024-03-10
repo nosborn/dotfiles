@@ -1,4 +1,5 @@
 require("config/options")
+require("config/lsp")
 
 vim.g.ansible_extra_keywords_highlight = 1
 vim.g.ansible_name_highlight = "d"

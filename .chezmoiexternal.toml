@@ -16,6 +16,13 @@ url = "https://github.com/allaman/kustomize.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/aquasecurity/start/vim-trivy"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/aquasecurity/vim-trivy.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -51,17 +58,17 @@ url = "https://github.com/godlygeek/tabular.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/hashivim/start/vim-terraform"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/hashivim/vim-terraform.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/lewis6991/start/gitsigns.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/lewis6991/gitsigns.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/lukas-reineke/start/lsp-format.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/lukas-reineke/lsp-format.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
@@ -83,6 +90,13 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/miikanissi/modus-themes.nvim.git"
+clone.args = ["--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/neovim/nvim-lspconfig.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
