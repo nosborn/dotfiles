@@ -33,7 +33,7 @@ null_ls.setup({
     }),
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.terraform_fmt.with({
-      filetypes = { "hcl" },
+      extra_filetypes = { "hcl" },
     }),
     -- Hover
   },
