@@ -4,7 +4,7 @@ GEM
     ast (2.4.2)
     cgi (0.4.1)
     charlock_holmes (0.7.7)
-    github-linguist (7.28.0)
+    github-linguist (7.29.0)
       cgi
       charlock_holmes (~> 0.7.7)
       mini_mime (~> 1.0)
@@ -34,7 +34,7 @@ GEM
     rubocop-ast (1.31.2)
       parser (>= 3.3.0.4)
     ruby-progressbar (1.13.0)
-    rugged (1.7.1)
+    rugged (1.7.2)
     unicode-display_width (2.5.0)
 
 PLATFORMS
@@ -42,7 +42,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-linguist (= 7.28.0)
+  github-linguist (= 7.29.0)
   rubocop (= 1.62.1)
 
 BUNDLED WITH
