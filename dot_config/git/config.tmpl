@@ -53,10 +53,11 @@
 	keep-plus-minus-markers = true
 
 [diff]
-	algorithm = histogram
-	colorMoved = default
-	mnemonicprefix = true
-	renames = copies
+	external = difft
+	; algorithm = histogram
+	; colorMoved = default
+	; mnemonicprefix = true
+	; renames = copies
 
 [diff "ansible-vault"]
 	textconv = ansible-vault view

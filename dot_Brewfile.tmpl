@@ -18,6 +18,7 @@ brew 'chezmoi'
 brew 'cmake' # for building gems
 brew 'colima'
 brew 'coreutils'
+brew 'difftastic'
 brew 'diffutils'
 brew 'direnv'
 brew 'docker'
@@ -132,6 +133,7 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
+  tap 'argoproj/tap'
   tap 'quarkusio/tap'
 
   brew 'apache-drill'
@@ -139,6 +141,7 @@ if '{{ .where }}' == 'work'
   cask 'google-chrome'
   cask 'google-drive'
   brew 'gradle'
+  brew 'kubectl-argo-rollouts'
   brew 'mysql-client'
   brew 'openjdk'
   brew 'postgresql@14'
