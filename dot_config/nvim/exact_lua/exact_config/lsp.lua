@@ -19,3 +19,5 @@ lspconfig.gopls.setup({
 -- lspconfig.terraformls.setup({
 --   on_attach = on_attach,
 -- })
+
+lspconfig.tflint.setup({})
