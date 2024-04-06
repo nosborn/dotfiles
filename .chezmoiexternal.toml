@@ -13,7 +13,7 @@ url = "https://github.com/grafana/river/releases/download/v0.3.0/riverfmt_darwin
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/allaman/kustomize.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v4.9.0", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/aquasecurity/start/vim-trivy"]
@@ -27,7 +27,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/cappyzawa/trim.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v0.10.2", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
@@ -76,28 +76,28 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/lsp-format.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v2.6.5", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/indent-blankline.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v3.5.4", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/lukas-reineke/start/virt-column.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/lukas-reineke/virt-column.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v2.0.2", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/miikanissi/start/modus-themes.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/miikanissi/modus-themes.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v1.1.1", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
@@ -111,14 +111,14 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/numToStr/Comment.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v0.8.0", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvim-lua/plenary.nvim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v0.1.4", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-lualine/start/lualine.nvim"]
@@ -132,14 +132,14 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvim-tree/nvim-web-devicons.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v0.99", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v0.9.2", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects"]
@@ -156,19 +156,12 @@ url = "https://github.com/nvimtools/none-ls.nvim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/pangloss/start/vim-javascript"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/pangloss/vim-javascript.git"
-clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 {{ if eq .where "home" }}
 [".local/share/nvim/site/pack/pearofducks/start/ansible-vim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/pearofducks/ansible-vim.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=3.4", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 {{ end }}
 
@@ -190,7 +183,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/tpope/vim-endwise.git"
-clone.args = ["--depth=1", "--no-tags"]
+clone.args = ["--branch=v1.3", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]

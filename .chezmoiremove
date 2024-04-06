@@ -51,6 +51,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/mrded/
 .local/share/nvim/site/pack/nvim-telescope/
 .local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
+.local/share/nvim/site/pack/pangloss/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
 .local/share/nvim/site/pack/rcarriga/
 .local/share/nvim/site/pack/stevearc/
