@@ -44,6 +44,13 @@ url = "https://github.com/direnv/direnv.vim.git"
 clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/echasnovski/start/mini.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/echasnovski/mini.nvim"
+clone.args = ["--branch=v0.12.0", "--depth=1", "--no-tags"]
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -79,13 +86,6 @@ url = "https://github.com/lukas-reineke/lsp-format.nvim.git"
 clone.args = ["--branch=v2.6.5", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/lukas-reineke/indent-blankline.nvim.git"
-clone.args = ["--branch=v3.5.4", "--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/lukas-reineke/start/virt-column.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -105,13 +105,6 @@ type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/neovim/nvim-lspconfig.git"
 clone.args = ["--depth=1", "--no-tags"]
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/numToStr/start/Comment.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/numToStr/Comment.nvim.git"
-clone.args = ["--branch=v0.8.0", "--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim"]

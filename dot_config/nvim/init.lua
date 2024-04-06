@@ -102,6 +102,7 @@ vim.cmd([[
   sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 ]])
 
+require("config/mini")
 require("config/keymaps")
 require("config/autocmds")
 
