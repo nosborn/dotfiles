@@ -37,6 +37,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "config.alloy",
+  group = filetypedetect,
+  command = "set filetype=river",
+})
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "ansible-lint,.prettierrc,.yamllint",
   group = filetypedetect,
   command = "set filetype=yaml",
