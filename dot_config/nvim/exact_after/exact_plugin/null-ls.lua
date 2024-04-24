@@ -38,3 +38,19 @@ null_ls.setup({
     -- Hover
   },
 })
+
+local alloy_fmt = {
+  filetypes = { "river" },
+  generator = null_ls.formatter({
+    command = "alloy",
+    args = { "fmt" },
+    to_stdin = true,
+  }),
+  method = null_ls.methods.FORMATTING,
+}
+
+null_ls.register({
+  filetypes = { "river" },
+  name = "alloy_fmt",
+  sources = { alloy_fmt },
+})
