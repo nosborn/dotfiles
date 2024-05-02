@@ -59,6 +59,18 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
+require("nvim-treesitter.parsers").get_parser_configs().d2 = {
+  filetype = "d2",
+  install_info = {
+    files = {
+      "src/parser.c",
+      "src/scanner.cc",
+    },
+    revision = "main",
+    url = "https://github.com/pleshevskiy/tree-sitter-d2",
+  },
+}
+
 require("nvim-treesitter.parsers").get_parser_configs().river = {
   install_info = {
     branch = "main",
