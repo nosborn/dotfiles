@@ -12,6 +12,7 @@ pipx install --quiet --system-site-packages jsonpatch
 pipx install --quiet --system-site-packages jsonpointer
 
 pipx install --quiet --system-site-packages mkdocs
+pipx inject --quiet --system-site-packages mkdocs mkdocs-d2-plugin
 pipx inject --quiet --system-site-packages mkdocs mkdocs-material
 
 pipx upgrade-all --include-injected --quiet
