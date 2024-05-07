@@ -16,6 +16,6 @@ lspconfig.gopls.setup({
 
 -- lspconfig.jsonls.setup({})
 
-lspconfig.terraformls.setup({
-  on_attach = on_attach,
-})
+-- lspconfig.terraformls.setup({
+--   on_attach = on_attach,
+-- })
