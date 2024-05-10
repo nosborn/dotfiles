@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "config.alloy",
+  pattern = "config.alloy,*-config.alloy",
   group = filetypedetect,
   command = "set filetype=river",
 })
