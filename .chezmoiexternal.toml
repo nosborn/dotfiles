@@ -21,7 +21,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/cappyzawa/trim.nvim.git"
-clone.args = ["--branch=v0.10.2", "--depth=1", "--no-tags"]
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
@@ -119,7 +119,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvim-tree/nvim-web-devicons.git"
-clone.args = ["--branch=v0.99", "--depth=1", "--no-tags"]
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
@@ -177,7 +177,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/tpope/vim-endwise.git"
-clone.args = ["--branch=v1.3", "--depth=1", "--no-tags"]
+clone.args = ["--depth=1", "--no-tags"]
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]
