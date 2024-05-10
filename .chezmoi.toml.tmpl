@@ -16,6 +16,9 @@ prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ e
 [diff]
 pager = "less -R"
 
+[edit]
+command = "nvim"
+
 [git]
 autoCommit = true
 autoPush = true
