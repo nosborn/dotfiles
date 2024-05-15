@@ -6,6 +6,7 @@ Library/Caches/nvim/lazy/
 .azure/
 .bundle/
 .cache/
+.config/.curlrc
 .config/.shellcheckrc
 .config/bat/themes/Catppuccin-*.tmTheme
 .config/direnv/direnvrc
@@ -16,7 +17,7 @@ Library/Caches/nvim/lazy/
 .config/nvim/ftdetect/
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
-.config/nvim/init.vim
+.config/nvim/init.lua
 .config/proselint/
 .config/tig/
 .config/wezterm/
