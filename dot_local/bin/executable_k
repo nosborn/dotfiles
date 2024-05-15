@@ -1,6 +1,0 @@
-#!/bin/bash
-
-kubectl=$(command -v kubecolor 2>/dev/null || command -v kubectl 2>/dev/null)
-readonly kubectl
-
-exec "${kubectl}" "$@"
