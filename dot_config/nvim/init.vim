@@ -28,7 +28,7 @@ set spell
 set spelllang=en_gb
 set spelloptions=camel,noplainbuffer
 " set tags./tags;,tags
-set termguicolors
+set termguicolors " not needed in nvim 10
 set ttimeout
 set updatetime=250
 set wildignore+=**/.DS_Store
@@ -51,7 +51,7 @@ set wildignore+=*.tmp
 set wildignore+=*.zip
 set wildignore+=*~
 
-if executable('rg')
+if executable('rg') " not needed in nvim 10
   set grepformat=%f:%l:%c:%m
   set grepprg=rg\ --smart-case\ --vimgrep
 endif
@@ -161,11 +161,17 @@ sign define DiagnosticSignHint text=󰌶 texthl=DiagnosticSignHint linehl= numhl
 sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 
-lua <<EOT
-require("config/mini")
-require("config/keymaps")
-require("config/autocmds")
-EOT
+lua require("config/mini")
+
+nnoremap <silent> [d <Cmd>lua vim.diagnostic.goto_prev({float = false})<CR> " not needed in nvim 10
+nnoremap <silent> ]d <Cmd>lua vim.diagnostic.goto_next({float = false})<CR> " not needed in nvim 10
+
+nnoremap gj j
+nnoremap gk k
+nnoremap j gj
+nnoremap k gk
+
+lua require("config/autocmds")
 
 " " Use <C-L> to clear the highlighting of :set hlsearch.
 " if maparg('<C-L>', 'n') ==# ''

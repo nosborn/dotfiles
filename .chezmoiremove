@@ -15,6 +15,7 @@ Library/Caches/nvim/lazy/
 .config/http-prompt/
 .config/kitty/themes/
 .config/nvim/ftdetect/
+.config/nvim/filetype.lua
 .config/nvim/ginit.lua
 .config/nvim/ginit.vim
 .config/nvim/init.lua
