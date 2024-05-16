@@ -28,7 +28,6 @@ require("nvim-treesitter.configs").setup({
     "jq",
     "json",
     "jsonnet",
-    "kotlin",
     "lua",
     "make",
     "markdown", -- experimental
