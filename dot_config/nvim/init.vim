@@ -161,8 +161,6 @@ sign define DiagnosticSignHint text=󰌶 texthl=DiagnosticSignHint linehl= numhl
 sign define DiagnosticSignInfo text=󰋽 texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignWarn text=󰀪 texthl=DiagnosticSignWarn linehl= numhl=
 
-lua require("config/mini")
-
 nnoremap <silent> [d <Cmd>lua vim.diagnostic.goto_prev({float = false})<CR> " not needed in nvim 10
 nnoremap <silent> ]d <Cmd>lua vim.diagnostic.goto_next({float = false})<CR> " not needed in nvim 10
 
@@ -177,9 +175,9 @@ lua require("config/autocmds")
 " if maparg('<C-L>', 'n') ==# ''
 "   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 " endif
-"
-" map Q <Nop>
-"
+
+map Q <Nop>
+
 " inoremap <C-U> <C-G>u<C-U>
 "
 " if !exists(':DiffOrig')
@@ -192,3 +190,5 @@ lua require("config/autocmds")
 " cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
 " cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
 " cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
+
+highlight Comment cterm=italic gui=italic
