@@ -1,25 +1,45 @@
 ---
-prSections:
-  - title: My Pull Requests
-    filters: is:open author:@me
-  - title: Needs My Review
-    filters: is:open review-requested:@me
-  - title: Subscribed
-    # filters: is:open -author:@me repo:cli/cli repo:dlvhdr/gh-dash
-    filters: is:open -author:@me
-    limit: 50 # optional limit per section
-
-issuesSections:
-  - title: Created
-    filters: is:open author:@me
-  - title: Assigned
-    filters: is:open assignee:@me
-  - title: Subscribed
-    filters: is:open -author:@me
-
 defaults:
-  prsLimit: 20 # global limit
+  confirmQuit: false # show prompt on quit or not
   issuesLimit: 20 # global limit
+  keybindings:
+    {}
+    # prs:
+    #   - command: gh pr review {{.PrNumber}} --approve --repo {{.RepoName}}
+    #     key: Y
+  layout:
+    prs:
+      repo:
+        grow: true
+        width: 10
+        hidden: false
+  pager:
+    diff: less # or delta for example
   preview:
     open: true
     width: 60
+  prsLimit: 20 # global limit
+  refetchIntervalMinutes: 30
+  repoPaths:
+    :owner/:repo: ~/src/github.com/:owner/:repo
+  theme: {}
+
+issuesSections:
+  - filters: is:open author:@me
+    title: Created
+  - filters: is:open assignee:@me
+    title: Assigned
+  - filters: is:open -author:@me # repo:microsoft/vscode repo:dlvhdr/gh-dash
+    title: Subscribed
+
+prSections:
+  - filters: is:open author:@me
+    layout:
+      author:
+        hidden: true
+    title: My Pull Requests
+  - filters: is:open review-requested:@me
+    title: Needs My Review
+  - filters: is:open -author:@me # repo:cli/cli repo:dlvhdr/gh-dash
+    limit: 50 # optional limit per section
+    title: Subscribed
