@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+cache="${XDG_CACHE_HOME:-"${HOME}/.cache"}/kubeconform"
+mkdir -p "${cache}"
+
+output=text
+[[ -t 1 ]] && output=pretty
+
+"$(brew --prefix kubeconform)/bin/kubeconform" \
+  -cache="${cache}" \
+  -kubernetes-version=1.30.0 \
+  -output="${output}" \
+  -schema-location=default \
+  -schema-location='https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' \
+  -skip=SopsSecret \
+  -strict=true \
+  "$@"

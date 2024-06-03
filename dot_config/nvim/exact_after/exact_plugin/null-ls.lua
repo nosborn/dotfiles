@@ -54,3 +54,18 @@ null_ls.register({
   name = "alloy_fmt",
   sources = { alloy_fmt },
 })
+
+-- local kubeconform = {
+--   filetypes = { "yaml" },
+--   generator = null_ls.formatter({
+--     command = "kubeconform",
+--     to_stdin = true,
+--   }),
+--   method = null_ls.methods.DIAGNOSTICS,
+-- }
+--
+-- null_ls.register({
+--   filetypes = { "yaml" },
+--   name = "kubeconform",
+--   sources = { kubeconform },
+-- })
