@@ -13,6 +13,7 @@ PKG_CONFIG_PATH="${PREFIX:?}/lib/pkgconfig"
 export CPPFLAGS LDFLAGS PATH PKG_CONFIG_PATH
 
 cd "$(chezmoi source-path)"
+bundle lock --update
 bundle install
 bundle clean --force
 
