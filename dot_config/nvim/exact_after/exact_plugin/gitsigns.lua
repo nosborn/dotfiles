@@ -5,7 +5,4 @@ require("gitsigns").setup({
     ignore_whitespace = true,
     virt_text_pos = "right_align",
   },
-  current_line_blame_formatter_opts = {
-    relative_time = true,
-  },
 })
