@@ -3,7 +3,6 @@ require("nvim-treesitter.configs").setup({
     -- "awk",
     "bash",
     "c",
-    "cmake",
     "comment",
     "cpp",
     "css",
