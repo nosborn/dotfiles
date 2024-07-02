@@ -16,6 +16,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.hadolint,
     null_ls.builtins.diagnostics.markdownlint,
     null_ls.builtins.diagnostics.rubocop,
+    --null_ls.builtins.diagnostics.terraform_validate,
     --null_ls.builtins.diagnostics.tfsec, -- DEPRECATED
     --null_ls.builtins.diagnostics.trivy,
     null_ls.builtins.diagnostics.vint,
@@ -31,6 +32,9 @@ null_ls.setup({
       extra_args = { "-i", "2", "-ci" },
     }),
     null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.terraform_fmt.with({
+      extra_filetypes = { "hcl" },
+    }),
     -- Hover
   },
 })
