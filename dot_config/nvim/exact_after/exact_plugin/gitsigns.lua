@@ -5,4 +5,5 @@ require("gitsigns").setup({
     ignore_whitespace = true,
     virt_text_pos = "right_align",
   },
+  numhl = true,
 })

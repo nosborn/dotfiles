@@ -58,6 +58,7 @@ endif
 
 lua <<EOT
 require("config/lsp")
+require("config/theme")
 EOT
 
 let g:ansible_extra_keywords_highlight = 1

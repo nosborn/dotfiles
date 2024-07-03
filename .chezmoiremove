@@ -45,7 +45,6 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/echasnovski/start/mini.indentscope/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
-.local/share/nvim/site/pack/folke/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/jose-elias-alvarez/
 .local/share/nvim/site/pack/jvirtanen/
@@ -53,6 +52,7 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim/
 .local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim/
 .local/share/nvim/site/pack/mfussenegger/
+.local/share/nvim/site/pack/miikanissi/start/modus-themes.nvim/
 .local/share/nvim/site/pack/mrded/
 .local/share/nvim/site/pack/numToStr/
 .local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects/
