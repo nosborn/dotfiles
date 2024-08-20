@@ -23,6 +23,7 @@ Library/Caches/nvim/lazy/
 .config/proselint/
 .config/tig/
 .config/wezterm/
+.config/zed/
 .curlrc
 .digrc
 .lesshst
