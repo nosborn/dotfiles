@@ -131,6 +131,8 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
+  tap 'argoproj/tap'
+
   brew 'argocd'
   brew 'bfg'
   cask 'google-chrome'
