@@ -22,7 +22,6 @@ Library/Caches/nvim/lazy/
 .config/nvim/init.lua
 .config/proselint/
 .config/tig/
-.config/wezterm/
 .config/zed/
 .curlrc
 .digrc
@@ -66,9 +65,7 @@ Library/Caches/nvim/lazy/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/vale/
-.local/share/wezterm/
 .local/share/zsh-completions/_aws_vault
-.local/share/zsh-completions/_wezterm
 .minikube/
 .mono/
 .rubocop.yml
