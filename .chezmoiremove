@@ -14,7 +14,7 @@ Library/Caches/nvim/lazy/
 .config/fish/
 .config/git/config.*
 .config/http-prompt/
-.config/kitty/
+.config/kitty/themes/
 .config/nvim/ftdetect/
 .config/nvim/filetype.lua
 .config/nvim/ginit.lua
@@ -45,7 +45,6 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/echasnovski/start/mini.indentscope/
 .local/share/nvim/site/pack/ellisonleao/
 .local/share/nvim/site/pack/fatih/
-.local/share/nvim/site/pack/fladson/
 .local/share/nvim/site/pack/gruvbox-community/
 .local/share/nvim/site/pack/jose-elias-alvarez/
 .local/share/nvim/site/pack/jvirtanen/
