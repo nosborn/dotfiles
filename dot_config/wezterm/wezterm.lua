@@ -3,8 +3,7 @@ local config = wezterm.config_builder()
 
 config.audible_bell = "Disabled"
 config.color_scheme = "Tomorrow Night"
-config.exit_behavior = "Close"
-config.exit_behavior_messaging = "Brief"
+config.exit_behavior = "CloseOnCleanExit"
 config.font = wezterm.font("JetBrains Mono NL")
 config.font_size = 16.0
 config.hide_tab_bar_if_only_one_tab = true
