@@ -7,6 +7,7 @@ set -o nounset
 [ -e "$(brew --prefix kubectl)/bin/kubectl" ] || exit 0
 
 "$(brew --prefix kubectl)/bin/kubectl" krew update
+"$(brew --prefix kubectl)/bin/kubectl" krew install fields || :
 "$(brew --prefix kubectl)/bin/kubectl" krew install get-all || :
 "$(brew --prefix kubectl)/bin/kubectl" krew install tree || :
 
