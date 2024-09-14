@@ -51,7 +51,6 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
 brew 'golangci-lint'
-cask 'google-cloud-sdk', require_sha: true
 brew 'gopls'
 brew 'goreleaser'
 brew 'gpg2'
@@ -142,6 +141,7 @@ if '{{ .where }}' == 'work'
   brew 'argocd'
   brew 'bfg'
   cask 'google-chrome', require_sha: true
+  cask 'google-cloud-sdk', require_sha: true
   cask 'google-drive', require_sha: true
   brew 'gradle'
   brew 'kubectl-argo-rollouts'
