@@ -10,6 +10,7 @@ Library/Caches/nvim/lazy/
 .config/.curlrc
 .config/.shellcheckrc
 .config/bat/themes/Catppuccin-*.tmTheme
+.config/bat/themes/TokyoNight.tmTheme
 .config/direnv/direnvrc
 .config/fish/
 .config/git/config.*
