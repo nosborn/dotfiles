@@ -5,5 +5,12 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.alloy]
+indent_size = 8
+indent_style = tab
+
+[CODEOWNERS]
+indent_style = tab
+
 [Makefile]
 indent_style = tab
