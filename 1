@@ -72,7 +72,6 @@ brew 'krew'
 brew 'kube-linter'
 brew 'kubecolor'
 brew 'kubeconform'
-brew 'kubectl-argo-rollouts'
 brew 'kubectx'
 brew 'kubernetes-cli'
 brew 'kustomize'
@@ -101,7 +100,6 @@ brew 'sf-pwgen'
 brew 'shellcheck'
 brew 'shfmt'
 brew 'skopeo'
-brew 'sops'
 brew 'starship'
 brew 'steampipe'
 brew 'stylua'
@@ -146,6 +144,7 @@ if '{{ .where }}' == 'work'
   cask 'google-cloud-sdk', require_sha: true
   cask 'google-drive', require_sha: true
   brew 'gradle'
+  brew 'kubectl-argo-rollouts'
   brew 'mysql-client'
   brew 'openjdk'
   brew 'poetry'
@@ -153,6 +152,7 @@ if '{{ .where }}' == 'work'
   brew 'postgresql@15'
   cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
+  brew 'sops'
   cask 'teleport-connect', require_sha: true
   cask 'visual-studio-code', require_sha: true
 end
