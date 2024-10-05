@@ -51,16 +51,18 @@ Library/Caches/nvim/lazy/
 .local/share/nvim/site/pack/jose-elias-alvarez/
 .local/share/nvim/site/pack/jvirtanen/
 .local/share/nvim/site/pack/kyazdani42/
-.local/share/nvim/site/pack/lewis6991/start/spellsitter.nvim/
+.local/share/nvim/site/pack/lewis6991/
 .local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim/
 .local/share/nvim/site/pack/mfussenegger/
 .local/share/nvim/site/pack/miikanissi/start/modus-themes.nvim/
 .local/share/nvim/site/pack/mrded/
 .local/share/nvim/site/pack/numToStr/
+.local/share/nvim/site/pack/nvim-lualine/
 .local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects/
 .local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
 .local/share/nvim/site/pack/pangloss/
 {{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
+.local/share/nvim/site/pack/rachartier/
 .local/share/nvim/site/pack/rcarriga/
 .local/share/nvim/site/pack/stevearc/
 .local/share/nvim/site/pack/tpope/start/vim-fugitive/

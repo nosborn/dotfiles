@@ -3,32 +3,20 @@ scriptencoding utf-8
 set colorcolumn=80
 " set foldexpr=lua vim.treesitter.foldexpr()
 " set foldmethod=expr
-set ignorecase
-set laststatus=3
-set list
-set listchars=nbsp:▿,tab:»·,trail:▿
-set mouse=a
-set nobackup
+" set listchars=nbsp:▿,tab:»·,trail:▿
 set noshowcmd
-set noshowmode
 set noswapfile
-set nowrap
-set nowritebackup
-set number
 " set path=$PWD/**
-set relativenumber
 set scrolloff=2
 " set shada-=!
-set shortmess+=I
+" set shortmess+=I
 set showmatch
 set sidescrolloff=5
-set signcolumn=yes
 set smarttab
 set spell
 set spelllang=en_gb
 set spelloptions=camel,noplainbuffer
 " set tags./tags;,tags
-set termguicolors " not needed in nvim 10
 set ttimeout
 set updatetime=250
 set wildignore+=**/.DS_Store
@@ -51,10 +39,10 @@ set wildignore+=*.tmp
 set wildignore+=*.zip
 set wildignore+=*~
 
-if executable('rg') " not needed in nvim 10
-  set grepformat=%f:%l:%c:%m
-  set grepprg=rg\ --smart-case\ --vimgrep
-endif
+" if executable('rg') " not needed in nvim 10
+"   set grepformat=%f:%l:%c:%m
+"   set grepprg=rg\ --smart-case\ --vimgrep
+" endif
 
 lua <<EOT
 require("config/lsp")

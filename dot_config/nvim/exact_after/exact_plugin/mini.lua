@@ -1,3 +1,12 @@
+require("mini.basics").setup({
+  autocommands = {
+    relnum_in_visual_mode = true,
+  },
+  options = {
+    extra_ui = true,
+  },
+})
+
 require("mini.clue").setup({
   triggers = {
     -- Leader triggers
@@ -44,7 +53,30 @@ require("mini.clue").setup({
 
 require("mini.comment").setup()
 
+require("mini.diff").setup({
+  view = {
+    -- signs = {
+    --   add = "┃",
+    --   change = "┃",
+    --   delete = "▒",
+    -- },
+    -- style = "sign",
+  },
+})
+
+require("mini.extra").setup()
+
+require("mini.git").setup()
+
+require("mini.icons").setup()
+
 require("mini.indentscope").setup()
+
+require("mini.splitjoin").setup()
+
+require("mini.statusline").setup()
+
+-- require("mini.tabline").setup()
 
 require("mini.visits").setup()
 -- map("<Leader>vr", "Select recent (all)", true, 1)

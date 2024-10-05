@@ -58,12 +58,6 @@ refreshPeriod = "1h"
 url = "https://github.com/hashivim/vim-terraform.git"
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/lewis6991/start/gitsigns.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/lewis6991/gitsigns.nvim.git"
-pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/lukas-reineke/start/lsp-format.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -86,12 +80,6 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/nvim-lua/plenary.nvim.git"
-pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/nvim-lualine/start/lualine.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/nvim-lualine/lualine.nvim.git"
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-telescope/start/nvim-telescope"]
@@ -125,13 +113,6 @@ refreshPeriod = "1h"
 url = "https://github.com/pearofducks/ansible-vim.git"
 pull.args = ["--force"]
 {{ end }}
-
-[".local/share/nvim/site/pack/rachartier/start/tiny-devicons-auto-colors.nvim"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/rachartier/tiny-devicons-auto-colors.nvim.git"
-clone.args = ["--no-tags"]
-pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/ray-x/start/go.nvim"]
 type = "git-repo"
