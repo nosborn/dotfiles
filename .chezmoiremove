@@ -1,8 +1,6 @@
 Library/Application Support/pipx/
 Library/Colors/Catppuccin *.clr
 Library/Caches/helix/
-Library/Caches/nvim/catppuccin/
-Library/Caches/nvim/lazy/
 .actrc
 .azure/
 .bundle/
@@ -16,11 +14,6 @@ Library/Caches/nvim/lazy/
 .config/git/config.*
 .config/http-prompt/
 .config/kitty/themes/
-.config/nvim/ftdetect/
-.config/nvim/filetype.lua
-.config/nvim/ginit.lua
-.config/nvim/ginit.vim
-.config/nvim/init.lua
 .config/proselint/
 .config/tig/
 .config/wezterm/
@@ -38,34 +31,6 @@ Library/Caches/nvim/lazy/
 .local/bin/ppyaml
 .local/bin/terrafmt
 .local/bin/terrafmt-0.*
-.local/share/nvim/neovide-settings.json
-.local/share/nvim/shada/
-.local/share/nvim/site/pack/MunifTanjim/
-.local/share/nvim/site/pack/SmiteshP/
-.local/share/nvim/site/pack/catppuccin/
-.local/share/nvim/site/pack/creativenull/
-.local/share/nvim/site/pack/echasnovski/start/mini.indentscope/
-.local/share/nvim/site/pack/ellisonleao/
-.local/share/nvim/site/pack/fatih/
-.local/share/nvim/site/pack/gruvbox-community/
-.local/share/nvim/site/pack/jose-elias-alvarez/
-.local/share/nvim/site/pack/jvirtanen/
-.local/share/nvim/site/pack/kyazdani42/
-.local/share/nvim/site/pack/lewis6991/
-.local/share/nvim/site/pack/lukas-reineke/start/indent-blankline.nvim/
-.local/share/nvim/site/pack/mfussenegger/
-.local/share/nvim/site/pack/miikanissi/start/modus-themes.nvim/
-.local/share/nvim/site/pack/mrded/
-.local/share/nvim/site/pack/numToStr/
-.local/share/nvim/site/pack/nvim-lualine/
-.local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects/
-.local/share/nvim/site/pack/nvimtools/start/null-ls.nvim/
-.local/share/nvim/site/pack/pangloss/
-{{ if ne .where "home" }}.local/share/nvim/site/pack/pearofducks/{{ end }}
-.local/share/nvim/site/pack/rachartier/
-.local/share/nvim/site/pack/rcarriga/
-.local/share/nvim/site/pack/stevearc/
-.local/share/nvim/site/pack/tpope/start/vim-fugitive/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/vale/
