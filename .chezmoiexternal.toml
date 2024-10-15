@@ -15,43 +15,43 @@
 # refreshPeriod = "1h"
 # url = "https://github.com/cappyzawa/trim.nvim.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/cuducos/yaml.nvim.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/cuducos/yaml.nvim.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/direnv/start/direnv.vim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
 # url = "https://github.com/direnv/direnv.vim.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/echasnovski/start/mini.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/echasnovski/mini.nvim.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/echasnovski/start/mini.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/echasnovski/mini.nvim.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
 # type = "git-repo"
 # refreshPeriod = "1h"
 # url = "https://github.com/fladson/vim-kitty.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/folke/tokyonight.nvim.git"
-# pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/godlygeek/start/tabular"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/godlygeek/tabular.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/folke/tokyonight.nvim.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/godlygeek/start/tabular"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/godlygeek/tabular.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/hashivim/start/vim-terraform"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -63,43 +63,49 @@
 # refreshPeriod = "1h"
 # url = "https://github.com/lukas-reineke/lsp-format.nvim.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/lukas-reineke/start/virt-column.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/lukas-reineke/virt-column.nvim.git"
-# pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/neovim/nvim-lspconfig.git"
-# pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/nvim-lua/plenary.nvim.git"
-# pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/nvim-telescope/start/nvim-telescope"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/nvim-telescope/telescope.nvim.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/lukas-reineke/start/virt-column.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/lukas-reineke/virt-column.nvim.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/mfussenegger/start/nvim-lint"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/mfussenegger/nvim-lint.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/neovim/start/nvim-lspconfig"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/neovim/nvim-lspconfig.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/nvim-lua/plenary.nvim.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/nvim-telescope/start/nvim-telescope"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/nvim-telescope/telescope.nvim.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/nvim-tree/start/nvim-web-devicons"]
 # type = "git-repo"
 # refreshPeriod = "1h"
 # url = "https://github.com/nvim-tree/nvim-web-devicons.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/nvimtools/start/none-ls.nvim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -119,13 +125,19 @@
 # refreshPeriod = "1h"
 # url = "https://github.com/ray-x/go.nvim.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/rfratto/start/vim.river"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/rfratto/vim-river.git"
-# pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/rfratto/start/vim.river"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/rfratto/vim-river.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/stevearc/start/confirm.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/stevearc/conform.nvim.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/terrastruct/start/d2-vim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -137,7 +149,13 @@
 # refreshPeriod = "1h"
 # url = "https://github.com/tpope/vim-endwise.git"
 # pull.args = ["--force"]
-#
+
+[".local/share/nvim/site/pack/windwp/start/nvim-autopairs"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/windwp/nvim-autopairs.git"
+pull.args = ["--force"]
+
 # [".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]
 # type = "git-repo"
 # refreshPeriod = "1h"

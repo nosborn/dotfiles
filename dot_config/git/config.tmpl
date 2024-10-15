@@ -36,21 +36,33 @@
 {{- end }}
 
 [delta]
-	features = navigation
-	light = false
+	dark = true
+	; features = navigation
+	hyperlinks = true
+	line-numbers-minus-style = "#914c54"
+	line-numbers-plus-style = "#449dab"
+	line-numbers-zero-style = "#3b4261"
+	minus-emph-style = syntax "#713137"
+	minus-empty-line-marker-style = syntax "#37222c"
+	minus-non-emph-style = syntax "#37222c"
+	minus-style = syntax "#37222c"
+	plus-emph-style = syntax "#2c5a66"
+	plus-empty-line-marker-style = syntax "#20303b"
+	plus-non-emph-style = syntax "#20303b"
+	plus-style = syntax "#20303b"
 	side-by-side = true
 
-[delta "decorations"]
-	commit-decoration-style = blue ol
-	commit-style = raw
-	file-style = omit
-	hunk-header-decoration-style = blue box
-	hunk-header-file-style = red
-	hunk-header-line-number-style = "#067a00"
-	hunk-header-style = file line-number syntax
+; [delta "decorations"]
+; 	; commit-decoration-style = blue ol
+; 	; commit-style = raw
+; 	; file-style = omit
+; 	; hunk-header-decoration-style = blue box
+; 	; hunk-header-file-style = red
+; 	; hunk-header-line-number-style = "#067a00"
+; 	; hunk-header-style = file line-number syntax
 
-[delta "interactive"]
-	keep-plus-minus-markers = true
+; [delta "interactive"]
+; 	keep-plus-minus-markers = true
 
 [diff]
 	external = difft
@@ -86,9 +98,6 @@
 
 [grep]
 	patternType = "extended"
-
-[include]
-	path = ~/.local/share/nvim/lazy/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
 
 [init]
 	defaultBranch = main

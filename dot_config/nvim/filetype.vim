@@ -4,7 +4,7 @@ endif
 
 augroup filetypedetect
   autocmd! BufNewFile,BufRead *.alloy                  set filetype=river
-  autocmd! BufNewFile,BufRead *.env                    set filetype=dottenv syntax=sh
+  autocmd! BufNewFile,BufRead *.env                    set filetype=dotenv syntax=sh
   autocmd! BufNewFile,BufRead .chezmoiignore           set filetype=gitignore
   autocmd! BufNewFile,BufRead .envrc.ignore            set filetype=direnv
   autocmd! BufNewFile,BufRead .markdownlintignore      set filetype=gitignore
