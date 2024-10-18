@@ -1,23 +1,13 @@
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.breakindent = true
-vim.opt.cursorline = true
-vim.opt.ignorecase = true
-vim.opt.inccommand = "split"
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.mouse = "a"
-vim.opt.number = true
+vim.opt.inccommand = "nosplit"
+vim.opt.listchars = { extends = "…", nbsp = "␣", precedes = "…", tab = "» ", trail = "·" }
 vim.opt.scrolloff = 10
-vim.opt.showmode = false
---vim.opt.signcolumn = "auto"
-vim.opt.smartcase = true
+vim.opt.signcolumn = "no"
 vim.opt.spelllang = "en_gb"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
 vim.opt.timeoutlen = 300
+vim.opt.undofile = false
 vim.opt.updatetime = 250
 
 -- vim.schedule(function()
@@ -46,7 +36,6 @@ require("mini.basics").setup({
     relnum_in_visual_mode = true,
   },
 })
-vim.opt.undofile = false
 
 require("mini.bracketed").setup()
 
@@ -58,6 +47,8 @@ require("mini.clue").setup({
     { mode = "n", keys = "'" },
     { mode = "n", keys = "<C-w>" },
     { mode = "n", keys = "<Leader>" },
+    { mode = "n", keys = "[" },
+    { mode = "n", keys = "]" },
     { mode = "n", keys = "`" },
     { mode = "n", keys = "g" },
     { mode = "n", keys = "z" },
@@ -87,6 +78,8 @@ require("mini.diff").setup()
 
 require("mini.extra").setup()
 
+require("mini.files").setup()
+
 require("mini.git").setup()
 
 require("mini.hipatterns").setup({
@@ -107,6 +100,8 @@ require("mini.move").setup()
 require("mini.notify").setup()
 vim.notify = require("mini.notify").make_notify()
 
+require("mini.pairs").setup()
+
 require("mini.statusline").setup()
 require("mini.statusline").section_location = function()
   return "%2l:%-2v"
@@ -115,6 +110,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile" }, {
   pattern = { "*.yaml", "*.yml" },
   command = "norm i---\n",
 })
+
+--require("mini.surround").setup()
 
 require("nvim-treesitter.configs").setup({
   auto_install = true,
@@ -204,8 +201,6 @@ require("conform").setup({
 require("conform").formatters.shfmt = {
   prepend_args = { "-i", "2", "-ci" },
 }
-
-require("nvim-autopairs").setup()
 
 require("virt-column").setup({
   virtcolumn = "+1,80",

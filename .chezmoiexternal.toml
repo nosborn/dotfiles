@@ -3,13 +3,13 @@
 # refreshPeriod = "1h"
 # url = "https://github.com/allaman/kustomize.nvim.git"
 # pull.args = ["--force"]
-#
+
 # [".local/share/nvim/site/pack/aquasecurity/start/vim-trivy"]
 # type = "git-repo"
 # refreshPeriod = "1h"
 # url = "https://github.com/aquasecurity/vim-trivy.git"
 # pull.args = ["--force"]
-#
+
 # [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -32,6 +32,7 @@ pull.args = ["--force"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/echasnovski/mini.nvim.git"
+clone.args = ["--filter=blob:none"]
 pull.args = ["--force"]
 
 # [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
@@ -57,7 +58,7 @@ pull.args = ["--force"]
 # refreshPeriod = "1h"
 # url = "https://github.com/hashivim/vim-terraform.git"
 # pull.args = ["--force"]
-#
+
 # [".local/share/nvim/site/pack/lukas-reineke/start/lsp-format.nvim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -94,12 +95,6 @@ refreshPeriod = "1h"
 url = "https://github.com/nvim-telescope/telescope.nvim.git"
 pull.args = ["--force"]
 
-# [".local/share/nvim/site/pack/nvim-tree/start/nvim-web-devicons"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/nvim-tree/nvim-web-devicons.git"
-# pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -111,7 +106,7 @@ pull.args = ["--force"]
 # refreshPeriod = "1h"
 # url = "https://github.com/nvimtools/none-ls.nvim.git"
 # pull.args = ["--force"]
-#
+
 # {{ if eq .where "home" }}
 # [".local/share/nvim/site/pack/pearofducks/start/ansible-vim"]
 # type = "git-repo"
@@ -119,7 +114,7 @@ pull.args = ["--force"]
 # url = "https://github.com/pearofducks/ansible-vim.git"
 # pull.args = ["--force"]
 # {{ end }}
-#
+
 # [".local/share/nvim/site/pack/ray-x/start/go.nvim"]
 # type = "git-repo"
 # refreshPeriod = "1h"
@@ -143,18 +138,6 @@ pull.args = ["--force"]
 # refreshPeriod = "1h"
 # url = "https://github.com/terrastruct/d2-vim.git"
 # pull.args = ["--force"]
-#
-# [".local/share/nvim/site/pack/tpope/start/vim-endwise"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/tpope/vim-endwise.git"
-# pull.args = ["--force"]
-
-[".local/share/nvim/site/pack/windwp/start/nvim-autopairs"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/windwp/nvim-autopairs.git"
-pull.args = ["--force"]
 
 # [".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]
 # type = "git-repo"
