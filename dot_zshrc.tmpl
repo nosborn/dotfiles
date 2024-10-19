@@ -10,7 +10,7 @@ if [[ -n "${XDG_CACHE_HOME}" ]]; then
   HISTFILE="${XDG_CACHE_HOME}/zsh/history"
   mkdir -p "${HISTFILE:h}"
 else
-  HISTFILE=~/.zsh_history
+  HISTFILE="${HOME}/.zsh_history"
 fi
 HISTSIZE=10000
 SAVEHIST=$((HISTSIZE/2))
@@ -114,29 +114,29 @@ compdef kubecolor=kubectl
 #  [[ -f "${f}" ]] && source "${f}"
 #done
 
-if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
-  _update_terminal_cwd() {
-    local url_path=''
-    {
-      local LC_CTYPE=C LC_ALL= byte i ord
-      for ((i = 0; i < ${#PWD}; ++i)); do
-        byte="${PWD[i]}"
-        if [[ "${byte}" =~ [/._~A-Za-z0-9-] ]]; then
-          url_path+="${byte}"
-        else
-          ord=$(([#16] #byte))
-          url_path+="%${ord}"
-        fi
-      done
-    }
-    printf '\e]7;%s\a' "file://${HOST}${url_path}"
-  }
-  typeset -ag chpwd_functions
-  if [[ -z ${chpwd_functions[(r)_update_terminal_cwd]} ]]; then
-    chpwd_functions+=_update_terminal_cwd
-  fi
-  _update_terminal_cwd
-fi
+# if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
+#   _update_terminal_cwd() {
+#     local url_path=''
+#     {
+#       local LC_CTYPE=C LC_ALL= byte i ord
+#       for ((i = 0; i < ${#PWD}; ++i)); do
+#         byte="${PWD[i]}"
+#         if [[ "${byte}" =~ [/._~A-Za-z0-9-] ]]; then
+#           url_path+="${byte}"
+#         else
+#           ord=$(([#16] #byte))
+#           url_path+="%${ord}"
+#         fi
+#       done
+#     }
+#     printf '\e]7;%s\a' "file://${HOST}${url_path}"
+#   }
+#   typeset -ag chpwd_functions
+#   if [[ -z ${chpwd_functions[(r)_update_terminal_cwd]} ]]; then
+#     chpwd_functions+=_update_terminal_cwd
+#   fi
+#   _update_terminal_cwd
+# fi
 
 zle_highlight=('paste:none')
 
@@ -168,4 +168,4 @@ fi
 
 unsetopt COMPLETE_ALIASES # FIXME: find where this is being set
 
-# vim: ft=zsh.jinja2
+# vim: ft=zsh.gotmpl

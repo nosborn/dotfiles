@@ -213,7 +213,7 @@ do
     group = augroup,
     pattern = { "*.yaml", "*.yml" },
     callback = function()
-      vim.opt_local.winbar = require("yaml_nvim").get_yaml_key()
+      vim.opt_local.winbar = (require("yaml_nvim").get_yaml_key() or "")
     end,
   })
 end

@@ -13,6 +13,7 @@ Library/Caches/helix/
 .config/fish/
 .config/git/config.*
 .config/http-prompt/
+.config/kitty/current-theme.conf
 .config/kitty/themes/
 .config/proselint/
 .config/tig/
@@ -45,6 +46,7 @@ Library/Caches/helix/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
 .vim/
+.viminfo
 .zsh/
 .zsh_history
 .zsh_sessions/
