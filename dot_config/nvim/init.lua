@@ -193,7 +193,7 @@ require("conform").setup({
   },
   formatters_by_ft = {
     lua = { "stylua" },
-    river = { "riverfmt" },
+    river = { "alloy_fmt" },
     sh = { "shfmt" },
     terraform = { "terraform_fmt" },
   },
