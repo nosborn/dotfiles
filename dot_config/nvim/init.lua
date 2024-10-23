@@ -196,6 +196,8 @@ require("conform").setup({
     river = { "alloy_fmt" },
     sh = { "shfmt" },
     terraform = { "terraform_fmt" },
+    toml = { "prettier" },
+    yaml = { "prettier" },
   },
 })
 require("conform").formatters.shfmt = {
