@@ -190,14 +190,21 @@ require("conform").setup({
       args = { "fmt", "-" },
       stdin = true,
     },
+    squeze = {
+      command = "cat",
+      args = { "-s" },
+      stdin = true,
+    },
   },
   formatters_by_ft = {
-    lua = { "stylua" },
-    river = { "alloy_fmt" },
-    sh = { "shfmt" },
-    terraform = { "terraform_fmt" },
-    toml = { "prettier" },
-    yaml = { "prettier" },
+    lua = { "stylua", "squeeze", "trim_newlines" },
+    markdown = { "prettier", "squeeze", "trim_newlines" },
+    river = { "alloy_fmt", "squeeze", "trim_newlines" },
+    sh = { "shfmt", "squeeze", "trim_newlines" },
+    terraform = { "terraform_fmt", "squeeze", "trim_newlines" },
+    toml = { "prettier", "squeeze", "trim_newlines" },
+    vim = { "squeeze", "trim_newlines" },
+    yaml = { "prettier", "squeeze", "trim_newlines" },
   },
 })
 require("conform").formatters.shfmt = {
