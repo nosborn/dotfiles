@@ -10,12 +10,6 @@
 # url = "https://github.com/aquasecurity/vim-trivy.git"
 # pull.args = ["--force"]
 
-# [".local/share/nvim/site/pack/cappyzawa/start/trim.nvim"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/cappyzawa/trim.nvim.git"
-# pull.args = ["--force"]
-
 [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
