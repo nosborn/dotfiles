@@ -72,7 +72,7 @@ require("mini.clue").setup({
 
 require("mini.comment").setup()
 
-require("mini.completion").setup()
+--require("mini.completion").setup()
 
 require("mini.diff").setup()
 
