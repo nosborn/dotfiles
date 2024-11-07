@@ -18,7 +18,7 @@ overrides:
     options:
       parser: yaml
 
-plugins:
-  - prettier-plugin-toml
+# plugins:
+#   - prettier-plugin-toml
 
 # vim: ft=yaml
