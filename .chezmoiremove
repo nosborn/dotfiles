@@ -10,6 +10,7 @@ Library/Caches/helix/
 .config/bat/themes/Catppuccin-*.tmTheme
 .config/bat/themes/TokyoNight.tmTheme
 .config/direnv/direnvrc
+.config/efm-langserver/
 .config/fish/
 .config/git/config.*
 .config/http-prompt/

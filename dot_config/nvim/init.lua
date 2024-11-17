@@ -235,6 +235,9 @@ do
   })
 end
 
+require("lazygit")
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open Lazygit" })
+
 -- require("lazy").setup({
 --   {
 --     "Bilal2453/luvit-meta",
