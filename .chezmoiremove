@@ -19,6 +19,7 @@ Library/Caches/helix/
 .config/proselint/
 .config/tig/
 .config/wezterm/
+.config/yamlfmt/
 .config/zed/
 .curlrc
 .digrc
@@ -41,7 +42,9 @@ Library/Caches/helix/
 .local/share/nvim/site/pack/windwp/
 .local/share/terminfo/
 .local/share/terraform/
+.local/share/tokyonight.nvim/
 .local/share/vale/
+.local/share/wezterm/
 .local/share/zsh-completions/_aws_vault
 .minikube/
 .mono/
