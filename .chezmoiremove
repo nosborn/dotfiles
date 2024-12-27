@@ -18,6 +18,7 @@ Library/Caches/helix/
 .config/kitty/themes/
 .config/proselint/
 .config/tig/
+.config/wezterm/
 .config/zed/
 .curlrc
 .digrc
@@ -32,8 +33,11 @@ Library/Caches/helix/
 .local/bin/ppyaml
 .local/bin/terrafmt
 .local/bin/terrafmt-0.*
+.local/share/nvim/mason/
 .local/share/nvim/site/pack/deps/
+.local/share/nvim/site/pack/neovim/
 .local/share/nvim/site/pack/nvim-telescope/
+.local/share/nvim/site/pack/williamboman/
 .local/share/nvim/site/pack/windwp/
 .local/share/terminfo/
 .local/share/terraform/

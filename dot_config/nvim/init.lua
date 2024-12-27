@@ -30,87 +30,87 @@ require("fidget").setup({})
 
 require("fzf-lua").setup({ "fzf-vim" })
 
-require("mason").setup()           -- before mason-lspconfig
+-- require("mason").setup() -- before mason-lspconfig
 
-require("mason-lspconfig").setup({ -- before lspconfig
-  ensure_installed = {
-    "vimls",
-  },
-})
+-- require("mason-lspconfig").setup({ -- before lspconfig
+--   ensure_installed = {
+--     "vimls",
+--   },
+-- })
 
-require("lspconfig").jsonls.setup({
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = {
-        enable = true,
-      },
-    },
-  },
-})
+-- require("lspconfig").jsonls.setup({
+--   settings = {
+--     json = {
+--       schemas = require('schemastore').json.schemas(),
+--       validate = {
+--         enable = true,
+--       },
+--     },
+--   },
+-- })
 
-require("lspconfig").lua_ls.setup({
-  on_init = function(client)
-    if client.workspace_folders then
-      local path = client.workspace_folders[1].name
-      if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-        return
-      end
-    end
-    client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-      runtime = {
-        version = "LuaJIT",
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    })
-  end,
-  settings = {
-    Lua = {},
-  },
-})
+-- require("lspconfig").lua_ls.setup({
+--   on_init = function(client)
+--     if client.workspace_folders then
+--       local path = client.workspace_folders[1].name
+--       if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+--         return
+--       end
+--     end
+--     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+--       runtime = {
+--         version = "LuaJIT",
+--       },
+--       workspace = {
+--         checkThirdParty = false,
+--         library = vim.api.nvim_get_runtime_file("", true),
+--       },
+--     })
+--   end,
+--   settings = {
+--     Lua = {},
+--   },
+-- })
 
-require("lspconfig").yamlls.setup({
-  settings = {
-    redhat = {
-      telemetry = {
-        enabled = false,
-      },
-    },
-    yaml = {
-      format = {
-        enable = true,
-      },
-      keyOrdering = false,
-      schemaStore = {
-        enable = false,
-        url = "",
-      },
-      schemas = {
-        kubernetes = "*.yaml",
-        ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
-        ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-        ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-        ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-        ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
-        ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-        ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-        ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-        ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
-        ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
-        "*api*.{yml,yaml}",
-        ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
-        "*flow*.{yml,yaml}",
-        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
-        "*docker-compose*.{yml,yaml}",
-      },
-      --schemas = require('schemastore').yaml.schemas(),
-      validate = true,
-    },
-  },
-})
+-- require("lspconfig").yamlls.setup({
+--   settings = {
+--     redhat = {
+--       telemetry = {
+--         enabled = false,
+--       },
+--     },
+--     yaml = {
+--       format = {
+--         enable = true,
+--       },
+--       keyOrdering = false,
+--       schemaStore = {
+--         enable = false,
+--         url = "",
+--       },
+--       schemas = {
+--         kubernetes = "*.yaml",
+--         ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+--         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+--         ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+--         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+--         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+--         ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+--         ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+--         ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+--         ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+--         ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
+--         "*api*.{yml,yaml}",
+--         ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
+--         "*flow*.{yml,yaml}",
+--         ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+--         "*docker-compose*.{yml,yaml}",
+--       },
+--       --schemas = require('schemastore').yaml.schemas(),
+--       validate = true,
+--     },
+--   },
+-- })
 
 require("mini.basics").setup({
   options = {
@@ -240,21 +240,21 @@ require("nvim-treesitter.parsers").get_parser_configs().river = {
   },
 }
 
-require("lspconfig").tflint.setup({})
-require("lspconfig").vimls.setup({})
+-- require("lspconfig").tflint.setup({})
+-- require("lspconfig").vimls.setup({})
 
 require("lint").linters_by_ft = {
   actionlint = { "actionlint" },
   dockerfile = { "hadolint" },
   dotenv = { "dotenv_linter" },
-  --json = { "jsonlint" },
+  json = { "jsonlint" },
   make = { "checkmake" },
   markdown = { "markdownlint" },
   ruby = { "ruby" },
   sh = { "shellcheck" },
-  --terraform = { "tflint" },
-  --vim = { "vint" },
-  --yaml = { "yamllint" },
+  terraform = { "tflint" },
+  vim = { "vint" },
+  yaml = { "yamllint" },
 }
 do
   local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -291,7 +291,7 @@ require("conform").setup({
   formatters_by_ft = {
     hcl = { "packer_fmt", "squeeze", "trim_newlines" },
     ini = { "squeeze", "trim_newlines" },
-    --lua = { "stylua", "squeeze", "trim_newlines" },
+    lua = { "stylua", "squeeze", "trim_newlines" },
     markdown = { "prettier", "squeeze", "trim_newlines" },
     river = { "alloy_fmt", "squeeze", "trim_newlines" },
     sh = { "shfmt", "squeeze", "trim_newlines" },
@@ -299,7 +299,7 @@ require("conform").setup({
     ["terraform-vars"] = { "terraform_fmt", "squeeze", "trim_newlines" },
     toml = { "squeeze", "trim_newlines" },
     vim = { "squeeze", "trim_newlines" },
-    --yaml = { "prettier", "squeeze", "trim_newlines" },
+    yaml = { "prettier", "squeeze", "trim_newlines" },
   },
 })
 require("conform").formatters.shfmt = {
