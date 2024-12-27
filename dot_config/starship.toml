@@ -1,7 +1,7 @@
 command_timeout = 1000
 
-[aws]
-symbol = "☁️ "
+# [aws]
+# symbol = "☁️ "
 
 # [aws.profile_aliases]
 # Enterprise_Naming_Scheme-voidstars = 'void**'

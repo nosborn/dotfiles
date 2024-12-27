@@ -10,6 +10,12 @@
 # url = "https://github.com/aquasecurity/vim-trivy.git"
 # pull.args = ["--force"]
 
+[".local/share/nvim/site/pack/b0o/start/schemastore.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/b0o/schemastore.nvim.git"
+pull.args = ["--force"]
+
 [".local/share/nvim/site/pack/cuducos/start/yaml.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
@@ -29,16 +35,22 @@ url = "https://github.com/echasnovski/mini.nvim.git"
 clone.args = ["--filter=blob:none"]
 pull.args = ["--force"]
 
-# [".local/share/nvim/site/pack/fladson/start/vim-kitty"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/fladson/vim-kitty.git"
-# pull.args = ["--force"]
+[".local/share/nvim/site/pack/fladson/start/vim-kitty"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/fladson/vim-kitty.git"
+pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/folke/start/tokyonight.nvim"]
 type = "git-repo"
 refreshPeriod = "1h"
 url = "https://github.com/folke/tokyonight.nvim.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/github/start/copilot.vim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/github/copilot.vim.git"
 pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/godlygeek/start/tabular"]
@@ -52,6 +64,18 @@ pull.args = ["--force"]
 # refreshPeriod = "1h"
 # url = "https://github.com/hashivim/vim-terraform.git"
 # pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/ibhagwan/start/fzf-lua"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/ibhagwan/fzf-lua.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/j-hui/start/fidget.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/j-hui/fidget.nvim.git"
+pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/kdheepak/start/lazygit.nvim"]
 type = "git-repo"
@@ -89,11 +113,11 @@ refreshPeriod = "1h"
 url = "https://github.com/nvim-lua/plenary.nvim.git"
 pull.args = ["--force"]
 
-[".local/share/nvim/site/pack/nvim-telescope/start/nvim-telescope"]
-type = "git-repo"
-refreshPeriod = "1h"
-url = "https://github.com/nvim-telescope/telescope.nvim.git"
-pull.args = ["--force"]
+# [".local/share/nvim/site/pack/nvim-telescope/start/nvim-telescope"]
+# type = "git-repo"
+# refreshPeriod = "1h"
+# url = "https://github.com/nvim-telescope/telescope.nvim.git"
+# pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter"]
 type = "git-repo"
@@ -138,6 +162,18 @@ pull.args = ["--force"]
 # refreshPeriod = "1h"
 # url = "https://github.com/terrastruct/d2-vim.git"
 # pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/williamboman/start/mason.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/williamboman/mason.nvim.git"
+pull.args = ["--force"]
+
+[".local/share/nvim/site/pack/williamboman/start/mason-lspconfig.nvim"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/williamboman/mason-lspconfig.nvim.git"
+pull.args = ["--force"]
 
 # [".local/share/nvim/site/pack/yasuhiroki/start/github-actions-yaml.vim"]
 # type = "git-repo"
