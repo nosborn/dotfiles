@@ -1,0 +1,7 @@
+auto-update = off
+font-feature = -calt
+font-size = 16.0
+shell-integration-features = no-cursor
+theme = tokyonight
+window-height = 44
+window-width = 88
