@@ -14,4 +14,8 @@ $if mode=emacs
   "\e[B": history-search-forward
 $endif
 
+# https://dgl.cx/2024/12/ghostty-terminal-title
+"\e]": skip-csi-sequence
+"\e\\": skip-csi-sequence
+
 # vim: ft=readline
