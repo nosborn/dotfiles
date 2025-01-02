@@ -298,6 +298,7 @@ require("conform").setup({
     terraform = { "terraform_fmt", "squeeze", "trim_newlines" },
     ["terraform-vars"] = { "terraform_fmt", "squeeze", "trim_newlines" },
     toml = { "squeeze", "trim_newlines" },
+    txt = { "squeeze", "trim_newlines" },
     vim = { "squeeze", "trim_newlines" },
     yaml = { "prettier", "squeeze", "trim_newlines" },
   },
