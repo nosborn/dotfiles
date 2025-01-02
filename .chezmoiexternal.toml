@@ -53,11 +53,11 @@ refreshPeriod = "1h"
 url = "https://github.com/godlygeek/tabular.git"
 pull.args = ["--force"]
 
-# [".local/share/nvim/site/pack/hashivim/start/vim-terraform"]
-# type = "git-repo"
-# refreshPeriod = "1h"
-# url = "https://github.com/hashivim/vim-terraform.git"
-# pull.args = ["--force"]
+[".local/share/nvim/site/pack/hashivim/start/vim-terraform"]
+type = "git-repo"
+refreshPeriod = "1h"
+url = "https://github.com/hashivim/vim-terraform.git"
+pull.args = ["--force"]
 
 [".local/share/nvim/site/pack/ibhagwan/start/fzf-lua"]
 type = "git-repo"

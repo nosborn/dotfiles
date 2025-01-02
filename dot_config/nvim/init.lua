@@ -30,14 +30,6 @@ require("fidget").setup({})
 
 require("fzf-lua").setup({ "fzf-vim" })
 
--- require("mason").setup() -- before mason-lspconfig
-
--- require("mason-lspconfig").setup({ -- before lspconfig
---   ensure_installed = {
---     "vimls",
---   },
--- })
-
 -- require("lspconfig").jsonls.setup({
 --   settings = {
 --     json = {
@@ -282,25 +274,19 @@ require("conform").setup({
       args = { "fmt", "-" },
       stdin = true,
     },
-    squeeze = {
-      command = "cat",
-      args = { "-s" },
-      stdin = true,
-    },
   },
   formatters_by_ft = {
-    hcl = { "packer_fmt", "squeeze", "trim_newlines" },
-    ini = { "squeeze", "trim_newlines" },
-    lua = { "stylua", "squeeze", "trim_newlines" },
-    markdown = { "prettier", "squeeze", "trim_newlines" },
-    river = { "alloy_fmt", "squeeze", "trim_newlines" },
-    sh = { "shfmt", "squeeze", "trim_newlines" },
-    terraform = { "terraform_fmt", "squeeze", "trim_newlines" },
-    ["terraform-vars"] = { "terraform_fmt", "squeeze", "trim_newlines" },
-    toml = { "squeeze", "trim_newlines" },
-    txt = { "squeeze", "trim_newlines" },
-    vim = { "squeeze", "trim_newlines" },
-    yaml = { "prettier", "squeeze", "trim_newlines" },
+    hcl = { "packer_fmt", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    ini = { "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    lua = { "stylua", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    markdown = { "prettier", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    river = { "alloy_fmt", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    sh = { "shfmt", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    terraform = { "terraform_fmt", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    toml = { "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    txt = { "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    vim = { "squeeze_blanks", "trim_newlines", "trim_whitespace" },
+    yaml = { "prettier", "squeeze_blanks", "trim_newlines", "trim_whitespace" },
   },
 })
 require("conform").formatters.shfmt = {
