@@ -1,7 +1,10 @@
 auto-update = off
 font-feature = -calt
+font-feature = -liga
 font-size = 16.0
+font-thicken = true
 shell-integration-features = no-cursor
-theme = tokyonight
+theme = tokyonight_night
 window-height = 44
 window-width = 88
+working-directory = home

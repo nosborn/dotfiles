@@ -1,4 +1,5 @@
 Library/Application Support/pipx/
+Library/Application Support/wezterm/
 Library/Colors/Catppuccin *.clr
 Library/Caches/helix/
 Library/Caches/kitty/

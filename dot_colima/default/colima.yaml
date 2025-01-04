@@ -14,7 +14,7 @@ kubernetes:
   version: v1.31.2+k3s1
 memory: 4
 mountInotify: false
-mountType: virtiofs
+mountType: sshfs
 mounts: []
 nestedVirtualization: false
 network:
@@ -24,8 +24,8 @@ network:
     host.docker.internal: host.lima.internal
   hostAddresses: false
 provision: []
-rosetta: true
+rosetta: false
 runtime: containerd
 sshConfig: true
 sshPort: 0
-vmType: vz
+vmType: qemu
