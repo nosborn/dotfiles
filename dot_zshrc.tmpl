@@ -40,6 +40,9 @@ path=(
   '{{ .homebrew.prefix }}/sbin'
   ${path}
 )
+if [[ -d '{{ .homebrew.prefix }}/opt/mysql-client@8.0' ]]; then
+  path=( '{{ .homebrew.prefix }}/opt/mysql-client@8.0/bin' ${path} )
+fi
 if [[ -d '{{ .homebrew.prefix }}/opt/ruby' ]]; then
   path=( '{{ .homebrew.prefix }}/opt/ruby/bin' ${path} )
   path=( "$(gem env gemdir)/bin" ${path} )
