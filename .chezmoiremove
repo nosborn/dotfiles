@@ -37,7 +37,6 @@ Library/Caches/kitty/
 .local/share/nvim/mason/
 .local/share/nvim/site/pack/deps/
 .local/share/nvim/site/pack/fladson/
-.local/share/nvim/site/pack/neovim/
 .local/share/nvim/site/pack/nvim-telescope/
 .local/share/nvim/site/pack/stevearc/start/confirm.nvim/
 .local/share/nvim/site/pack/williamboman/
@@ -53,6 +52,7 @@ Library/Caches/kitty/
 .mono/
 .rubocop.yml
 .shellcheckrc
+.steampipe/
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
 .vale.ini
