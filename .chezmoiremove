@@ -40,7 +40,6 @@ Library/Caches/kitty/
 .local/share/nvim/site/pack/stevearc/start/confirm.nvim/
 .local/share/nvim/site/pack/williamboman/
 .local/share/nvim/site/pack/windwp/
-.local/share/nvim/site/pack/ziglang/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/tokyonight.nvim/

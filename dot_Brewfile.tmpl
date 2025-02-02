@@ -16,8 +16,6 @@ brew 'bat'
 brew 'black'
 brew 'checkmake'
 brew 'chezmoi'
-brew 'cloudflare-cli4'
-brew 'colima'
 brew 'coreutils'
 brew 'd2'
 brew 'difftastic'
@@ -130,10 +128,13 @@ if '{{ .where }}' == 'home'
   brew 'ansible-lint'
   brew 'b2-tools'
   cask 'battle-net'
+  brew 'cloudflare-cli4'
+  cask 'orbstack', require_sha: true
   brew 'ssh-audit'
   brew 'vultr'
   brew 'yubico-piv-tool'
   brew 'yubikey-personalization'
+  brew 'zig'
 end
 
 if '{{ .where }}' == 'work'
@@ -141,6 +142,7 @@ if '{{ .where }}' == 'work'
 
   brew 'argocd'
   brew 'bfg'
+  brew 'colima'
   cask 'google-chrome', require_sha: true
   cask 'google-drive', require_sha: true
   brew 'gradle'

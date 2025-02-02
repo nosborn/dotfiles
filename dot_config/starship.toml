@@ -151,18 +151,6 @@ symbol = " "
 disabled = false
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
-[[kubernetes.contexts]]
-context_alias = "${cluster}"
-context_pattern = "(?P<cluster>.+)\\.cag\\.systems"
-
-[[kubernetes.contexts]]
-context_alias = "${cluster}[t]"
-context_pattern = ".+\\.teleport\\.sh-(?P<cluster>.+)"
-
-[[kubernetes.contexts]]
-context_alias = "${cluster}[e]"
-context_pattern = "arn:aws:eks:.+:cluster/(?P<cluster>.+)"
-
 [lua]
 disabled = true
 format = '\[[$symbol($version)]($style)\]'
