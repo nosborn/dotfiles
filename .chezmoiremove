@@ -20,6 +20,7 @@ Library/Caches/kitty/
 .config/tig/
 .config/wezterm/
 .config/yamlfmt/
+.config/zed/
 .curlrc
 .digrc
 .lesshst

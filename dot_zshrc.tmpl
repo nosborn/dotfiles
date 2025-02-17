@@ -69,6 +69,9 @@ for config_file (~/.zshrc.d/*.zsh); do
   source "${config_file}"
 done
 
+if (( $+commands[alloy] )); then
+  source <("${commands[alloy]}" completion zsh)
+fi
 if (( $+commands[aws_completer] )); then
   complete -o nospace -C "${commands[aws_completer]}" aws
 fi
@@ -81,14 +84,20 @@ fi
 if (( $+commands[pipx] )); then
   eval "$(register-python-argcomplete pipx)"
 fi
-if (( $+commands[steampipe] )); then
-  source <("${commands[steampipe]}" completion zsh)
-fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C "${commands[terraform]}" terraform
 fi
 if (( $+commands[terramate] )); then
   complete -o nospace -C "${commands[terramate]}" terramate
+fi
+if (( $+commands[trivy] )); then
+  source <("${commands[trivy]}" completion zsh)
+fi
+if (( $+commands[upctl] )); then
+  source <("${commands[upctl]}" completion zsh)
+fi
+if (( $+commands[vultr] )); then
+  source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
 fi
 
 export CLICOLOR=1

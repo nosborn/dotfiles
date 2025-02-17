@@ -7,8 +7,8 @@ tap 'kubecolor/tap'
 
 cask_args adopt: true
 
-brew 'act'
 brew 'actionlint'
+brew 'age'
 brew 'aws-vault'
 brew 'awscli'
 brew 'awsdac'
@@ -64,9 +64,7 @@ brew 'helm'
 brew 'iam-policy-json-to-terraform'
 brew 'ipcalc'
 brew 'istioctl'
-brew 'jd'
 brew 'jsonlint'
-brew 'jsonnet'
 brew 'krew'
 brew 'kube-linter'
 brew 'kubecolor'
@@ -75,6 +73,7 @@ brew 'kubectx'
 brew 'kubernetes-cli'
 brew 'kustomize'
 brew 'lazygit'
+brew 'linkerd'
 brew 'lua'
 brew 'luacheck'
 brew 'markdownlint-cli'
@@ -118,28 +117,32 @@ brew 'yaml-language-server'
 brew 'yamllint'
 brew 'yj'
 brew 'yq'
-cask 'zed', require_sha: true
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 if '{{ .where }}' == 'home'
+  tap 'UpCloudLtd/tap'
+
   brew 'ansible'
+  brew 'ansible-language-server'
   brew 'ansible-lint'
   brew 'b2-tools'
   cask 'battle-net'
+  cask 'calibre', require_sha: true
   brew 'cloudflare-cli4'
+  cask 'kobo', require_sha: true
   cask 'orbstack', require_sha: true
+  cask 'plex', require_sha: true
+  brew 'scw'
   brew 'ssh-audit'
+  brew 'upcloud-cli'
   brew 'vultr'
   brew 'yubico-piv-tool'
   brew 'yubikey-personalization'
-  brew 'zig'
 end
 
 if '{{ .where }}' == 'work'
-  tap 'argoproj/tap'
-
   brew 'argocd'
   brew 'bfg'
   brew 'colima'
@@ -152,7 +155,6 @@ if '{{ .where }}' == 'work'
   brew 'poetry'
   brew 'postgresql@14'
   brew 'postgresql@15'
-  cask 'pritunl', require_sha: true
   cask 'slack', require_sha: true
 end
 
