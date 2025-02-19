@@ -1,0 +1,77 @@
+---
+.local/share/tokyonight.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/folke/tokyonight.nvim.git
+  pull.args:
+    - --force
+
+.vim/pack/airblade/start/vim-gitgutter:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/airblade/vim-gitgutter.git
+  pull.args:
+    - --force
+
+.vim/pack/dense-analysis/start/ale:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/dense-analysis/ale.git
+  pull.args:
+    - --force
+
+.vim/pack/direnv/start/direnv.vim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/direnv/direnv.vim.git
+  pull.args:
+    - --force
+
+.vim/pack/greglook/start/vim-nftables:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/greglook/vim-nftables.git
+  pull.args:
+    - --force
+
+.vim/pack/itchyny/start/lightline.vim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/itchyny/lightline.vim.git
+  pull.args:
+    - --force
+
+.vim/pack/pearofducks/start/ansible-vim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/pearofducks/ansible-vim.git
+  pull.args:
+    - --force
+
+.vim/pack/rfratto/start/vim.river:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/rfratto/vim-river.git
+  pull.args:
+    - --force
+
+.vim/pack/ryanoasis/start/vim-devicons:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/ryanoasis/vim-devicons.git
+  pull.args:
+    - --force
+
+.vim/pack/tpope/start/vim-commentary:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/tpope/vim-commentary.git
+  pull.args:
+    - --force
+
+.vim/pack/tpope/start/vim-fugitive:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/tpope/vim-fugitive.git
+  pull.args:
+    - --force

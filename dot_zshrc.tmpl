@@ -101,9 +101,9 @@ if (( $+commands[vultr] )); then
 fi
 
 export CLICOLOR=1
-export EDITOR=nvim
+export EDITOR=vim
 export PROMPT_EOL_MARK='%F{1}⏎%f'
-export VISUAL=nvim
+export VISUAL=vim
 
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
@@ -112,8 +112,7 @@ alias kubectl='command kubecolor'
 alias ls='command eza --color=auto --group'
 alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
-alias vi=nvim
-alias vim=nvim
+alias vi=vim
 
 compdef k=kubectl
 compdef kubecolor=kubectl

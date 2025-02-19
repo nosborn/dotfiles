@@ -1,9 +1,7 @@
 *.log
-/Gemfile
-/Gemfile.lock
 /LICENSE.md
 /README.md
 /install.sh
 /requirements.txt
-/stylua.toml
+1
 default.profraw
