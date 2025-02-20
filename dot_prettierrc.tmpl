@@ -1,3 +1,4 @@
+# yamllint disable rule:line-length
 ---
 overrides:
   - files:
@@ -19,6 +20,6 @@ overrides:
       parser: yaml
 
 plugins:
-  - prettier-plugin-toml
+  - "{{ .chezmoi.homeDir }}/.local/lib/node_modules/prettier-plugin-toml/lib/index.cjs"
 
-# vim: ft=yaml
+# vim: ft=yaml.gotmpl

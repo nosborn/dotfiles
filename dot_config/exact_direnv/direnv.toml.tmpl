@@ -1,3 +1,6 @@
+[global]
+strict_env = true
+
 [whitelist]
 prefix = [
 {{- if ne "" .github.org }}
@@ -7,3 +10,5 @@ prefix = [
   "{{ .chezmoi.homeDir }}/src/github.com/{{ .github.user }}"
 {{- end }}
 ]
+
+# vim: ft=toml.gotmpl
