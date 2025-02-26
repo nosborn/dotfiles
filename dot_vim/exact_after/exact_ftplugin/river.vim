@@ -1,6 +1,6 @@
 setlocal commentstring=//%s
 setlocal noexpandtab
-setlocal shiftwidth=0
+setlocal shiftwidth=8
 setlocal tabstop=8
 
 if exists('b:undo_ftplugin')

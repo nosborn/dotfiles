@@ -14,7 +14,7 @@ defaults:
         width: 10
         hidden: false
   pager:
-    diff: less # or delta for example
+    diff: less
   preview:
     open: true
     width: 60

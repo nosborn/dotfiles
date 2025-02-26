@@ -1,23 +1,28 @@
 [advice]
-	detachedHead = false
+	; detachedHead = false
 	statusHints = false
-	waitingForEditor = false
+	; waitingForEditor = false
 
 [alias]
 	fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup
 	wdiff = diff --word-diff
 
 [blame]
+	coloring = highlightRecent
 	markIgnoredLines = true
 	markUnblamableLines = true
 
-[color]
+[branch]
+	sort = -committerdate
+
+[column]
 	ui = auto
 
 [commit]
 {{- if ne "" .git.signingKey }}
 	gpgSign = true
 {{- end }}
+	verbose = true
 
 [core]
 	autocrlf = input
@@ -25,7 +30,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
-	pager = delta
 {{- if eq .chezmoi.os "darwin" }}
 	trustctime = false ; play nicely with revisiond
 {{- end }}
@@ -36,7 +40,10 @@
 {{- end }}
 
 [diff]
-	external = difft
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 
 [diff "ansible-vault"]
 	textconv = ansible-vault view
@@ -53,9 +60,10 @@
 	textconv = zipinfo -lZ
 
 [fetch]
-	fsckobjects = true
+	all = true
+	; fsckobjects = true
 	prune = true
-	; pruneTags = true
+	pruneTags = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -63,23 +71,17 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
-[grep]
-	patternType = "extended"
-
-[include]
-	path = ~/.local/share/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
+; [grep]
+; 	patternType = "extended"
 
 [init]
 	defaultBranch = main
-
-[interactive]
-	diffFilter = delta --color-only --features=interactive
 
 [log]
 	date = human
 
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 	ff = only
 
 [pull]
@@ -87,32 +89,35 @@
 
 [push]
 	autoSetupRemote = true
-	default = upstream
-	; followTags = true
-	useForceIfIncludes = true
+	default = simple
+	followTags = true
+;	useForceIfIncludes = true
 
 [rebase]
 	autoSquash = true
 	autoStash = true
-	missingCommitsCheck = warn
+	; missingCommitsCheck = warn
+	updateRefs = true
 
-[receive]
-	fsckObjects = true
+; [receive]
+; 	fsckObjects = true
 
 [rerere]
+	autoupdate = true
 	enabled = true
 
 [status]
-	relativePaths = false
+	; relativePaths = false
 	showStash = true
 
 [tag]
 {{- if ne "" .git.signingKey }}
 	gpgSign = true
 {{- end }}
+	sort = version:refname
 
-[transfer]
-	fsckobjects = true
+; [transfer]
+; 	fsckobjects = true
 
 [url "https://github.com/"]
 	insteadOf = git@github.com:

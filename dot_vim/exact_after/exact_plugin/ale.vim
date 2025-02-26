@@ -5,6 +5,7 @@ let g:ale_fixers = {
       \   'javascript': ['eslint'],
       \   'json': ['jq'],
       \   'python': ['black'],
+      \   'river': ['alloy'],
       \   'sh': ['shfmt'],
       \   'terraform': ['terraform'],
       \   'xml': ['xmllint'],
@@ -25,3 +26,5 @@ nmap [D :ALEFirst<CR>
 nmap ]D :ALELast<CR>
 nmap [d :ALEPreviousWrap<CR>
 nmap ]d :ALENextWrap<CR>
+
+call ale#fix#registry#Add('alloy', 'ale#fixers#alloy#Fix', ['river'], 'Fix river files with alloy fmt')
