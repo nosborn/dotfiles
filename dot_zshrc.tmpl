@@ -96,6 +96,9 @@ fi
 if (( $+commands[upctl] )); then
   source <("${commands[upctl]}" completion zsh)
 fi
+if (( $+commands[vultr] )); then
+  source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
+fi
 
 export CLICOLOR=1
 export EDITOR=vim
