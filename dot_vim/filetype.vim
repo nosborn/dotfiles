@@ -19,6 +19,3 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead unbound.conf.d/*.conf.j2 set noexpandtab shiftwidth=8 tabstop=8
   autocmd! BufNewFile,BufRead unbound.conf.j2          set noexpandtab shiftwidth=8 tabstop=8
 augroup END
-
-" au BufRead,BufNewFile */.github/*/*.y{,a}ml
-"       \ let b:ale_linters = {'yaml': ['actionlint']}
