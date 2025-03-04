@@ -9,9 +9,6 @@ cask_args adopt: true
 
 brew 'actionlint'
 brew 'age'
-brew 'aws-vault'
-brew 'awscli'
-brew 'awsdac'
 brew 'bat'
 brew 'black'
 brew 'checkmake'
@@ -71,7 +68,6 @@ brew 'kubernetes-cli'
 brew 'kustomize'
 brew 'markdownlint-cli'
 cask 'monitorcontrol', require_sha: true
-brew 'openapi-generator'
 brew 'parallel'
 brew 'pinentry-mac'
 brew 'pipx'
@@ -131,6 +127,9 @@ end
 
 if '{{ .where }}' == 'work'
   brew 'argocd'
+  brew 'aws-vault'
+  brew 'awscli'
+  brew 'awsdac'
   brew 'bfg'
   brew 'colima'
   cask 'google-chrome', require_sha: true
