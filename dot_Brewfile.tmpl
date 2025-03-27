@@ -55,9 +55,7 @@ brew 'hashicorp/tap/packer'
 brew 'hashicorp/tap/terraform'
 brew 'hcl2json'
 brew 'helm'
-brew 'iam-policy-json-to-terraform'
 brew 'ipcalc'
-brew 'istioctl'
 brew 'jsonlint'
 brew 'keyring'
 brew 'krew'
@@ -117,6 +115,8 @@ if '{{ .where }}' == 'home'
   brew 'b2-tools'
   cask 'battle-net'
   brew 'ffmpeg'
+  brew 'get_iplayer'
+  brew 'handbrake'
   cask 'orbstack', require_sha: true
   cask 'plex', require_sha: true
   brew 'scw'
@@ -138,6 +138,8 @@ if '{{ .where }}' == 'work'
   cask 'google-chrome', require_sha: true
   cask 'google-drive', require_sha: true
   brew 'gradle'
+  brew 'iam-policy-json-to-terraform'
+  brew 'istioctl'
   brew 'kubectl-argo-rollouts'
   brew 'mysql-client@8.0'
   brew 'openjdk'
@@ -145,6 +147,7 @@ if '{{ .where }}' == 'work'
   brew 'postgresql@14'
   brew 'postgresql@15'
   cask 'slack', require_sha: true
+  brew 'terraform-iam-policy-validator'
 end
 
 # vim: ft=ruby.gotmpl
