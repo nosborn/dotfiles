@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-tap 'grafana/grafana'
 tap 'hashicorp/tap'
 
 cask_args adopt: true
@@ -19,6 +18,7 @@ brew 'docker'
 brew 'docker-buildx'
 brew 'docker-credential-helper'
 brew 'docker-credential-helper-ecr'
+brew 'dockerfmt'
 brew 'dos2unix'
 brew 'dotenv-linter'
 brew 'eslint'
@@ -45,7 +45,7 @@ brew 'golangci-lint'
 brew 'gopls'
 brew 'goreleaser'
 brew 'gpg2'
-brew 'grafana/grafana/alloy'
+brew 'grafana-alloy'
 brew 'graphviz'
 brew 'gron'
 brew 'hadolint'

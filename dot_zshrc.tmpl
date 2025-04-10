@@ -75,6 +75,9 @@ fi
 if (( $+commands[aws_completer] )); then
   complete -o nospace -C "${commands[aws_completer]}" aws
 fi
+if (( $+commands[dockerfmt] )); then
+  source <("${commands[dockerfmt]}" completion zsh)
+fi
 if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
