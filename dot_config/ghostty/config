@@ -1,12 +1,13 @@
 alpha-blending = linear-corrected
 auto-update = off
-font-feature = -calt
-font-feature = -liga
-font-size = 16.0
+# font-family = Berkeley Mono Trial
+font-family = JetBrains Mono
+font-family = Symbols Nerd Font Mono
+font-size = 18.0
 font-thicken = true
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 shell-integration-features = no-cursor
-theme = tokyonight_night
+theme = moonfly
 window-height = 44
 window-width = 88
 working-directory = home

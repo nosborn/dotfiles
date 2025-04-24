@@ -1,30 +1,18 @@
-Library/Application Support/lazygit/
 Library/Application Support/pipx/
-Library/Application Support/wezterm/
 Library/Colors/Catppuccin *.clr
 Library/Caches/helix/
-Library/Caches/kitty/
 .actrc
-.azure/
 .bundle/
 .cache/
 .config/.curlrc
 .config/.shellcheckrc
-.config/bat/themes/Catppuccin-*.tmTheme
-.config/bat/themes/TokyoNight.tmTheme
 .config/direnv/direnvrc
-.config/efm-langserver/
 .config/fish/
 .config/git/config.*
 .config/http-prompt/
-.config/kitty/
-.config/nvim/
 .config/proselint/
 .config/stylua.toml
 .config/tig/
-.config/wezterm/
-.config/yamlfmt/
-.config/zed/
 .curlrc
 .digrc
 .lesshst
@@ -36,23 +24,15 @@ Library/Caches/kitty/
 .local/bin/mbt
 .local/bin/mbt-0.24
 .local/bin/ppyaml
-.local/bin/terrafmt
-.local/bin/terrafmt-0.*
-.local/share/nvim/
 .local/share/terminfo/
 .local/share/terraform/
-.local/share/tokyonight/
-.local/share/vale/
-.local/share/wezterm/
 .local/share/zsh-completions/_aws_vault
 .minikube/
 .mono/
 .rubocop.yml
 .shellcheckrc
-.steampipe/
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
-.vale.ini
 .zsh/
 .zsh_history
 .zsh_sessions/

@@ -69,23 +69,11 @@ for config_file (~/.zshrc.d/*.zsh); do
   source "${config_file}"
 done
 
-if (( $+commands[alloy] )); then
-  source <("${commands[alloy]}" completion zsh)
-fi
 if (( $+commands[aws_completer] )); then
   complete -o nospace -C "${commands[aws_completer]}" aws
 fi
-if (( $+commands[dockerfmt] )); then
-  source <("${commands[dockerfmt]}" completion zsh)
-fi
 if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-fi
-if (( $+commands[kubectl] )); then
-  source <("${commands[kubectl]}" completion zsh)
-fi
-if (( $+commands[pipx] )); then
-  eval "$(register-python-argcomplete pipx)"
 fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C "${commands[terraform]}" terraform
@@ -99,14 +87,11 @@ fi
 if (( $+commands[upctl] )); then
   source <("${commands[upctl]}" completion zsh)
 fi
-if (( $+commands[vultr] )); then
-  source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
-fi
 
 export CLICOLOR=1
-export EDITOR=vim
+export EDITOR=nvim
 export PROMPT_EOL_MARK='%F{1}⏎%f'
-export VISUAL=vim
+export VISUAL=nvim
 
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
@@ -115,7 +100,8 @@ alias kubectl='command kubecolor'
 alias ls='command eza --color=auto --group'
 alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 
 compdef k=kubectl
 compdef kubecolor=kubectl

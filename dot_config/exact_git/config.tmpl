@@ -26,7 +26,7 @@
 
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 {{- if eq .chezmoi.os "darwin" }}
 	ignoreCase = true
 {{- end }}
@@ -70,6 +70,9 @@
 	process = git-lfs filter-process
 	required = true
 	smudge = git-lfs smudge -- %f
+
+[gpg]
+	format = ssh
 
 ; [grep]
 ; 	patternType = "extended"
