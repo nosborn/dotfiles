@@ -11,17 +11,31 @@
   pull.args:
     - --force
 
-.config/nvim/pack/direnv/start/direnv.vim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/direnv/direnv.vim.git
-  pull.args:
-    - --force
+# .config/nvim/pack/direnv/start/direnv.vim:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/direnv/direnv.vim.git
+#   pull.args:
+#     - --force
 
 .config/nvim/pack/echasnovski/start/mini.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/echasnovski/mini.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/j-hui/start/fidget.nvim:
+  type: git-repo
+  refreshPeriod: 23h
+  url: https://github.com/j-hui/fidget.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/lewis6991/start/gitsigns.nvim:
+  type: git-repo
+  refreshPeriod: 23h
+  url: https://github.com/lewis6991/gitsigns.nvim.git
   pull.args:
     - --force
 
@@ -39,19 +53,12 @@
   pull.args:
     - --force
 
-.config/nvim/pack/mfussenegger/start/nvim-lint:
-  type: git-repo
-  refreshPeriod: 1h
-  url: https://github.com/mfussenegger/nvim-lint.git
-  pull.args:
-    - --force
-
-.config/nvim/pack/neovim/start/nvim-lspconfig:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/neovim/nvim-lspconfig.git
-  pull.args:
-    - --force
+# .config/nvim/pack/neovim/start/nvim-lspconfig:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/neovim/nvim-lspconfig.git
+#   pull.args:
+#     - --force
 
 .config/nvim/pack/nvim-lua/start/plenary.nvim:
   type: git-repo
@@ -83,16 +90,30 @@
   pull.args:
     - --force
 
+.config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/nvimtools/start/none-ls.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvimtools/none-ls.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/nvimtools/start/none-ls-extras.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvimtools/none-ls-extras.nvim.git
+  pull.args:
+    - --force
+
 .config/nvim/pack/rfratto/start/vim-river:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/rfratto/vim-river.git
-  pull.args:
-    - --force
-
-.config/nvim/pack/stevearc/start/conform.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/stevearc/conform.nvim.git
   pull.args:
     - --force

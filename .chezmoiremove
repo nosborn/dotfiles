@@ -7,7 +7,6 @@ Library/Caches/helix/
 .config/.curlrc
 .config/.shellcheckrc
 .config/direnv/direnvrc
-.config/fish/
 .config/git/config.*
 .config/http-prompt/
 .config/proselint/
