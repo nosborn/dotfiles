@@ -6,8 +6,15 @@
 
 .config/nvim/pack/bluz71/start/vim-moonfly-colors:
   type: git-repo
-  refreshPeriod: 23h
+  refreshPeriod: 24h
   url: https://github.com/bluz71/vim-moonfly-colors.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/cappyzawa/start/trim.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/cappyzawa/trim.nvim.git
   pull.args:
     - --force
 
@@ -25,23 +32,30 @@
   pull.args:
     - --force
 
+.config/nvim/pack/folke/start/snacks.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/folke/snacks.nvim.git
+  pull.args:
+    - --force
+
 .config/nvim/pack/j-hui/start/fidget.nvim:
   type: git-repo
-  refreshPeriod: 23h
+  refreshPeriod: 24h
   url: https://github.com/j-hui/fidget.nvim.git
   pull.args:
     - --force
 
 .config/nvim/pack/lewis6991/start/gitsigns.nvim:
   type: git-repo
-  refreshPeriod: 23h
+  refreshPeriod: 24h
   url: https://github.com/lewis6991/gitsigns.nvim.git
   pull.args:
     - --force
 
 .config/nvim/pack/lukas-reineke/start/indent-blankline.nvim:
   type: git-repo
-  refreshPeriod: 23h
+  refreshPeriod: 24h
   url: https://github.com/lukas-reineke/indent-blankline.nvim.git
   pull.args:
     - --force
@@ -53,12 +67,12 @@
   pull.args:
     - --force
 
-# .config/nvim/pack/neovim/start/nvim-lspconfig:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/neovim/nvim-lspconfig.git
-#   pull.args:
-#     - --force
+.config/nvim/pack/mfussenegger/start/nvim-lint:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/mfussenegger/nvim-lint.git
+  pull.args:
+    - --force
 
 .config/nvim/pack/nvim-lua/start/plenary.nvim:
   type: git-repo
@@ -90,6 +104,13 @@
   pull.args:
     - --force
 
+# .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-context:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/nvim-treesitter/nvim-treesitter-context.git
+#   pull.args:
+#     - --force
+
 .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
   type: git-repo
   refreshPeriod: 24h
@@ -97,17 +118,10 @@
   pull.args:
     - --force
 
-.config/nvim/pack/nvimtools/start/none-ls.nvim:
+.config/nvim/pack/stevearc/start/conform.nvim:
   type: git-repo
   refreshPeriod: 24h
-  url: https://github.com/nvimtools/none-ls.nvim.git
-  pull.args:
-    - --force
-
-.config/nvim/pack/nvimtools/start/none-ls-extras.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/nvimtools/none-ls-extras.nvim.git
+  url: https://github.com/stevearc/conform.nvim.git
   pull.args:
     - --force
 

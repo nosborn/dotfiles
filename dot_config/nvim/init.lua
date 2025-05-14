@@ -4,30 +4,39 @@ vim.o.autoindent = true
 -- vim.o.clipboard = "unnamed,unnamedplus"
 vim.o.cursorline = true
 vim.o.expandtab = true
--- vim.o.laststatus = 2
+-- Lua initialization file
+vim.o.fillchars = 'horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋'
+-- vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- vim.o.foldmethod = 'expr'
+-- vim.o.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.o.guicursor = 'n-v-i-c:block-Cursor'
+vim.o.laststatus = 3
 vim.o.list = true
 vim.o.listchars = 'extends:…,nbsp:␣,precedes:…,tab:> '
 vim.o.number = true
-vim.o.pumblend = 10 -- make builtin completion menus slightly transparent
-vim.o.pumheight = 10 -- make popup menu smaller
+-- vim.o.pumblend = 10 -- make builtin completion menus slightly transparent
+-- vim.o.pumheight = 10 -- make popup menu smaller
 -- vim.o.relativenumber = false
 -- vim.o.scrolloff = 10
 vim.o.shiftwidth = 2
+vim.o.showmode = false
 vim.o.signcolumn = 'yes'
-vim.o.tabstop = 2
 vim.o.spelllang = 'en_gb'
 -- vim.o.spelloptions = "camel"
+vim.o.tabstop = 2
 vim.o.undofile = false
 -- vim.o.updatetime = 1000
-vim.o.winblend = 10 -- make floating windows slightly transparent
---
--- vim.opt.complete:append("kspell")
--- vim.opt.iskeyword:append("-")
--- vim.opt.sessionoptions:remove('blank')
---
--- vim.o.path = vim.o.path .. ",**"
--- vim.o.tags = vim.o.tags .. ",/home/dosa/.config/nvim/tags"
+-- vim.o.winblend = 10 -- make floating windows slightly transparent
+-- vim.o.winborder = 'bold'
+vim.o.winhighlight = 'NormalNC:CursorLine'
 
+vim.g.health = { style = 'float' }
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.moonflyNormalFloat = true
+vim.g.moonflyWinSeparator = 2
 vim.g.netrw_banner = 0
 
 vim.diagnostic.config({
@@ -49,8 +58,42 @@ vim.keymap.set('n', 'gk', 'k')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
+vim.keymap.set('n', 'g?', '<cmd>lua vim.diagnostic.open_float()<CR>', { silent = true })
+
 require('moonfly')
 vim.cmd('colorscheme moonfly')
+
+require('conform').setup({
+    format_on_save = {
+        lsp_format = 'fallback',
+        timeout_ms = 500,
+    },
+    formatters = {
+        alloy_fmt = {
+            command = 'alloy',
+            args = { 'fmt', '-' },
+        },
+        dockerfmt = {
+            command = 'dockerfmt',
+            args = { '$FILENAME', '--newline' },
+            stdin = false,
+        },
+        shfmt = {
+            prepend_args = { '-i', '2', '-ci' },
+        },
+    },
+    formatters_by_ft = {
+        -- ansible = { 'ansible-lint' },
+        dockerfile = { 'dockerfmt' },
+        fish = { 'fish_indent' },
+        hcl = { 'packer_fmt' },
+        lua = { 'stylua' },
+        river = { 'alloy_fmt' },
+        sh = { 'shfmt' },
+        terraform = { 'terraform_fmt' },
+        xml = { 'xmllint' },
+    },
+})
 
 require('fidget').setup()
 
@@ -59,15 +102,40 @@ require('gitsigns').setup({
     current_line_blame_opts = {
         ignore_whitespace = false,
     },
-    numhl = true,
-    signcolumn = false,
     -- word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
 })
 
-require('ibl').setup({
-    scope = {
-        enabled = false,
-    },
+require('lint').linters.alloy_fmt = {
+    cmd = 'alloy',
+    args = { 'fmt', '--test', '-' },
+    stream = 'stderr',
+    parser = require('lint.parser').from_pattern(
+        ':(%d+):(%d+): (.+)',
+        { 'lnum', 'col', 'message' },
+        {},
+        { severity = vim.diagnostic.severity.ERROR, source = 'alloy_fmt' }
+    ),
+}
+require('lint').linters_by_ft = {
+    ansible = { 'ansible_lint' },
+    dockerfile = { 'hadolint' },
+    editorconfig = { 'editorconfig-checker' },
+    fish = { 'fish' },
+    github = { 'actionlint' },
+    json = { 'jsonlint' },
+    make = { 'checkmake' },
+    markdown = { 'markdownlint' },
+    river = { 'alloy_fmt' },
+    sh = { 'shellcheck' },
+    terraform = { 'tflint', 'trivy' },
+    vim = { 'vint' },
+    yaml = { 'yamllint' },
+    zsh = { 'zsh' },
+}
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'BufWritePost', 'InsertLeave' }, {
+    callback = function()
+        require('lint').try_lint()
+    end,
 })
 
 require('lualine').setup({
@@ -75,31 +143,19 @@ require('lualine').setup({
         component_separators = { left = '│', right = '│' },
         globalstatus = true,
         section_separators = { left = '', right = '' },
+        theme = 'moonfly',
     },
     sections = {
-        -- lualine_a = {
-        --   'mode',
-        --   function()
-        --     local schema = require('yaml-companion').get_buf_schema(0)
-        --     if schema.result[1].name == 'none' then
-        --       return 'none' -- FIXME
-        --     end
-        --     return schema.result[1].name
-        --   end,
-        -- },
+        lualine_a = {
+            'mode',
+        },
         lualine_b = {
             {
                 'branch',
-                cond = function()
-                    return vim.fn.winwidth(0) > 80
-                end,
                 icon = '',
             },
             {
                 'diff',
-                cond = function()
-                    return vim.fn.winwidth(0) > 80
-                end,
                 symbols = {
                     added = ' ',
                     modified = ' ',
@@ -108,65 +164,95 @@ require('lualine').setup({
             },
             'diagnostics',
         },
+        lualine_c = {
+            {
+                'filename',
+                path = 1,
+                symbols = {
+                    modified = '●',
+                    readonly = '',
+                },
+            },
+        },
+        lualine_x = {
+            {
+                'encoding',
+                show_bomb = true,
+            },
+            'fileformat',
+            'filetype',
+        },
+        lualine_y = {
+            'progress',
+        },
+        lualine_z = {
+            -- {
+            --     'searchcount',
+            --     maxcount = 999,
+            --     timeout = 500,
+            -- },
+            'location',
+            'lint_progress',
+        },
+    },
+    tabline = {
+        lualine_a = {
+            {
+                'buffers',
+                show_filename_only = false,
+                mode = 2,
+            },
+        },
+    },
+})
+
+local mini_clue = require('mini.clue')
+mini_clue.setup({
+    clues = {
+        mini_clue.gen_clues.builtin_completion(),
+        mini_clue.gen_clues.g(),
+        mini_clue.gen_clues.marks(),
+        mini_clue.gen_clues.registers(),
+        mini_clue.gen_clues.windows(),
+        mini_clue.gen_clues.z(),
+    },
+    triggers = {
+        { mode = 'c', keys = '<C-r>' }, -- registers
+        { mode = 'i', keys = '<C-r>' }, -- registers
+        { mode = 'i', keys = '<C-x>' }, -- built-in completion
+        { mode = 'n', keys = "'" }, -- marks
+        { mode = 'n', keys = '"' }, -- registers
+        { mode = 'n', keys = '<C-w>' }, -- window commands
+        { mode = 'n', keys = '<Leader>' }, -- leader triggers
+        { mode = 'n', keys = '`' }, -- marks
+        { mode = 'n', keys = 'g' }, -- `g` key
+        { mode = 'n', keys = 'z' }, -- `z` key
+        { mode = 'x', keys = "'" }, -- marks
+        { mode = 'x', keys = '"' }, -- registers
+        { mode = 'x', keys = '<Leader>' }, -- leader triggers
+        { mode = 'x', keys = '`' }, -- marks
+        { mode = 'x', keys = 'g' }, -- `g` key
+        { mode = 'x', keys = 'z' }, -- `z` key
+    },
+})
+
+-- require('mini.cursorword').setup()
+
+local mini_hipatterns = require('mini.hipatterns')
+mini_hipatterns.setup({
+    highlighters = {
+        fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+        hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+        hex_color = mini_hipatterns.gen_highlighter.hex_color(),
+        note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+        todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
     },
 })
 
 require('mini.icons').setup()
 MiniIcons.mock_nvim_web_devicons()
 
-local augroup = vim.api.nvim_create_augroup('LspFormatting', { clear = true })
-require('null-ls').setup({
-    on_attach = function(client, bufnr)
-        if client.supports_method('textDocument/formatting') then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd('BufWritePre', {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ async = false, bufnr = bufnr })
-                end,
-            })
-        end
-    end,
-    sources = {
-        require('none-ls.diagnostics.alloy_fmt'),
-        require('none-ls.formatting.alloy_fmt'),
-        require('none-ls.formatting.trim_newlines'),
-        require('none-ls.formatting.trim_whitespace'),
-        -- null_ls.builtins.completion.spell,
-        require('null-ls.builtins.diagnostics.actionlint').with({
-            filetypes = { 'yaml.github' },
-        }),
-        require('null-ls.builtins.diagnostics.ansiblelint'),
-        require('null-ls.builtins.diagnostics.checkmake'),
-        require('null-ls.builtins.diagnostics.editorconfig_checker').with({
-            filetypes = { 'editorconfig' },
-        }),
-        require('null-ls.builtins.diagnostics.hadolint'),
-        require('null-ls.builtins.diagnostics.markdownlint'),
-        -- require("null-ls.builtins.diagnostics.rubocop"),
-        require('null-ls.builtins.diagnostics.terraform_validate'),
-        -- require("null-ls.builtins.diagnostics.trivy"),
-        require('null-ls.builtins.diagnostics.vint'),
-        require('null-ls.builtins.diagnostics.yamllint'),
-        require('null-ls.builtins.diagnostics.zsh'),
-        -- require("null-ls.builtins.formatting.black"),
-        require('null-ls.builtins.formatting.clang_format'),
-        require('null-ls.builtins.formatting.d2_fmt'),
-        require('null-ls.builtins.formatting.markdownlint'),
-        -- require("null-ls.builtins.formatting.nginx_beautifier"),
-        require('null-ls.builtins.formatting.packer'),
-        -- require("null-ls.builtins.formatting.prettier"),
-        -- require("null-ls.builtins.formatting.shellharden"),
-        require('null-ls.builtins.formatting.shfmt').with({
-            extra_args = { '-i', '2', '-ci' },
-        }),
-        require('null-ls.builtins.formatting.stylua'),
-        require('null-ls.builtins.formatting.terraform_fmt'),
-        require('null-ls.builtins.formatting.xmllint'),
-        require('null-ls.builtins.formatting.yamlfmt'),
-    },
-})
+-- require('mini.statusline').setup()
 
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
@@ -201,10 +287,7 @@ require('nvim-treesitter.configs').setup({
 require('nvim-treesitter.parsers').get_parser_configs().d2 = {
     filetype = 'd2',
     install_info = {
-        files = {
-            'src/parser.c',
-            'src/scanner.cc',
-        },
+        files = { 'src/parser.c', 'src/scanner.cc' },
         revision = 'main',
         url = 'https://github.com/pleshevskiy/tree-sitter-d2',
     },
@@ -212,32 +295,61 @@ require('nvim-treesitter.parsers').get_parser_configs().d2 = {
 require('nvim-treesitter.parsers').get_parser_configs().river = {
     install_info = {
         branch = 'main',
-        files = {
-            'src/parser.c',
-        },
+        files = { 'src/parser.c' },
         generate_requires_npm = false,
         requires_generate_from_grammar = false,
         url = 'https://github.com/grafana/tree-sitter-river.git',
     },
 }
 
+require('snacks').setup({
+    image = {
+        formats = {
+            'png',
+            'jpg',
+            'jpeg',
+            'gif',
+            'bmp',
+            'webp',
+            'tiff',
+            'heic',
+            'avif',
+            'mp4',
+            'mov',
+            'avi',
+            'mkv',
+            'webm',
+            'pdf',
+        },
+    },
+    indent = {},
+})
+
+require('telescope').setup({
+    -- defaults = {
+    --     mappings = {
+    --         i = {
+    --             ['<esc>'] = actions.close,
+    --         },
+    --     },
+    -- },
+})
+
+-- require('treesitter-context').setup()
+
+require('trim').setup({
+    ft_blocklist = {
+        'python',
+    },
+
+    patterns = {
+        [[%s/\(\n\n\)\n\+/\1/]], -- replace multiple blank lines with a single line
+    },
+})
+
 require('virt-column').setup({
     virtcolumn = '+1,80',
 })
-
--- vim.lsp.enable({
---     -- "ansiblels",
---     -- "bashls",
---     -- "clangd",
---     -- "golangci_lint_ls",
---     -- "gopls",
---     "jsonls",
---     'lua_ls',
---     -- "pyright",
---     "terraformls",
---     "tflint",
---     -- "yamlls",
--- })
 
 if vim.fn.executable('ansible-vault') == 1 then
     vim.cmd([[
@@ -279,21 +391,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- -- vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
 -- --
--- -- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
--- --
--- -- vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope buffers' })
--- -- vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' })
--- -- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' })
--- -- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Telescope help tags' })
---
--- -- vim.api.nvim_create_autocmd('LspAttach', {
--- --   callback = function(ev)
--- --     local client = vim.lsp.get_client_by_id(ev.data.client_id)
--- --     if client:supports_method('textDocument/completion') then
--- --       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
--- --     end
--- --   end,
--- -- })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Telescope help tags' })
