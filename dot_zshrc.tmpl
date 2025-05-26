@@ -87,6 +87,9 @@ fi
 if (( $+commands[upctl] )); then
   source <("${commands[upctl]}" completion zsh)
 fi
+if (( $+commands[vultr] )); then
+  source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
+fi
 
 export CLICOLOR=1
 export EDITOR=nvim
@@ -102,6 +105,7 @@ alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vim=nvim
 alias vi=nvim
+alias vultr-cli=vultr
 
 compdef k=kubectl
 compdef kubecolor=kubectl

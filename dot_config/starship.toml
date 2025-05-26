@@ -1,7 +1,7 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
 command_timeout = 1000
-palette = 'moonfly'
+palette = 'catppuccin_mocha'
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -56,7 +56,6 @@ format = '\[[$symbol($version)]($style)\]'
 
 [directory]
 read_only = ' 󰌾'
-style = 'fern'
 truncation_length = 4
 truncation_symbol = '…/'
 
@@ -84,7 +83,6 @@ symbol = ' '
 
 [fossil_branch]
 format = '\[[$symbol$branch]($style)\]'
-style = 'lavender'
 symbol = ' '
 
 [gcloud]
@@ -92,7 +90,6 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
-style = 'lavender'
 symbol = ' '
 
 [git_commit]
@@ -131,7 +128,6 @@ disabled = true
 
 [hg_branch]
 format = '\[[$symbol$branch]($style)\]'
-style = 'lavender'
 symbol = ' '
 
 [hostname]
@@ -241,11 +237,33 @@ Windows = '󰍲 '
 format = '\[[$symbol$version]($style)\]'
 symbol = '󰏗 '
 
-[palettes.moonfly]
-fern = '#87d787'
-lavender = '#adadf3'
-orange = '#f09479'
-red = '#f07496'
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#000000" # "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
 [perl]
 disabled = true

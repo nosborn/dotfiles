@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-command -v npm >/dev/null 2>&1 || exit 0
+[ -e "$(brew --prefix node)/bin/npm" ] || exit 0
 
 packages="
   @mermaid-js/mermaid-cli
@@ -13,12 +13,12 @@ packages="
 "
 
 for package in ${packages}; do
-  if npm ls --location=global --prefix="${HOME}/.local" "${package}" >/dev/null; then
+  if "$(brew --prefix node)/bin/npm" ls --location=global --prefix="${HOME}/.local" "${package}" >/dev/null; then
     command=update
   else
     command=install
   fi
-  npm "${command}" --location=global --omit=dev --prefix="${HOME}/.local" "${package}"
+  "$(brew --prefix node)/bin/npm" "${command}" --location=global --omit=dev --prefix="${HOME}/.local" "${package}"
 done
 
 exit 0

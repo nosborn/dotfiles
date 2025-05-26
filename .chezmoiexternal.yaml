@@ -1,13 +1,14 @@
+# yamllint disable rule:line-length
 ---
 .config/bat/themes/fly16.tmTheme:
   type: file
   refreshPeriod: 24h
   url: https://raw.githubusercontent.com/bluz71/fly16-bat/refs/heads/master/fly16.tmTheme
 
-.config/nvim/pack/bluz71/start/vim-moonfly-colors:
+.config/nvim/pack/catppuccin/start/nvim:
   type: git-repo
   refreshPeriod: 24h
-  url: https://github.com/bluz71/vim-moonfly-colors.git
+  url: https://github.com/catppuccin/nvim.git
   pull.args:
     - --force
 
@@ -31,13 +32,6 @@
   url: https://github.com/echasnovski/mini.nvim.git
   pull.args:
     - --force
-
-# .config/nvim/pack/folke/start/noice.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/folke/noice.nvim.git
-#   pull.args:
-#     - --force
 
 .config/nvim/pack/folke/start/snacks.nvim:
   type: git-repo
@@ -78,6 +72,13 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/mfussenegger/nvim-lint.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/neovim/start/nvim-lspconfig:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/neovim/nvim-lspconfig.git
   pull.args:
     - --force
 
@@ -125,38 +126,10 @@
 #   pull.args:
 #     - --force
 
-# .config/nvim/pack/nvimtools/start/none-ls.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvimtools/none-ls.nvim.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/nvimtools/start/none-ls-extras.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvimtools/none-ls-extras.nvim.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/rafamadriz/start/friendly-snippets:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/rafamadriz/friendly-snippets.git
-#   pull.args:
-#     - --force
-
 # .config/nvim/pack/rcarriga/start/nvim-notify:
 #   type: git-repo
 #   refreshPeriod: 24h
 #   url: https://github.com/rcarriga/nvim-notify.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/rfratto/start/vim-river:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/rfratto/vim-river.git
 #   pull.args:
 #     - --force
 

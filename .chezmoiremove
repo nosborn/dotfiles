@@ -3,7 +3,6 @@ Library/Colors/Catppuccin *.clr
 Library/Caches/helix/
 .actrc
 .bundle/
-.cache/
 .config/.curlrc
 .config/.shellcheckrc
 .config/direnv/direnvrc

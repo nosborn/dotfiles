@@ -28,7 +28,6 @@ rules:
     forbid-scientific-notation: true
     require-numeral-before-decimal: true
   indentation:
-    check-multi-line-strings: true
     spaces: 2
   key-duplicates:
     forbid-duplicated-merge-keys: true

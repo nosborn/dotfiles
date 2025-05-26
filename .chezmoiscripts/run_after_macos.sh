@@ -5,7 +5,7 @@ set -o nounset
 
 [ "$(uname -s)" = Darwin ] || exit 0
 
-if [ -d /Applications/Rectangle.app ]; then
+if [ -d "${HOME}/Applications/Rectangle.app" ]; then
   defaults write -app Rectangle SUEnableAutomaticChecks -bool false
   defaults write -app Rectangle SUHasLaunchedBefore -bool true
   defaults write -app Rectangle alternateDefaultShortcuts -bool true

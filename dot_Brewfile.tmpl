@@ -2,14 +2,13 @@
 
 tap 'hashicorp/tap'
 
-cask_args adopt: true
+cask_args adopt: true, appdir: "~/Applications", require_sha: true
 
 brew 'actionlint'
 brew 'age'
 brew 'ansible'
+brew 'ansible-language-server'
 brew 'ansible-lint'
-brew 'argocd'
-brew 'argocd-autopilot'
 brew 'bat'
 brew 'black'
 brew 'checkmake'
@@ -33,12 +32,12 @@ brew 'eza'
 brew 'fd'
 brew 'flake8'
 brew 'flock'
-cask 'font-jetbrains-mono', require_sha: true
-cask 'font-symbols-only-nerd-font', require_sha: true
+cask 'font-jetbrains-mono'
+cask 'font-symbols-only-nerd-font'
 brew 'fx'
 brew 'fzf'
 brew 'gh'
-cask 'ghostty', require_sha: true
+cask 'ghostty', greedy: true
 brew 'git-filter-repo'
 brew 'git-lfs'
 brew 'git-trim'
@@ -48,7 +47,7 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
 brew 'golangci-lint'
-# cask 'google-chrome', require_sha: true
+# cask 'google-chrome', greedy: true
 brew 'gopls'
 brew 'goreleaser'
 brew 'gpg2'
@@ -58,10 +57,12 @@ brew 'gron'
 brew 'hadolint'
 brew 'hashicorp/tap/packer'
 brew 'hashicorp/tap/terraform'
+brew 'hashicorp/tap/terraform-ls'
 brew 'hcl2json'
 brew 'helm'
 brew 'imagemagick'
 brew 'ipcalc'
+brew 'jdupes'
 brew 'jsonlint'
 brew 'keyring'
 brew 'krew'
@@ -75,7 +76,7 @@ brew 'kustomize'
 brew 'luacheck'
 brew 'luarocks'
 brew 'markdownlint-cli'
-cask 'monitorcontrol', require_sha: true
+# cask 'monitorcontrol'
 brew 'neovim'
 brew 'parallel'
 brew 'pinentry-mac'
@@ -87,7 +88,7 @@ brew 'pwgen'
 brew 'pyright'
 brew 'python-argcomplete'
 brew 'qrencode'
-cask 'rectangle', require_sha: true
+cask 'rectangle', greedy: true
 brew 'rg'
 brew 'sf-pwgen'
 brew 'shellcheck'
@@ -100,12 +101,11 @@ brew 'telnet'
 brew 'terramate'
 brew 'tf-summarize'
 brew 'tflint'
-brew 'tfsec' # DEPRECATED
 brew 'tfupdate'
 brew 'trivy'
 brew 'trufflehog'
 brew 'typescript'
-cask 'utm', require_sha: true
+cask 'utm'
 brew 'vint'
 brew 'virtualenv'
 brew 'watch'
@@ -113,6 +113,7 @@ brew 'wdiff'
 brew 'wireguard-tools'
 brew 'yamlfmt'
 brew 'yamllint'
+brew 'yarn'
 brew 'yj'
 brew 'yq'
 brew 'zsh-autosuggestions'
@@ -124,11 +125,11 @@ if '{{ .where }}' == 'home'
 
   brew 'atomicparsley'
   brew 'b2-tools'
-  cask 'battle-net', require_sha: true
-  cask 'calibre', require_sha: true
+  cask 'calibre'
   brew 'ffmpeg'
   brew 'handbrake'
-  cask 'orbstack', require_sha: true
+  cask 'hush'
+  cask 'orbstack'
   brew 'scw'
   brew 'ssh-audit'
   brew 'upcloud-cli'
@@ -144,7 +145,7 @@ if '{{ .where }}' == 'work'
   brew 'awsdac'
   brew 'bfg'
   brew 'colima'
-  cask 'google-drive', require_sha: true
+  cask 'google-drive', greedy: true
   brew 'gradle'
   brew 'iam-policy-json-to-terraform'
   brew 'istioctl'
@@ -154,7 +155,7 @@ if '{{ .where }}' == 'work'
   brew 'poetry'
   brew 'postgresql@14'
   brew 'postgresql@15'
-  cask 'slack', require_sha: true
+  cask 'slack', greedy: true
   brew 'terraform-iam-policy-validator'
 end
 
