@@ -1,9 +1,8 @@
--- luacheck: globals vim
-
 -- vim.g.mapleader = " "
 
 vim.o.autoindent = true
 -- vim.o.clipboard = 'unnamed,unnamedplus'
+vim.o.completeopt = 'fuzzy,menuone,noselect'
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'number'
 vim.o.expandtab = true
@@ -68,7 +67,25 @@ vim.keymap.set('i', '<C-k>', '<C-o>C')
 vim.keymap.set('c', '<C-a>', '<Home>')
 vim.keymap.set('c', '<C-e>', '<End>')
 
+local map_multistep = require('mini.keymap').map_multistep
+map_multistep('i', '<Tab>', { 'pmenu_next' })
+map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
+map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+map_multistep('i', '<BS>', { 'minipairs_bs' })
+
+-- local notify_many_keys = function(key)
+--     local lhs = string.rep(key, 5)
+--     local action = function() vim.notify('Too many ' .. key) end
+--     require('mini.keymap').map_combo({ 'n', 'x' }, lhs, action)
+-- end
+-- notify_many_keys('h')
+-- notify_many_keys('j')
+-- notify_many_keys('k')
+-- notify_many_keys('l')
+
 vim.lsp.enable('ansiblels')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('lua_ls')
 vim.lsp.enable('terraformls')
 vim.lsp.enable('tflint')
 
@@ -141,7 +158,7 @@ require('lint').linters_by_ft = {
     editorconfig = { 'editorconfig-checker' },
     github = { 'actionlint' },
     json = { 'jsonlint' },
-    lua = { 'luacheck' },
+    -- lua = { 'luacheck' },
     make = { 'checkmake' },
     markdown = { 'markdownlint' },
     river = { 'alloy_fmt' },
@@ -192,7 +209,6 @@ require('lualine').setup({
                     readonly = '',
                 },
             },
-            -- 'lsp_status',
         },
         lualine_x = {
             {
@@ -206,14 +222,16 @@ require('lualine').setup({
             'progress',
         },
         lualine_z = {
-            -- {
-            --     'searchcount',
-            --     maxcount = 999,
-            --     timeout = 500,
-            -- },
             'location',
-            'lint_progress',
         },
+    },
+    tabline = {
+        lualine_a = { 'buffers' },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { 'tabs' },
     },
 })
 
@@ -253,11 +271,23 @@ mini_clue.setup({
 
 require('mini.completion').setup()
 
-require('mini.icons').setup()
+require('mini.icons').setup({
+    file = {
+        ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+        ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+    },
+    filetype = {
+        dotenv = { glyph = '', hl = 'MiniIconsYellow' },
+    },
+})
 MiniIcons.mock_nvim_web_devicons() -- luacheck: globals MiniIcons
 MiniIcons.tweak_lsp_kind() -- luacheck: globals MiniIcons
 
 require('mini.pick').setup()
+vim.keymap.set('n', '<leader>fb', MiniPick.builtin.buffers, { desc = 'Pick from buffers' })
+vim.keymap.set('n', '<leader>ff', MiniPick.builtin.files, { desc = 'Pick from files' })
+vim.keymap.set('n', '<leader>fg', MiniPick.builtin.grep_live, { desc = 'Pick from pattern matches with live feedback' })
+vim.keymap.set('n', '<leader>fh', MiniPick.builtin.help, { desc = 'Pick from help tagss' })
 
 -- require('mini.snippets').setup()
 
@@ -349,11 +379,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
     callback = function() vim.highlight.on_yank() end,
 })
-
--- vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = 'Telescope buffers' })
--- vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = 'Telescope find files' })
--- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = 'Telescope live grep' })
--- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = 'Telescope help tags' })
 
 -- -- require('fidget').setup()
 --

@@ -5,6 +5,13 @@
   refreshPeriod: 24h
   url: https://raw.githubusercontent.com/bluz71/fly16-bat/refs/heads/master/fly16.tmTheme
 
+# .config/nvim/pack/b0o/start/SchemaStore.nvim:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/b0o/SchemaStore.nvim.git
+#   pull.args:
+#     - --force
+
 .config/nvim/pack/catppuccin/start/nvim:
   type: git-repo
   refreshPeriod: 24h
