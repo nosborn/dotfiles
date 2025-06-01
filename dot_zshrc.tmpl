@@ -98,14 +98,14 @@ export VISUAL=nvim
 
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
-alias k='kubectl'
-alias kubectl='command kubecolor'
-alias ls='command eza --color=auto --group'
+alias k=kubectl
+alias kubectl=kubecolor
+alias ls='eza --color=auto --group'
 alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vim=nvim
 alias vi=nvim
-alias vultr-cli=vultr
+alias vultr-cli='vultr'
 
 compdef k=kubectl
 compdef kubecolor=kubectl

@@ -2,7 +2,7 @@
 
 tap 'hashicorp/tap'
 
-cask_args adopt: true, appdir: "~/Applications", require_sha: true
+cask_args adopt: true, require_sha: true
 
 brew 'actionlint'
 brew 'ansible'
@@ -36,7 +36,7 @@ cask 'font-symbols-only-nerd-font'
 brew 'fx'
 brew 'fzf'
 brew 'gh'
-cask 'ghostty', greedy: true
+cask 'ghostty', appdir: '~/Applications', greedy: true
 brew 'git-filter-repo'
 brew 'git-lfs'
 brew 'git-trim'
@@ -46,7 +46,7 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
 brew 'golangci-lint'
-# cask 'google-chrome', greedy: true
+# cask 'google-chrome', appdir: '~/Applications', greedy: true
 brew 'gopls'
 brew 'goreleaser'
 brew 'gpg2'
@@ -76,7 +76,7 @@ brew 'lua-language-server'
 brew 'luacheck'
 brew 'luarocks'
 brew 'markdownlint-cli'
-# cask 'monitorcontrol', greedy: true
+# cask 'monitorcontrol', appdir: '~/Applications', greedy: true
 brew 'neovim'
 brew 'parallel'
 brew 'pinentry-mac'
@@ -88,7 +88,7 @@ brew 'pwgen'
 brew 'pyright'
 brew 'python-argcomplete'
 brew 'qrencode'
-cask 'rectangle', greedy: true
+cask 'rectangle', appdir: '~/Applications', greedy: true
 brew 'rg'
 brew 'sf-pwgen'
 brew 'shellcheck'
@@ -106,7 +106,7 @@ brew 'tfupdate'
 brew 'trivy'
 brew 'trufflehog'
 brew 'typescript'
-cask 'utm'
+cask 'utm', appdir: '~/Applications'
 brew 'vint'
 brew 'virtualenv'
 brew 'vscode-langservers-extracted'
@@ -129,13 +129,15 @@ if '{{ .where }}' == 'home'
   brew 'argocd-autopilot'
   brew 'atomicparsley'
   brew 'b2-tools'
-  cask 'calibre'
-  cask 'chatbox', greedy: true
+  cask 'calibre', appdir: '~/Applications'
+  cask 'chatbox', appdir: '~/Applications', greedy: true
   brew 'ffmpeg'
   brew 'handbrake'
-  cask 'hush'
+  cask 'hush', appdir: '~/Applications'
+  cask 'lulu'
   brew 'ollama'
-  cask 'orbstack'
+  cask 'orbstack', appdir: '~/Applications'
+  cask 'oversight', appdir: '~/Applications'
   brew 'scw'
   brew 'ssh-audit'
   brew 'upcloud-cli'
@@ -151,7 +153,7 @@ if '{{ .where }}' == 'work'
   brew 'awsdac'
   brew 'bfg'
   brew 'colima'
-  cask 'google-drive', greedy: true
+  cask 'google-drive', appdir: '~/Applications', greedy: true
   brew 'gradle'
   brew 'iam-policy-json-to-terraform'
   brew 'istioctl'
@@ -161,7 +163,7 @@ if '{{ .where }}' == 'work'
   brew 'poetry'
   brew 'postgresql@14'
   brew 'postgresql@15'
-  cask 'slack', greedy: true
+  cask 'slack', appdir: '~/Applications', greedy: true
   brew 'terraform-iam-policy-validator'
 end
 

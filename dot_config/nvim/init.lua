@@ -83,6 +83,31 @@ map_multistep('i', '<BS>', { 'minipairs_bs' })
 -- notify_many_keys('k')
 -- notify_many_keys('l')
 
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('my.lsp', {}),
+    callback = function(args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        if client:supports_method('textDocument/implementation') then
+            -- Create a keymap for vim.lsp.buf.implementation ...
+        end
+        -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+        end
+        -- Auto-format ("lint") on save.
+        -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+        if not client:supports_method('textDocument/willSaveWaitUntil') then
+            if client:supports_method('textDocument/formatting') then
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+                    buffer = args.buf,
+                    callback = function() vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 }) end,
+                })
+            end
+        end
+    end,
+})
+
 vim.lsp.enable('ansiblels')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('lua_ls')
@@ -105,136 +130,6 @@ require('catppuccin').setup({
 })
 vim.cmd('colorscheme catppuccin')
 
-require('conform').setup({
-    format_on_save = {
-        lsp_format = 'fallback',
-        timeout_ms = 500,
-    },
-    formatters = {
-        alloy_fmt = {
-            args = { 'fmt', '-' },
-            command = 'alloy',
-        },
-        dockerfmt = {
-            args = { '--newline' },
-            command = 'dockerfmt',
-        },
-        shfmt = {
-            prepend_args = { '-i', '2', '-ci' },
-        },
-    },
-    formatters_by_ft = {
-        dockerfile = { 'dockerfmt' },
-        -- hcl = { 'packer_fmt' },
-        lua = { 'stylua' },
-        river = { 'alloy_fmt' },
-        sh = { 'shfmt' },
-        xml = { 'xmllint' },
-    },
-})
-
-require('gitsigns').setup({
-    current_line_blame = true,
-    current_line_blame_opts = {
-        delay = 500,
-        ignore_whitespace = false,
-    },
-    -- word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
-})
-
-require('lint').linters.alloy_fmt = {
-    cmd = 'alloy',
-    args = { 'fmt', '--test', '-' },
-    stream = 'stderr',
-    parser = require('lint.parser').from_pattern(
-        ':(%d+):(%d+): (.+)',
-        { 'lnum', 'col', 'message' },
-        {},
-        { severity = vim.diagnostic.severity.ERROR, source = 'alloy_fmt' }
-    ),
-}
-require('lint').linters_by_ft = {
-    dockerfile = { 'hadolint' },
-    editorconfig = { 'editorconfig-checker' },
-    github = { 'actionlint' },
-    json = { 'jsonlint' },
-    -- lua = { 'luacheck' },
-    make = { 'checkmake' },
-    markdown = { 'markdownlint' },
-    river = { 'alloy_fmt' },
-    sh = { 'shellcheck' },
-    vim = { 'vint' },
-    yaml = { 'yamllint' },
-    zsh = { 'zsh' },
-}
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-    group = vim.api.nvim_create_augroup('plugin/lint', { clear = true }),
-    callback = function()
-        if vim.bo.modifiable then require('lint').try_lint() end
-    end,
-})
-
-require('lualine').setup({
-    options = {
-        component_separators = { left = '│', right = '│' },
-        globalstatus = true,
-        section_separators = { left = '', right = '' },
-        theme = 'catppuccin',
-    },
-    sections = {
-        lualine_a = {
-            'mode',
-        },
-        lualine_b = {
-            {
-                'branch',
-                icon = '',
-            },
-            {
-                'diff',
-                symbols = {
-                    added = ' ',
-                    modified = ' ',
-                    removed = ' ',
-                },
-            },
-            'diagnostics',
-        },
-        lualine_c = {
-            {
-                'filename',
-                path = 1,
-                symbols = {
-                    modified = '●',
-                    readonly = '',
-                },
-            },
-        },
-        lualine_x = {
-            {
-                'encoding',
-                show_bomb = true,
-            },
-            'fileformat',
-            'filetype',
-        },
-        lualine_y = {
-            'progress',
-        },
-        lualine_z = {
-            'location',
-        },
-    },
-    tabline = {
-        lualine_a = { 'buffers' },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = { 'tabs' },
-    },
-})
-
 require('mini.bracketed').setup()
 
 local mini_clue = require('mini.clue')
@@ -248,24 +143,24 @@ mini_clue.setup({
         mini_clue.gen_clues.z(),
     },
     triggers = {
-        { mode = 'c', keys = '<C-r>' }, -- registers
-        { mode = 'i', keys = '<C-r>' }, -- registers
-        { mode = 'i', keys = '<C-x>' }, -- built-in completion
-        { mode = 'n', keys = "'" }, -- marks
-        { mode = 'n', keys = '"' }, -- registers
-        { mode = 'n', keys = '<C-w>' }, -- window commands
+        { mode = 'c', keys = '<C-r>' },    -- registers
+        { mode = 'i', keys = '<C-r>' },    -- registers
+        { mode = 'i', keys = '<C-x>' },    -- built-in completion
+        { mode = 'n', keys = "'" },        -- marks
+        { mode = 'n', keys = '"' },        -- registers
+        { mode = 'n', keys = '<C-w>' },    -- window commands
         { mode = 'n', keys = '<Leader>' }, -- leader triggers
         { mode = 'n', keys = '[' },
         { mode = 'n', keys = ']' },
-        { mode = 'n', keys = '`' }, -- marks
-        { mode = 'n', keys = 'g' }, -- `g` key
-        { mode = 'n', keys = 'z' }, -- `z` key
-        { mode = 'x', keys = "'" }, -- marks
-        { mode = 'x', keys = '"' }, -- registers
+        { mode = 'n', keys = '`' },        -- marks
+        { mode = 'n', keys = 'g' },        -- `g` key
+        { mode = 'n', keys = 'z' },        -- `z` key
+        { mode = 'x', keys = "'" },        -- marks
+        { mode = 'x', keys = '"' },        -- registers
         { mode = 'x', keys = '<Leader>' }, -- leader triggers
-        { mode = 'x', keys = '`' }, -- marks
-        { mode = 'x', keys = 'g' }, -- `g` key
-        { mode = 'x', keys = 'z' }, -- `z` key
+        { mode = 'x', keys = '`' },        -- marks
+        { mode = 'x', keys = 'g' },        -- `g` key
+        { mode = 'x', keys = 'z' },        -- `z` key
     },
 })
 
@@ -281,7 +176,7 @@ require('mini.icons').setup({
     },
 })
 MiniIcons.mock_nvim_web_devicons() -- luacheck: globals MiniIcons
-MiniIcons.tweak_lsp_kind() -- luacheck: globals MiniIcons
+MiniIcons.tweak_lsp_kind()         -- luacheck: globals MiniIcons
 
 require('mini.pick').setup()
 vim.keymap.set('n', '<leader>fb', MiniPick.builtin.buffers, { desc = 'Pick from buffers' })
@@ -290,71 +185,6 @@ vim.keymap.set('n', '<leader>fg', MiniPick.builtin.grep_live, { desc = 'Pick fro
 vim.keymap.set('n', '<leader>fh', MiniPick.builtin.help, { desc = 'Pick from help tagss' })
 
 -- require('mini.snippets').setup()
-
-require('nvim-treesitter.configs').setup({
-    ensure_installed = {
-        'bash',
-        'c',
-        'cpp',
-        'css',
-        'git_config',
-        'gotmpl',
-        'html',
-        'ini',
-        'javascript',
-        'json',
-        -- 'latex',
-        'lua',
-        'markdown',
-        'markdown_inline',
-        -- 'norg',
-        'python',
-        'regex',
-        'ruby',
-        -- 'scss',
-        -- 'svelte',
-        'terraform',
-        'toml',
-        -- 'tsx',
-        -- 'typst',
-        -- 'vue',
-        'yaml',
-    },
-    highlight = {
-        -- additional_vim_regex_highlighting = {
-        --     'ruby',
-        -- },
-        enable = true,
-    },
-    indent = {
-        enable = true,
-    },
-})
-require('nvim-treesitter.parsers').get_parser_configs().d2 = {
-    filetype = 'd2',
-    install_info = {
-        files = { 'src/parser.c', 'src/scanner.cc' },
-        revision = 'main',
-        url = 'https://github.com/pleshevskiy/tree-sitter-d2',
-    },
-}
-require('nvim-treesitter.parsers').get_parser_configs().river = {
-    install_info = {
-        branch = 'main',
-        files = { 'src/parser.c' },
-        generate_requires_npm = false,
-        requires_generate_from_grammar = false,
-        url = 'https://github.com/grafana/tree-sitter-river.git',
-    },
-}
-
-require('snacks').setup({
-    indent = {
-        animate = {
-            enabled = false,
-        },
-    },
-})
 
 -- require('which-key').setup({
 --     preset = 'helix',
@@ -367,7 +197,7 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
             [vim.diagnostic.severity.HINT] = '󰌶 ',
             [vim.diagnostic.severity.INFO] = ' ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.WARN] = ' ',
         },
     },
     -- underline = false,
