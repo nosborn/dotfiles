@@ -1,10 +1,5 @@
 # yamllint disable rule:line-length
 ---
-.config/bat/themes/fly16.tmTheme:
-  type: file
-  refreshPeriod: 24h
-  url: https://raw.githubusercontent.com/bluz71/fly16-bat/refs/heads/master/fly16.tmTheme
-
 # .config/nvim/pack/b0o/start/SchemaStore.nvim:
 #   type: git-repo
 #   refreshPeriod: 24h
