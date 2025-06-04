@@ -8,7 +8,7 @@ output=text
 
 "$(brew --prefix kubeconform)/bin/kubeconform" \
   -cache="${cache}" \
-  -kubernetes-version=1.30.0 \
+  -kubernetes-version=1.33.1 \
   -output="${output}" \
   -schema-location=default \
   -schema-location='https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' \
