@@ -109,6 +109,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.lsp.enable('ansiblels')
+vim.lsp.enable('golangci_lint_ls')
+vim.lsp.enable('gopls')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('terraformls')
