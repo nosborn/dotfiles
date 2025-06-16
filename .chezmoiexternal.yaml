@@ -7,12 +7,12 @@
 #   pull.args:
 #     - --force
 
-.config/nvim/pack/catppuccin/start/nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/catppuccin/nvim.git
-  pull.args:
-    - --force
+# .config/nvim/pack/catppuccin/start/nvim:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/catppuccin/nvim.git
+#   pull.args:
+#     - --force
 
 # .config/nvim/pack/cappyzawa/start/trim.nvim:
 #   type: git-repo
@@ -134,6 +134,13 @@
 #   url: https://github.com/rcarriga/nvim-notify.git
 #   pull.args:
 #     - --force
+
+.config/nvim/pack/rebelot/start/kanagawa.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/rebelot/kanagawa.nvim.git
+  pull.args:
+    - --force
 
 .config/nvim/pack/stevearc/start/conform.nvim:
   type: git-repo

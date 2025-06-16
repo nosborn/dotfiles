@@ -116,19 +116,78 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('terraformls')
 vim.lsp.enable('tflint')
 
-vim.api.nvim_create_autocmd('ColorScheme', {
-    group = vim.api.nvim_create_augroup('color-scheme', { clear = true }),
-    pattern = 'catppuccin',
-    callback = function() vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'FloatBorder' }) end,
-})
-require('catppuccin').setup({
-    color_overrides = {
-        mocha = {
-            base = '#000000',
-        },
+do
+    local group = vim.api.nvim_create_augroup('color-scheme', { clear = true })
+    vim.api.nvim_create_autocmd('ColorScheme', {
+        group = group,
+        pattern = 'catppuccin',
+        callback = function() vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'FloatBorder' }) end,
+    })
+    vim.api.nvim_create_autocmd('ColorScheme', {
+        group = group,
+        pattern = '{retrobox,sorbet,wildcharm,zaibatsu}',
+        callback = function() vim.api.nvim_set_hl(0, 'Comment', { italic = true }) end,
+    })
+end
+
+-- require('catppuccin').setup({
+--     color_overrides = {
+--         mocha = {
+--             base = '#000000',
+--         },
+--     },
+-- })
+-- vim.cmd('colorscheme catppuccin')
+
+-- require('kanagawa').setup({
+--     compile = false,  -- enable compiling the colorscheme
+--     undercurl = true, -- enable undercurls
+--     commentStyle = { italic = true },
+--     functionStyle = {},
+--     keywordStyle = { italic = true },
+--     statementStyle = { bold = true },
+--     typeStyle = {},
+--     transparent = false,   -- do not set background color
+--     dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
+--     terminalColors = true, -- define vim.g.terminal_color_{0,17}
+--     colors = {             -- add/modify theme and palette colors
+--         palette = {},
+--         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+--     },
+--     overrides = function(colors) -- add/modify highlights
+--         return {}
+--     end,
+--     theme = 'wave',    -- Load "wave" theme
+--     background = {     -- map the value of 'background' option to a theme
+--         dark = 'wave', -- try "dragon" !
+--         light = 'lotus',
+--     },
+-- })
+require('kanagawa').setup({
+    -- compile = false,  -- enable compiling the colorscheme
+    -- undercurl = true, -- enable undercurls
+    -- commentStyle = { italic = true },
+    -- functionStyle = {},
+    -- keywordStyle = { italic = true },
+    -- statementStyle = { bold = true },
+    -- typeStyle = {},
+    -- transparent = false,   -- do not set background color
+    dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+    -- terminalColors = true, -- define vim.g.terminal_color_{0,17}
+    -- colors = {             -- add/modify theme and palette colors
+    --     palette = {},
+    --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    -- },
+    -- overrides = function(colors) -- add/modify highlights
+    --     return {}
+    -- end,
+    theme = 'dragon',    -- Load "wave" theme
+    background = {       -- map the value of 'background' option to a theme
+        dark = 'dragon', -- try "dragon" !
+        -- light = 'lotus',
     },
 })
-vim.cmd('colorscheme catppuccin')
+vim.cmd('colorscheme kanagawa')
 
 vim.diagnostic.config({
     severity_sort = true,
