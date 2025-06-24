@@ -8,5 +8,9 @@ if [[ -n "${XDG_CACHE_HOME}" ]]; then
   mkdir -p "${LESSHISTFILE:h}"
 fi
 
-export LESS=-FR
+if [[ ${commands[less]} == $(brew --prefix)/bin/less ]]; then
+  export LESS=-FRi
+else
+  export LESS=-FR
+fi
 export PAGER=${commands[less]}
