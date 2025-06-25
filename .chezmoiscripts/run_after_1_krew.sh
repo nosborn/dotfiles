@@ -3,8 +3,8 @@
 set -o errexit
 set -o nounset
 
-[ -e "$(brew --prefix krew)/bin/kubectl-krew" ] || exit 0
-[ -e "$(brew --prefix kubectl)/bin/kubectl" ] || exit 0
+command -v kubectl >/dev/null 2>&1 || exit 0
+command -v kubectl-krew >/dev/null 2>&1 || exit 0
 
 PATH="${HOME}/.krew/bin:${PATH}"
 

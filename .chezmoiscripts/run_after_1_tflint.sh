@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-[ -e "$(brew --prefix tflint)/bin/tflint" ] || exit 0
+command -v tflint >/dev/null 2>&1 || exit 0
 
 tflint --init
 

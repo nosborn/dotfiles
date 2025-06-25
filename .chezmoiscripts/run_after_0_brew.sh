@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-[ "$(uname -s)" = Darwin ] || exit 0
+command -v brew >/dev/null 2>&1 || exit 0
 
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1

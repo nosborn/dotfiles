@@ -10,7 +10,7 @@ readonly extensions="
   rnorth/gh-combine-prs
 "
 
-[ -e "$(brew --prefix gh)/bin/gh" ] || exit 0
+command -v gh >/dev/null 2>&1 || exit 0
 
 installed="$(mktemp)"
 readonly installed

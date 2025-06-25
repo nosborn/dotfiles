@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-[ -e "$(brew --prefix node)/bin/npm" ] || exit 0
+command -v npm >/dev/null 2>&1 || exit 0
 
 packages="
   @mermaid-js/mermaid-cli
@@ -20,5 +20,3 @@ for package in ${packages}; do
   fi
   "$(brew --prefix node)/bin/npm" "${command}" --location=global --omit=dev --prefix="${HOME}/.local" "${package}"
 done
-
-exit 0
