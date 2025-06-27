@@ -8,11 +8,12 @@ command -v kubectl-krew >/dev/null 2>&1 || exit 0
 
 PATH="${HOME}/.krew/bin:${PATH}"
 
-"$(brew --prefix kubectl)/bin/kubectl" krew update
-"$(brew --prefix kubectl)/bin/kubectl" krew install fields || :
-"$(brew --prefix kubectl)/bin/kubectl" krew install get-all || :
-# "$(brew --prefix kubectl)/bin/kubectl" krew install topology || :
-"$(brew --prefix kubectl)/bin/kubectl" krew install tree || :
-# "$(brew --prefix kubectl)/bin/kubectl" krew install unused-volumes || :
+installed="$(kubectl krew list)"
+for name in fields get-all tree vpa-recommendation; do
+  if ! echo "${installed}" | grep -Eq "^${name}\>"; then
+    kubectl krew install "${name}"
+  fi
+done
+kubectl krew upgrade --no-update-index
 
 exit 0

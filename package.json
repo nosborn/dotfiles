@@ -1,0 +1,11 @@
+{
+  "name": "dotfiles",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "*",
+    "ajv-cli": "*",
+    "neovim": "*",
+    "prettier-plugin-toml": "*"
+  }
+}

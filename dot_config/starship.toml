@@ -101,9 +101,9 @@ truncation_symbol = '…/'
 # [direnv]
 # enable = true
 
-# [docker_context]
-# format = '\[[$symbol$context]($style)\]'
-# symbol = ' '
+[docker_context]
+format = '\[[$symbol$context]($style)\]'
+symbol = ' '
 
 [dotnet]
 disabled = true

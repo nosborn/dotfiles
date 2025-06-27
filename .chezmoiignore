@@ -2,6 +2,7 @@
 /LICENSE.md
 /README.md
 /install.sh
+/package.json
 /requirements.txt
 1
 default.profraw

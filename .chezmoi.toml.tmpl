@@ -2,6 +2,9 @@
 name = "Nick Osborn"
 where = "{{ promptStringOnce . "where" "where" }}"
 
+[data.gemini]
+apiKey = "{{ promptStringOnce .gemini "apiKey" "gemini.apiKey" }}"
+
 [data.git]
 email = "{{ promptStringOnce .git "email" "git.email" }}"
 signingKey = "{{ promptStringOnce .git "signingKey" "git.signingKey" }}"

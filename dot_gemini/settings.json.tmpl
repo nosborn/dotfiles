@@ -1,0 +1,14 @@
+{
+{{- if ne "" .gemini.apiKey }}
+  "apiKey": "{{ .gemini.apiKey }}",
+{{- end }}
+  "preferredEditor": "nvim",
+  "sandbox": true,
+  "selectedAuthType": "oauth-personal",
+  "telemetry": {
+    "enabled": false,
+    "logPrompts": false
+  },
+  "theme": "Default",
+  "usageStatisticsEnabled": false
+}
