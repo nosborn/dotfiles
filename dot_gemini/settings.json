@@ -1,0 +1,10 @@
+{
+  "checkpointing": true,
+  "sandbox": "docker",
+  "selectedAuthType": "gemini-api-key",
+  "telemetry": {
+    "enabled": false
+  },
+  "theme": "Default",
+  "usageStatisticsEnabled": false
+}

@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@mermaid-js/mermaid-cli": "*",
-    "ajv-cli": "*",
-    "neovim": "*",
-    "prettier-plugin-toml": "*"
+    "@mermaid-js/mermaid-cli": "11.6.0",
+    "ajv-cli": "5.0.0",
+    "neovim": "5.1.0",
+    "prettier-plugin-toml": "2.0.1"
   }
 }

@@ -2,7 +2,9 @@
 /LICENSE.md
 /README.md
 /install.sh
+/node_modules/
 /package.json
+/package-lock.json
 /requirements.txt
 1
 default.profraw

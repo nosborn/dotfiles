@@ -1,4 +1,7 @@
 .chezmoidata.*
+.envrc
+.gemini/
 .mypy_cache/
 1
 default.profraw
+node_modules/

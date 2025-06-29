@@ -25,6 +25,7 @@ Library/Caches/helix/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/zsh-completions/_aws_vault
+.local/state/ghostty/crash/
 .minikube/
 .mono/
 .rubocop.yml
