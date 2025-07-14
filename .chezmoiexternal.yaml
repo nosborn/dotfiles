@@ -7,13 +7,6 @@
 #   pull.args:
 #     - --force
 
-# .config/nvim/pack/catppuccin/start/nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/catppuccin/nvim.git
-#   pull.args:
-#     - --force
-
 # .config/nvim/pack/cappyzawa/start/trim.nvim:
 #   type: git-repo
 #   refreshPeriod: 24h

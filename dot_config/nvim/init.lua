@@ -125,19 +125,11 @@ do
     })
     vim.api.nvim_create_autocmd('ColorScheme', {
         group = group,
-        pattern = '{retrobox,sorbet,wildcharm,zaibatsu}',
+        pattern = '{default,retrobox,sorbet,wildcharm,zaibatsu}',
         callback = function() vim.api.nvim_set_hl(0, 'Comment', { italic = true }) end,
     })
 end
-
--- require('catppuccin').setup({
---     color_overrides = {
---         mocha = {
---             base = '#000000',
---         },
---     },
--- })
--- vim.cmd('colorscheme catppuccin')
+-- vim.cmd('colorscheme retrobox')
 
 -- require('kanagawa').setup({
 --     compile = false,  -- enable compiling the colorscheme
@@ -240,3 +232,8 @@ if vim.fn.executable('ansible-vault') == 1 then
         augroup END
     ]])
 end
+
+-- Typing is hard.
+vim.cmd([[
+  cabbrev <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
+]])
