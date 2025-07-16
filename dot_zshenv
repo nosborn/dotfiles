@@ -17,6 +17,7 @@ export LC_COLLATE=C
 export LLVM_PROFILE_FILE=%t/pid-%p.profraw
 export OLLAMA_FLASH_ATTENTION=1
 export OLLAMA_KV_CACHE_TYPE=q8_0
+export NPM_CONFIG_PREFIX="${HOME}/.local"
 export PIPX_HOME="${HOME}/.local/pipx"
 export PIPX_BIN_HOME="${HOME}/.local/bin"
 export PRE_COMMIT_ALLOW_NO_CONFIG=1
