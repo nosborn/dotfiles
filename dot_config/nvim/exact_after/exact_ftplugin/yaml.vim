@@ -9,3 +9,10 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal colorcolumn< commentstring< expandtab< shiftwidth< tabstop<'
 endif
+
+if expand('%:p') == expand('~/src/github.com/nosborn/federation-1999/data/messages.yaml')
+  lua <<EOT
+local buf = vim.api.nvim_get_current_buf()
+require("conform").disable_formatters({"yamlfmt"}, buf)
+EOT
+endif

@@ -1,12 +1,5 @@
 # yamllint disable rule:line-length
 ---
-# .config/nvim/pack/b0o/start/SchemaStore.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/b0o/SchemaStore.nvim.git
-#   pull.args:
-#     - --force
-
 # .config/nvim/pack/cappyzawa/start/trim.nvim:
 #   type: git-repo
 #   refreshPeriod: 24h
@@ -35,20 +28,6 @@
   pull.args:
     - --force
 
-# .config/nvim/pack/folke/start/which-key.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/folke/which-key.nvim.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/j-hui/start/fidget.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/j-hui/fidget.nvim.git
-#   pull.args:
-#     - --force
-
 .config/nvim/pack/lewis6991/start/gitsigns.nvim:
   type: git-repo
   refreshPeriod: 24h
@@ -67,13 +46,6 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/mfussenegger/nvim-lint.git
-  pull.args:
-    - --force
-
-.config/nvim/pack/neovim/start/nvim-lspconfig:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/neovim/nvim-lspconfig.git
   pull.args:
     - --force
 
@@ -106,27 +78,6 @@
   url: https://github.com/nvim-treesitter/nvim-treesitter.git
   pull.args:
     - --force
-
-# .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-context:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvim-treesitter/nvim-treesitter-context.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-#   pull.args:
-#     - --force
-
-# .config/nvim/pack/rcarriga/start/nvim-notify:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/rcarriga/nvim-notify.git
-#   pull.args:
-#     - --force
 
 .config/nvim/pack/rebelot/start/kanagawa.nvim:
   type: git-repo

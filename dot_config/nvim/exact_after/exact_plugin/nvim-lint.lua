@@ -11,21 +11,28 @@ require('lint').linters.alloy_fmt = {
 }
 
 require('lint').linters_by_ft = {
+    ansible = { 'ansible-lint' },
+    bash = { 'bash' },
+    c = { 'clangtidy' },
     dockerfile = { 'hadolint' },
+    dotenv = { 'dotenv_linter' },
     editorconfig = { 'editorconfig-checker' },
-    github = { 'actionlint' },
+    ghaction = { 'actionlint' },
+    go = { 'golangcilint' },
     json = { 'jsonlint' },
-    -- lua = { 'luacheck' },
+    lua = { 'luacheck' },
     make = { 'checkmake' },
     markdown = { 'markdownlint' },
     river = { 'alloy_fmt' },
     sh = { 'shellcheck' },
+    terraform = { 'tflint' },
     vim = { 'vint' },
     yaml = { 'yamllint' },
     zsh = { 'zsh' },
 }
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+-- vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     group = vim.api.nvim_create_augroup('plugin/lint', { clear = true }),
     callback = function()
         if vim.bo.modifiable then require('lint').try_lint() end
