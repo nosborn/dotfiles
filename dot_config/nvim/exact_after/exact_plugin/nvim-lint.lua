@@ -31,8 +31,8 @@ require('lint').linters_by_ft = {
     zsh = { 'zsh' },
 }
 
--- vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+-- vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
     group = vim.api.nvim_create_augroup('plugin/lint', { clear = true }),
     callback = function()
         if vim.bo.modifiable then require('lint').try_lint() end

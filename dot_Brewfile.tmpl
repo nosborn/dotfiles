@@ -2,7 +2,7 @@
 
 tap 'hashicorp/tap'
 
-cask_args adopt: true, require_sha: true
+cask_args adopt: true
 
 brew 'actionlint'
 brew 'ansible'
@@ -30,12 +30,12 @@ brew 'eza'
 brew 'fd'
 brew 'flake8'
 brew 'flock'
-cask 'font-jetbrains-mono'
-cask 'font-symbols-only-nerd-font'
+cask 'font-jetbrains-mono', require_sha: true
+cask 'font-symbols-only-nerd-font', require_sha: true
 brew 'fx'
 brew 'fzf'
 brew 'gh'
-cask 'ghostty', appdir: '~/Applications', greedy: true
+cask 'ghostty', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'git-crypt'
 brew 'git-filter-repo'
 brew 'git-lfs'
@@ -47,7 +47,7 @@ brew 'gnu-tar'
 brew 'go'
 brew 'goimports'
 brew 'golangci-lint'
-# cask 'google-chrome', appdir: '~/Applications', greedy: true
+cask 'google-chrome', appdir: '~/Applications', greedy: true
 # brew 'goreleaser'
 brew 'gpg2'
 brew 'grafana-alloy'
@@ -78,7 +78,7 @@ brew 'markdownlint-cli'
 brew 'mermaid-cli'
 brew 'mkdocs'
 # brew 'mkdocs-material'
-# cask 'monitorcontrol', appdir: '~/Applications', greedy: true
+# cask 'monitorcontrol', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'neovim'
 brew 'parallel'
 brew 'pinentry-mac'
@@ -92,7 +92,7 @@ brew 'pwgen'
 brew 'pyright'
 brew 'python-argcomplete'
 brew 'qrencode'
-cask 'rectangle', appdir: '~/Applications', greedy: true
+cask 'rectangle', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'rg'
 brew 'sf-pwgen'
 brew 'shellcheck'
@@ -110,7 +110,7 @@ brew 'tfupdate'
 brew 'trivy'
 brew 'trufflehog'
 brew 'typescript'
-cask 'utm', appdir: '~/Applications'
+cask 'utm', appdir: '~/Applications', require_sha: true
 brew 'vint'
 brew 'virtualenv'
 brew 'watch'
@@ -130,19 +130,19 @@ if '{{ .where }}' == 'home'
   tap 'UpCloudLtd/tap'
 
   brew 'b2-tools'
-  cask 'calibre', appdir: '~/Applications'
-  cask 'chatbox', appdir: '~/Applications'
-  cask 'chatgpt', appdir: '~/Applications', greedy: true
-  cask 'container'
+  cask 'calibre', appdir: '~/Applications', require_sha: true
+  cask 'chatbox', appdir: '~/Applications', require_sha: true
+  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
+  cask 'container', require_sha: true
   brew 'cvs'
   brew 'duckdb'
   brew 'gemini-cli'
   brew 'goyacc'
-  cask 'hush', appdir: '~/Applications'
-  cask 'mudlet', appdir: '~/Applications'
+  cask 'hush', appdir: '~/Applications', require_sha: true
+  cask 'mudlet', appdir: '~/Applications', require_sha: true
   brew 'ollama'
-  cask 'orbstack', appdir: '~/Applications'
-  cask 'oversight', appdir: '~/Applications'
+  cask 'orbstack', appdir: '~/Applications', require_sha: true
+  cask 'oversight', appdir: '~/Applications', require_sha: true
   brew 'perl'
   brew 'scw'
   brew 'ssh-audit'
@@ -160,7 +160,7 @@ if '{{ .where }}' == 'work'
   brew 'awsdac'
   brew 'bfg'
   brew 'colima'
-  cask 'google-drive', appdir: '~/Applications', greedy: true
+  cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'gradle'
   brew 'iam-policy-json-to-terraform'
   brew 'istioctl'
@@ -170,7 +170,7 @@ if '{{ .where }}' == 'work'
   brew 'poetry'
   brew 'postgresql@14'
   brew 'postgresql@15'
-  cask 'slack', appdir: '~/Applications', greedy: true
+  cask 'slack', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'terraform-iam-policy-validator'
 end
 
