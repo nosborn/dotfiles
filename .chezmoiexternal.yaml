@@ -1,11 +1,11 @@
 # yamllint disable rule:line-length
 ---
-# .config/nvim/pack/cappyzawa/start/trim.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/cappyzawa/trim.nvim.git
-#   pull.args:
-#     - --force
+.config/nvim/pack/cappyzawa/start/trim.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/cappyzawa/trim.nvim.git
+  pull.args:
+    - --force
 
 # .config/nvim/pack/direnv/start/direnv.vim:
 #   type: git-repo
@@ -49,12 +49,12 @@
   pull.args:
     - --force
 
-# .config/nvim/pack/nvim-lua/start/plenary.nvim: # general dependency
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvim-lua/plenary.nvim.git
-#   pull.args:
-#     - --force
+.config/nvim/pack/nvim-lua/start/plenary.nvim: # general dependency
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvim-lua/plenary.nvim.git
+  pull.args:
+    - --force
 
 .config/nvim/pack/nvim-lualine/start/lualine.nvim:
   type: git-repo
@@ -63,14 +63,14 @@
   pull.args:
     - --force
 
-# .config/nvim/pack/nvim-telescope/start/telescope.nvim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvim-telescope/telescope.nvim.git
-#   clone.args:
-#     - --branch=0.1.x
-#   pull.args:
-#     - --force
+.config/nvim/pack/nvim-telescope/start/telescope.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvim-telescope/telescope.nvim.git
+  clone.args:
+    - --branch=0.1.x
+  pull.args:
+    - --force
 
 .config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
   type: git-repo
