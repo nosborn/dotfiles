@@ -25,6 +25,7 @@ require('conform').setup({
         h = { 'clang-format' },
         -- hcl = { 'packer_fmt' },
         lua = { 'stylua' },
+        perl = { 'perltidy' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
         terraform = { 'terraform_fmt' },

@@ -21,6 +21,13 @@
   pull.args:
     - --force
 
+# .config/nvim/pack/fatih/start/vim-go:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/fatih/vim-go.git
+#   pull.args:
+#     - --force
+
 .config/nvim/pack/folke/start/snacks.nvim:
   type: git-repo
   refreshPeriod: 24h
