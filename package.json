@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@anthropic-ai/claude-code": "1.0.58",
+    "@anthropic-ai/claude-code": "1.0.59",
     "neovim": "5.3.0",
     "prettier-plugin-toml": "2.0.6"
   }
