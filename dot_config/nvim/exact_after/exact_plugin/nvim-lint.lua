@@ -34,6 +34,14 @@ require('lint').linters.kubeconform = {
     ignore_exitcode = true,
 }
 
+-- local revive = require('lint').linters.revive
+-- revive.args = {
+--     '-config',
+--     vim.fn.getcwd() .. '/.revive.toml',
+--     '-formatter',
+--     'json',
+-- }
+
 -- require('lint').linters.spectral_k8s = {
 --     cmd = 'spectral',
 --     args = { 'lint', '--ruleset', vim.fn.expand('~/.config/spectral/kubernetes.yaml') },
