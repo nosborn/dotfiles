@@ -1,4 +1,8 @@
-require('mini.bracketed').setup()
+require('mini.bracketed').setup({
+    diagnostic = {
+        options = { float = false },
+    },
+})
 
 local mini_clue = require('mini.clue')
 mini_clue.setup({

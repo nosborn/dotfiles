@@ -148,7 +148,19 @@ require('kanagawa').setup({
 })
 vim.cmd('colorscheme kanagawa')
 
+-- vim.lsp.enable('gopls')
+-- vim.lsp.enable('golangci_lint_ls')
+
 vim.diagnostic.config({
+    -- float = {
+    --     border = 'rounded',
+    --     source = 'always',
+    --     width = 100,
+    --     wrap = true,
+    --     format = function(diagnostic)
+    --         return string.format('[%s] %s', diagnostic.source or 'unknown', diagnostic.message)
+    --     end,
+    -- },
     severity_sort = true,
     signs = {
         text = {
@@ -158,9 +170,27 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.WARN] = ' ',
         },
     },
-    -- underline = false,
+    underline = false,
     virtual_text = true,
 })
+
+-- -- Show diagnostic popup when cursor moves to a diagnostic
+-- vim.api.nvim_create_autocmd('CursorMoved', {
+--     desc = 'Show diagnostic popup when navigating to diagnostics',
+--     group = vim.api.nvim_create_augroup('diagnostic-popup', { clear = true }),
+--     callback = function()
+--         local current_line = vim.api.nvim_win_get_cursor(0)[1]
+--         local diagnostics = vim.diagnostic.get(0, { lnum = current_line - 1 })
+--         if #diagnostics > 0 then
+--             -- Small delay to avoid popup spam while navigating
+--             vim.defer_fn(function()
+--                 if vim.api.nvim_win_get_cursor(0)[1] == current_line then
+--                     vim.diagnostic.open_float(nil, { focus = false })
+--                 end
+--             end, 100)
+--         end
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',

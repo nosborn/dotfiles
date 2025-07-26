@@ -1,3 +1,5 @@
+Library/Application Support/go/telemetry/local
+Library/Application Support/go/telemetry/upload
 Library/Application Support/pipx/
 Library/Colors/Catppuccin *.clr
 Library/Caches/helix/

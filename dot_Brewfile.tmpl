@@ -46,13 +46,16 @@ brew 'glow'
 brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
+brew 'go-critic'
+brew 'gofumpt'
 brew 'goimports'
 brew 'golangci-lint'
+# brew 'golangci-lint-langserver'
 # brew 'gomodifytags'
 cask 'google-chrome', appdir: '~/Applications', greedy: true
 # brew 'gopls'
 # brew 'goreleaser'
-brew 'gotags'
+# brew 'gotags'
 brew 'gpg2'
 brew 'grafana-alloy'
 brew 'graphviz'
@@ -97,7 +100,6 @@ brew 'pyright'
 brew 'python-argcomplete'
 brew 'qrencode'
 cask 'rectangle', appdir: '~/Applications', greedy: true, require_sha: true
-brew 'revive'
 brew 'rg'
 brew 'sf-pwgen'
 brew 'shellcheck'
@@ -138,6 +140,8 @@ if '{{ .where }}' == 'home'
   cask 'calibre', appdir: '~/Applications', require_sha: true
   cask 'chatbox', appdir: '~/Applications', require_sha: true
   cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
+  cask 'claude-code', require_sha: true
+  brew 'cmake'
   cask 'container', require_sha: true
   brew 'cpanminus'
   brew 'cvs'
@@ -154,7 +158,6 @@ if '{{ .where }}' == 'home'
   brew 'ssh-audit'
   brew 'upcloud-cli'
   brew 'vultr'
-  brew 'yasm'
   brew 'yubico-piv-tool'
   brew 'yubikey-personalization'
 end
