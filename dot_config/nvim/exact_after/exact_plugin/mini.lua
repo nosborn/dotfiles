@@ -1,8 +1,4 @@
-require('mini.bracketed').setup({
-    diagnostic = {
-        options = { float = false },
-    },
-})
+require('mini.bracketed').setup()
 
 local mini_clue = require('mini.clue')
 mini_clue.setup({
@@ -15,24 +11,24 @@ mini_clue.setup({
         mini_clue.gen_clues.z(),
     },
     triggers = {
-        { mode = 'c', keys = '<C-r>' },    -- registers
-        { mode = 'i', keys = '<C-r>' },    -- registers
-        { mode = 'i', keys = '<C-x>' },    -- built-in completion
-        { mode = 'n', keys = "'" },        -- marks
-        { mode = 'n', keys = '"' },        -- registers
-        { mode = 'n', keys = '<C-w>' },    -- window commands
+        { mode = 'c', keys = '<C-r>' }, -- registers
+        { mode = 'i', keys = '<C-r>' }, -- registers
+        { mode = 'i', keys = '<C-x>' }, -- built-in completion
+        { mode = 'n', keys = "'" }, -- marks
+        { mode = 'n', keys = '"' }, -- registers
+        { mode = 'n', keys = '<C-w>' }, -- window commands
         { mode = 'n', keys = '<Leader>' }, -- leader triggers
         { mode = 'n', keys = '[' },
         { mode = 'n', keys = ']' },
-        { mode = 'n', keys = '`' },        -- marks
-        { mode = 'n', keys = 'g' },        -- `g` key
-        { mode = 'n', keys = 'z' },        -- `z` key
-        { mode = 'x', keys = "'" },        -- marks
-        { mode = 'x', keys = '"' },        -- registers
+        { mode = 'n', keys = '`' }, -- marks
+        { mode = 'n', keys = 'g' }, -- `g` key
+        { mode = 'n', keys = 'z' }, -- `z` key
+        { mode = 'x', keys = "'" }, -- marks
+        { mode = 'x', keys = '"' }, -- registers
         { mode = 'x', keys = '<Leader>' }, -- leader triggers
-        { mode = 'x', keys = '`' },        -- marks
-        { mode = 'x', keys = 'g' },        -- `g` key
-        { mode = 'x', keys = 'z' },        -- `z` key
+        { mode = 'x', keys = '`' }, -- marks
+        { mode = 'x', keys = 'g' }, -- `g` key
+        { mode = 'x', keys = 'z' }, -- `z` key
     },
 })
 
@@ -62,7 +58,7 @@ require('mini.icons').setup({
     },
 })
 MiniIcons.mock_nvim_web_devicons() -- luacheck: globals MiniIcons
-MiniIcons.tweak_lsp_kind()         -- luacheck: globals MiniIcons
+MiniIcons.tweak_lsp_kind() -- luacheck: globals MiniIcons
 
 require('mini.pick').setup()
 vim.keymap.set('n', '<leader>fb', MiniPick.builtin.buffers, { desc = 'Pick from buffers' })
