@@ -47,7 +47,6 @@ brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
 brew 'go-critic'
-brew 'gofumpt'
 brew 'goimports'
 brew 'golangci-lint'
 # brew 'golangci-lint-langserver'
@@ -138,6 +137,7 @@ if '{{ .where }}' == 'home'
 
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
+  brew 'ccusage'
   # cask 'chatbox', appdir: '~/Applications', require_sha: true
   cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'claude-code', require_sha: true
