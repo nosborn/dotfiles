@@ -9,6 +9,7 @@ brew 'ansible'
 brew 'ansible-lint'
 brew 'bat'
 brew 'black'
+cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
@@ -37,7 +38,6 @@ brew 'fx'
 brew 'fzf'
 brew 'gh'
 cask 'ghostty', appdir: '~/Applications', greedy: true, require_sha: true
-brew 'git-crypt'
 brew 'git-filter-repo'
 brew 'git-lfs'
 brew 'git-trim'
@@ -46,15 +46,9 @@ brew 'glow'
 brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'go'
-brew 'go-critic'
 brew 'goimports'
 brew 'golangci-lint'
-# brew 'golangci-lint-langserver'
-# brew 'gomodifytags'
 cask 'google-chrome', appdir: '~/Applications', greedy: true
-# brew 'gopls'
-# brew 'goreleaser'
-# brew 'gotags'
 brew 'gpg2'
 brew 'grafana-alloy'
 brew 'graphviz'
@@ -91,8 +85,6 @@ brew 'pinentry-mac'
 brew 'pipx'
 brew 'pre-commit'
 brew 'prettier'
-brew 'protobuf'
-brew 'protoc-gen-go'
 brew 'pstree'
 brew 'pwgen'
 brew 'pyright'
@@ -137,16 +129,15 @@ if '{{ .where }}' == 'home'
 
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
-  brew 'ccusage'
   # cask 'chatbox', appdir: '~/Applications', require_sha: true
-  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
-  cask 'claude-code', require_sha: true
+  cask 'claude-code', greedy: true, require_sha: true
   # brew 'cmake'
   cask 'container', require_sha: true
   brew 'cpanminus'
   brew 'cvs'
   brew 'flyctl'
   brew 'gemini-cli'
+  brew 'git-crypt'
   brew 'goyacc'
   cask 'hush', appdir: '~/Applications', require_sha: true
   cask 'mudlet', appdir: '~/Applications', require_sha: true
