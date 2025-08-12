@@ -3,6 +3,7 @@ Library/Application Support/go/telemetry/upload
 Library/Application Support/pipx/
 Library/Colors/Catppuccin *.clr
 Library/Caches/helix/
+Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .actrc
 .bundle/
 .config/.curlrc

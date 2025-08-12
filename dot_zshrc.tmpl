@@ -72,6 +72,9 @@ done
 if (( $+commands[aws_completer] )); then
   complete -o nospace -C "${commands[aws_completer]}" aws
 fi
+if (( $+commands[container] )); then
+  source <("$commands[container]" --generate-completion-script bash) # `zsh` is problematic in 0.3.0
+fi
 if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
@@ -100,7 +103,6 @@ alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias glow='command glow -w ${COLUMNS}'
 alias k=kubectl
 alias kubectl=kubecolor
-alias ls='eza --color=auto --group'
 alias pstree='command pstree -g 2'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vim=nvim
