@@ -7,13 +7,6 @@
   pull.args:
     - --force
 
-# .config/nvim/pack/direnv/start/direnv.vim:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/direnv/direnv.vim.git
-#   pull.args:
-#     - --force
-
 .config/nvim/pack/echasnovski/start/mini.nvim:
   type: git-repo
   refreshPeriod: 24h
@@ -25,6 +18,20 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/folke/snacks.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/kevinhwang91/start/nvim-ufo:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/kevinhwang91/nvim-ufo.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/kevinhwang91/start/promise-async: # required by nvim-ufo
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/kevinhwang91/promise-async.git
   pull.args:
     - --force
 

@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup({
         'cpp',
         'css',
         'git_config',
+        'go',
         'gotmpl',
         'html',
         'ini',
@@ -26,6 +27,9 @@ require('nvim-treesitter.configs').setup({
         -- 'typst',
         -- 'vue',
         'yaml',
+    },
+    fold = {
+        enable = true,
     },
     highlight = {
         -- additional_vim_regex_highlighting = {

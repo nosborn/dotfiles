@@ -3,23 +3,21 @@
 vim.o.autoindent = true
 -- vim.o.clipboard = 'unnamed,unnamedplus'
 vim.o.completeopt = 'fuzzy,menuone,noselect'
-vim.o.cursorline = true
-vim.o.cursorlineopt = 'number'
+-- vim.o.cursorline = true
+-- vim.o.cursorlineopt = 'number'
 vim.o.expandtab = true
--- vim.o.fillchars = 'horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋'
--- vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
--- vim.o.foldmethod = 'expr'
--- vim.o.foldtext = 'v:lua.vim.treesitter.foldtext()'
+vim.o.foldenable = true
+vim.o.foldlevelstart = 99
 vim.o.guicursor = 'n-v-i-c:block-Cursor'
 vim.o.ignorecase = true
 -- vim.o.laststatus = 3
 vim.o.list = true
 vim.o.listchars = 'extends:…,nbsp:␣,precedes:…,tab:⇥ '
 vim.o.mouse = ''
-vim.o.number = true
+-- vim.o.number = true
 -- vim.o.pumblend = 10 -- make builtin completion menus slightly transparent
 -- vim.o.pumheight = 10 -- make popup menu smaller
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 -- vim.o.scrolloff = 10
 vim.o.shiftwidth = 2
 vim.o.showmode = false
@@ -29,7 +27,6 @@ vim.o.smartcase = true
 vim.o.spelloptions = 'camel'
 vim.o.swapfile = false
 vim.o.tabstop = 2
--- vim.o.undofile = false
 -- vim.o.updatetime = 1000
 -- vim.o.winblend = 10 -- make floating windows slightly transparent
 -- vim.o.winborder = 'bold'
@@ -98,32 +95,7 @@ do
         callback = function() vim.api.nvim_set_hl(0, 'Comment', { italic = true }) end,
     })
 end
--- vim.cmd('colorscheme retrobox')
 
--- require('kanagawa').setup({
---     compile = false,  -- enable compiling the colorscheme
---     undercurl = true, -- enable undercurls
---     commentStyle = { italic = true },
---     functionStyle = {},
---     keywordStyle = { italic = true },
---     statementStyle = { bold = true },
---     typeStyle = {},
---     transparent = false,   -- do not set background color
---     dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
---     terminalColors = true, -- define vim.g.terminal_color_{0,17}
---     colors = {             -- add/modify theme and palette colors
---         palette = {},
---         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
---     },
---     overrides = function(colors) -- add/modify highlights
---         return {}
---     end,
---     theme = 'wave',    -- Load "wave" theme
---     background = {     -- map the value of 'background' option to a theme
---         dark = 'wave', -- try "dragon" !
---         light = 'lotus',
---     },
--- })
 require('kanagawa').setup({
     -- compile = false,  -- enable compiling the colorscheme
     -- undercurl = true, -- enable undercurls
@@ -199,8 +171,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
     callback = function() vim.highlight.on_yank() end,
 })
-
--- -- require('treesitter-context').setup()
 
 if vim.fn.executable('ansible-vault') == 1 then
     vim.cmd([[
