@@ -6,6 +6,7 @@ export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
 # export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin"
 export CHECKPOINT_DISABLE=1 # Hashicorp
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+export CLAUDE_DISABLE_HINTS=true
 export GOBIN="${GOROOT:-"${HOME}/go"}/bin"
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
