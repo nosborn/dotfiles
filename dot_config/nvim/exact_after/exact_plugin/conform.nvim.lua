@@ -22,7 +22,6 @@ require('conform').setup({
         cpp = { 'clang-format' },
         dockerfile = { 'dockerfmt' },
         --go = { 'gofmt', 'goimports' },
-        go = { 'goimports' },
         h = { 'clang-format' },
         --hcl = { 'packer_fmt' },
         lua = { 'stylua' },

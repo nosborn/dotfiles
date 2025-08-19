@@ -1,6 +1,5 @@
 {
   "checkpointing": true,
-  "sandbox": "docker",
   "selectedAuthType": "gemini-api-key",
   "telemetry": {
     "enabled": false
