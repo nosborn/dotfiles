@@ -60,7 +60,6 @@ brew 'hcl2json'
 brew 'helm'
 brew 'imagemagick'
 brew 'ipcalc'
-brew 'jdupes'
 brew 'jsonlint'
 brew 'keyring'
 brew 'krew'
@@ -126,6 +125,7 @@ brew 'zsh-syntax-highlighting'
 if '{{ .where }}' == 'home'
   tap 'UpCloudLtd/tap'
 
+  brew 'aria2'
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
   # cask 'chatbox', appdir: '~/Applications', require_sha: true
@@ -138,11 +138,13 @@ if '{{ .where }}' == 'home'
   brew 'gemini-cli'
   brew 'git-crypt'
   cask 'hush', appdir: '~/Applications', require_sha: true
+  brew 'mtools'
   cask 'mudlet', appdir: '~/Applications', require_sha: true
   cask 'orbstack', appdir: '~/Applications', require_sha: true
   cask 'oversight', appdir: '~/Applications', require_sha: true
   brew 'perl'
   brew 'perltidy'
+  brew 'qemu'
   brew 'scw'
   brew 'upcloud-cli'
   brew 'vultr'
