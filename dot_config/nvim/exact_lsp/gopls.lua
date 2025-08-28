@@ -13,6 +13,7 @@ return {
         gopls = {
             analyses = {
                 ST1000 = false, -- Incorrect or missing package comment
+                ST1003 = false, -- Poorly chosen identifier
                 shadow = true,
                 unusedparams = true,
             },

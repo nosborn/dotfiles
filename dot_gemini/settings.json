@@ -1,6 +1,6 @@
 {
   "checkpointing": true,
-  "selectedAuthType": "gemini-api-key",
+  "selectedAuthType": "oauth-personal",
   "telemetry": {
     "enabled": false
   },

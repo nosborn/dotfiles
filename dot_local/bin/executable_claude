@@ -1,0 +1,70 @@
+#!/bin/bash
+set -euo pipefail
+
+version="$(npm info @anthropic-ai/claude-code version)"
+readonly version
+
+if [[ -z "$(docker image ls --quiet "claude-code:${version}")" ]]; then
+  builddir="$(mktemp -d)"
+  trap 'rm -rf "${builddir}"' EXIT
+
+  cat >"${builddir}/entrypoint.sh" <<'EOT'
+#!/bin/bash
+prompt="$(mktemp)"
+cat >"${prompt}" <<_EOT
+You are a senior Go programmer working with Go 1.25. Support Darwin (arm64) and Linux (arm64/amd64) targets. You are running in a Docker container environment.
+_EOT
+exec /usr/local/bin/claude --append-system-prompt "$(<"${prompt}")" "$@"
+EOT
+
+  cat >"${builddir}/Dockerfile" <<EOT
+FROM golang:$(go env GOVERSION | sed 's/^go//')
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && apt-get -y update \
+  && apt-get -y install --no-install-recommends gh nodejs npm ripgrep \
+  && rm -rf /var/lib/apt/lists/* \
+  && npm install -g "@anthropic-ai/claude-code@${version}" \
+  && useradd -d '${HOME}' -g '$(id -g)' -M -N -u '$(id -u)' '$(id -un)'
+COPY --chmod=0555 entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+USER $(id -u):$(id -g)
+EOT
+
+  docker build \
+    --file "${builddir}/Dockerfile" \
+    --platform linux/arm64 \
+    --tag "claude-code:${version}" \
+    --tag "claude-code:latest" \
+    "${builddir}"
+fi
+
+GOCACHE="$(go env GOCACHE)"
+GOPATH="$(go env GOPATH)"
+
+docker run \
+  --env "CGO_ENABLED=0" \
+  --env "DISABLE_AUTOUPDATER=1" \
+  --env "HOME=${HOME}" \
+  --env "GOCACHE=${GOCACHE}" \
+  --env "GOPATH=${GOPATH}" \
+  --env "GOPROXY=$(go env GOPROXY)" \
+  --env "GOSUMDB=$(go env GOSUMDB)" \
+  --env "GOTELEMETRY=off" \
+  --env "TERM=xterm-256color" \
+  --hostname "$(hostname)" \
+  --init \
+  --mount "type=bind,source=${HOME}/.claude,target=${HOME}/.claude" \
+  --mount "type=bind,source=${HOME}/.claude.json,target=${HOME}/.claude.json" \
+  --mount "type=bind,source=${HOME}/.config/git,target=${HOME}/.config/git,readonly" \
+  --mount "type=bind,source=${GOCACHE},target=${GOCACHE}" \
+  --mount "type=bind,source=${GOPATH},target=${GOPATH}" \
+  --mount "type=bind,source=${PWD},target=${PWD}" \
+  --mount "type=tmpfs,target=/tmp" \
+  --name claude-code \
+  --interactive \
+  --platform linux/arm64 \
+  --rm \
+  --tty \
+  --workdir "${PWD}" \
+  "claude-code:${version}" \
+  "$@"
