@@ -15,13 +15,6 @@
   pull.args:
     - --force
 
-.config/nvim/pack/echasnovski/start/mini.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/echasnovski/mini.nvim.git
-  pull.args:
-    - --force
-
 .config/nvim/pack/folke/start/snacks.nvim:
   type: git-repo
   refreshPeriod: 24h
@@ -75,6 +68,13 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-lualine/lualine.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/nvim-mini/start/mini.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvim-mini/mini.nvim.git
   pull.args:
     - --force
 
