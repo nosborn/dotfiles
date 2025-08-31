@@ -48,6 +48,16 @@ fi
 GOCACHE="$(go env GOCACHE)"
 GOPATH="$(go env GOPATH)"
 
+# Check for additional directories to mount from local settings
+additional_mounts=()
+if [[ -f ".claude/settings.local.json" ]]; then
+  while IFS= read -r dir; do
+    if [[ -n "${dir}" && -d "${dir}" ]]; then
+      additional_mounts+=("--mount" "type=bind,source=${dir},target=${dir}")
+    fi
+  done < <(jq -r '.permissions.additionalDirectories[]? // empty' ".claude/settings.local.json" 2>/dev/null)
+fi
+
 docker run \
   --env "CGO_ENABLED=0" \
   --env "DISABLE_AUTOUPDATER=1" \
@@ -66,7 +76,7 @@ docker run \
   --mount "type=bind,source=${GOCACHE},target=${GOCACHE}" \
   --mount "type=bind,source=${GOPATH},target=${GOPATH}" \
   --mount "type=bind,source=${PWD},target=${PWD}" \
-  --name claude-code \
+  "${additional_mounts[@]}" \
   --interactive \
   --platform linux/arm64 \
   --rm \
