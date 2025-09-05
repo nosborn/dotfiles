@@ -74,6 +74,7 @@ require('lint').linters_by_ft = {
     editorconfig = { 'editorconfig-checker' },
     ghaction = { 'actionlint' },
     --go = { 'golangcilint' },
+    html = { 'htmlhint', 'tidy' },
     json = { 'jsonlint' },
     k8s = { 'kubeconform' },
     lua = { 'luacheck' },
