@@ -1,7 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-claude_version="$(npm info @anthropic-ai/claude-code version)"
+readonly GCS_BUCKET=https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases
+
+claude_version="$(curl -fsS "${GCS_BUCKET}/stable")"
 readonly claude_version
 
 if [[ -z "$(docker image ls --quiet "claude-code:${claude_version}")" ]]; then
@@ -24,13 +26,14 @@ EOT
 FROM golang:$(go env GOVERSION | sed 's/^go//')
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y update \
-  && apt-get -y install --no-install-recommends gh nodejs npm ripgrep sqlite3 \
+  && apt-get -y install --no-install-recommends gh git-crypt jq ripgrep sqlite3 unzip yq \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fLsS -o golangci-lint.deb \
        https://github.com/golangci/golangci-lint/releases/download/v${golangci_lint_version}/golangci-lint-${golangci_lint_version}-linux-arm64.deb \
   && dpkg -i golangci-lint.deb \
   && rm golangci-lint.deb \
-  && npm install -g "@anthropic-ai/claude-code@${claude_version}" \
+  && curl -fsS -o /usr/local/bin/claude "${GCS_BUCKET}/${claude_version}/linux-arm64/claude" \
+  && chmod 0555 /usr/local/bin/claude \
   && useradd -d '${HOME}' -g '$(id -g)' -M -N -u '$(id -u)' '$(id -un)'
 COPY --chmod=0555 entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
@@ -76,7 +79,7 @@ docker run \
   --mount "type=bind,source=${GOCACHE},target=${GOCACHE}" \
   --mount "type=bind,source=${GOPATH},target=${GOPATH}" \
   --mount "type=bind,source=${PWD},target=${PWD}" \
-  "${additional_mounts[@]}" \
+  "${additional_mounts[@]+"${additional_mounts[@]}"}" \
   --interactive \
   --platform linux/arm64 \
   --rm \
