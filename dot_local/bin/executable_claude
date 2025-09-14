@@ -27,13 +27,24 @@ EOT
 FROM golang:$(go env GOVERSION | sed 's/^go//')
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y update \
-  && apt-get -y install --no-install-recommends autoconf automake gh git-crypt jq libtool ripgrep sqlite3 unzip yq \
+  && apt-get -y install --no-install-recommends \
+       autoconf \
+       automake \
+       clang-format \
+       gh \
+       git-crypt \
+       jq \
+       libtool \
+       ripgrep \
+       sqlite3 \
+       unzip \
+       yq \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fLsS -o golangci-lint.deb \
        https://github.com/golangci/golangci-lint/releases/download/v${golangci_lint_version}/golangci-lint-${golangci_lint_version}-linux-arm64.deb \
   && dpkg -i golangci-lint.deb \
   && rm golangci-lint.deb \
-  && useradd -d '${HOME}' -g '$(id -g)' -M -N -u '$(id -u)' '$(id -un)' \
+  && useradd -d '${HOME}' -g '$(id -g)' -G 0 -M -N -u '$(id -u)' '$(id -un)' \
   && mkdir -p "${HOME}/.local/bin" \
   && chown "$(id -u):$(id -g)" "${HOME}" "${HOME}/.local" "${HOME}/.local/bin" \
   && curl -fsS -o "${HOME}/.local/bin/claude" "${GCS_BUCKET}/${claude_version}/linux-arm64/claude" \
@@ -66,22 +77,25 @@ if [[ -f ".claude/settings.local.json" ]]; then
 fi
 
 docker run \
-  --env "CGO_ENABLED=0" \
   --env "DISABLE_AUTOUPDATER=1" \
   --env "HOME=${HOME}" \
+  --env "GIT_AUTHOR_EMAIL=$(git config user.email)" \
+  --env "GIT_AUTHOR_NAME=$(git config user.name)" \
+  --env "GIT_COMMITTER_EMAIL=$(git config user.email)" \
+  --env "GIT_COMMITTER_NAME=$(git config user.name)" \
   --env "GOCACHE=${GOCACHE}" \
   --env "GOPATH=${GOPATH}" \
   --env "GOPROXY=$(go env GOPROXY)" \
   --env "GOSUMDB=$(go env GOSUMDB)" \
   --env "GOTELEMETRY=off" \
   --env "TERM=xterm-256color" \
+  --env "TZ=$(readlink /etc/localtime | sed 's#/var/db/timezone/zoneinfo/##g')" \
   --hostname "$(hostname)" \
   --init \
-  --mount "type=bind,source=${HOME}/.claude,target=${HOME}/.claude" \
-  --mount "type=bind,source=${HOME}/.claude.json,target=${HOME}/.claude.json" \
-  --mount "type=bind,source=${HOME}/.config/git,target=${HOME}/.config/git,readonly" \
   --mount "type=bind,source=${GOCACHE},target=${GOCACHE}" \
   --mount "type=bind,source=${GOPATH},target=${GOPATH}" \
+  --mount "type=bind,source=${HOME}/.claude,target=${HOME}/.claude" \
+  --mount "type=bind,source=${HOME}/.claude.json,target=${HOME}/.claude.json" \
   --mount "type=bind,source=${PWD},target=${PWD}" \
   "${additional_mounts[@]+"${additional_mounts[@]}"}" \
   --interactive \
@@ -90,6 +104,7 @@ docker run \
   --tmpfs "${HOME}/.cache" \
   --tmpfs "/tmp:rw,exec" \
   --tty \
+  --user "$(id -u):$(id -g)" \
   --workdir "${PWD}" \
   "claude-code:${claude_version}" \
   "$@"
