@@ -21,6 +21,7 @@ require('conform').setup({
         c = { 'clang-format' },
         cpp = { 'clang-format' },
         dockerfile = { 'dockerfmt' },
+        esqlc = { 'clang-format' },
         go = { 'goimports' }, -- TODO: figure out how to get gopls to do this
         h = { 'clang-format' },
         --hcl = { 'packer_fmt' },
