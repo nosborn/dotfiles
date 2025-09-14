@@ -13,28 +13,32 @@ if [[ -z "$(docker image ls --quiet "claude-code:${claude_version}")" ]]; then
   builddir="$(mktemp -d)"
   trap 'rm -rf "${builddir}"' EXIT
 
-  cat >"${builddir}/entrypoint.sh" <<'EOT'
+  cat >"${builddir}/entrypoint.sh" <<EOT
 #!/bin/bash
-prompt="$(mktemp)"
-cat >"${prompt}" <<_EOT
+prompt="\$(mktemp)"
+cat >"\${prompt}" <<_EOT
 You are a senior Go programmer working with Go 1.25. Support Darwin (arm64) and Linux (arm64/amd64) targets. You are running in a Docker container environment.
 _EOT
-exec /usr/local/bin/claude --append-system-prompt "$(<"${prompt}")" "$@"
+PATH="${HOME}/.local/bin:${PATH}"
+exec "${HOME}/.local/bin/claude" --append-system-prompt "\$(<"\${prompt}")" "$@"
 EOT
 
   cat >"${builddir}/Dockerfile" <<EOT
 FROM golang:$(go env GOVERSION | sed 's/^go//')
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y update \
-  && apt-get -y install --no-install-recommends gh git-crypt jq ripgrep sqlite3 unzip yq \
+  && apt-get -y install --no-install-recommends autoconf automake gh git-crypt jq libtool ripgrep sqlite3 unzip yq \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fLsS -o golangci-lint.deb \
        https://github.com/golangci/golangci-lint/releases/download/v${golangci_lint_version}/golangci-lint-${golangci_lint_version}-linux-arm64.deb \
   && dpkg -i golangci-lint.deb \
   && rm golangci-lint.deb \
-  && curl -fsS -o /usr/local/bin/claude "${GCS_BUCKET}/${claude_version}/linux-arm64/claude" \
-  && chmod 0555 /usr/local/bin/claude \
-  && useradd -d '${HOME}' -g '$(id -g)' -M -N -u '$(id -u)' '$(id -un)'
+  && useradd -d '${HOME}' -g '$(id -g)' -M -N -u '$(id -u)' '$(id -un)' \
+  && mkdir -p "${HOME}/.local/bin" \
+  && chown "$(id -u):$(id -g)" "${HOME}" "${HOME}/.local" "${HOME}/.local/bin" \
+  && curl -fsS -o "${HOME}/.local/bin/claude" "${GCS_BUCKET}/${claude_version}/linux-arm64/claude" \
+  && chmod 0555 "${HOME}/.local/bin/claude" \
+  && chown "$(id -u):$(id -g)" "${HOME}/.local/bin/claude"
 COPY --chmod=0555 entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 USER $(id -u):$(id -g)
