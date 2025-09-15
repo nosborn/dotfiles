@@ -14,6 +14,11 @@ if [ -d "${HOME}/Applications/Rectangle.app" ]; then
   defaults write -app Rectangle subsequentExecutionMode -bool true
 fi
 
+# defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Left' "$(printf '~^\U2190')"
+# defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Right' "$(printf '~^\U2192')"
+# defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Bottom' "$(printf '~^\U2193')"
+# defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Top' "$(printf '~^\U2191')"
+
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
   if xattr "${link}" | grep -Fqx com.apple.quarantine; then
     xattr -d -v com.apple.quarantine "${link}" || :
