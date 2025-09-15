@@ -1,4 +1,4 @@
-'$schema' = 'https://starship.rs/config-schema.json'
+'$schema' = "https://starship.rs/config-schema.json"
 
 # command_timeout = 1000
 # palette = 'catppuccin_mocha'
@@ -36,7 +36,7 @@
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = '  '
+symbol = "  "
 
 # [aws.region_aliases]
 
@@ -94,7 +94,7 @@ disabled = true
 [directory]
 # read_only = ' 󰌾'
 truncation_length = 4
-truncation_symbol = '…/'
+truncation_symbol = "…/"
 
 # [directory.substitutions]
 
@@ -103,7 +103,7 @@ truncation_symbol = '…/'
 
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
-symbol = ' '
+symbol = " "
 
 [dotnet]
 disabled = true
@@ -138,7 +138,7 @@ disabled = true
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
-symbol = ' '
+symbol = " "
 
 # [git_commit]
 # tag_disabled = false
@@ -149,9 +149,9 @@ symbol = ' '
 # [git_state]
 
 [git_status]
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [gleam]
