@@ -19,8 +19,8 @@ prompt="\$(mktemp)"
 cat >"\${prompt}" <<_EOT
 You are a senior Go programmer working with Go 1.25. Support Darwin (arm64) and Linux (arm64/amd64) targets. You are running in a Docker container environment.
 _EOT
-PATH="${HOME}/.local/bin:${PATH}"
-exec "${HOME}/.local/bin/claude" --append-system-prompt "\$(<"\${prompt}")" "$@"
+PATH="\${HOME}/.local/bin:\${PATH}"
+exec "\${HOME}/.local/bin/claude" --append-system-prompt "\$(<"\${prompt}")" "$@"
 EOT
 
   cat >"${builddir}/Dockerfile" <<EOT
@@ -28,13 +28,9 @@ FROM golang:$(go env GOVERSION | sed 's/^go//')
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get -y update \
   && apt-get -y install --no-install-recommends \
-       autoconf \
-       automake \
-       clang-format \
        gh \
        git-crypt \
        jq \
-       libtool \
        ripgrep \
        sqlite3 \
        unzip \
