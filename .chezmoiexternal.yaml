@@ -94,16 +94,16 @@
   pull.args:
     - --force
 
-.config/nvim/pack/rebelot/start/kanagawa.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/rebelot/kanagawa.nvim.git
-  pull.args:
-    - --force
-
 .config/nvim/pack/stevearc/start/conform.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/stevearc/conform.nvim.git
+  pull.args:
+    - --force
+
+.config/nvim/pack/webhooked/start/kanso.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/webhooked/kanso.nvim.git
   pull.args:
     - --force

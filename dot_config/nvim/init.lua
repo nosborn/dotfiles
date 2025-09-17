@@ -3,7 +3,7 @@
 vim.o.autoindent = true
 -- vim.o.clipboard = 'unnamed,unnamedplus'
 vim.o.completeopt = 'fuzzy,menuone,noselect'
--- vim.o.cursorline = true
+vim.o.cursorline = true
 -- vim.o.cursorlineopt = 'number'
 vim.o.expandtab = true
 vim.o.foldenable = true
@@ -96,31 +96,16 @@ do
     })
 end
 
-require('kanagawa').setup({
-    -- compile = false,  -- enable compiling the colorscheme
-    -- undercurl = true, -- enable undercurls
-    -- commentStyle = { italic = true },
-    -- functionStyle = {},
-    -- keywordStyle = { italic = true },
-    -- statementStyle = { bold = true },
-    -- typeStyle = {},
-    -- transparent = false,   -- do not set background color
-    dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-    -- terminalColors = true, -- define vim.g.terminal_color_{0,17}
-    -- colors = {             -- add/modify theme and palette colors
-    --     palette = {},
-    --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-    -- },
-    -- overrides = function(colors) -- add/modify highlights
-    --     return {}
-    -- end,
-    theme = 'dragon', -- Load "wave" theme
-    background = { -- map the value of 'background' option to a theme
-        dark = 'dragon', -- try "dragon" !
-        -- light = 'lotus',
+require('kanso').setup({
+    background = {
+        dark = 'zen',
+        light = 'pearl',
     },
+    compile = true,
+    dimInactive = true,
+    -- foreground = 'saturated',
 })
-vim.cmd('colorscheme kanagawa')
+vim.cmd('colorscheme kanso')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),

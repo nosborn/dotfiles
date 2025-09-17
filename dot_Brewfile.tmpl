@@ -13,7 +13,6 @@ cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
-brew 'colima', restart_service: true
 brew 'coreutils'
 brew 'd2'
 brew 'diffutils'
@@ -75,7 +74,6 @@ brew 'kubent'
 brew 'kubernetes-cli'
 brew 'kustomize'
 brew 'less'
-brew 'lima-additional-guestagents'
 brew 'luacheck'
 brew 'luarocks'
 brew 'markdownlint-cli'
@@ -145,7 +143,7 @@ if '{{ .where }}' == 'home'
   brew 'git-crypt'
   cask 'hush', appdir: '~/Applications', require_sha: true
   brew 'mtools'
-  cask 'mudlet', appdir: '~/Applications', require_sha: true
+  cask 'orbstack', appdir: '~/Applications', require_sha: true
   cask 'oversight', appdir: '~/Applications', require_sha: true
   brew 'perl'
   brew 'perltidy'
@@ -165,11 +163,13 @@ if '{{ .where }}' == 'work'
   brew 'awscli'
   brew 'awsdac'
   brew 'bfg'
+  brew 'colima', restart_service: true
   cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'gradle'
   brew 'iam-policy-json-to-terraform'
   brew 'istioctl'
   brew 'kubectl-argo-rollouts'
+  brew 'lima-additional-guestagents'
   brew 'mysql-client@8.0'
   brew 'openjdk'
   brew 'poetry'
