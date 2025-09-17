@@ -1,0 +1,3 @@
+#!/bin/bash
+unset XDG_CONFIG_HOME
+exec "$(brew --prefix)/bin/colima" "$@"
