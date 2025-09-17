@@ -133,4 +133,9 @@
 {{- end }}
 	useConfigOnly = true
 
+{{- if eq .chezmoi.os "darwin" }}
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/github.com/nosborn/"]
+  path = safe.inc
+
+{{- end }}
 ; vim: ft=gitconfig.gohtmltmpl
