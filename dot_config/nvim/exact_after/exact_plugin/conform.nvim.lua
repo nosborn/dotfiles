@@ -12,6 +12,9 @@ require('conform').setup({
             args = { '--newline' },
             command = 'dockerfmt',
         },
+        -- gofumpt = {
+        --     prepend_args = { '-i', '2', '-ci' },
+        -- },
         shfmt = {
             prepend_args = { '-i', '2', '-ci' },
         },
@@ -22,7 +25,7 @@ require('conform').setup({
         cpp = { 'clang-format' },
         dockerfile = { 'dockerfmt' },
         esqlc = { 'clang-format' },
-        go = { 'goimports' }, -- TODO: figure out how to get gopls to do this
+        go = { 'gofumpt', 'goimports' },
         h = { 'clang-format' },
         --hcl = { 'packer_fmt' },
         lua = { 'stylua' },

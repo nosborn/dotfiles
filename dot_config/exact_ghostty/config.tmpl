@@ -1,6 +1,5 @@
 alpha-blending = linear-corrected
 auto-update = off
-background = 000000
 font-family = JetBrains Mono
 font-family = Symbols Nerd Font Mono
 font-size = 16.0
@@ -8,8 +7,9 @@ font-thicken = true
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 shell-integration-features = no-cursor,ssh-env,sudo,title
-theme = {{ .chezmoi.homeDir }}/.config/nvim/pack/webhooked/start/kanso.nvim/extras/ghostty/kanso-ink
+theme = light:{{ .chezmoi.homeDir }}/.config/nvim/pack/webhooked/start/kanso.nvim/extras/ghostty/kanso-pearl,dark:{{ .chezmoi.homeDir }}/.config/nvim/pack/webhooked/start/kanso.nvim/extras/ghostty/kanso-zen
 window-height = 44
+window-theme = dark
 window-width = 88
 working-directory = home
 

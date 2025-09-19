@@ -107,24 +107,6 @@ require('kanso').setup({
 })
 vim.cmd('colorscheme kanso')
 
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-    callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client and client.server_capabilities.inlayHintProvider then
-            vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'Comment' })
-            vim.api.nvim_set_hl(0, 'InlayHint', { link = 'Comment' })
-            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
-        end
-    end,
-})
-vim.lsp.enable({
-    -- 'golangci_lint_ls',
-    'gopls',
-    -- 'lua_ls',
-    -- 'terraformls',
-})
-
 vim.diagnostic.config({
     -- float = {
     --     border = 'rounded',
