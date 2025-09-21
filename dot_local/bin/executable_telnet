@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  # telnet: illegal option -- h
+  echo "usage: $0 [-4] [-6] [-8] [-E] [-K] [-L] [-N] [-S tos] [-X atype] [-c] [-d]" >&2
+  echo "        [-e char] [-k realm] [-l user] [-f/-F] [-n tracefile] [-r] [-s src_addr] [-u] [-P policy] [host-name [port]]" >&2
+  exit 1
+}
+
+# Pick a free ephemeral local port
+find_free_port() {
+  local port
+  for _ in {1..200}; do
+    port=$((RANDOM % 10000 + 20000))
+    if ! (exec 3<>"/dev/tcp/127.0.0.1/${port}") 2>/dev/null; then
+      echo "${port}"
+      return 0
+    fi
+  done
+  return 1
+}
+
+if [[ $# -lt 1 ]]; then
+  usage
+fi
+
+# Split arguments into telnet options vs host/port
+opts=()
+host=""
+port=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -*) opts+=("$1") ;;
+    *)
+      if [[ -z "${host}" ]]; then
+        host="$1"
+      elif [[ -z "${port}" ]]; then
+        port="$1"
+      else
+        usage
+      fi
+      ;;
+  esac
+  shift
+done
+
+if [[ -z "${host}" ]]; then
+  exec "$(brew --prefix)/bin/telnet" "${opts[@]}"
+fi
+
+use_tls=0
+if [[ -n "${port}" ]]; then
+  if [[ "${port}" -eq 992 ]]; then
+    use_tls=1
+  else
+    use_tls=0
+  fi
+else
+  case "${host}" in
+    federation-1999.fly.dev) use_tls=1 ;;
+  esac
+fi
+
+if [[ "${use_tls}" -eq 0 ]]; then
+  if [[ -n "${port}" ]]; then
+    exec "$(brew --prefix)/bin/telnet" "${opts[@]}" "${host}" "${port}"
+  else
+    exec "$(brew --prefix)/bin/telnet" "${opts[@]}" "${host}"
+  fi
+fi
+
+# ---- TLS mode ----
+for _ in {1..200}; do
+  proxy_port=$((RANDOM % 10000 + 20000))
+  if ! (exec 3<>"/dev/tcp/127.0.0.1/${proxy_port}") 2>/dev/null; then
+    break
+  fi
+  unset proxy_port
+done
+if [[ -z "${proxy_port}" ]]; then
+  echo "ERROR: could not find free local port" >&2
+  exit 3
+fi
+
+SOCAT_DEFAULT_LISTEN_IP=127.0.0.1 socat \
+  "TCP4-LISTEN:${proxy_port}" \
+  "OPENSSL:${host}:${port:-992},cafile=$(brew --prefix ca-certificates)/share/ca-certificates/cacert.pem,verify=1" &
+socat_pid=$!
+
+cleanup() {
+  kill "${socat_pid}" 2>/dev/null || true
+  wait "${socat_pid}" 2>/dev/null || true
+}
+trap cleanup EXIT INT TERM
+
+while ! netstat -an -f inet | grep '\<LISTEN\>' | grep -q "\*\.${proxy_port}\>"; do
+  sleep 0.1
+done
+
+exec "$(brew --prefix)/bin/telnet" "${opts[@]}" 127.0.0.1 "${proxy_port}"
