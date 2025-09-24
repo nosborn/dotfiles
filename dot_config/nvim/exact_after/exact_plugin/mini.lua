@@ -30,6 +30,9 @@ mini_clue.setup({
         { mode = 'x', keys = 'g' }, -- `g` key
         { mode = 'x', keys = 'z' }, -- `z` key
     },
+    window = {
+        delay = 500,
+    },
 })
 
 require('mini.completion').setup()
