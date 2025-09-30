@@ -12,6 +12,11 @@
   },
   "includeCoAuthoredBy": false,
   "permissions": {
+    "deny": [
+      "Bash(sudo:*)",
+      "Read(./.envrc)"
+    ],
     "disableBypassPermissionsMode": "disable"
-  }
+  },
+  "spinnerTipsEnabled": false
 }
