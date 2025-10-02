@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ $# -eq 0 ]]; then
+  exec "$(brew --prefix)/bin/telnet"
+fi
+
 usage() {
   # telnet: illegal option -- h
   echo "usage: $0 [-4] [-6] [-8] [-E] [-K] [-L] [-N] [-S tos] [-X atype] [-c] [-d]" >&2
@@ -21,10 +25,6 @@ find_free_port() {
   return 1
 }
 
-if [[ $# -lt 1 ]]; then
-  usage
-fi
-
 # Split arguments into telnet options vs host/port
 opts=()
 host=""
@@ -32,7 +32,17 @@ port=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    -*) opts+=("$1") ;;
+    -S | -X | -e | -k | -l | -n | -s | -P)
+      if [[ $# -lt 2 ]]; then
+        usage
+      fi
+      opts+=("$1" "$2")
+      shift 2
+      ;;
+    -*)
+      opts+=("$1")
+      shift
+      ;;
     *)
       if [[ -z "${host}" ]]; then
         host="$1"
@@ -41,9 +51,9 @@ while [[ $# -gt 0 ]]; do
       else
         usage
       fi
+      shift
       ;;
   esac
-  shift
 done
 
 if [[ -z "${host}" ]]; then
@@ -84,9 +94,9 @@ if [[ -z "${proxy_port}" ]]; then
   exit 3
 fi
 
-SOCAT_DEFAULT_LISTEN_IP=127.0.0.1 socat \
+SOCAT_DEFAULT_LISTEN_IP=127.0.0.1 socat -6 \
   "TCP4-LISTEN:${proxy_port}" \
-  "OPENSSL:${host}:${port:-992},cafile=$(brew --prefix ca-certificates)/share/ca-certificates/cacert.pem,verify=1" &
+  "OPENSSL:${host}:${port:-992},cafile=$(brew --prefix ca-certificates)/share/ca-certificates/cacert.pem,verify=1" 2> >(grep -v "Warning: this implementation does not check CRLs" >&2) &
 socat_pid=$!
 
 cleanup() {

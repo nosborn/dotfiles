@@ -7,9 +7,6 @@
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754056529971
-  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "deny": [
@@ -18,5 +15,9 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "spinnerTipsEnabled": false
+  "spinnerTipsEnabled": false,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
+  },
+  "alwaysThinkingEnabled": true
 }
