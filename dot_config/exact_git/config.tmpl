@@ -39,6 +39,9 @@
 	helper = osxkeychain
 {{- end }}
 
+[delta]
+  hyperlinks = true
+
 [diff]
 	algorithm = histogram
 	colorMoved = plain
@@ -83,6 +86,9 @@
 [merge]
 	conflictStyle = zdiff3
 	ff = only
+
+[pager]
+  blame = delta
 
 [pull]
 	rebase = true
