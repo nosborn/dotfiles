@@ -1,6 +1,5 @@
 # yamllint disable rule:line-length
 ---
-
 .config/nvim/pack/MeanderingProgrammer/start/render-markdown.nvim:
   type: git-repo
   refreshPeriod: 24h
