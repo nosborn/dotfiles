@@ -34,7 +34,7 @@ require('conform').setup({
         perl = { 'perltidy' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
-        terraform = { 'terraform_fmt' },
+        -- terraform = { 'terraform_fmt' },
         xml = { 'xmllint' },
         yaml = { 'yamlfmt' },
     },

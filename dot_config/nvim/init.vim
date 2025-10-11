@@ -75,10 +75,10 @@ cnoremap <C-e> <End>
 
 lua <<EOT
 vim.lsp.enable({
-  -- 'dockerls',
+  -- 'golangci_lint_ls',
   -- 'gopls',
-  -- 'terraform-ls',
-  -- 'yamlls',
+  'terraformls',
+  'tflint',
 })
 EOT
 
@@ -108,6 +108,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 callback = function() vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 }) end,
             })
         end
+        -- if client.server_capabilities.inlayHintProvider then
+        --     vim.lsp.inlay_hint.enable(true, args.buf)
+        -- end
     end,
 })
 EOT
