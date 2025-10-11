@@ -1,6 +1,6 @@
 require('conform').setup({
     format_on_save = {
-        lsp_format = 'fallback',
+        lsp_format = 'never',
         timeout_ms = 500,
     },
     formatters = {
@@ -12,9 +12,6 @@ require('conform').setup({
             args = { '--newline' },
             command = 'dockerfmt',
         },
-        -- gofumpt = {
-        --     prepend_args = { '-i', '2', '-ci' },
-        -- },
         shfmt = {
             prepend_args = { '-i', '2', '-ci' },
         },
@@ -25,7 +22,6 @@ require('conform').setup({
         cpp = { 'clang-format' },
         dockerfile = { 'dockerfmt' },
         esqlc = { 'clang-format' },
-        go = { 'gofumpt', 'goimports' },
         h = { 'clang-format' },
         -- hcl = { 'packer_fmt' },
         -- html = { 'prettier' },
@@ -34,7 +30,6 @@ require('conform').setup({
         perl = { 'perltidy' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
-        -- terraform = { 'terraform_fmt' },
         xml = { 'xmllint' },
         yaml = { 'yamlfmt' },
     },

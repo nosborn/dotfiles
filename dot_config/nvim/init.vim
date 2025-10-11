@@ -75,8 +75,8 @@ cnoremap <C-e> <End>
 
 lua <<EOT
 vim.lsp.enable({
-  -- 'golangci_lint_ls',
-  -- 'gopls',
+  'golangci_lint_ls',
+  'gopls',
   'terraformls',
   'tflint',
 })
@@ -111,6 +111,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- if client.server_capabilities.inlayHintProvider then
         --     vim.lsp.inlay_hint.enable(true, args.buf)
         -- end
+        -- Organize imports for gopls before save
+        if client.name == 'gopls' then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('gopls-imports', { clear = true }),
+                buffer = args.buf,
+                callback = function()
+                    local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
+                    params.context = { only = { 'source.organizeImports' } }
+                    local result = vim.lsp.buf_request_sync(args.buf, 'textDocument/codeAction', params, 3000)
+                    for _, res in pairs(result or {}) do
+                        for _, r in pairs(res.result or {}) do
+                            if r.edit then
+                                vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+                            end
+                        end
+                    end
+                end,
+            })
+        end
     end,
 })
 EOT
