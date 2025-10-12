@@ -15,4 +15,4 @@ _Don't actually do that unless you're me._
 ## License
 
 This project is licensed under the terms of the MIT License.
-See the [LICENSE](LICENSE.md) file for details.
+See the [LICENSE](LICENSE) file for details.
