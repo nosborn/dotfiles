@@ -1,10 +1,11 @@
 *.log
+/AGENTS.md
 /CLAUDE.md
 /LICENSE.md
 /README.md
 /Terminal/
 /install.sh
 /node_modules/
-/package.json
 /package-lock.json
+/package.json
 /requirements.txt

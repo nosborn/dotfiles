@@ -75,7 +75,7 @@ See .pre-commit-config.yaml: check-executables-have-shebangs (CRITICAL), check-j
 
 **`dot_config/nvim/`** - Neovim: `init.lua` (224 lines: options, keymaps, LSP), `exact_after/exact_plugin/` (plugin configs), `exact_after/exact_ftplugin/` (39 filetype vim files), `exact_ftdetect/` (custom detection), `spell/` (spell files)
 
-**`exact_dot_zshrc.d/`** - Modular zsh: Individual .zsh files for tools (ansible, aws-vault, colima, fzf, gpg, terraform)
+**`exact_dot_zshrc.d/`** - Modular zsh: Individual .zsh files for tools (ansible, aws-vault, fzf, gpg, terraform)
 **`dot_config/exact_git/`** - Git: config.tmpl, exact_hooks/ (git-lfs), ignore, safe.inc
 **`dot_local/bin/`** - Custom scripts | **`private_dot_gnupg/`** - GPG config (private)
 

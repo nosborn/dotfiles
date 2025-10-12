@@ -14,6 +14,7 @@ cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
+cask 'container', require_sha: true
 brew 'coreutils'
 brew 'd2'
 brew 'diffutils'
@@ -149,7 +150,6 @@ if '{{ .where }}' == 'home'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
   cask 'mullvad-vpn', appdir: '~/Applications', require_sha: true
-  cask 'orbstack', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'oversight', appdir: '~/Applications', require_sha: true
   brew 'perl'
   brew 'perltidy'
@@ -170,13 +170,11 @@ if '{{ .where }}' == 'work'
   brew 'awscli'
   brew 'awsdac'
   brew 'bfg'
-  brew 'colima', restart_service: true
   cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'gradle'
   brew 'iam-policy-json-to-terraform'
   brew 'istioctl'
   brew 'kubectl-argo-rollouts'
-  brew 'lima-additional-guestagents'
   brew 'mysql-client@8.0'
   brew 'openjdk'
   brew 'poetry'
