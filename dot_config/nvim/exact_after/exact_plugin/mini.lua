@@ -39,6 +39,10 @@ require('mini.completion').setup()
 
 -- require('mini.cursorword').setup()
 
+require('mini.diff').setup()
+
+require('mini.git').setup()
+
 -- local mini_hipatterns = require('mini.hipatterns')
 -- mini_hipatterns.setup({
 --     highlighters = {
@@ -51,6 +55,7 @@ require('mini.completion').setup()
 -- })
 --
 
+-- luacheck: globals MiniIcons
 require('mini.icons').setup({
     file = {
         ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
@@ -60,9 +65,10 @@ require('mini.icons').setup({
         dotenv = { glyph = '', hl = 'MiniIconsYellow' },
     },
 })
-MiniIcons.mock_nvim_web_devicons() -- luacheck: globals MiniIcons
-MiniIcons.tweak_lsp_kind() -- luacheck: globals MiniIcons
+MiniIcons.mock_nvim_web_devicons()
+MiniIcons.tweak_lsp_kind()
 
+-- luacheck: globals MiniPick
 require('mini.pick').setup()
 vim.keymap.set('n', '<leader>fb', MiniPick.builtin.buffers, { desc = 'Pick from buffers' })
 vim.keymap.set('n', '<leader>ff', MiniPick.builtin.files, { desc = 'Pick from files' })
@@ -70,3 +76,4 @@ vim.keymap.set('n', '<leader>fg', MiniPick.builtin.grep_live, { desc = 'Pick fro
 vim.keymap.set('n', '<leader>fh', MiniPick.builtin.help, { desc = 'Pick from help tagss' })
 
 -- require('mini.snippets').setup()
+-- require('mini.statusline').setup()

@@ -35,13 +35,6 @@
   pull.args:
     - --force
 
-.config/nvim/pack/lewis6991/start/gitsigns.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/lewis6991/gitsigns.nvim.git
-  pull.args:
-    - --force
-
 # .config/nvim/pack/lukas-reineke/start/virt-column.nvim:
 #   type: git-repo
 #   refreshPeriod: 1h
