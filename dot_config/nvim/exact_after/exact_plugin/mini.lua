@@ -76,4 +76,3 @@ vim.keymap.set('n', '<leader>fg', MiniPick.builtin.grep_live, { desc = 'Pick fro
 vim.keymap.set('n', '<leader>fh', MiniPick.builtin.help, { desc = 'Pick from help tagss' })
 
 -- require('mini.snippets').setup()
--- require('mini.statusline').setup()
