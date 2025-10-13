@@ -70,6 +70,7 @@ vim.lsp.enable({
     -- 'ansiblels',
     'golangci_lint_ls',
     'gopls',
+    'harper_ls',
     'terraformls',
     'tflint',
     -- 'yamlls',
