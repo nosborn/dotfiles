@@ -1,38 +1,54 @@
 -- vim.g.mapleader = ' '
 
-vim.o.autoindent = true
+vim.o.autoindent = true -- Use auto indent
+vim.o.breakindent = true -- Indent wrapped lines to match line start
+vim.o.breakindentopt = 'list:-1' -- Add padding for lists (if 'wrap' is set)
 -- vim.o.clipboard = 'unnamed,unnamedplus'
-vim.o.completeopt = 'fuzzy,menuone,noselect'
-vim.o.cursorline = true
--- vim.o.cursorlineopt = 'number'
-vim.o.expandtab = true
+vim.o.colorcolumn = '+1' -- Draw column on the right of maximum width
+vim.o.complete = '.,w,b,kspell' -- Use less sources
+vim.o.completeopt = 'menuone,noselect,fuzzy,nosort' -- Use custom behavior
+vim.o.cursorline = true -- Enable current line highlighting
+vim.o.cursorlineopt = 'screenline,number' -- Show cursor line per screen line
+vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.foldenable = true
 vim.o.foldlevelstart = 99
+vim.o.formatoptions = 'rqnl1j' -- Improve comment editing
 vim.o.guicursor = 'n-v-i-c:block-Cursor'
-vim.o.ignorecase = true
--- vim.o.laststatus = 3
-vim.o.list = true
+vim.o.ignorecase = true -- Ignore case during search
+vim.o.incsearch = true -- Show search matches while typing
+vim.o.infercase = true -- Infer case in built-in completion
+vim.o.linebreak = true -- Wrap lines at 'breakat' (if 'wrap' is set)
+vim.o.list = true -- Show helpful text indicators
 vim.o.listchars = 'tab:⇥ ,extends:…,precedes:…,nbsp:␣'
 vim.o.mouse = ''
-vim.o.number = true
+vim.o.number = true -- Show line numbers
 -- vim.o.pumblend = 10 -- make builtin completion menus slightly transparent
--- vim.o.pumheight = 10 -- make popup menu smaller
+vim.o.pumheight = 10 -- Make popup menu smaller
 -- vim.o.relativenumber = true
+vim.o.ruler = false -- Don't show cursor coordinates
 -- vim.o.scrolloff = 10
-vim.o.shiftwidth = 2
-vim.o.showmode = false
-vim.o.signcolumn = 'yes'
-vim.o.smartcase = true
+vim.o.shiftwidth = 2 -- Use this number of spaces for indentation
+-- vim.o.shortmess = 'CFOSWaco' -- Disable some built-in completion messages
+vim.o.showmode = false -- Don't show mode in command line
+vim.o.signcolumn = 'yes' -- Always show signcolumn (less flicker)
+vim.o.smartcase = true -- Respect case if search pattern has upper case
+vim.o.smartindent = true -- Make indenting smart
 -- vim.o.spelllang = 'en_gb'
-vim.o.spelloptions = 'camel'
+vim.o.spelloptions = 'camel' -- Treat camelCase word parts as separate words
+vim.o.splitbelow = true -- Horizontal splits will be below
+vim.o.splitkeep = 'screen' -- Reduce scroll during window split
+vim.o.splitbelow = true -- Horizontal splits should be below
 vim.o.swapfile = false
-vim.o.tabstop = 2
+vim.o.switchbuf = 'usetab' -- Use already opened buffers when switching
+vim.o.tabstop = 2 -- Show tab as this number of spaces
 -- vim.o.updatetime = 1000
+vim.o.virtualedit = 'block' -- Allow going past end of line in blockwise mode
 -- vim.o.winblend = 10 -- make floating windows slightly transparent
--- vim.o.winborder = 'bold'
+vim.o.winborder = 'single' -- Use border in floating windows
 -- vim.o.winhighlight = 'NormalNC:CursorLine'
+vim.o.wrap = false -- Don't visually wrap lines (toggle with \w)
 
--- vim.g.health = { style = 'float' }
+vim.g.health = { style = 'float' }
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
@@ -65,6 +81,12 @@ vim.keymap.set('i', '<C-k>', '<C-o>C')
 -- Command mode.
 vim.keymap.set('c', '<C-a>', '<Home>')
 vim.keymap.set('c', '<C-e>', '<End>')
+
+-- Typing is hard.
+vim.keymap.set('c', 'w1', function()
+    if vim.fn.getcmdtype() == ':' and vim.fn.getcmdline() == 'w1' then return 'w!' end
+    return 'w1'
+end, { expr = true })
 
 vim.lsp.enable({
     -- 'ansiblels',
@@ -124,12 +146,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-local map_multistep = require('mini.keymap').map_multistep
-map_multistep('i', '<Tab>', { 'pmenu_next' })
-map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
-map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-map_multistep('i', '<BS>', { 'minipairs_bs' })
-
 do
     local group = vim.api.nvim_create_augroup('color-scheme', { clear = true })
     vim.api.nvim_create_autocmd('ColorScheme', {
@@ -167,6 +183,11 @@ vim.diagnostic.config({
     -- },
     severity_sort = true,
     signs = {
+        priority = 9999,
+        severity = {
+            max = 'ERROR',
+            min = 'WARN',
+        },
         text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
             [vim.diagnostic.severity.HINT] = '󰌶 ',
@@ -174,8 +195,20 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.WARN] = ' ',
         },
     },
-    underline = false,
-    virtual_text = true,
+    underline = {
+        severity = {
+            max = 'ERROR',
+            min = 'HINT',
+        },
+    },
+    virtual_lines = false,
+    virtual_text = {
+        current_line = true,
+        severity = {
+            max = 'ERROR',
+            min = 'ERROR',
+        },
+    },
 })
 
 -- -- Show diagnostic popup when cursor moves to a diagnostic
@@ -197,9 +230,9 @@ vim.diagnostic.config({
 -- })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function() vim.highlight.on_yank() end,
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
-    callback = function() vim.highlight.on_yank() end,
 })
 
 if vim.fn.executable('ansible-vault') == 1 then
@@ -231,8 +264,3 @@ if vim.fn.executable('ansible-vault') == 1 then
         augroup END
     ]])
 end
-
--- Typing is hard.
-vim.cmd([[
-    cabbrev <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
-]])
