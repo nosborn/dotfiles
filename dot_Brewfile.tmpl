@@ -10,7 +10,6 @@ brew 'ansible-language-server'
 brew 'ansible-lint'
 brew 'bat'
 brew 'black'
-cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
@@ -59,8 +58,7 @@ brew 'grafana-alloy'
 brew 'graphviz'
 brew 'gron'
 brew 'hadolint'
-brew 'harper'
-brew 'hashicorp/tap/packer'
+# brew 'hashicorp/tap/packer'
 brew 'hashicorp/tap/terraform'
 brew 'hcl2json'
 brew 'helm'
@@ -139,6 +137,7 @@ if '{{ .where }}' == 'home'
 
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
+  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'claude-code', require_sha: true
   brew 'codex'
   brew 'cpanminus'

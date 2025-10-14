@@ -1,7 +1,7 @@
 *.log
 /AGENTS.md
 /CLAUDE.md
-/LICENSE.md
+/LICENSE
 /README.md
 /Terminal/
 /install.sh
