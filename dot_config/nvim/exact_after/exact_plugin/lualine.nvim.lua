@@ -1,8 +1,22 @@
+local function fileinfo()
+    local result = vim.opt.fileencoding:get()
+    if vim.opt.bomb:get() then result = result .. '[BOM]' end
+    result = result .. '[' .. vim.bo.fileformat .. ']'
+    return result
+end
+
 require('lualine').setup({
     options = {
-        component_separators = { left = '│', right = '│' },
+        component_separators = {
+            left = '', -- '│',
+            right = '', -- '│',
+        },
         globalstatus = true,
-        section_separators = { left = '', right = '' },
+        section_separators = {
+            left = '',
+            right = '',
+        },
+        theme = 'kanso',
     },
     sections = {
         lualine_a = {
@@ -21,7 +35,6 @@ require('lualine').setup({
                     removed = ' ',
                 },
             },
-            'diagnostics',
         },
         lualine_c = {
             {
@@ -34,12 +47,9 @@ require('lualine').setup({
             },
         },
         lualine_x = {
-            {
-                'encoding',
-                show_bomb = true,
-            },
-            'fileformat',
+            'diagnostics',
             'filetype',
+            fileinfo,
         },
         lualine_y = {
             'progress',

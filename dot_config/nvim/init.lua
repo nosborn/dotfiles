@@ -45,7 +45,7 @@ vim.o.tabstop = 2 -- Show tab as this number of spaces
 vim.o.virtualedit = 'block' -- Allow going past end of line in blockwise mode
 -- vim.o.winblend = 10 -- make floating windows slightly transparent
 vim.o.winborder = 'single' -- Use border in floating windows
--- vim.o.winhighlight = 'NormalNC:CursorLine'
+vim.o.winhighlight = 'NormalNC:CursorLine'
 vim.o.wrap = false -- Don't visually wrap lines (toggle with \w)
 
 vim.g.health = { style = 'float' }
