@@ -99,6 +99,12 @@ require('mini.icons').setup({
 MiniIcons.mock_nvim_web_devicons()
 MiniIcons.tweak_lsp_kind()
 
+-- require('mini.indentscope').setup({
+--     draw = {
+--         animation = require('mini.indentscope').gen_animation.none(),
+--     },
+-- })
+
 -- luacheck: globals MiniKeymap
 require('mini.keymap').setup()
 MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })

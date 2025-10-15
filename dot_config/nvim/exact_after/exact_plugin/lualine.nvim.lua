@@ -8,8 +8,8 @@ end
 require('lualine').setup({
     options = {
         component_separators = {
-            left = '', -- '│',
-            right = '', -- '│',
+            left = '',
+            right = '',
         },
         globalstatus = true,
         section_separators = {
