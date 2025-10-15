@@ -146,20 +146,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-do
-    local group = vim.api.nvim_create_augroup('color-scheme', { clear = true })
-    vim.api.nvim_create_autocmd('ColorScheme', {
-        group = group,
-        pattern = 'catppuccin',
-        callback = function() vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'FloatBorder' }) end,
-    })
-    vim.api.nvim_create_autocmd('ColorScheme', {
-        group = group,
-        pattern = '{default,retrobox,sorbet,wildcharm,zaibatsu}',
-        callback = function() vim.api.nvim_set_hl(0, 'Comment', { italic = true }) end,
-    })
-end
-
 require('kanso').setup({
     background = {
         dark = 'zen',
