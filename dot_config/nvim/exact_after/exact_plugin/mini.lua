@@ -1,3 +1,13 @@
+require('mini.basics').setup({
+    options = {
+        basic = false,
+    },
+    mappings = {
+        move_with_alt = true, -- Create `<M-hjkl>` mappings for navigation in Insert and Command modes
+        windows = true, -- Create `<C-hjkl>` mappings for window navigation
+    },
+})
+
 require('mini.bracketed').setup()
 require('mini.bufremove').setup()
 
@@ -67,6 +77,7 @@ vim.lsp.config('*', {
 
 -- require('mini.cursorword').setup()
 require('mini.diff').setup()
+require('mini.extra').setup()
 require('mini.git').setup()
 
 -- local mini_hipatterns = require('mini.hipatterns')
@@ -122,10 +133,32 @@ require('mini.notify').setup()
 
 -- luacheck: globals MiniPick
 require('mini.pick').setup()
-vim.keymap.set('n', '<leader>fb', MiniPick.builtin.buffers, { desc = 'Pick from buffers' })
-vim.keymap.set('n', '<leader>ff', MiniPick.builtin.files, { desc = 'Pick from files' })
-vim.keymap.set('n', '<leader>fg', MiniPick.builtin.grep_live, { desc = 'Pick from pattern matches with live feedback' })
-vim.keymap.set('n', '<leader>fh', MiniPick.builtin.help, { desc = 'Pick from help tagss' })
+vim.keymap.set('n', '<Leader>f/', '<Cmd>Pick history scope="/"<CR>', { desc = '"/" history' })
+vim.keymap.set('n', '<Leader>f:', '<Cmd>Pick history scope=":"<CR>', { desc = '":" history' })
+vim.keymap.set('n', '<Leader>fa', '<Cmd>Pick git_hunks scope="staged"<CR>', { desc = 'Added hunks (all)' })
+vim.keymap.set('n', '<Leader>fA', '<Cmd>Pick git_hunks path="%" scope="staged"<CR>', { desc = 'Added hunks (buf)' })
+vim.keymap.set('n', '<Leader>fb', '<Cmd>Pick buffers<CR>', { desc = 'Buffers' })
+vim.keymap.set('n', '<Leader>fc', '<Cmd>Pick git_commits<CR>', { desc = 'Commits (all)' })
+vim.keymap.set('n', '<Leader>fC', '<Cmd>Pick git_commits path="%"<CR>', { desc = 'Commits (buf)' })
+vim.keymap.set('n', '<Leader>fd', '<Cmd>Pick diagnostic scope="all"<CR>', { desc = 'Diagnostic workspace' })
+vim.keymap.set('n', '<Leader>fD', '<Cmd>Pick diagnostic scope="current"<CR>', { desc = 'Diagnostic buffer' })
+vim.keymap.set('n', '<Leader>ff', '<Cmd>Pick files<CR>', { desc = 'Files' })
+vim.keymap.set('n', '<Leader>fg', '<Cmd>Pick grep_live<CR>', { desc = 'Grep live' })
+vim.keymap.set('n', '<Leader>fG', '<Cmd>Pick grep pattern="<cword>"<CR>', { desc = 'Grep current word' })
+vim.keymap.set('n', '<Leader>fh', '<Cmd>Pick help<CR>', { desc = 'Help tags' })
+vim.keymap.set('n', '<Leader>fH', '<Cmd>Pick hl_groups<CR>', { desc = 'Highlight groups' })
+vim.keymap.set('n', '<Leader>fl', '<Cmd>Pick buf_lines scope="all"<CR>', { desc = 'Lines (all)' })
+vim.keymap.set('n', '<Leader>fL', '<Cmd>Pick buf_lines scope="current"<CR>', { desc = 'Lines (buf)' })
+vim.keymap.set('n', '<Leader>fm', '<Cmd>Pick git_hunks<CR>', { desc = 'Modified hunks (all)' })
+vim.keymap.set('n', '<Leader>fM', '<Cmd>Pick git_hunks path="%"<CR>', { desc = 'Modified hunks (buf)' })
+vim.keymap.set('n', '<Leader>fr', '<Cmd>Pick resume<CR>', { desc = 'Resume' })
+vim.keymap.set('n', '<Leader>fp', '<Cmd>Pick projects<CR>', { desc = 'Projects' })
+vim.keymap.set('n', '<Leader>fR', '<Cmd>Pick lsp scope="references"<CR>', { desc = 'References (LSP)' })
+vim.keymap.set('n', '<Leader>fs', '<Cmd>Pick lsp scope="workspace_symbol"<CR>', { desc = 'Symbols workspace' })
+vim.keymap.set('n', '<Leader>fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', { desc = 'Symbols document' })
+vim.keymap.set('n', '<Leader>fv', '<Cmd>Pick visit_paths cwd=""<CR>', { desc = 'Visit paths (all)' })
+vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit paths (cwd)' })
 
 -- require('mini.snippets').setup()
 require('mini.tabline').setup()
+require('mini.visits').setup()

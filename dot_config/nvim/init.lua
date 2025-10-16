@@ -98,7 +98,6 @@ vim.lsp.enable({
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('lsp-attach', {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         if client:supports_method('textDocument/implementation') then
@@ -118,9 +117,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             and client:supports_method('textDocument/formatting')
         then
             vim.api.nvim_create_autocmd('BufWritePre', {
-                group = vim.api.nvim_create_augroup('lsp-attach', { clear = false }),
                 buffer = args.buf,
                 callback = function() vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 }) end,
+                group = vim.api.nvim_create_augroup('lsp-attach', { clear = false }),
             })
         end
         -- if client.server_capabilities.inlayHintProvider then
@@ -129,7 +128,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Organize imports for gopls before save
         if client.name == 'gopls' then
             vim.api.nvim_create_autocmd('BufWritePre', {
-                group = vim.api.nvim_create_augroup('gopls-imports', { clear = true }),
                 buffer = args.buf,
                 callback = function()
                     local params = vim.lsp.util.make_range_params(nil, client.offset_encoding)
@@ -141,9 +139,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
                         end
                     end
                 end,
+                group = vim.api.nvim_create_augroup('gopls-imports', { clear = true }),
             })
         end
     end,
+    group = vim.api.nvim_create_augroup('lsp-attach', {}),
 })
 
 require('kanso').setup({
@@ -151,8 +151,7 @@ require('kanso').setup({
         dark = 'zen',
         light = 'pearl',
     },
-    compile = true,
-    dimInactive = true,
+    -- dimInactive = true,
     -- foreground = 'saturated',
 })
 vim.cmd('colorscheme kanso')
@@ -199,8 +198,6 @@ vim.diagnostic.config({
 
 -- -- Show diagnostic popup when cursor moves to a diagnostic
 -- vim.api.nvim_create_autocmd('CursorMoved', {
---     desc = 'Show diagnostic popup when navigating to diagnostics',
---     group = vim.api.nvim_create_augroup('diagnostic-popup', { clear = true }),
 --     callback = function()
 --         local current_line = vim.api.nvim_win_get_cursor(0)[1]
 --         local diagnostics = vim.diagnostic.get(0, { lnum = current_line - 1 })
@@ -213,6 +210,8 @@ vim.diagnostic.config({
 --             end, 100)
 --         end
 --     end,
+--     desc = 'Show diagnostic popup when navigating to diagnostics',
+--     group = vim.api.nvim_create_augroup('diagnostic-popup', { clear = true }),
 -- })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
