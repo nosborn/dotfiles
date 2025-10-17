@@ -1,4 +1,2 @@
 disable_checkpoint = true
-{{ if ne .where "work" -}}
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
-{{ end -}}
