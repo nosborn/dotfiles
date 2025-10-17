@@ -23,7 +23,7 @@ require('conform').setup({
         dockerfile = { 'dockerfmt' },
         esqlc = { 'clang-format' },
         h = { 'clang-format' },
-        -- hcl = { 'packer_fmt' },
+        hcl = { 'packer_fmt' },
         -- html = { 'prettier' },
         javascript = { 'prettier' },
         lua = { 'stylua' },
