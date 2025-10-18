@@ -1,9 +1,19 @@
 {
-  "checkpointing": true,
-  "selectedAuthType": "oauth-personal",
+  "general": {
+    "checkpointing": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
   "telemetry": {
     "enabled": false
   },
-  "theme": "Default",
-  "usageStatisticsEnabled": false
+  "ui": {
+    "theme": "Default"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  }
 }
