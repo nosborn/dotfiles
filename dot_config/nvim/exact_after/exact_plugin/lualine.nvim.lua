@@ -1,6 +1,6 @@
 local function fileinfo()
-    local result = vim.opt.fileencoding:get()
-    if vim.opt.bomb:get() then result = result .. '[BOM]' end
+    local result = vim.bo.fileencoding
+    if vim.bo.bomb then result = result .. '[BOM]' end
     result = result .. '[' .. vim.bo.fileformat .. ']'
     return result
 end
@@ -19,9 +19,6 @@ require('lualine').setup({
         theme = 'kanso',
     },
     sections = {
-        lualine_a = {
-            'mode',
-        },
         lualine_b = {
             {
                 'branch',
@@ -47,15 +44,16 @@ require('lualine').setup({
             },
         },
         lualine_x = {
+            {
+                'lsp_status',
+                -- ignore_lsp = {},
+                symbols = {
+                    separator = ',',
+                },
+            },
             'diagnostics',
             'filetype',
             fileinfo,
-        },
-        lualine_y = {
-            'progress',
-        },
-        lualine_z = {
-            'location',
         },
     },
     tabline = {
