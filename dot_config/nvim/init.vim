@@ -33,7 +33,7 @@ set pumheight=10 " Make popup menu smaller
 " set relativenumber
 " set scrolloff=10
 set shiftwidth=2 " Use this number of spaces for indentation
-" set shortmess=CFOSWaco " Disable some built-in completion messages
+set shortmess=CFOSWaco " Disable some built-in completion messages
 set signcolumn=yes " Always show signcolumn (less flicker)
 set smartcase " Respect case if search pattern has upper case
 set smartindent " Make indenting smart
