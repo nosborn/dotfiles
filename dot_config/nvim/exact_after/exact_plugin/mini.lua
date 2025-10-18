@@ -159,6 +159,23 @@ vim.keymap.set('n', '<Leader>fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', {
 vim.keymap.set('n', '<Leader>fv', '<Cmd>Pick visit_paths cwd=""<CR>', { desc = 'Visit paths (all)' })
 vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit paths (cwd)' })
 
--- require('mini.snippets').setup()
+-- -- luacheck: globals MiniSnippets
+-- require('mini.snippets').setup({
+--     -- snippets = {
+--     --     -- Always load 'snippets/global.json' from config directory
+--     --     require('mini.snippets').gen_loader.from_file(vim.fn.stdpath('config') .. '/snippets/global.json'),
+--     --     -- Load from 'snippets/' directory of plugins, like 'friendly-snippets'
+--     --     require('mini.snippets').gen_loader.from_lang({
+--     --         lang_patterns = {
+--     --             tex = { 'latex/**/*.json', '**/latex.json' },
+--     --             plaintex = { 'latex/**/*.json', '**/latex.json' },
+--     --             -- Recognize special injected language of markdown tree-sitter parser
+--     --             markdown_inline = { 'markdown.json' },
+--     --         },
+--     --     }),
+--     -- },
+-- })
+-- MiniSnippets.start_lsp_server()
+
 require('mini.tabline').setup()
 require('mini.visits').setup()
