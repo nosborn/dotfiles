@@ -80,17 +80,29 @@ require('mini.diff').setup()
 require('mini.extra').setup()
 require('mini.git').setup()
 
--- local mini_hipatterns = require('mini.hipatterns')
--- mini_hipatterns.setup({
---     highlighters = {
---         fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
---         hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
---         hex_color = mini_hipatterns.gen_highlighter.hex_color(),
---         note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
---         todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
---     },
--- })
---
+local mini_hipatterns = require('mini.hipatterns')
+require('mini.hipatterns').setup({
+    highlighters = {
+        fixme = {
+            group = 'MiniHipatternsFixme',
+            pattern = '%f[%w]()FIXME()%f[%W]',
+        },
+        hack = {
+            group = 'MiniHipatternsHack',
+            pattern = '%f[%w]()HACK()%f[%W]',
+        },
+        note = {
+            group = 'MiniHipatternsNote',
+            pattern = '%f[%w]()NOTE()%f[%W]',
+        },
+        todo = {
+            group = 'MiniHipatternsTodo',
+            pattern = '%f[%w]()TODO()%f[%W]',
+        },
+
+        hex_color = mini_hipatterns.gen_highlighter.hex_color(),
+    },
+})
 
 -- luacheck: globals MiniIcons
 local icons_ext3_blocklist = { scm = true, txt = true, yml = true }
@@ -177,5 +189,32 @@ vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit p
 -- })
 -- MiniSnippets.start_lsp_server()
 
-require('mini.tabline').setup()
+-- -- luacheck: globals MiniStatusline
+-- require('mini.statusline').setup({
+--     content = {
+--         active = function()
+--             local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+--             local git = MiniStatusline.section_git({ trunc_width = 40 })
+--             local diff = MiniStatusline.section_diff({ trunc_width = 75 })
+--             local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+--             local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
+--             local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+--             local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+--             local location = MiniStatusline.section_location({ trunc_width = 75 })
+--             local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
+--
+--             return MiniStatusline.combine_groups({
+--                 { hl = mode_hl, strings = { mode } },
+--                 { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+--                 '%<', -- Mark general truncate point
+--                 { hl = 'MiniStatuslineFilename', strings = { filename } },
+--                 '%=', -- End left alignment
+--                 { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+--                 { hl = mode_hl, strings = { search, location } },
+--             })
+--         end,
+--     },
+-- })
+
+-- require('mini.tabline').setup()
 require('mini.visits').setup()
