@@ -56,12 +56,7 @@ require('mini.completion').setup({
     lsp_completion = {
         auto_setup = false,
         process_items = function(items, base)
-            return MiniCompletion.default_process_items(items, base, {
-                kind_priority = {
-                    Snippet = 99,
-                    Text = -1,
-                },
-            })
+            return MiniCompletion.default_process_items(items, base, { kind_priority = { Snippet = 99, Text = -1 } })
         end,
         source_func = 'omnifunc',
     },
@@ -83,24 +78,11 @@ require('mini.git').setup()
 local mini_hipatterns = require('mini.hipatterns')
 require('mini.hipatterns').setup({
     highlighters = {
-        fixme = {
-            group = 'MiniHipatternsFixme',
-            pattern = '%f[%w]()FIXME()%f[%W]',
-        },
-        hack = {
-            group = 'MiniHipatternsHack',
-            pattern = '%f[%w]()HACK()%f[%W]',
-        },
-        note = {
-            group = 'MiniHipatternsNote',
-            pattern = '%f[%w]()NOTE()%f[%W]',
-        },
-        todo = {
-            group = 'MiniHipatternsTodo',
-            pattern = '%f[%w]()TODO()%f[%W]',
-        },
-
+        fixme = { group = 'MiniHipatternsFixme', pattern = '%f[%w]()FIXME()%f[%W]' },
+        hack = { group = 'MiniHipatternsHack', pattern = '%f[%w]()HACK()%f[%W]' },
         hex_color = mini_hipatterns.gen_highlighter.hex_color(),
+        note = { group = 'MiniHipatternsNote', pattern = '%f[%w]()NOTE()%f[%W]' },
+        todo = { group = 'MiniHipatternsTodo', pattern = '%f[%w]()TODO()%f[%W]' },
     },
 })
 

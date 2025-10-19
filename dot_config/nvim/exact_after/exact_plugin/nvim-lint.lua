@@ -88,11 +88,7 @@ require('lint').linters_by_ft = {
 }
 
 local dotenv_linter = require('lint').linters.dotenv_linter
-dotenv_linter.args = {
-    '--no-color',
-    '--not-check-updates',
-    '--quiet',
-}
+dotenv_linter.args = { '--no-color', '--not-check-updates', '--quiet' }
 
 -- vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {

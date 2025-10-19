@@ -44,6 +44,7 @@ set splitkeep=screen " Reduce scroll during window split
 set splitbelow " Horizontal splits should be below
 set switchbuf=usetab " Use already opened buffers when switching
 set tabstop=2 " Show tab as this number of spaces
+set textwidth=80
 " set updatetime=1000
 set virtualedit=block " Allow going past end of line in blockwise mode
 " set winblend=10 " Make floating windows slightly transparent
