@@ -1,14 +1,17 @@
+{{- $git := index . "git" | default dict -}}
+{{- $github := index . "github" | default dict -}}
+
 [data]
 name = "Nick Osborn"
 where = "{{ promptStringOnce . "where" "where" }}"
 
 [data.git]
-email = "{{ promptStringOnce .git "email" "git.email" }}"
-signingKey = "{{ promptStringOnce .git "signingKey" "git.signingKey" }}"
+email = "{{ promptStringOnce $git "email" "git.email" }}"
+signingKey = "{{ promptStringOnce $git "signingKey" "git.signingKey" }}"
 
 [data.github]
-org = "{{ promptStringOnce .github "org" "github.org" }}"
-user = "{{ promptStringOnce .github "user" "github.user" }}"
+org = "{{ promptStringOnce $github "org" "github.org" }}"
+user = "{{ promptStringOnce $github "user" "github.user" }}"
 
 [data.homebrew]
 prefix = "{{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}"

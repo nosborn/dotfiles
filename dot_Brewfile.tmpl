@@ -169,6 +169,8 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
+  # tap '.../skm-cli'
+
   brew 'amazon-ecs-cli'
   # brew 'argocd'
   cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
