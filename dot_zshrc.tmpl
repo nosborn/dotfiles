@@ -107,8 +107,12 @@ alias vim=nvim
 alias vi=nvim
 alias vultr-cli='vultr'
 
-compdef k=kubectl
-compdef kubecolor=kubectl
+if (( $+commands[kubectl] )); then
+  compdef k=kubectl
+  if (( $+commands[kubecolor] )); then
+    compdef kubecolor=kubectl
+  fi
+fi
 
 #comp_files=()
 #comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/npm)

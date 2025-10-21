@@ -8,6 +8,8 @@ command -v kubectl-krew >/dev/null 2>&1 || exit 0
 
 PATH="${HOME}/.krew/bin:${PATH}"
 
+kubectl krew update
+
 installed="$(kubectl krew list)"
 for name in fields get-all tree vpa-recommendation; do
   if ! echo "${installed}" | grep -Eq "^${name}\>"; then

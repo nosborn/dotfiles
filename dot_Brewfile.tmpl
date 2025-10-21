@@ -13,9 +13,11 @@ brew 'awsdac'
 brew 'bat'
 brew 'bfg'
 brew 'black'
+cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
+cask 'codex', require_sha: true
 brew 'coreutils'
 brew 'd2'
 brew 'diffutils'
@@ -37,6 +39,7 @@ cask 'font-jetbrains-mono', require_sha: true
 cask 'font-symbols-only-nerd-font', require_sha: true
 brew 'fzf'
 brew 'gawk'
+brew 'gemini-cli'
 brew 'gh'
 cask 'ghostty', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'git-delta'
@@ -86,6 +89,7 @@ brew 'mkdocs'
 # brew 'mkdocs-material'
 # cask 'monitorcontrol', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'neovim'
+cask 'orbstack', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'parallel'
 brew 'pinentry-mac'
 brew 'pipx'
@@ -140,20 +144,16 @@ if '{{ .where }}' == 'home'
 
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
-  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'claude-code', require_sha: true
-  cask 'codex', require_sha: true
   brew 'cpanminus'
   cask 'cryptomator', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'cvs'
   brew 'flyctl'
-  brew 'gemini-cli'
   brew 'git-crypt'
   brew 'github-mcp-server'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
   cask 'mullvad-vpn', appdir: '~/Applications', require_sha: true
-  cask 'orbstack', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'oversight', appdir: '~/Applications', require_sha: true
   brew 'perl'
   brew 'perltidy'
@@ -169,8 +169,7 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
-  # tap '.../skm-cli'
-
+  cask '1password', appdir: '~/Applications', greedy: true, require_sha: true
   brew 'amazon-ecs-cli'
   # brew 'argocd'
   cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
