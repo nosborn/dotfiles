@@ -15,6 +15,10 @@ require('conform').setup({
         shfmt = {
             prepend_args = { '-i', '2', '-ci' },
         },
+        terramate_fmt = {
+            args = { 'fmt', '-' },
+            command = 'terramate',
+        },
     },
     formatters_by_ft = {
         ansible = { 'ansible-lint' },
@@ -30,6 +34,7 @@ require('conform').setup({
         perl = { 'perltidy' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
+        terramate = { 'terramate_fmt' },
         xml = { 'xmllint' },
         yaml = { 'yamlfmt' },
     },

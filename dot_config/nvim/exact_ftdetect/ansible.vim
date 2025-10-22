@@ -36,17 +36,7 @@ function! s:SetupTemplate()
   setfiletype jinja2
 endfunction
 
-augroup ansible_vim_ftyaml_ansible
-  autocmd!
-  autocmd BufNewFile,BufRead * if s:IsAnsible() | setfiletype yaml.ansible | endif
-augroup END
-
-augroup ansible_vim_ftjinja2
-  autocmd!
-  autocmd BufNewFile,BufRead *.j2 call s:SetupTemplate()
-augroup END
-
-augroup ansible_vim_fthosts
-  autocmd!
-  autocmd BufNewFile,BufRead hosts setfiletype ansible_hosts
-augroup END
+" vint: -ProhibitAutocmdWithNoGroup
+autocmd BufNewFile,BufRead * if s:IsAnsible() | setfiletype yaml.ansible | endif
+autocmd BufNewFile,BufRead *.j2 call s:SetupTemplate()
+autocmd BufNewFile,BufRead hosts setfiletype ansible_hosts
