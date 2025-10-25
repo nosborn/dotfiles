@@ -5,7 +5,6 @@ set -o nounset
 
 readonly extensions="
   actions/gh-actions-cache
-  dlvhdr/gh-dash
   rnorth/gh-combine-prs
 "
 
