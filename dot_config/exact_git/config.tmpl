@@ -40,7 +40,7 @@
 {{- end }}
 
 [delta]
-  hyperlinks = true
+	hyperlinks = true
 
 [diff]
 	algorithm = histogram
@@ -88,7 +88,7 @@
 	ff = only
 
 [pager]
-  blame = delta
+	blame = delta
 
 [pull]
 	rebase = true
@@ -97,7 +97,7 @@
 	autoSetupRemote = true
 	default = simple
 	followTags = true
-;	useForceIfIncludes = true
+	; useForceIfIncludes = true
 
 [rebase]
 	autoSquash = true
@@ -138,10 +138,10 @@
 	signingKey = {{ .git.signingKey }}
 {{- end }}
 	useConfigOnly = true
-
 {{- if eq .chezmoi.os "darwin" }}
-[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/github.com/nosborn/"]
-  path = safe.inc
 
+[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/github.com/nosborn/"]
+	path = safe.inc
 {{- end }}
+
 ; vim: ft=gitconfig.gohtmltmpl
