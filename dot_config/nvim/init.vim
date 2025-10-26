@@ -211,5 +211,5 @@ EOT
 
 augroup highlight-yank
   autocmd!
-  autocmd TextYankPost * lua vim.highlight.on_yank()
+  autocmd TextYankPost * lua vim.hl.on_yank()
 augroup END
