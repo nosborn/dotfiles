@@ -14,13 +14,6 @@
   pull.args:
     - --force
 
-.config/nvim/pack/folke/start/snacks.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/folke/snacks.nvim.git
-  pull.args:
-    - --force
-
 .config/nvim/pack/kevinhwang91/start/nvim-ufo:
   type: git-repo
   refreshPeriod: 24h
