@@ -124,6 +124,7 @@ MiniMisc.setup_auto_root()
 MiniMisc.setup_termbg_sync()
 
 require('mini.notify').setup()
+require('mini.pairs').setup()
 
 -- luacheck: globals MiniPick
 require('mini.pick').setup()
