@@ -112,7 +112,7 @@ require('mini.indentscope').setup({
 
 -- luacheck: globals MiniKeymap
 require('mini.keymap').setup()
-MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })
+-- MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })
 MiniKeymap.map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
 MiniKeymap.map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
 MiniKeymap.map_multistep('i', '<Tab>', { 'pmenu_next' })
@@ -124,7 +124,7 @@ MiniMisc.setup_auto_root()
 MiniMisc.setup_termbg_sync()
 
 require('mini.notify').setup()
-require('mini.pairs').setup()
+-- require('mini.pairs').setup()
 
 -- luacheck: globals MiniPick
 require('mini.pick').setup()
