@@ -50,3 +50,7 @@ VirtualBox VMs
 1.yaml
 2.yaml
 3.yaml
+
+{{- if eq .where "work" }}
+.pre-commit-config.yaml
+{{- end }}
