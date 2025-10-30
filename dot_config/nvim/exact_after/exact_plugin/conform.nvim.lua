@@ -12,6 +12,10 @@ require('conform').setup({
             args = { '--newline' },
             command = 'dockerfmt',
         },
+        hcledit_fmt = {
+            args = { 'fmt' },
+            command = 'hcledit',
+        },
         shfmt = {
             prepend_args = { '-i', '2', '-ci' },
         },
@@ -27,7 +31,7 @@ require('conform').setup({
         dockerfile = { 'dockerfmt' },
         esqlc = { 'clang-format' },
         h = { 'clang-format' },
-        hcl = { 'packer_fmt' },
+        hcl = { 'hcledit_fmt' },
         -- html = { 'prettier' },
         javascript = { 'prettier' },
         lua = { 'stylua' },
