@@ -37,6 +37,6 @@ function! s:SetupTemplate()
 endfunction
 
 " vint: -ProhibitAutocmdWithNoGroup
-autocmd BufNewFile,BufRead * if s:IsAnsible() | setfiletype yaml.ansible | endif
+autocmd BufNewFile,BufRead * if s:IsAnsible() | setlocal filetype=yaml.ansible | endif
 autocmd BufNewFile,BufRead *.j2 call s:SetupTemplate()
-autocmd BufNewFile,BufRead hosts setfiletype ansible_hosts
+autocmd BufNewFile,BufRead hosts setlocal filetype=ansible_hosts

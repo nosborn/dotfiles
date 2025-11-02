@@ -1,2 +1,2 @@
 " vint: -ProhibitAutocmdWithNoGroup
-autocmd BufRead,BufNewFile *.tm,*.tm.hcl set filetype=terramate
+autocmd BufRead,BufNewFile *.tm{,.hcl} setlocal filetype=terramate
