@@ -36,6 +36,7 @@ require('conform').setup({
         javascript = { 'prettier' },
         lua = { 'stylua' },
         perl = { 'perltidy' },
+        -- python = { 'black' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
         terramate = { 'terramate_fmt' },
