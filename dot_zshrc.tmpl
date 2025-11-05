@@ -114,38 +114,6 @@ if (( $+commands[kubectl] )); then
   fi
 fi
 
-#comp_files=()
-#comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/npm)
-##comp_files+=({{ .homebrew.prefix }}/etc/bash_completion.d/vagrant)
-#
-#for f in ${comp_files}; do
-#  [[ -f "${f}" ]] && source "${f}"
-#done
-
-# if [[ "${TERM_PROGRAM}" = Apple_Terminal ]]; then
-#   _update_terminal_cwd() {
-#     local url_path=''
-#     {
-#       local LC_CTYPE=C LC_ALL= byte i ord
-#       for ((i = 0; i < ${#PWD}; ++i)); do
-#         byte="${PWD[i]}"
-#         if [[ "${byte}" =~ [/._~A-Za-z0-9-] ]]; then
-#           url_path+="${byte}"
-#         else
-#           ord=$(([#16] #byte))
-#           url_path+="%${ord}"
-#         fi
-#       done
-#     }
-#     printf '\e]7;%s\a' "file://${HOST}${url_path}"
-#   }
-#   typeset -ag chpwd_functions
-#   if [[ -z ${chpwd_functions[(r)_update_terminal_cwd]} ]]; then
-#     chpwd_functions+=_update_terminal_cwd
-#   fi
-#   _update_terminal_cwd
-# fi
-
 zle_highlight=('paste:none')
 
 # Do at end.
