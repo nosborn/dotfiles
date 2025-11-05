@@ -20,9 +20,14 @@ fi
 # defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Top' "$(printf '~^\U2191')"
 
 find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
-  if xattr "${link}" | grep -Fqx com.apple.quarantine; then
-    xattr -d -v com.apple.quarantine "${link}" || :
-  fi
+  case "${link}" in
+    */OrbStack.app) ;;
+    *)
+      if xattr "${link}" | grep -Fqx com.apple.quarantine; then
+        xattr -d -v com.apple.quarantine "${link}" || :
+      fi
+      ;;
+  esac
 done
 
 exit 0
