@@ -19,15 +19,15 @@ fi
 # defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Bottom' "$(printf '~^\U2193')"
 # defaults write -globalDomain NSUserKeyEquivalents -dict-add 'Top' "$(printf '~^\U2191')"
 
-find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
-  case "${link}" in
-    */OrbStack.app) ;;
-    *)
-      if xattr "${link}" | grep -Fqx com.apple.quarantine; then
-        xattr -d -v com.apple.quarantine "${link}" || :
-      fi
-      ;;
-  esac
-done
+# find "$(brew --prefix)/Caskroom" -name '*.app' -type l | while read -r link; do
+#   case "${link}" in
+#     */OrbStack.app) ;;
+#     *)
+#       if xattr "${link}" | grep -Fqx com.apple.quarantine; then
+#         xattr -d -v com.apple.quarantine "${link}" || :
+#       fi
+#       ;;
+#   esac
+# done
 
 exit 0
