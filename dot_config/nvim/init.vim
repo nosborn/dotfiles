@@ -100,7 +100,7 @@ vim.lsp.enable({
     'gopls',
     'terraform_ls',
     'terramate_ls',
-    'tflint',
+    -- 'tflint',
     'tombi',
     -- 'yaml_language_server',
 })
