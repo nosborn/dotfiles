@@ -11,10 +11,12 @@ export HOMEBREW_ALLOWED_TAPS='hashicorp/tap homebrew/core{{ if eq .where "home" 
 export HOMEBREW_API_AUTO_UPDATE_SECS=86400
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
+export HOMEBREW_CASK_OPTIONS="--appdir=${HOME}/Applications --require-sha"
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_UPGRADE_GREEDY=1
+export HOMEBREW_VERIFY_ATTESTATIONS=1
 export LANG=en_GB.UTF-8
 export LC_COLLATE=C
 export LLVM_PROFILE_FILE=%t/pid-%p.profraw
