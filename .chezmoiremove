@@ -22,6 +22,7 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .local/bin/ec-2.4.0
 .local/bin/j2lint
 .local/bin/kubecolor
+.local/bin/kubeconform
 .local/bin/mbt
 .local/bin/mbt-0.24
 .local/bin/ppyaml
