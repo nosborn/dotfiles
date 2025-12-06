@@ -82,7 +82,6 @@ require('lint').linters_by_ft = {
     perl = { 'perlcritic' },
     river = { 'alloy_fmt' },
     sh = { 'shellcheck' },
-    -- terraform = { 'tflint' },
     vim = { 'vint' },
     yaml = { 'yamllint' },
     zsh = { 'zsh' },
