@@ -10,6 +10,7 @@ require('mini.basics').setup({
 
 require('mini.bracketed').setup()
 require('mini.bufremove').setup()
+require('mini.cmdline').setup()
 
 local mini_clue = require('mini.clue')
 mini_clue.setup({
