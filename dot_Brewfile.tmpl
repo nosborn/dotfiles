@@ -56,8 +56,8 @@ brew 'gofumpt'
 brew 'goimports'
 brew 'golangci-lint'
 brew 'golangci-lint-langserver'
-cask 'google-analytics-opt-out', appdir: '~/Applications', require_sha: true
-cask 'google-chrome', appdir: '~/Applications', greedy: true, require_sha: true
+cask 'google-analytics-opt-out', require_sha: true
+cask 'google-chrome', greedy: true
 brew 'gpg2'
 brew 'grafana-alloy'
 brew 'graphviz'
@@ -81,7 +81,7 @@ brew 'mermaid-cli'
 brew 'mkdocs-material'
 # cask 'monitorcontrol', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'neovim'
-cask 'orbstack', appdir: '~/Applications', greedy: true, require_sha: true
+cask 'orbstack', greedy: true, require_sha: true
 brew 'parallel'
 brew 'pinentry-mac'
 brew 'pipx'
@@ -91,7 +91,7 @@ brew 'pstree'
 brew 'pwgen'
 brew 'python-argcomplete'
 brew 'qrencode'
-cask 'rectangle', appdir: '~/Applications', greedy: true, require_sha: true
+cask 'rectangle', greedy: true, require_sha: true
 brew 'rg'
 brew 'sf-pwgen'
 brew 'shellcheck'
@@ -135,23 +135,23 @@ if '{{ .where }}' == 'home'
   cask 'calibre', appdir: '~/Applications', require_sha: true
   cask 'claude-code', require_sha: true
   brew 'cpanminus'
-  cask 'cryptomator', appdir: '~/Applications', greedy: true, require_sha: true
+  cask 'cryptomator', greedy: true, require_sha: true
   brew 'cvs'
   brew 'flyctl'
   brew 'git-crypt'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
-  cask 'mullvad-vpn', appdir: '~/Applications', require_sha: true
-  cask 'oversight', appdir: '~/Applications', require_sha: true
+  cask 'mullvad-vpn', require_sha: true
+  cask 'oversight', require_sha: true
   brew 'perl'
   brew 'perltidy'
   brew 'qemu'
   brew 'scw'
-  cask 'tailscale-app', appdir: '~/Applications', require_sha: true
+  cask 'tailscale-app', require_sha: true
   brew 'tintin'
   brew 'upcloud-cli'
   brew 'vultr'
-  cask 'wine-stable', appdir: '~/Applications', require_sha: true
+  cask 'wine-stable', require_sha: true
   brew 'winetricks'
   brew 'wireguard-tools'
   brew 'yubico-piv-tool'
@@ -159,9 +159,9 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
-  cask '1password', appdir: '~/Applications', greedy: true, require_sha: true
+  cask '1password', greedy: true, require_sha: true
   brew 'amazon-ecs-cli'
-  cask 'aws-vpn-client', appdir: '~/Applications', greedy: true, require_sha: true
+  cask 'aws-vpn-client', greedy: true, require_sha: true
   cask 'coderabbit', require_sha: true
   # cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   # brew 'gradle'
