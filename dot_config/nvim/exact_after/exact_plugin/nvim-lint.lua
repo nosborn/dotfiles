@@ -67,7 +67,7 @@ require('lint').linters.kubeconform = {
 -- }
 
 require('lint').linters_by_ft = {
-    ansible = { 'ansible-lint' },
+    ansible = { 'ansible_lint' },
     bash = { 'bash' },
     dockerfile = { 'hadolint' },
     dotenv = { 'dotenv_linter' },
