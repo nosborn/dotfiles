@@ -57,7 +57,7 @@ brew 'goimports'
 brew 'golangci-lint'
 brew 'golangci-lint-langserver'
 cask 'google-analytics-opt-out', require_sha: true
-cask 'google-chrome', greedy: true
+# cask 'google-chrome', greedy: true
 brew 'gpg2'
 brew 'grafana-alloy'
 brew 'graphviz'
@@ -126,6 +126,7 @@ brew 'yamlfmt'
 brew 'yamllint'
 brew 'yarn'
 brew 'yq'
+cask 'zed', require_sha: true
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
@@ -149,7 +150,6 @@ if '{{ .where }}' == 'home'
   brew 'perltidy'
   brew 'qemu'
   brew 'scw'
-  cask 'tailscale-app', require_sha: true
   brew 'tintin'
   brew 'upcloud-cli'
   brew 'vultr'

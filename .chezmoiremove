@@ -1,8 +1,11 @@
-Library/Application Support/go/telemetry/local
-Library/Application Support/go/telemetry/upload
-Library/Application Support/pipx/
-Library/Colors/Catppuccin *.clr
-Library/Caches/helix/
+Library/Application Support/Google/
+Library/Application Support/go/telemetry/local/
+Library/Application Support/go/telemetry/upload/
+Library/Caches/Google/
+Library/Caches/com.google.GoogleUpdater/
+Library/Google/
+Library/HTTPStorages/com.google.GoogleUpdater
+Library/HTTPStorages/com.google.Keystone
 Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .actrc
 .bundle/

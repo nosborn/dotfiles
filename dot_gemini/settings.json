@@ -1,6 +1,8 @@
 {
   "general": {
-    "checkpointing": true
+    "checkpointing": {
+      "enabled": true
+    }
   },
   "security": {
     "auth": {
