@@ -17,6 +17,7 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .config/proselint/
 .config/stylua.toml
 .config/tig/
+.config/zed/
 .curlrc
 .digrc
 .lesshst
