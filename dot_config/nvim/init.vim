@@ -98,10 +98,9 @@ vim.lsp.enable({
     -- 'ansible_language_server',
     'golangci_lint_langserver',
     'gopls',
-    'terraform_ls',
-    'terramate_ls',
-    'tflint',
-    'tombi',
+    -- 'terraform_ls',
+    -- 'terramate_ls',
+    -- 'tflint',
     -- 'yaml_language_server',
 })
 

@@ -1,8 +1,11 @@
 # vim: ft=yaml
 ---
+gitignore_excludes: true
+
 formatter:
-  eof_newline: true
+  force_array_style: block
+  force_quote_style: double
   include_document_start: true
   retain_line_breaks_single: true
-  trim_trailing_whitespace: true
+  scan_folded_as_literal: true
   type: basic

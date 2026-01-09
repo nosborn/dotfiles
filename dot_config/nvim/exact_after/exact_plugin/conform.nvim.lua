@@ -39,6 +39,7 @@ require('conform').setup({
         -- python = { 'black' },
         river = { 'alloy_fmt' },
         sh = { 'shfmt' },
+        terraform = { 'terraform_fmt' },
         terramate = { 'terramate_fmt' },
         xml = { 'xmllint' },
         yaml = { 'yamlfmt' },
