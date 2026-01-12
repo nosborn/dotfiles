@@ -1,16 +1,19 @@
 # frozen_string_literal: true
 
+tap 'anomalyco/tap'
 tap 'hashicorp/tap'
 
 cask_args adopt: true
 
 brew 'actionlint'
+brew 'anomalyco/tap/opencode'
 brew 'ansible'
 brew 'ansible-language-server'
 brew 'ansible-lint'
 brew 'awscli'
 brew 'bat'
 brew 'bfg'
+brew 'biome'
 brew 'black'
 cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
@@ -62,6 +65,7 @@ brew 'graphviz'
 brew 'gron'
 brew 'hadolint'
 brew 'hashicorp/tap/terraform'
+brew 'hashicorp/tap/terraform-ls'
 brew 'hcl2json'
 brew 'hcledit'
 brew 'helm'

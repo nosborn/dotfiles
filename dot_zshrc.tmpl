@@ -56,7 +56,7 @@ path=(
 autoload -Uz compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 
-autoload -U colors
+autoload -Uz colors
 colors
 
 # autoload -Uz bracketed-paste-magic
@@ -74,6 +74,9 @@ if (( $+commands[aws_completer] )); then
 fi
 if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+fi
+if (( $+commands[opencode] )); then
+  source <("${commands[opencode]}" completion)
 fi
 if (( $+commands[terraform] )); then
   complete -o nospace -C "${commands[terraform]}" terraform

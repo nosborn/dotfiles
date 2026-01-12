@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "formatter": {
+    "terramate": {
+      "command": ["terramate", "fmt"],
+      "extensions": [".tm.hcl"]
+    }
+  },
+  "lsp": {
+    "terramate": {
+      "command": ["terramate-ls"],
+      "extensions": [".tm.hcl"]
+    }
+  }
+}

@@ -96,11 +96,12 @@ cnoremap <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
 lua <<EOT
 vim.lsp.enable({
     -- 'ansible_language_server',
+    -- 'biome',
     'golangci_lint_langserver',
     'gopls',
-    -- 'terraform_ls',
-    -- 'terramate_ls',
-    -- 'tflint',
+    'terraform_ls',
+    'terramate_ls',
+    'tflint',
     -- 'yaml_language_server',
 })
 
