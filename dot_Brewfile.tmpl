@@ -20,6 +20,8 @@ brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
 cask 'codex', require_sha: true
+brew 'container', restart_service: :always
+brew 'container-compose'
 brew 'coreutils'
 brew 'd2'
 brew 'diffutils'
@@ -162,11 +164,12 @@ end
 
 if '{{ .where }}' == 'work'
   cask '1password', greedy: true, require_sha: true
-  brew 'amazon-ecs-cli'
+  # brew 'amazon-ecs-cli'
   cask 'aws-vpn-client', greedy: true, require_sha: true
   cask 'coderabbit', require_sha: true
   # cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   # brew 'gradle'
+  brew 'liquibase'
   cask 'logitech-camera-settings', appdir: '~/Applications', require_sha: true
   # brew 'mysql-client@8.0'
   # brew 'openjdk'
