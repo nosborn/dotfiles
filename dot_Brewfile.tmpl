@@ -19,7 +19,6 @@ cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
-cask 'codex', require_sha: true
 brew 'container', restart_service: :always
 brew 'container-compose'
 brew 'coreutils'
@@ -143,8 +142,14 @@ if '{{ .where }}' == 'home'
   brew 'cvs'
   brew 'flyctl'
   brew 'git-crypt'
+  brew 'helm'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
+  brew 'kubecolor'
+  brew 'kubectx'
+  brew 'kubernetes-cli'
+  brew 'kustomize'
+  brew 'mcp-server-kubernetes'
   cask 'mullvad-vpn', require_sha: true
   cask 'oversight', require_sha: true
   brew 'perl'
@@ -167,6 +172,7 @@ if '{{ .where }}' == 'work'
   # brew 'amazon-ecs-cli'
   cask 'aws-vpn-client', greedy: true, require_sha: true
   cask 'coderabbit', require_sha: true
+  cask 'codex', require_sha: true
   # cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
   # brew 'gradle'
   brew 'liquibase'

@@ -223,9 +223,9 @@ disabled = true
 [kotlin]
 disabled = true
 
-# [kubernetes]
-# disabled = false
-# format = '\[[$symbol$context( \($namespace\))]($style)\]'
+[kubernetes]
+disabled = false
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
 # [kubernetes.context_aliases]
 
