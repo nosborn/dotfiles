@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-tap 'anomalyco/tap'
 tap 'hashicorp/tap'
 
 cask_args adopt: true
 
 brew 'actionlint'
-brew 'anomalyco/tap/opencode'
 brew 'ansible'
 brew 'ansible-language-server'
 brew 'ansible-lint'
@@ -135,6 +133,7 @@ brew 'zsh-syntax-highlighting'
 if '{{ .where }}' == 'home'
   tap 'UpCloudLtd/tap'
 
+  brew 'argocd'
   brew 'b2-tools'
   cask 'calibre', appdir: '~/Applications', require_sha: true
   cask 'claude-code', require_sha: true
@@ -169,6 +168,8 @@ if '{{ .where }}' == 'home'
 end
 
 if '{{ .where }}' == 'work'
+  tap 'sidekickmoney/tap'
+
   cask '1password', greedy: true, require_sha: true
   # brew 'amazon-ecs-cli'
   cask 'aws-vpn-client', greedy: true, require_sha: true
@@ -183,6 +184,7 @@ if '{{ .where }}' == 'work'
   # brew 'poetry'
   # brew 'postgresql@14'
   # brew 'postgresql@15'
+  brew 'skm-cli'
   cask 'slack', appdir: '~/Applications', greedy: true, require_sha: true
 end
 
