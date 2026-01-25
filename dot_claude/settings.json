@@ -11,6 +11,9 @@
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
+  },
   "permissions": {
     "deny": [
       "Bash(sudo:*)",
@@ -21,9 +24,18 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
-  "spinnerTipsEnabled": false,
-  "feedbackSurveyState": {
-    "lastShownTime": 1754056529971
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": [
+      "docker"
+    ]
   },
-  "alwaysThinkingEnabled": true
+  "showTurnDurationMessages": false,
+  "spinnerTipsEnabled": false,
+  "statusLine": {
+    "command": "~/.claude/statusline.sh",
+    "padding": 0,
+    "type": "command"
+  },
+  "terminalProgressBarEnabled": true
 }

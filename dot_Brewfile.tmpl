@@ -151,6 +151,8 @@ if '{{ .where }}' == 'home'
   brew 'kubectx'
   brew 'kubernetes-cli'
   brew 'kustomize'
+  cask 'lens', appdir: '~/Applications', require_sha: true
+  brew 'linkerd'
   brew 'mcp-server-kubernetes'
   cask 'mullvad-vpn', require_sha: true
   cask 'oversight', require_sha: true
@@ -158,6 +160,7 @@ if '{{ .where }}' == 'home'
   brew 'perltidy'
   brew 'qemu'
   brew 'scw'
+  brew 'sops'
   # brew 'tintin'
   brew 'upcloud-cli'
   brew 'vultr'
