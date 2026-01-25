@@ -64,7 +64,6 @@
 
 [fetch]
 	all = true
-	; fsckobjects = true
 	prune = true
 	pruneTags = true
 
@@ -74,8 +73,8 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
-; [grep]
-; 	patternType = "extended"
+[help]
+	autoCorrect = never
 
 [init]
 	defaultBranch = main
@@ -105,9 +104,6 @@
 	; missingCommitsCheck = warn
 	updateRefs = true
 
-; [receive]
-; 	fsckObjects = true
-
 [rerere]
 	autoupdate = true
 	enabled = true
@@ -121,9 +117,6 @@
 	gpgSign = true
 {{- end }}
 	sort = version:refname
-
-; [transfer]
-; 	fsckobjects = true
 
 [url "https://github.com/"]
 	insteadOf = git@github.com:
@@ -144,4 +137,4 @@
 	path = safe.inc
 {{- end }}
 
-; vim: ft=gitconfig.gohtmltmpl
+; vim: noet ft=gitconfig.gohtmltmpl sw=8 ts=8
