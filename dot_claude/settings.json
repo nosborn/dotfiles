@@ -20,7 +20,8 @@
       "Read(**/.env)",
       "Read(**/.env.*)",
       "Read(**/.envrc)",
-      "Read(**/.envrc.*)"
+      "Read(**/.envrc.*)",
+      "Read(**/.vault_password)"
     ],
     "disableBypassPermissionsMode": "disable"
   },
