@@ -224,6 +224,7 @@ disabled = true
 disabled = true
 
 [kubernetes]
+disabled = false
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
 # [kubernetes.context_aliases]

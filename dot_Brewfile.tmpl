@@ -136,17 +136,20 @@ if '{{ .where }}' == 'home'
   cask 'calibre', appdir: '~/Applications', require_sha: true
   cask 'claude-code', require_sha: true
   brew 'cpanminus'
-  cask 'cryptomator', greedy: true, require_sha: true
   brew 'cvs'
   brew 'flyctl'
   brew 'git-crypt'
+  brew 'helm@3'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
   brew 'immich-cli'
+  brew 'krew'
   brew 'kubecolor'
+  brew 'kubectx'
   brew 'kubernetes-cli'
   brew 'kustomize'
   brew 'linkerd'
+  brew 'mcp-server-kubernetes'
   cask 'mullvad-vpn', require_sha: true
   cask 'oversight', require_sha: true
   brew 'perl'
@@ -158,7 +161,6 @@ if '{{ .where }}' == 'home'
   brew 'vultr'
   # cask 'wine-stable', require_sha: true
   # brew 'winetricks'
-  brew 'wireguard-tools'
   brew 'ykman'
   brew 'yubico-piv-tool'
 end
