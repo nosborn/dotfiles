@@ -1,4 +1,6 @@
 *.bak
+*.local.json
+*.local.md
 *.log
 *.pyc
 *.retry
@@ -51,7 +53,8 @@ VirtualBox VMs
 2.yaml
 3.yaml
 
-**/.claude/settings.local.json
+.claude/settings.local.json
+CLAUDE.local.md
 
 {{- if eq .where "work" }}
 .pre-commit-config.yaml
