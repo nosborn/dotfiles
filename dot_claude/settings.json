@@ -17,6 +17,7 @@
   "permissions": {
     "deny": [
       "Bash(sudo:*)",
+      "Read(**/.age.key.txt)",
       "Read(**/.env)",
       "Read(**/.env.*)",
       "Read(**/.envrc)",

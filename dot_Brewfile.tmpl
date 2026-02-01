@@ -130,6 +130,7 @@ brew 'zsh-syntax-highlighting'
 
 if '{{ .where }}' == 'home'
   tap 'UpCloudLtd/tap'
+  tap 'fluxcd/tap'
 
   brew 'age'
   brew 'argocd'
@@ -140,6 +141,7 @@ if '{{ .where }}' == 'home'
   brew 'cvs'
   brew 'flyctl'
   brew 'git-crypt'
+  brew 'fluxcd/tap/flux'
   brew 'helm@3'
   brew 'hugo'
   cask 'hush', appdir: '~/Applications', require_sha: true
