@@ -42,11 +42,7 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
-if [[ "$OSTYPE" == solaris* ]]; then
-  zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm"
-else
-  zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
-fi
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
 
 # disable named-directories autocompletion
 zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
@@ -74,9 +70,8 @@ expand-or-complete-with-dots() {
   [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti rmam
   print -Pn "%{%F{red}…%f%}"
   [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti smam
-
-  zle expand-or-complete
   zle redisplay
+  zle expand-or-complete
 }
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
