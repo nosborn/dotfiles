@@ -17,6 +17,7 @@ unsetopt flowcontrol
 setopt auto_menu # show completion menu on successive tab press
 setopt complete_in_word
 setopt always_to_end
+LISTMAX=0
 
 zstyle ':completion:*' accept-exact '*(N)'
 
@@ -66,12 +67,10 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 zstyle '*' single-ignored show
 
 expand-or-complete-with-dots() {
-  # toggle line-wrapping off and back on again
-  [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti rmam
-  print -Pn "%{%F{red}…%f%}"
-  [[ -n "$terminfo[rmam]" && -n "$terminfo[smam]" ]] && echoti smam
-  zle redisplay
+  # turn off line wrapping and print the dots, then re-enable wrapping
+  printf '\e[?7l%s\e[?7h' "${(%):-"%F{red}…%f"}"
   zle expand-or-complete
+  zle redisplay
 }
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
