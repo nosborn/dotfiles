@@ -78,9 +78,6 @@ fi
 if (( $+commands[opencode] )); then
   source <("${commands[opencode]}" completion)
 fi
-if (( $+commands[terraform] )); then
-  complete -o nospace -C "${commands[terraform]}" terraform
-fi
 if (( $+commands[terramate] )); then
   complete -o nospace -C "${commands[terramate]}" terramate
 fi
