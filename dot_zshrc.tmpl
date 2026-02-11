@@ -87,15 +87,15 @@ fi
 if (( $+commands[terramate] )); then
   complete -o nospace -C "${commands[terramate]}" terramate
 fi
-if (( $+commands[trivy] )); then
-  source <("${commands[trivy]}" completion zsh)
-fi
-if (( $+commands[upctl] )); then
-  source <("${commands[upctl]}" completion zsh)
-fi
-if (( $+commands[vultr] )); then
-  source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
-fi
+# if (( $+commands[trivy] )); then
+#   source <("${commands[trivy]}" completion zsh)
+# fi
+# if (( $+commands[upctl] )); then
+#   source <("${commands[upctl]}" completion zsh)
+# fi
+# if (( $+commands[vultr] )); then
+#   source <("${commands[vultr]}" completion zsh | sed 's/vultr-cli/vultr/g')
+# fi
 
 export CLICOLOR=1
 export EDITOR=nvim
