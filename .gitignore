@@ -1,8 +1,9 @@
+*.local.json
+*.local.md
 .chezmoidata.*
 .envrc
 .gemini/
 .mypy_cache/
 1
-Claude.local.md
 default.profraw
 node_modules/

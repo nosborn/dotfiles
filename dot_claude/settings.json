@@ -1,10 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
-  "effortLevel": "medium",
   "env": {
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_BUG_COMMAND": "1",
@@ -12,8 +7,9 @@
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754056529971
+  "attribution": {
+    "commit": "",
+    "pr": ""
   },
   "permissions": {
     "deny": [
@@ -27,18 +23,22 @@
     ],
     "disableBypassPermissionsMode": "disable"
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "padding": 0
+  },
   "sandbox": {
     "enabled": true,
     "excludedCommands": [
       "docker"
     ]
   },
-  "showTurnDurationMessages": false,
   "spinnerTipsEnabled": false,
-  "statusLine": {
-    "command": "~/.claude/statusline.sh",
-    "padding": 0,
-    "type": "command"
+  "effortLevel": "medium",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
   },
+  "showTurnDuration": false,
   "terminalProgressBarEnabled": true
 }
