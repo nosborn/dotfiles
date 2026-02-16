@@ -1,15 +1,3 @@
--- require('lint').linters.ajv_yaml = {
---     cmd = 'sh',
---     args = { '-c', 'yq -o=json eval % | ajv validate -s /absolute/path/to/schema.json -d /dev/stdin' },
---     stdin = false,
---     stream = 'stderr',
---     parser = require('lint.parser').from_errorformat('%f: %l:%c %m', {
---         source = 'ajv',
---         severity = vim.diagnostic.severity.ERROR,
---     }),
---     ignore_exitcode = true,
--- }
-
 require('lint').linters.alloy_fmt = {
     cmd = 'alloy',
     args = { 'fmt', '--test', '-' },
@@ -21,38 +9,6 @@ require('lint').linters.alloy_fmt = {
         { severity = vim.diagnostic.severity.ERROR, source = 'alloy_fmt' }
     ),
 }
-
-require('lint').linters.kubeconform = {
-    cmd = 'kubeconform',
-    args = { '-strict', '-ignore-missing-schemas' },
-    stdin = false,
-    stream = 'stdout',
-    parser = require('lint.parser').from_errorformat('%f:%l %m', {
-        source = 'kubeconform',
-        severity = vim.diagnostic.severity.ERROR,
-    }),
-    ignore_exitcode = true,
-}
-
--- local revive = require('lint').linters.revive
--- revive.args = {
---     '-config',
---     vim.fn.getcwd() .. '/.revive.toml',
---     '-formatter',
---     'json',
--- }
-
--- require('lint').linters.spectral_k8s = {
---     cmd = 'spectral',
---     args = { 'lint', '--ruleset', vim.fn.expand('~/.config/spectral/kubernetes.yaml') },
---     stdin = false,
---     stream = 'stdout',
---     parser = require('lint.parser').from_errorformat('%f:%l:%c %m', {
---         source = 'spectral',
---         severity = vim.diagnostic.severity.WARN,
---     }),
---     ignore_exitcode = true,
--- }
 
 -- require('lint').linters.yamale = {
 --     cmd = 'yamale',
@@ -75,7 +31,6 @@ require('lint').linters_by_ft = {
     ghaction = { 'actionlint' },
     html = { 'htmlhint', 'tidy' },
     json = { 'jsonlint' },
-    k8s = { 'kubeconform' },
     lua = { 'luacheck' },
     make = { 'checkmake' },
     markdown = { 'markdownlint' },
