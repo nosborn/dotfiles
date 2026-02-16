@@ -6,7 +6,7 @@ set -o nounset
 command -v nvim >/dev/null 2>&1 || exit 0
 
 nvim -n --headless -c 'KansoCompile' -c 'quit'
-nvim -n --headless -c 'TSUpdateSync' -c 'quit'
+# nvim -n --headless -c 'TSUpdate' -c 'quit'
 nvim -n --headless -c 'helptags ALL' -c 'quit'
 
 for add in ~/.config/nvim/spell/*.add; do
