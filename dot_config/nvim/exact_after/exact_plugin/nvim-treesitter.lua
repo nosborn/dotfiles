@@ -1,184 +1,82 @@
--- require('nvim-treesitter').setup()
---
--- require('nvim-treesitter').install({
---     'awk',
---     'bash',
---     'c',
---     'comment',
---     'cpp',
---     'css',
---     'csv',
---     -- 'd2',
---     'diff',
---     'dockerfile',
---     'editorconfig',
---     -- 'embedded_template',
---     'git_config',
---     'git_rebase',
---     'gitattributes',
---     'gitcommit',
---     'gitignore',
---     'go',
---     'gomod',
---     'gosum',
---     'gotmpl',
---     'gowork',
---     'gpg',
---     'graphql',
---     'hcl',
---     'helm',
---     'html',
---     'http',
---     'ini',
---     'javascript',
---     'jinja',
---     'jinja_inline',
---     'jq',
---     'json',
---     'lua',
---     'luadoc',
---     'make',
---     'markdown',
---     'markdown_inline',
---     'mermaid',
---     'nginx',
---     'pem',
---     'perl',
---     'php',
---     'printf',
---     'properties',
---     'python',
---     'readline',
---     'regex',
---     'rego',
---     'requirements',
---     -- 'river',
---     'robots_txt',
---     'ruby',
---     'sql',
---     'ssh_config',
---     'tcl',
---     'terraform',
---     'toml',
---     'tsv',
---     'typescript',
---     'vim',
---     'vimdoc',
---     'xml',
---     'yaml',
---     'zsh',
--- })
---
--- -- require('nvim-treesitter.configs').setup({
--- --     ensure_installed = {
--- --         'awk',
--- --         'bash',
--- --         'c',
--- --         'comment',
--- --         'cpp',
--- --         'css',
--- --         'csv',
--- --         'diff',
--- --         'dockerfile',
--- --         'dot',
--- --         'editorconfig',
--- --         -- 'embedded_template',
--- --         'git_config',
--- --         'git_rebase',
--- --         'gitattributes',
--- --         'gitcommit',
--- --         'gitignore',
--- --         'go',
--- --         'gomod',
--- --         'gosum',
--- --         'gotmpl',
--- --         'gowork',
--- --         'gpg',
--- --         'graphql',
--- --         'hcl',
--- --         'helm',
--- --         'html',
--- --         'ini',
--- --         'javascript',
--- --         'jq',
--- --         'json',
--- --         'lua',
--- --         'make',
--- --         'markdown',
--- --         'markdown_inline',
--- --         'nginx',
--- --         'perl',
--- --         'python',
--- --         'regex',
--- --         'requirements',
--- --         'ruby',
--- --         'ssh_config',
--- --         'terraform',
--- --         'toml',
--- --         'vim',
--- --         'xml',
--- --         'yaml',
--- --     },
--- --     fold = {
--- --         enable = true,
--- --     },
--- --     highlight = {
--- --         -- additional_vim_regex_highlighting = {
--- --         --     'ruby',
--- --         -- },
--- --         enable = true,
--- --     },
--- --     indent = {
--- --         enable = true,
--- --     },
--- -- })
---
--- -- vim.api.nvim_create_autocmd('User', {
--- --     callback = function()
--- --         require('nvim-treesitter.parsers').zimbu = {
--- --             install_info = {
--- --                 url = 'https://github.com/zimbulang/tree-sitter-zimbu',
--- --                 -- revision = <sha>, -- commit hash for revision to check out; HEAD if missing
--- --                 -- optional entries:
--- --                 branch = 'develop', -- only needed if different from default branch
--- --                 location = 'parser', -- only needed if the parser is in subdirectory of a "monorepo"
--- --                 generate = true, -- only needed if repo does not contain pre-generated `src/parser.c`
--- --                 generate_from_json = false, -- only needed if repo does not contain `src/grammar.json` either
--- --                 queries = 'queries/neovim', -- also install queries from given directory
--- --             },
--- --         }
--- --     end,
--- --     pattern = 'TSUpdate',
--- -- })
---
--- vim.api.nvim_create_autocmd('User', {
---     callback = function()
---         require('nvim-treesitter.parsers').d2 = {
---             install_info = {
---                 url = 'https://github.com/pleshevskiy/tree-sitter-d2', -- FIXME: archived
---             },
---         }
---     end,
---     pattern = 'TSUpdate',
--- })
---
--- vim.api.nvim_create_autocmd('User', {
---     callback = function()
---         require('nvim-treesitter.parsers').river = {
---             install_info = {
---                 url = 'https://github.com/grafana/tree-sitter-river.git', -- FIXME: archived
---             },
---         }
---     end,
---     pattern = 'TSUpdate',
--- })
---
--- -- require('nvim-treesitter.parsers').get_parser_configs().river = {
--- --     install_info = {
--- --         branch = 'main',
--- --         files = { 'src/parser.c' },
--- --         generate_requires_npm = false,
--- --         requires_generate_from_grammar = false,
--- --         url = 'https://github.com/grafana/tree-sitter-river.git', -- FIXME: archived
--- --     },
--- -- }
+require('nvim-treesitter.configs').setup({
+    ensure_installed = {
+        'awk',
+        'bash',
+        'c',
+        'comment',
+        'cpp',
+        'css',
+        'csv',
+        'diff',
+        'dockerfile',
+        'dot',
+        'editorconfig',
+        -- 'embedded_template',
+        'git_config',
+        'git_rebase',
+        'gitattributes',
+        'gitcommit',
+        'gitignore',
+        'go',
+        'gomod',
+        'gosum',
+        'gotmpl',
+        'gowork',
+        'gpg',
+        'graphql',
+        'hcl',
+        'helm',
+        'html',
+        'ini',
+        'javascript',
+        'jq',
+        'json',
+        'lua',
+        'make',
+        'markdown',
+        'markdown_inline',
+        'nginx',
+        'perl',
+        'python',
+        'regex',
+        'requirements',
+        'ruby',
+        'ssh_config',
+        'terraform',
+        'toml',
+        'vim',
+        'xml',
+        'yaml',
+    },
+    fold = {
+        enable = true,
+    },
+    highlight = {
+        -- additional_vim_regex_highlighting = {
+        --     'ruby',
+        -- },
+        enable = true,
+    },
+    indent = {
+        enable = true,
+    },
+})
+
+require('nvim-treesitter.parsers').get_parser_configs().d2 = {
+    filetype = 'd2',
+    install_info = {
+        files = { 'src/parser.c', 'src/scanner.cc' },
+        revision = 'main',
+        url = 'https://github.com/pleshevskiy/tree-sitter-d2', -- FIXME: archived
+    },
+}
+
+require('nvim-treesitter.parsers').get_parser_configs().river = {
+    install_info = {
+        branch = 'main',
+        files = { 'src/parser.c' },
+        generate_requires_npm = false,
+        requires_generate_from_grammar = false,
+        url = 'https://github.com/grafana/tree-sitter-river.git', -- FIXME: archived
+    },
+}

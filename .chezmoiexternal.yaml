@@ -4,78 +4,90 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/cappyzawa/trim.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/kevinhwang91/start/nvim-ufo:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/kevinhwang91/nvim-ufo.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/kevinhwang91/start/promise-async: # required by nvim-ufo
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/kevinhwang91/promise-async.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/mfussenegger/start/nvim-lint:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/mfussenegger/nvim-lint.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/nvim-lua/start/plenary.nvim: # general dependency
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-lua/plenary.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/nvim-lualine/start/lualine.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-lualine/lualine.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/nvim-mini/start/mini.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-mini/mini.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-treesitter/nvim-treesitter.git
-  clone.args: &treesitter_clone_args
-    - --branch=main
-  pull.args:
-    - --force
+  clone: &nvim_treesitter_clone
+    args:
+      - --branch=master
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-  clone.args: *treesitter_clone_args
-  pull.args:
-    - --force
+  clone: *nvim_treesitter_clone
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/stevearc/start/conform.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/stevearc/conform.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
 
 .config/nvim/pack/webhooked/start/kanso.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/webhooked/kanso.nvim.git
-  pull.args:
-    - --force
+  pull:
+    args:
+      - --force
