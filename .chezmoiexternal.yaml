@@ -62,7 +62,8 @@
   url: https://github.com/nvim-treesitter/nvim-treesitter.git
   clone: &nvim_treesitter_clone
     args:
-      - --branch=master
+      - --branch=master # TODO: main
+      - --single-branch
   pull:
     args:
       - --force
