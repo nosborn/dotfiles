@@ -6,7 +6,9 @@ return {
     filetypes = {
         'terramate',
     },
-    root_markers = {
+    root_markers = { -- order is significant
+        'stack.tm.hcl',
+        '.terraform',
         '.git',
     },
 }

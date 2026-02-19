@@ -19,9 +19,10 @@ return {
         'terraform',
     },
     root_markers = {
-        '.git',
-        '.terraform',
+        'stack.tm.hcl',
         '.tflint.hcl',
+        '.terraform',
+        '.git',
     },
     -- Aggressive cleanup for tflint's poor shutdown behavior
     detached = false, -- Run in same process group as nvim for automatic cleanup

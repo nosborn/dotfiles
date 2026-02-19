@@ -3,6 +3,7 @@ return {
     cmd = {
         'terraform-ls',
         'serve',
+        '-log-file=/dev/null',
     },
     filetypes = {
         'terraform',
@@ -19,8 +20,9 @@ return {
             },
         },
     },
-    root_markers = {
-        '.git',
+    root_markers = { -- order is significant
+        'stack.tm.hcl',
         '.terraform',
+        '.git',
     },
 }
