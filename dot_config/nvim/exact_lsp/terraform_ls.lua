@@ -11,7 +11,12 @@ return {
     init_options = {
         experimentalFeatures = {
             prefillRequiredFields = true,
-            validateOnSave = true,
+        },
+        indexing = {
+            ignoreDirectoryNames = {
+                '.github',
+                'builds',
+            },
         },
     },
     root_markers = {
