@@ -13,15 +13,19 @@
   },
   "permissions": {
     "deny": [
-      "Bash(sudo:*)",
+      "Bash(git push *)",
+      "Bash(sudo *)",
+      "Read(**/*.pem)",
       "Read(**/.age.key.txt)",
+      "Read(**/.aws/**)",
       "Read(**/.env)",
       "Read(**/.env.*)",
       "Read(**/.envrc)",
       "Read(**/.envrc.*)",
+      "Read(**/.gnupg/**)",
+      "Read(**/.ssh/**)",
       "Read(**/.vault_password)"
-    ],
-    "disableBypassPermissionsMode": "disable"
+    ]
   },
   "statusLine": {
     "type": "command",
