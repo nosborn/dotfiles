@@ -12,7 +12,6 @@ brew 'awscli'
 brew 'bat'
 brew 'bfg'
 brew 'black'
-cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
 brew 'checkmake'
 brew 'chezmoi'
 brew 'clang-format'
@@ -177,6 +176,7 @@ if '{{ .where }}' == 'work'
   cask '1password', greedy: true, require_sha: true
   # brew 'amazon-ecs-cli'
   cask 'aws-vpn-client', greedy: true, require_sha: true
+  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
   cask 'coderabbit', require_sha: true
   cask 'codex', require_sha: true
   # cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
