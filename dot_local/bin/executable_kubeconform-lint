@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -euo inherit_errexit
+
+if [[ $# -ne 1 ]]; then
+  printf 'Usage: %s <file>\n' "$0" >&2
+  exit 1
+fi
+
+file="$1"
+
+# Convert a JSON pointer (/spec/replicas) to a yq path (.spec.replicas)
+# Array indices (/containers/0/image) become bracket notation ([0])
+json_ptr_to_yq() {
+  printf '%s\n' "$1" | awk -F/ '{
+    result = ""
+    for (i = 2; i <= NF; i++) {
+      if ($i ~ /^[0-9]+$/) {
+        result = result "[" $i "]"
+      } else {
+        result = result "." $i
+      }
+    }
+    print result
+  }'
+}
+
+kubeconform -output json -strict -- "${file}" |
+  jq -r '.resources[]
+      | select(.status == "statusInvalid")
+      | . as $r
+      | .validationErrors[]
+      | [$r.name, $r.kind, .path, .msg]
+      | @tsv' |
+  while IFS=$(printf '\t') read -r name kind path msg; do
+    extra=$(printf '%s' "${msg}" | sed -n "s/additional properties '\(.*\)' not allowed/\1/p")
+    adjust=1
+    if [[ -n "${extra}" ]]; then
+      path="${path}/${extra}"
+      adjust=0
+    fi
+    yq_path=$(json_ptr_to_yq "${path}")
+    line=$(yq "select(.metadata.name == \"${name}\" and .kind == \"${kind}\") | ${yq_path} | line" "${file}" | head -1)
+    if [[ -n "${line}" ]]; then
+      line=$((line + adjust))
+    else
+      line=1
+    fi
+    printf '%s:%d:1: %s\n' "${file}" "${line}" "${msg}"
+  done

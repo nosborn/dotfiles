@@ -9,7 +9,3 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal colorcolumn< commentstring< expandtab< shiftwidth< tabstop<'
 endif
-
-" let b:ale_linters = [
-"       \   'language_server'
-"       \ ]

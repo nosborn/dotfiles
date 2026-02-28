@@ -95,14 +95,14 @@ cnoremap <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
 
 lua <<EOT
 vim.lsp.enable({
-    -- 'ansible_language_server',
+    -- 'ansiblels',
     -- 'biome',
-    'golangci_lint_langserver',
+    'golangci_lint_ls',
     'gopls',
     'terraform_ls',
     'terramate_ls',
     'tflint',
-    -- 'yaml_language_server',
+    -- 'yamlls',
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {

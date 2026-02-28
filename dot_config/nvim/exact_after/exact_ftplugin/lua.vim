@@ -8,3 +8,5 @@ if exists('b:undo_ftplugin')
 else
   let b:undo_ftplugin = 'setlocal expandtab< shiftwidth< tabstop< textwidth<'
 endif
+
+lua vim.treesitter.start()

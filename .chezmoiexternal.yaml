@@ -62,20 +62,20 @@
   url: https://github.com/nvim-treesitter/nvim-treesitter.git
   clone: &nvim_treesitter_clone
     args:
-      - --branch=master # TODO: main
+      - --branch=main
       - --single-branch
   pull:
     args:
       - --force
 
-.config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-  clone: *nvim_treesitter_clone
-  pull:
-    args:
-      - --force
+# .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
+#   type: git-repo
+#   refreshPeriod: 24h
+#   url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
+#   clone: *nvim_treesitter_clone
+#   pull:
+#     args:
+#       - --force
 
 .config/nvim/pack/stevearc/start/conform.nvim:
   type: git-repo

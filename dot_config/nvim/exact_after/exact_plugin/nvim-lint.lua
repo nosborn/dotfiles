@@ -22,6 +22,19 @@ require('lint').linters.alloy_fmt = {
 --     ignore_exitcode = true,
 -- }
 
+require('lint').linters.kubeconform = {
+    cmd = 'kubeconform-lint',
+    stdin = false,
+    append_fname = true,
+    args = {},
+    stream = 'stdout',
+    ignore_exitcode = true,
+    parser = require('lint.parser').from_errorformat('%f:%l:%c: %m', {
+        source = 'kubeconform',
+        severity = vim.diagnostic.severity.ERROR,
+    }),
+}
+
 require('lint').linters_by_ft = {
     ansible = { 'ansible_lint' },
     bash = { 'bash' },
@@ -40,6 +53,7 @@ require('lint').linters_by_ft = {
     -- terraform = { 'tflint' },
     vim = { 'vint' },
     yaml = { 'yamllint' },
+    ['yaml.kubernetes'] = { 'kubeconform' },
     zsh = { 'zsh' },
 }
 
