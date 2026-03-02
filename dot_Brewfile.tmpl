@@ -1,194 +1,194 @@
 # frozen_string_literal: true
 
-tap 'hashicorp/tap'
+tap "hashicorp/tap"
 
 cask_args adopt: true
 
-brew 'actionlint'
-brew 'ansible'
-brew 'ansible-language-server'
-brew 'ansible-lint'
-brew 'awscli'
-brew 'bat'
-brew 'bfg'
-brew 'black'
-brew 'checkmake'
-brew 'chezmoi'
-brew 'clang-format'
-brew 'container', restart_service: :always
-brew 'container-compose'
-brew 'coreutils'
-brew 'diffutils'
-brew 'direnv'
-brew 'docker'
-brew 'docker-buildx'
-brew 'docker-credential-helper'
-brew 'docker-credential-helper-ecr'
-brew 'dockerfmt'
-brew 'dos2unix'
-brew 'dotenv-linter'
-brew 'editorconfig-checker'
-brew 'eslint'
-brew 'exiftool'
-brew 'fd'
-brew 'flake8'
-brew 'flock'
-cask 'font-jetbrains-mono', require_sha: true
-cask 'font-symbols-only-nerd-font', require_sha: true
-brew 'fzf'
-brew 'gawk'
-brew 'gh'
-cask 'ghostty', appdir: '~/Applications', greedy: true, require_sha: true
-brew 'git-delta'
-brew 'git-filter-repo'
-brew 'git-lfs'
-brew 'git-trim'
-brew 'github-mcp-server'
-brew 'gitlint'
-brew 'glow'
-brew 'gnu-sed'
-brew 'gnu-tar'
-brew 'go'
-brew 'gopls'
-brew 'gofumpt'
-brew 'goimports'
-brew 'golangci-lint'
-brew 'golangci-lint-langserver'
-cask 'google-analytics-opt-out', require_sha: true
-brew 'gpg2'
-brew 'grafana-alloy'
-brew 'graphviz'
-brew 'gron'
-brew 'hadolint'
-brew 'hashicorp/tap/terraform'
-brew 'hashicorp/tap/terraform-ls'
-brew 'hcl2json'
-brew 'hcledit'
-brew 'htmlhint'
-brew 'iam-policy-json-to-terraform'
-brew 'inetutils'
-brew 'ipcalc'
-brew 'jsonlint'
-brew 'keyring'
-brew 'less'
-brew 'luacheck'
-brew 'luarocks'
-brew 'markdownlint-cli'
-brew 'mermaid-cli'
-brew 'mkdocs-material'
-# cask 'monitorcontrol', appdir: '~/Applications', greedy: true, require_sha: true
-brew 'neovim'
-cask 'orbstack', greedy: true, require_sha: true
-brew 'parallel'
-brew 'pinentry-mac'
-brew 'pipx'
-brew 'pre-commit'
-brew 'prettier'
-brew 'pstree'
-brew 'pwgen'
-brew 'qrencode'
-cask 'rectangle', greedy: true, require_sha: true
-brew 'rg'
-brew 'sf-pwgen'
-brew 'shellcheck'
-brew 'shfmt'
-brew 'socat'
-brew 'starship'
-brew 'stylua'
-brew 'terraform-iam-policy-validator'
-brew 'terraform-mcp-server'
-brew 'terramate'
-brew 'texinfo'
-brew 'tf-summarize'
-brew 'tfclean'
-brew 'tflint'
-brew 'tfupdate'
-brew 'tree-sitter-cli'
-brew 'trivy'
-brew 'trufflehog'
-brew 'typescript'
-cask 'utm', appdir: '~/Applications', require_sha: true
-brew 'uv'
-brew 'vint'
-brew 'virtualenv'
-brew 'watch'
-brew 'wdiff'
-brew 'websocat'
-brew 'wget'
-brew 'yamale'
-brew 'yaml-language-server'
-brew 'yamlfmt'
-brew 'yamllint'
-brew 'yarn'
-brew 'yq'
-brew 'zsh-autosuggestions'
-brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
+brew "actionlint"
+brew "ansible"
+brew "ansible-language-server"
+brew "ansible-lint"
+brew "awscli"
+brew "bat"
+brew "bfg"
+brew "black"
+brew "checkmake"
+brew "chezmoi"
+brew "clang-format"
+brew "container", restart_service: :always
+brew "container-compose"
+brew "coreutils"
+brew "diffutils"
+brew "direnv"
+brew "docker"
+brew "docker-buildx"
+brew "docker-credential-helper"
+brew "docker-credential-helper-ecr"
+brew "dockerfmt"
+brew "dos2unix"
+brew "dotenv-linter"
+brew "editorconfig-checker"
+brew "eslint"
+brew "exiftool"
+brew "fd"
+brew "flake8"
+brew "flock"
+cask "font-jetbrains-mono", require_sha: true
+cask "font-symbols-only-nerd-font", require_sha: true
+brew "fzf"
+brew "gawk"
+brew "gh"
+cask "ghostty", appdir: "~/Applications", greedy: true, require_sha: true
+brew "git-delta"
+brew "git-filter-repo"
+brew "git-lfs"
+brew "git-trim"
+brew "github-mcp-server"
+brew "gitlint"
+brew "glow"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "go"
+brew "gopls"
+brew "gofumpt"
+brew "goimports"
+brew "golangci-lint"
+brew "golangci-lint-langserver"
+cask "google-analytics-opt-out", require_sha: true
+brew "gpg2"
+brew "grafana-alloy"
+brew "graphviz"
+brew "gron"
+brew "hadolint"
+brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform-ls"
+brew "hcl2json"
+brew "hcledit"
+brew "htmlhint"
+brew "iam-policy-json-to-terraform"
+brew "inetutils"
+brew "ipcalc"
+brew "jsonlint"
+brew "keyring"
+brew "less"
+brew "luacheck"
+brew "luarocks"
+brew "markdownlint-cli"
+brew "mermaid-cli"
+brew "mkdocs-material"
+# cask "monitorcontrol", appdir: "~/Applications", greedy: true, require_sha: true
+brew "neovim", args: ["HEAD"]
+cask "orbstack", greedy: true, require_sha: true
+brew "parallel"
+brew "pinentry-mac"
+brew "pipx"
+brew "pre-commit"
+brew "prettier"
+brew "pstree"
+brew "pwgen"
+brew "qrencode"
+cask "rectangle", greedy: true, require_sha: true
+brew "rg"
+brew "sf-pwgen"
+brew "shellcheck"
+brew "shfmt"
+brew "socat"
+brew "starship"
+brew "stylua"
+brew "terraform-iam-policy-validator"
+brew "terraform-mcp-server"
+brew "terramate"
+brew "texinfo"
+brew "tf-summarize"
+brew "tfclean"
+brew "tflint"
+brew "tfupdate"
+brew "tree-sitter-cli"
+brew "trivy"
+brew "trufflehog"
+brew "typescript"
+cask "utm", appdir: "~/Applications", require_sha: true
+brew "uv"
+brew "vint"
+brew "virtualenv"
+brew "watch"
+brew "wdiff"
+brew "websocat"
+brew "wget"
+brew "yamale"
+brew "yaml-language-server"
+brew "yamlfmt"
+brew "yamllint"
+brew "yarn"
+brew "yq"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
-if '{{ .where }}' == 'home'
-  tap 'UpCloudLtd/tap'
-  tap 'fluxcd/tap'
+if "{{ .where }}" == "home"
+  tap "UpCloudLtd/tap"
+  tap "fluxcd/tap"
 
-  brew 'age'
-  brew 'b2-tools'
-  cask 'calibre', appdir: '~/Applications', require_sha: true
-  cask 'claude-code', require_sha: true
-  brew 'cpanminus'
-  brew 'cvs'
-  brew 'flyctl'
-  brew 'git-crypt'
-  brew 'gitea'
-  brew 'fluxcd/tap/flux'
-  brew 'helm@3'
-  brew 'hugo'
-  cask 'hush', appdir: '~/Applications', require_sha: true
-  brew 'immich-cli'
-  brew 'krew'
-  brew 'kubecolor'
-  brew 'kubeconform'
-  brew 'kubectx'
-  brew 'kubernetes-cli'
-  brew 'kustomize'
-  brew 'linkerd'
-  brew 'llmfit'
-  brew 'mcp-server-kubernetes'
-  cask 'mullvad-vpn', require_sha: true
-  cask 'oversight', require_sha: true
-  brew 'perl'
-  brew 'perltidy'
-  brew 'qemu'
-  brew 'scw'
-  brew 'sops'
-  brew 'step'
-  # brew 'tintin'
-  brew 'upcloud-cli'
-  brew 'vultr'
-  # cask 'wine-stable', require_sha: true
-  # brew 'winetricks'
-  brew 'ykman'
-  brew 'yubico-piv-tool'
+  brew "age"
+  brew "b2-tools"
+  cask "calibre", appdir: "~/Applications", require_sha: true
+  cask "claude-code", require_sha: true
+  brew "cpanminus"
+  brew "cvs"
+  brew "flyctl"
+  brew "git-crypt"
+  brew "gitea"
+  brew "fluxcd/tap/flux"
+  brew "helm@3"
+  brew "hugo"
+  cask "hush", appdir: "~/Applications", require_sha: true
+  brew "immich-cli"
+  brew "krew"
+  brew "kubecolor"
+  brew "kubeconform"
+  brew "kubectx"
+  brew "kubernetes-cli"
+  brew "kustomize"
+  brew "linkerd"
+  brew "llmfit"
+  brew "mcp-server-kubernetes"
+  cask "mullvad-vpn", require_sha: true
+  cask "oversight", require_sha: true
+  brew "perl"
+  brew "perltidy"
+  brew "qemu"
+  brew "scw"
+  brew "sops"
+  brew "step"
+  # brew "tintin"
+  brew "upcloud-cli"
+  brew "vultr"
+  # cask "wine-stable", require_sha: true
+  # brew "winetricks"
+  brew "ykman"
+  brew "yubico-piv-tool"
 end
 
-if '{{ .where }}' == 'work'
-  tap 'sidekickmoney/tap'
+if "{{ .where }}" == "work"
+  tap "sidekickmoney/tap"
 
-  cask '1password', greedy: true, require_sha: true
-  # brew 'amazon-ecs-cli'
-  cask 'aws-vpn-client', greedy: true, require_sha: true
-  cask 'chatgpt', appdir: '~/Applications', greedy: true, require_sha: true
-  cask 'coderabbit', require_sha: true
-  cask 'codex', require_sha: true
-  # cask 'google-drive', appdir: '~/Applications', greedy: true, require_sha: true
-  # brew 'gradle'
-  brew 'liquibase'
-  cask 'logitech-camera-settings', appdir: '~/Applications', require_sha: true
-  # brew 'mysql-client@8.0'
-  # brew 'openjdk'
-  # brew 'poetry'
-  # brew 'postgresql@14'
-  # brew 'postgresql@15'
-  brew 'skm-cli'
-  cask 'slack', appdir: '~/Applications', greedy: true, require_sha: true
+  cask "1password", greedy: true, require_sha: true
+  # brew "amazon-ecs-cli"
+  cask "aws-vpn-client", greedy: true, require_sha: true
+  cask "chatgpt", appdir: "~/Applications", greedy: true, require_sha: true
+  cask "coderabbit", require_sha: true
+  cask "codex", require_sha: true
+  # cask "google-drive", appdir: "~/Applications", greedy: true, require_sha: true
+  # brew "gradle"
+  brew "liquibase"
+  cask "logitech-camera-settings", appdir: "~/Applications", require_sha: true
+  # brew "mysql-client@8.0"
+  # brew "openjdk"
+  # brew "poetry"
+  # brew "postgresql@14"
+  # brew "postgresql@15"
+  brew "skm-cli"
+  cask "slack", appdir: "~/Applications", greedy: true, require_sha: true
 end
 
 # vim: ft=ruby.gotmpl
