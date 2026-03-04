@@ -29,9 +29,13 @@ set noswapfile
 set nowrap " Don't visually wrap lines (toggle with \w)
 set number " Show line numbers
 " set pumblend=10 " Make builtin completion menus slightly transparent
-set pumborder=single " Use border in popup menu
+if has('vim-0.12')
+  set pumborder=single " Use border in popup menu
+end
 set pumheight=10 " Make popup menu smaller
-set pummaxwidth=100 " Make popup menu not too wide
+if has('vim-0.12')
+  set pummaxwidth=100 " Make popup menu not too wide
+end
 " set relativenumber
 " set scrolloff=10
 set shiftwidth=2 " Use this number of spaces for indentation

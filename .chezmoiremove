@@ -14,6 +14,7 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .config/direnv/direnvrc
 .config/git/config.*
 .config/http-prompt/
+.config/opencode/
 .config/proselint/
 .config/stylua.toml
 .config/tig/

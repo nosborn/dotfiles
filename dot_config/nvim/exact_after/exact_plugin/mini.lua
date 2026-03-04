@@ -12,38 +12,44 @@ require('mini.bracketed').setup()
 require('mini.bufremove').setup()
 require('mini.cmdline').setup()
 
-local mini_clue = require('mini.clue')
-mini_clue.setup({
+require('mini.clue').setup({
     clues = {
-        mini_clue.gen_clues.builtin_completion(),
-        mini_clue.gen_clues.g(),
-        mini_clue.gen_clues.marks(),
-        mini_clue.gen_clues.registers({ show_contents = true }),
-        mini_clue.gen_clues.windows({ submode_resize = true }),
-        mini_clue.gen_clues.z(),
+        {
+            { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
+            { mode = 'n', keys = '<Leader>e', desc = '+Explore/Edit' },
+            { mode = 'n', keys = '<Leader>f', desc = '+Find' },
+            { mode = 'n', keys = '<Leader>g', desc = '+Git' },
+            { mode = 'n', keys = '<Leader>l', desc = '+Language' },
+            { mode = 'n', keys = '<Leader>m', desc = '+Map' },
+            { mode = 'n', keys = '<Leader>o', desc = '+Other' },
+            { mode = 'n', keys = '<Leader>s', desc = '+Session' },
+            { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
+            { mode = 'n', keys = '<Leader>v', desc = '+Visits' },
+            { mode = 'x', keys = '<Leader>g', desc = '+Git' },
+            { mode = 'x', keys = '<Leader>l', desc = '+Language' },
+        },
+        require('mini.clue').gen_clues.builtin_completion(),
+        require('mini.clue').gen_clues.g(),
+        require('mini.clue').gen_clues.marks(),
+        require('mini.clue').gen_clues.registers(),
+        require('mini.clue').gen_clues.square_brackets(),
+        require('mini.clue').gen_clues.windows({ submode_resize = true }),
+        require('mini.clue').gen_clues.z(),
     },
     triggers = {
-        { mode = 'c', keys = '<C-r>' }, -- Registers
-        { mode = 'i', keys = '<C-r>' }, -- Registers
-        { mode = 'i', keys = '<C-x>' }, -- Built-in completion
-        { mode = 'n', keys = "'" }, -- Marks
-        { mode = 'n', keys = '"' }, -- Registers
-        { mode = 'n', keys = '<C-w>' }, -- window commands
-        { mode = 'n', keys = '<Leader>' }, -- Leader trigger
-        { mode = 'n', keys = '[' }, -- mini.bracketed
+        { mode = { 'n', 'x' }, keys = '<Leader>' }, -- Leader triggers
         { mode = 'n', keys = '\\' }, -- mini.basics
-        { mode = 'n', keys = ']' }, -- mini.bracketed
-        { mode = 'n', keys = '`' }, -- Marks
-        { mode = 'n', keys = 'g' }, -- `g` key
-        { mode = 'n', keys = 'z' }, -- `z` key
-        { mode = 'x', keys = "'" }, -- Marks
-        { mode = 'x', keys = '"' }, -- Registers
-        { mode = 'x', keys = '<Leader>' }, -- Leader trigger
-        { mode = 'x', keys = '[' }, -- mini.bracketed
-        { mode = 'x', keys = ']' }, -- mini.bracketed
-        { mode = 'x', keys = '`' }, -- Marks
-        { mode = 'x', keys = 'g' }, -- `g` key
-        { mode = 'x', keys = 'z' }, -- `z` key
+        { mode = { 'n', 'x' }, keys = '[' }, -- mini.bracketed
+        { mode = { 'n', 'x' }, keys = ']' },
+        { mode = 'i', keys = '<C-x>' }, -- Built-in completion
+        { mode = { 'n', 'x' }, keys = 'g' }, -- `g` key
+        { mode = { 'n', 'x' }, keys = "'" }, -- Marks
+        { mode = { 'n', 'x' }, keys = '`' },
+        { mode = { 'n', 'x' }, keys = '"' }, -- Registers
+        { mode = { 'i', 'c' }, keys = '<C-r>' },
+        { mode = 'n', keys = '<C-w>' }, -- Window commands
+        { mode = { 'n', 'x' }, keys = 's' }, -- `s` key (mini.surround, etc.)
+        { mode = { 'n', 'x' }, keys = 'z' }, -- `z` key
     },
     window = {
         delay = 500,
@@ -57,14 +63,17 @@ require('mini.completion').setup({
     lsp_completion = {
         auto_setup = false,
         process_items = function(items, base)
-            return MiniCompletion.default_process_items(items, base, { kind_priority = { Snippet = 99, Text = -1 } })
+            local opts = { kind_priority = { Text = -1, Snippet = 99 } }
+            return MiniCompletion.default_process_items(items, base, opts)
         end,
         source_func = 'omnifunc',
     },
 })
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('mini-completion-lsp-attach', { clear = true }),
-    callback = function(ev) vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp' end,
+    callback = function(ev)
+        vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    end,
     desc = "Set 'omnifunc'",
 })
 vim.lsp.config('*', {
@@ -74,22 +83,39 @@ vim.lsp.config('*', {
 -- require('mini.cursorword').setup()
 require('mini.diff').setup()
 require('mini.extra').setup()
+
+require('mini.files').setup({
+    windows = {
+        preview = true,
+    },
+})
+vim.api.nvim_create_autocmd('User', {
+    -- luacheck: globals MiniFiles
+    group = vim.api.nvim_create_augroup('mini-completion-lsp-attach', { clear = true }),
+    pattern = 'MiniFilesExplorerOpen',
+    callback = function()
+        -- MiniFiles.set_bookmark('c', vim.fn.stdpath('config'), { desc = 'Config' })
+        -- local minideps_plugins = vim.fn.stdpath('data') .. '/site/pack/deps/opt'
+        -- MiniFiles.set_bookmark('p', minideps_plugins, { desc = 'Plugins' })
+        MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
+    end,
+    desc = 'Add bookmarks',
+})
+
 require('mini.git').setup()
 
-local mini_hipatterns = require('mini.hipatterns')
 require('mini.hipatterns').setup({
     highlighters = {
-        fixme = { group = 'MiniHipatternsFixme', pattern = '%f[%w]()FIXME()%f[%W]' },
-        hack = { group = 'MiniHipatternsHack', pattern = '%f[%w]()HACK()%f[%W]' },
-        hex_color = mini_hipatterns.gen_highlighter.hex_color(),
-        note = { group = 'MiniHipatternsNote', pattern = '%f[%w]()NOTE()%f[%W]' },
-        todo = { group = 'MiniHipatternsTodo', pattern = '%f[%w]()TODO()%f[%W]' },
+        fixme = require('mini.extra').gen_highlighter.words({ 'FIXME', 'Fixme', 'fixme' }, 'MiniHipatternsFixme'),
+        hack = require('mini.extra').gen_highlighter.words({ 'HACK', 'Hack', 'hack' }, 'MiniHipatternsHack'),
+        todo = require('mini.extra').gen_highlighter.words({ 'TODO', 'Todo', 'todo' }, 'MiniHipatternsTodo'),
+        note = require('mini.extra').gen_highlighter.words({ 'NOTE', 'Note', 'note' }, 'MiniHipatternsNote'),
+
+        hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
     },
 })
 
 -- luacheck: globals MiniIcons
-local icons_ext3_blocklist = { scm = true, txt = true, yml = true }
-local icons_ext4_blocklist = { json = true, yaml = true }
 require('mini.icons').setup({
     file = {
         ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
@@ -99,6 +125,8 @@ require('mini.icons').setup({
         dotenv = { glyph = '', hl = 'MiniIconsYellow' },
     },
     use_file_extension = function(ext, _)
+        local icons_ext3_blocklist = { scm = true, txt = true, yml = true }
+        local icons_ext4_blocklist = { json = true, yaml = true }
         return not (icons_ext3_blocklist[ext:sub(-3)] or icons_ext4_blocklist[ext:sub(-4)])
     end,
 })
@@ -118,12 +146,31 @@ MiniKeymap.map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
 MiniKeymap.map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
 MiniKeymap.map_multistep('i', '<Tab>', { 'pmenu_next' })
 
+require('mini.map').setup({
+    integrations = {
+        require('mini.map').gen_integration.builtin_search(),
+        require('mini.map').gen_integration.diagnostic(),
+        require('mini.map').gen_integration.diff(),
+    },
+    symbols = {
+        encode = require('mini.map').gen_encode_symbols.dot('4x2'),
+    },
+})
+for _, key in ipairs({ 'n', 'N', '*', '#' }) do
+    local rhs = key
+        -- Also open enough folds when jumping to the next match
+        .. 'zv'
+        .. '<Cmd>lua MiniMap.refresh({}, { lines = false, scrollbar = false })<CR>'
+    vim.keymap.set('n', key, rhs)
+end
+
 -- luacheck: globals MiniMisc
 require('mini.misc').setup()
 MiniMisc.setup_auto_root()
 -- MiniMisc.setup_restore_cursor()
 MiniMisc.setup_termbg_sync()
 
+require('mini.move').setup()
 require('mini.notify').setup()
 -- require('mini.pairs').setup()
 
@@ -155,6 +202,8 @@ vim.keymap.set('n', '<Leader>fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', {
 vim.keymap.set('n', '<Leader>fv', '<Cmd>Pick visit_paths cwd=""<CR>', { desc = 'Visit paths (all)' })
 vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit paths (cwd)' })
 
+-- require('mini.sessions').setup()
+
 -- -- luacheck: globals MiniSnippets
 -- require('mini.snippets').setup({
 --     -- snippets = {
@@ -172,6 +221,9 @@ vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit p
 --     -- },
 -- })
 -- MiniSnippets.start_lsp_server()
+
+require('mini.splitjoin').setup()
+-- require('mini.starter').setup()
 
 -- -- luacheck: globals MiniStatusline
 -- require('mini.statusline').setup({
@@ -200,5 +252,5 @@ vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit p
 --     },
 -- })
 
--- require('mini.tabline').setup()
+require('mini.tabline').setup()
 require('mini.visits').setup()

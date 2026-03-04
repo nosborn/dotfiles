@@ -1,6 +1,6 @@
 require('nvim-treesitter').setup()
 
-require('nvim-treesitter').install({
+vim.g.treesitter_languages = {
     'awk',
     'bash',
     'c',
@@ -67,36 +67,17 @@ require('nvim-treesitter').install({
     'yaml',
     'zig',
     'zsh',
-}, {
-    max_jobs = 1,
-})
+}
 
+local filetypes = {}
+for _, lang in ipairs(vim.g.treesitter_languages) do
+    for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+        table.insert(filetypes, ft)
+    end
+end
 vim.api.nvim_create_autocmd('FileType', {
     callback = function() vim.treesitter.start() end,
-    pattern = {
-        'c',
-        'cpp',
-        'gitattributes',
-        'gitcommit',
-        'gitconfig',
-        'gitignore',
-        'go',
-        'gomod',
-        'hcl',
-        'java',
-        'javascript',
-        'json',
-        'markdown',
-        'perl',
-        'python',
-        'requirements',
-        'sh',
-        'sshconfig',
-        'terraform',
-        'terraform-vars',
-        'yaml',
-        'zsh',
-    },
+    pattern = filetypes,
 })
 
 -- require('nvim-treesitter.parsers').get_parser_configs().river = {

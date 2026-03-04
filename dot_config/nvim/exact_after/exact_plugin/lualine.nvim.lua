@@ -22,7 +22,4 @@ require('lualine').setup({
         },
         lualine_x = { 'diagnostics', 'filetype', fileinfo },
     },
-    tabline = {
-        lualine_a = { 'buffers' },
-    },
 })
