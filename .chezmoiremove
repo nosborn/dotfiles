@@ -41,6 +41,7 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .shellcheckrc
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
+.zprofile
 .zsh/
 .zsh_history
 .zsh_sessions/
