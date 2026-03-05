@@ -1,3 +1,4 @@
+*.local.md
 *.log
 /AGENTS.md
 /CLAUDE.md
