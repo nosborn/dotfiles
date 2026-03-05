@@ -1,61 +1,75 @@
 scriptencoding utf-8
 
-" let g:mapleader = ' '
+lua <<EOT
+-- vim.g.mapleader = ' '
 
-set autoindent " Use auto indent
-set breakindent " Indent wrapped lines to match line start
-set breakindentopt=list:-1 " Add padding for lists (if 'wrap' is set)
-" set clipboard=unnamed,unnamedplus
-set colorcolumn=+1 " Draw column on the right of maximum width
-set complete=.,w,b,kspell " Use less sources
-set completeopt=menuone,noselect,fuzzy,nosort " Use custom behavior
-set cursorline " Enable current line highlighting
-set cursorlineopt=screenline,number " Show cursor line per screen line
-set expandtab " Convert tabs to spaces
-set foldenable
-set foldlevelstart=99
-set formatoptions=rqnl1j " Improve comment editing
-set guicursor=n-v-i-c:block-Cursor
-set ignorecase " Ignore case during search
-set incsearch " Show search matches while typing
-set infercase " Infer case in built-in completion
-set linebreak " Wrap lines at 'breakat' (if 'wrap' is set)
-set list " Show helpful text indicators
-set listchars=tab:⇥\ ,extends:…,precedes:…,nbsp:␣
-set mouse=
-set noruler " Don't show cursor coordinates
-set noshowmode " Don't show mode in command line
-set noswapfile
-set nowrap " Don't visually wrap lines (toggle with \w)
-set number " Show line numbers
-" set pumblend=10 " Make builtin completion menus slightly transparent
-if has('vim-0.12')
-  set pumborder=single " Use border in popup menu
-end
-set pumheight=10 " Make popup menu smaller
-if has('vim-0.12')
-  set pummaxwidth=100 " Make popup menu not too wide
-end
-" set relativenumber
-" set scrolloff=10
-set shiftwidth=2 " Use this number of spaces for indentation
-set shortmess=CFOSWaco " Disable some built-in completion messages
-set signcolumn=yes " Always show signcolumn (less flicker)
-set smartcase " Respect case if search pattern has upper case
-set smartindent " Make indenting smart
-" set spelllang=en_gb
-set spelloptions=camel " Treat camelCase word parts as separate words
-set splitbelow " Horizontal splits will be below
-set splitkeep=screen " Reduce scroll during window split
-set splitbelow " Horizontal splits should be below
-set switchbuf=usetab " Use already opened buffers when switching
-set tabstop=2 " Show tab as this number of spaces
-set textwidth=80
-" set updatetime=1000
-set virtualedit=block " Allow going past end of line in blockwise mode
-" set winblend=10 " Make floating windows slightly transparent
-set winborder=single " Use border in floating windows
-set winhighlight=NormalNC:CursorLine
+vim.o.autoindent = true -- Use auto indent
+vim.o.breakindent = true -- Indent wrapped lines to match line start
+vim.o.breakindentopt = 'list:-1' -- Add padding for lists (if 'wrap' is set)
+vim.o.colorcolumn = '+1' -- Draw column on the right of maximum width
+vim.o.complete = '.,w,b,kspell' -- Use less sources
+vim.o.completeopt = 'fuzzy,menuone,noselect,nosort' -- Use custom behavior
+vim.o.cursorline = true -- Enable current line highlighting
+vim.o.cursorlineopt = 'screenline,number' -- Show cursor line per screen line
+vim.o.expandtab = true -- Convert tabs to spaces
+vim.o.foldlevel = 10 -- Fold nothing by default; set to 0 or 1 to fold
+vim.o.foldmethod = 'indent' -- Fold based on indent level
+vim.o.foldnestmax = 10 -- Limit number of fold levels
+vim.o.foldtext = '' -- Show text under fold with its highlighting
+vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+vim.o.formatoptions = 'rqnl1j' -- Improve comment editing
+vim.o.guicursor = 'n-v-i-c:block-Cursor'
+vim.o.ignorecase = true -- Ignore case during search
+vim.o.incsearch = true -- Show search matches while typing
+vim.o.infercase = true -- Infer case in built-in completion
+vim.o.iskeyword = '@,48-57,_,192-255,-' -- Treat dash as `word` textobject part
+vim.o.linebreak = true -- Wrap lines at 'breakat' (if 'wrap' is set)
+vim.o.list = true -- Show helpful text indicators
+vim.o.listchars = 'tab:⇥ ,extends:…,precedes:…,nbsp:␣'
+vim.o.mouse = 'a' -- Enable mouse
+vim.o.mousescroll = 'ver:25,hor:6' -- Customize mouse scroll
+vim.o.number = true -- Show line numbers
+-- vim.o.pumborder = 'single' -- Use border in popup menu
+vim.o.pumheight = 10 -- Make popup menu smaller
+-- vim.o.pummaxwidth = 100 -- Make popup menu not too wide
+vim.o.ruler = false -- Don't show cursor coordinates
+vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
+vim.o.shiftwidth = 2 -- Use this number of spaces for indentation
+vim.o.shortmess = 'CFOSWaco' -- Disable some built-in completion messages
+vim.o.showmode = false -- Don't show mode in command line
+vim.o.signcolumn = 'yes' -- Always show signcolumn (less flicker)
+vim.o.smartcase = true -- Respect case if search pattern has upper case
+vim.o.smartindent = true -- Make indenting smart
+-- vim.o.spelllang = 'en_gb'
+vim.o.spelloptions = 'camel' -- Treat camelCase word parts as separate words
+vim.o.splitbelow = true -- Horizontal splits will be below
+vim.o.splitkeep = 'screen' -- Reduce scroll during window split
+vim.o.splitbelow = true -- Horizontal splits should be below
+vim.o.swapfile = false
+vim.o.switchbuf = 'usetab' -- Use already opened buffers when switching
+vim.o.tabstop = 2 -- Show tab as this number of spaces
+vim.o.textwidth = 80
+vim.o.undofile = false -- Disable persistent undo
+vim.o.virtualedit = 'block' -- Allow going past end of line in blockwise mode
+vim.o.winborder = 'single' -- Use border in floating windows
+vim.o.winhighlight = 'NormalNC:CursorLine'
+vim.o.wrap = false -- Don't visually wrap lines (toggle with \w)
+EOT
+
+lua <<EOT
+vim.cmd('filetype plugin indent on')
+if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
+EOT
+
+lua <<EOT
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    vim.cmd('setlocal formatoptions-=c formatoptions-=o')
+  end,
+  desc = "Proper 'formatoptions'",
+  group = vim.api.nvim_create_augroup('custom-config', {}),
+})
+EOT
 
 let g:health = {'style': 'float'}
 let g:loaded_perl_provider = 0
@@ -105,8 +119,8 @@ vim.lsp.enable({
     -- 'biome',
     'golangci_lint_ls',
     'gopls',
-    'terraform_ls',
-    'terramate_ls',
+    'terraformls',
+    'terramatels',
     'tflint',
     -- 'yamlls',
 })
@@ -204,6 +218,7 @@ vim.diagnostic.config({
             min = 'HINT',
         },
     },
+    update_in_insert = false,
     virtual_lines = false,
     virtual_text = {
         current_line = true,

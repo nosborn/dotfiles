@@ -15,6 +15,7 @@ brew "black"
 brew "checkmake"
 brew "chezmoi"
 brew "clang-format"
+cask "claude-code", require_sha: true
 brew "container", restart_service: :always
 brew "container-compose"
 brew "coreutils"
@@ -130,7 +131,6 @@ if "{{ .where }}" == "home"
   brew "age"
   brew "b2-tools"
   cask "calibre", appdir: "~/Applications", require_sha: true
-  cask "claude-code", require_sha: true
   brew "cpanminus"
   brew "cvs"
   brew "flyctl"
