@@ -17,6 +17,23 @@ nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>', 'Wipeout')
 nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
 
 -- e is for 'Explore' and 'Edit'
+local explore_at_file = '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>'
+local explore_quickfix = function()
+    vim.cmd(vim.fn.getqflist({ winid = true }).winid ~= 0 and 'cclose' or 'copen')
+end
+local explore_locations = function()
+    vim.cmd(vim.fn.getloclist(0, { winid = true }).winid ~= 0 and 'lclose' or 'lopen')
+end
+nmap_leader('ed', '<Cmd>lua MiniFiles.open()<CR>', 'Directory')
+nmap_leader('ef', explore_at_file, 'File directory')
+-- nmap_leader('ei', '<Cmd>edit $MYVIMRC<CR>', 'init.lua')
+-- nmap_leader('ek', edit_plugin_file('20_keymaps.lua'), 'Keymaps config')
+-- nmap_leader('em', edit_plugin_file('30_mini.lua'), 'MINI config')
+nmap_leader('en', '<Cmd>lua MiniNotify.show_history()<CR>', 'Notifications')
+-- nmap_leader('eo', edit_plugin_file('10_options.lua'), 'Options config')
+-- nmap_leader('ep', edit_plugin_file('40_plugins.lua'), 'Plugins config')
+nmap_leader('eq', explore_quickfix, 'Quickfix list')
+nmap_leader('eQ', explore_locations, 'Location list')
 
 -- f is for 'Fuzzy Find'
 local pick_added_hunks_buf = '<Cmd>Pick git_hunks path="%" scope="staged"<CR>'
@@ -62,6 +79,16 @@ nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at cursor')
 xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at selection')
 
 -- l is for 'Language'
+nmap_leader('la', '<Cmd>lua vim.lsp.buf.code_action()<CR>', 'Actions')
+nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>', 'Diagnostic popup')
+nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format')
+nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementation')
+nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Hover')
+nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>', 'Rename')
+nmap_leader('lR', '<Cmd>lua vim.lsp.buf.references()<CR>', 'References')
+nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Source definition')
+nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type definition')
+xmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format selection')
 
 -- m is for 'Map'
 nmap_leader('mf', '<Cmd>lua MiniMap.toggle_focus()<CR>', 'Focus (toggle)')
@@ -70,8 +97,16 @@ nmap_leader('ms', '<Cmd>lua MiniMap.toggle_side()<CR>', 'Side (toggle)')
 nmap_leader('mt', '<Cmd>lua MiniMap.toggle()<CR>', 'Toggle')
 
 -- o is for 'Other'
+nmap_leader('or', '<Cmd>lua MiniMisc.resize_window()<CR>', 'Resize to default width')
+nmap_leader('ot', '<Cmd>lua MiniTrailspace.trim()<CR>', 'Trim trailspace')
+nmap_leader('oz', '<Cmd>lua MiniMisc.zoom()<CR>', 'Zoom toggle')
 
 -- s is for 'Session'
+local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
+nmap_leader('sd', '<Cmd>lua MiniSessions.select("delete")<CR>', 'Delete')
+nmap_leader('sn', '<Cmd>lua ' .. session_new .. '<CR>', 'New')
+nmap_leader('sr', '<Cmd>lua MiniSessions.select("read")<CR>', 'Read')
+nmap_leader('sw', '<Cmd>lua MiniSessions.write()<CR>', 'Write current')
 
 -- t is for 'Terminal'
 nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
@@ -80,6 +115,7 @@ nmap_leader('tt', '<Cmd>vertical term<CR>', 'Terminal (vertical)')
 -- v is for 'Visits'
 local make_pick_core = function(cwd, desc)
     return function()
+        -- luacheck: globals MiniExtra MiniVisits
         local sort_latest = MiniVisits.gen_sort.default({ recency_weight = 1 })
         local local_opts = { cwd = cwd, filter = 'core', sort = sort_latest }
         MiniExtra.pickers.visit_paths(local_opts, { source = { name = desc } })
