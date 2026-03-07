@@ -1,1 +1,1 @@
-vim.wo.colorcolumn = ''
+vim.b.miniindentscope_disable = true
