@@ -93,12 +93,6 @@ xnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
 xnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
 
-" Move to window using the <ctrl> hjkl keys
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-
 " Better indenting
 vnoremap < <gv
 vnoremap > >gv
@@ -113,12 +107,11 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " Typing is hard
-cnoremap <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
+" cnoremap <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
 
 lua <<EOT
 vim.lsp.enable({
     -- 'ansiblels',
-    -- 'biome',
     'golangci_lint_ls',
     'gopls',
     'terraformls',
