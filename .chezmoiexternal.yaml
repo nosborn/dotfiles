@@ -1,5 +1,11 @@
 # yamllint disable rule:line-length
 ---
+.local/bin/safehouse:
+  type: file
+  executable: true
+  refreshPeriod: 24h
+  url: https://raw.githubusercontent.com/eugene1g/agent-safehouse/main/dist/safehouse.sh
+
 .config/nvim/pack/cappyzawa/start/trim.nvim:
   type: git-repo
   refreshPeriod: 24h
