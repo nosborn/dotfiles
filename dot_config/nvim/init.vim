@@ -80,6 +80,11 @@ vim.g.loaded_ruby_provider = 0
 vim.g.netrw_banner = 0
 EOT
 
+lua <<EOT
+vim.g['chezmoi#use_external'] = 1
+vim.g['chezmoi#use_tmp_buffer'] = 1
+EOT
+
 " Clear highlights on search
 nnoremap <Esc> <cmd>nohlsearch<CR>
 

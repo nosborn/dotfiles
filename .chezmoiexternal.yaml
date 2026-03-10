@@ -6,6 +6,14 @@
   refreshPeriod: 24h
   url: https://raw.githubusercontent.com/eugene1g/agent-safehouse/main/dist/safehouse.sh
 
+.config/nvim/pack/alker0/start/chezmoi.vim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/alker0/chezmoi.vim.git
+  pull:
+    args:
+      - --force
+
 .config/nvim/pack/cappyzawa/start/trim.nvim:
   type: git-repo
   refreshPeriod: 24h

@@ -18,7 +18,6 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead .yamllint                set filetype=yaml
   autocmd! BufNewFile,BufRead CODEOWNERS               set noexpandtab shiftwidth=8 tabstop=8
   autocmd! BufNewFile,BufRead ansible-lint             set filetype=yaml
-  autocmd! BufNewFile,BufRead dot_editorconfig         set filetype=editorconfig
   autocmd! BufNewFile,BufRead tsconfig.json            set filetype=jsonc
   autocmd! BufNewFile,BufRead unbound.conf.d/*.conf.j2 set noexpandtab shiftwidth=8 tabstop=8
   autocmd! BufNewFile,BufRead unbound.conf.j2          set noexpandtab shiftwidth=8 tabstop=8
