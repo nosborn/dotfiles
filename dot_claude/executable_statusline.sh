@@ -4,6 +4,46 @@
 input="$(cat)"
 readonly input
 
+MODEL="$(echo "${input}" | jq -r '.model.display_name')"
+DIR="$(echo "${input}" | jq -r '.workspace.current_dir')"
+COST="$(echo "${input}" | jq -r '.cost.total_cost_usd // 0')"
+PCT="$(echo "${input}" | jq -r '.context_window.used_percentage // 0' | cut -d. -f1)"
+DURATION_MS="$(echo "${input}" | jq -r '.cost.total_duration_ms // 0')"
+readonly MODEL DIR COST PCT DURATION_MS
+
+readonly CYAN='\033[36m'
+readonly GREEN='\033[32m'
+readonly YELLOW='\033[33m'
+readonly RED='\033[31m'
+readonly RESET='\033[0m'
+
+if [[ "${PCT}" -ge 90 ]]; then
+  BAR_COLOR="${RED}"
+elif [[ "${PCT}" -ge 70 ]]; then
+  BAR_COLOR="${YELLOW}"
+else
+  BAR_COLOR="${GREEN}"
+fi
+readonly BAR_COLOR
+
+readonly FILLED=$((PCT / 10))
+readonly EMPTY=$((10 - FILLED))
+BAR="$(printf "%${FILLED}s" | tr ' ' '█')$(printf "%${EMPTY}s" | tr ' ' '░')"
+readonly BAR
+
+readonly MINS=$((DURATION_MS / 60000))
+readonly SECS=$(((DURATION_MS % 60000) / 1000))
+
+BRANCH=""
+git rev-parse --git-dir &>/dev/null && BRANCH=" | 🌿 $(git branch --show-current 2>/dev/null)"
+readonly BRANCH
+
+echo -e "${CYAN}[${MODEL}]${RESET} 📁 ${DIR##*/}${BRANCH}"
+COST_FMT="$(printf '$%.2f' "${COST}")"
+echo -e "${BAR_COLOR}${BAR}${RESET} ${PCT}% | ${YELLOW}${COST_FMT}${RESET} | ⏱️ ${MINS}m ${SECS}s"
+
+exit
+
 # Extract current directory
 cwd="$(jq -r '.workspace.current_dir' <<<"${input}")"
 current_dir="$(basename "${cwd}")"
