@@ -6,7 +6,7 @@
   refreshPeriod: 24h
   url: https://raw.githubusercontent.com/eugene1g/agent-safehouse/main/dist/safehouse.sh
 
-.config/nvim/pack/alker0/start/chezmoi.vim:
+.local/share/nvim/site/pack/alker0/start/chezmoi.vim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/alker0/chezmoi.vim.git
@@ -14,7 +14,7 @@
     args:
       - --force
 
-.config/nvim/pack/cappyzawa/start/trim.nvim:
+.local/share/nvim/site/pack/cappyzawa/start/trim.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/cappyzawa/trim.nvim.git
@@ -22,7 +22,7 @@
     args:
       - --force
 
-.config/nvim/pack/godlygeek/start/tabular:
+.local/share/nvim/site/pack/godlygeek/start/tabular:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/godlygeek/tabular.git
@@ -30,7 +30,7 @@
     args:
       - --force
 
-.config/nvim/pack/kevinhwang91/start/nvim-ufo:
+.local/share/nvim/site/pack/kevinhwang91/start/nvim-ufo:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/kevinhwang91/nvim-ufo.git
@@ -38,7 +38,7 @@
     args:
       - --force
 
-.config/nvim/pack/kevinhwang91/start/promise-async: # required by nvim-ufo
+.local/share/nvim/site/pack/kevinhwang91/start/promise-async: # required by nvim-ufo
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/kevinhwang91/promise-async.git
@@ -46,7 +46,7 @@
     args:
       - --force
 
-.config/nvim/pack/mfussenegger/start/nvim-lint:
+.local/share/nvim/site/pack/mfussenegger/start/nvim-lint:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/mfussenegger/nvim-lint.git
@@ -54,7 +54,7 @@
     args:
       - --force
 
-.config/nvim/pack/neovim/start/nvim-lspconfig:
+.local/share/nvim/site/pack/neovim/start/nvim-lspconfig:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/neovim/nvim-lspconfig.git
@@ -62,7 +62,7 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-lua/start/plenary.nvim: # general dependency
+.local/share/nvim/site/pack/nvim-lua/start/plenary.nvim: # general dependency
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-lua/plenary.nvim.git
@@ -70,7 +70,7 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-lualine/start/lualine.nvim:
+.local/share/nvim/site/pack/nvim-lualine/start/lualine.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-lualine/lualine.nvim.git
@@ -78,7 +78,7 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-mini/start/mini.nvim:
+.local/share/nvim/site/pack/nvim-mini/start/mini.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-mini/mini.nvim.git
@@ -86,7 +86,7 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
+.local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-treesitter/nvim-treesitter.git
@@ -98,7 +98,7 @@
     args:
       - --force
 
-# .config/nvim/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
+# .local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
 #   type: git-repo
 #   refreshPeriod: 24h
 #   url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
@@ -107,7 +107,7 @@
 #     args:
 #       - --force
 
-.config/nvim/pack/stevearc/start/conform.nvim:
+.local/share/nvim/site/pack/stevearc/start/conform.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/stevearc/conform.nvim.git
@@ -115,7 +115,7 @@
     args:
       - --force
 
-.config/nvim/pack/webhooked/start/kanso.nvim:
+.local/share/nvim/site/pack/webhooked/start/kanso.nvim:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/webhooked/kanso.nvim.git
