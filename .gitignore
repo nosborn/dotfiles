@@ -1,6 +1,7 @@
 *.local.json
 *.local.md
 .chezmoidata.*
+.claude/
 .envrc
 .gemini/
 .mypy_cache/
