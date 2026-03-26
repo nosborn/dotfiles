@@ -1,0 +1,3 @@
+--hidden
+--ignore-file=~/.config/ripgrep/ignore
+--smart-case
