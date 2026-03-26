@@ -122,7 +122,7 @@ vim.lsp.enable({
     'gopls',
     'terraformls',
     'terramatels',
-    'tflint',
+    -- 'tflint',
     -- 'yamlls',
 })
 
