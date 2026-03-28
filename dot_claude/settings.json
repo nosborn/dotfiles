@@ -16,6 +16,10 @@
     "lastShownTime": 1754056529971
   },
   "permissions": {
+    "allow": [
+      "Bash(* --help *)",
+      "Bash(* --version)"
+    ],
     "deny": [
       "Bash(git push *)",
       "Bash(sudo *)",
@@ -36,6 +40,7 @@
     "excludedCommands": [
       "docker"
     ],
+    "failIfUnavailable": true,
     "filesystem": {
       "allowRead": [
         "."
