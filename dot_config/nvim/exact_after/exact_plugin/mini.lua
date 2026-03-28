@@ -76,6 +76,7 @@ nmap_leader('gl', '<Cmd>' .. git_log_cmd .. '<CR>', 'Log')
 nmap_leader('gL', '<Cmd>' .. git_log_buf_cmd .. '<CR>', 'Log buffer')
 nmap_leader('go', '<Cmd>lua MiniDiff.toggle_overlay()<CR>', 'Toggle overlay')
 nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at cursor')
+
 xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at selection')
 
 -- l is for 'Language'
@@ -84,10 +85,12 @@ nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>', 'Diagnostic popup'
 nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format')
 nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementation')
 nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Hover')
+nmap_leader('ll', '<Cmd>lua vim.lsp.codelens.run()<CR>', 'Lens')
 nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>', 'Rename')
 nmap_leader('lR', '<Cmd>lua vim.lsp.buf.references()<CR>', 'References')
 nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Source definition')
 nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type definition')
+
 xmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format selection')
 
 -- m is for 'Map'
@@ -109,8 +112,8 @@ nmap_leader('sr', '<Cmd>lua MiniSessions.select("read")<CR>', 'Read')
 nmap_leader('sw', '<Cmd>lua MiniSessions.write()<CR>', 'Write current')
 
 -- t is for 'Terminal'
-nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 nmap_leader('tt', '<Cmd>vertical term<CR>', 'Terminal (vertical)')
+nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 
 -- v is for 'Visits'
 local make_pick_core = function(cwd, desc)
@@ -123,10 +126,10 @@ local make_pick_core = function(cwd, desc)
 end
 nmap_leader('vc', make_pick_core('', 'Core visits (all)'), 'Core visits (all)')
 nmap_leader('vC', make_pick_core(nil, 'Core visits (cwd)'), 'Core visits (cwd)')
-nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>', 'Add "core" label')
-nmap_leader('vV', '<Cmd>lua MiniVisits.remove_label("core")<CR>', 'Remove "core" label')
 nmap_leader('vl', '<Cmd>lua MiniVisits.add_label()<CR>', 'Add label')
 nmap_leader('vL', '<Cmd>lua MiniVisits.remove_label()<CR>', 'Remove label')
+nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>', 'Add "core" label')
+nmap_leader('vV', '<Cmd>lua MiniVisits.remove_label("core")<CR>', 'Remove "core" label')
 
 require('mini.basics').setup({
     options = {
