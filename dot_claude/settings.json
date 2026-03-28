@@ -1,5 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "effortLevel": "medium",
   "env": {
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_BUG_COMMAND": "1",
@@ -7,9 +12,8 @@
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
-  "attribution": {
-    "commit": "",
-    "pr": ""
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
   },
   "permissions": {
     "deny": [
@@ -27,22 +31,32 @@
       "Read(**/.vault_password)"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "padding": 0
-  },
   "sandbox": {
     "enabled": true,
     "excludedCommands": [
       "docker"
-    ]
-  },
-  "spinnerTipsEnabled": false,
-  "effortLevel": "medium",
-  "feedbackSurveyState": {
-    "lastShownTime": 1754056529971
+    ],
+    "filesystem": {
+      "allowRead": [
+        "."
+      ],
+      "allowWrite": [
+        "."
+      ],
+      "denyRead": [
+        "~/"
+      ],
+      "denyWrite": [
+        "/"
+      ]
+    }
   },
   "showTurnDuration": false,
+  "spinnerTipsEnabled": false,
+  "statusLine": {
+    "command": "~/.claude/statusline.sh",
+    "padding": 0,
+    "type": "command"
+  },
   "terminalProgressBarEnabled": true
 }
