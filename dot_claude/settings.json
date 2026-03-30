@@ -10,7 +10,9 @@
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
-    "DISABLE_TELEMETRY": "1"
+    "DISABLE_TELEMETRY": "1",
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "GIT_CONFIG_NOSYSTEM": "1"
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754056529971
