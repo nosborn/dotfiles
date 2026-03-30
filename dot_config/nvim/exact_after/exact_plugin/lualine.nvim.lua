@@ -1,6 +1,8 @@
 local function fileinfo()
     local result = vim.bo.fileencoding
-    if vim.bo.bomb then result = result .. '[BOM]' end
+    if vim.bo.bomb then
+        result = result .. '[BOM]'
+    end
     result = result .. '[' .. vim.bo.fileformat .. ']'
     return result
 end
@@ -20,6 +22,6 @@ require('lualine').setup({
         lualine_c = {
             { 'filename', path = 1, symbols = { modified = '●', readonly = '' } },
         },
-        lualine_x = { 'diagnostics', 'filetype', fileinfo },
+        lualine_x = { 'diagnostics', 'lsp_status', 'filetype', fileinfo },
     },
 })

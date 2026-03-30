@@ -1,6 +1,3 @@
-scriptencoding utf-8
-
-lua <<EOT
 -- vim.g.mapleader = ' '
 
 vim.o.autoindent = true -- Use auto indent
@@ -55,67 +52,65 @@ vim.o.virtualedit = 'block' -- Allow going past end of line in blockwise mode
 vim.o.winborder = 'single' -- Use border in floating windows
 vim.o.winhighlight = 'NormalNC:CursorLine'
 vim.o.wrap = false -- Don't visually wrap lines (toggle with \w)
-EOT
 
-lua <<EOT
 vim.cmd('filetype plugin indent on')
-if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
-EOT
+if vim.fn.exists('syntax_on') ~= 1 then
+    vim.cmd('syntax enable')
+end
 
-lua <<EOT
 vim.api.nvim_create_autocmd('FileType', {
-  callback = function()
-    vim.cmd('setlocal formatoptions-=c formatoptions-=o')
-  end,
-  desc = "Proper 'formatoptions'",
-  group = vim.api.nvim_create_augroup('custom-config', {}),
+    callback = function()
+        vim.cmd('setlocal formatoptions-=c formatoptions-=o')
+    end,
+    desc = "Proper 'formatoptions'",
+    group = vim.api.nvim_create_augroup('custom-config', {}),
 })
-EOT
 
-lua <<EOT
-vim.g.health = {style = 'float'}
+vim.g.health = { style = 'float' }
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.netrw_banner = 0
-EOT
 
-lua <<EOT
 vim.g['chezmoi#use_external'] = 1
 vim.g['chezmoi#use_tmp_buffer'] = 1
-EOT
 
-" Clear highlights on search
-nnoremap <Esc> <cmd>nohlsearch<CR>
+-- Clear highlights on search
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
-" Better up/down
-nnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
-xnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
-nnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
-xnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
-nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
-xnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
-nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
-xnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
+-- Better up/down
+vim.keymap.set({ 'n', 'x' }, '<Down>', function()
+    return vim.v.count == 0 and 'gj' or 'j'
+end, { expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, '<Up>', function()
+    return vim.v.count == 0 and 'gk' or 'k'
+end, { expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'j', function()
+    return vim.v.count == 0 and 'gj' or 'j'
+end, { expr = true, silent = true })
+vim.keymap.set({ 'n', 'x' }, 'k', function()
+    return vim.v.count == 0 and 'gk' or 'k'
+end, { expr = true, silent = true })
 
-" Better indenting
-vnoremap < <gv
-vnoremap > >gv
+-- Better indenting
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
-" Insert mode
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
-inoremap <C-k> <C-o>C
+-- Insert mode
+vim.keymap.set('i', '<C-a>', '<C-o>^')
+vim.keymap.set('i', '<C-e>', '<C-o>$')
+vim.keymap.set('i', '<C-k>', '<C-o>C')
 
-" Command mode
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+-- Command mode
+vim.keymap.set('c', '<C-a>', '<Home>')
+vim.keymap.set('c', '<C-e>', '<End>')
 
-" Typing is hard
-" cnoremap <expr> w1 getcmdtype() == ':' && getcmdline() == 'w1' ? 'w!' : 'w1'
+-- Typing is hard
+vim.keymap.set('c', 'w1', function()
+    return vim.fn.getcmdtype() == ':' and vim.fn.getcmdline() == 'w1' and 'w!' or 'w1'
+end, { expr = true })
 
-lua <<EOT
 vim.lsp.enable({
     -- 'ansiblels',
     'golangci_lint_ls',
@@ -147,7 +142,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         then
             vim.api.nvim_create_autocmd('BufWritePre', {
                 buffer = args.buf,
-                callback = function() vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 }) end,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+                end,
                 group = vim.api.nvim_create_augroup('lsp-attach', { clear = false }),
             })
         end
@@ -164,7 +161,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
                     local result = vim.lsp.buf_request_sync(args.buf, 'textDocument/codeAction', params, 3000)
                     for _, res in pairs(result or {}) do
                         for _, r in pairs(res.result or {}) do
-                            if r.edit then vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding) end
+                            if r.edit then
+                                vim.lsp.util.apply_workspace_edit(r.edit, client.offset_encoding)
+                            end
                         end
                     end
                 end,
@@ -174,9 +173,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
     group = vim.api.nvim_create_augroup('lsp-attach', {}),
 })
-EOT
 
-lua <<EOT
 require('kanso').setup({
     background = {
         dark = 'zen',
@@ -186,9 +183,7 @@ require('kanso').setup({
     -- foreground = 'saturated',
 })
 vim.cmd('colorscheme kanso')
-EOT
 
-lua <<EOT
 vim.diagnostic.config({
     -- float = {
     --     border = 'rounded',
@@ -209,8 +204,8 @@ vim.diagnostic.config({
         text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
             [vim.diagnostic.severity.HINT] = '󰌶 ',
-            [vim.diagnostic.severity.INFO] = ' ',
-            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.INFO] = ' ',
+            [vim.diagnostic.severity.WARN] = ' ',
         },
     },
     underline = {
@@ -229,9 +224,11 @@ vim.diagnostic.config({
         },
     },
 })
-EOT
 
-augroup highlight-yank
-  autocmd!
-  autocmd TextYankPost * lua vim.hl.on_yank()
-augroup END
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.hl.on_yank()
+    end,
+    group = vim.api.nvim_create_augroup('highlight-yank', {}),
+})

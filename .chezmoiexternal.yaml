@@ -1,11 +1,5 @@
 # yamllint disable rule:line-length
 ---
-.local/bin/safehouse:
-  type: file
-  executable: true
-  refreshPeriod: 24h
-  url: https://raw.githubusercontent.com/eugene1g/agent-safehouse/main/dist/safehouse.sh
-
 .local/share/nvim/site/pack/alker0/start/chezmoi.vim:
   type: git-repo
   refreshPeriod: 24h
@@ -97,15 +91,6 @@
   pull:
     args:
       - --force
-
-# .local/share/nvim/site/pack/nvim-treesitter/start/nvim-treesitter-textobjects:
-#   type: git-repo
-#   refreshPeriod: 24h
-#   url: https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
-#   clone: *nvim_treesitter_clone
-#   pull:
-#     args:
-#       - --force
 
 .local/share/nvim/site/pack/stevearc/start/conform.nvim:
   type: git-repo
