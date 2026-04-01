@@ -42,5 +42,3 @@ rules:
   truthy:
     check-keys: false
     level: error
-
-# vim: ft=yaml
