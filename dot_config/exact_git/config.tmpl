@@ -34,11 +34,6 @@
 	trustctime = false ; play nicely with revisiond
 {{- end }}
 
-[credential]
-{{- if eq .chezmoi.os "darwin" }}
-	helper = osxkeychain
-{{- end }}
-
 [delta]
 	hyperlinks = true
 
@@ -75,9 +70,6 @@
 
 [help]
 	autoCorrect = never
-
-[init]
-	defaultBranch = main
 
 [log]
 	date = human
