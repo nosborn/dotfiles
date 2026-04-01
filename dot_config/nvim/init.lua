@@ -116,8 +116,8 @@ vim.lsp.enable({
     -- 'ansiblels',
     'golangci_lint_ls',
     'gopls',
-    'terraformls',
-    'terramatels',
+    -- 'terraformls',
+    -- 'terramatels',
     -- 'tflint',
     -- 'yamlls',
 })

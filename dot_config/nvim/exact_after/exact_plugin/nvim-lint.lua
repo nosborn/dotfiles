@@ -50,7 +50,7 @@ require('lint').linters_by_ft = {
     perl = { 'perlcritic' },
     river = { 'alloy_fmt' },
     sh = { 'shellcheck' },
-    -- terraform = { 'tflint' },
+    terraform = { 'tflint' },
     vim = { 'vint' },
     yaml = { 'yamllint' },
     ['yaml.kubernetes'] = { 'kubeconform' },
@@ -64,6 +64,8 @@ dotenv_linter.args = { '--no-color', '--not-check-updates', '--quiet' }
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
     group = vim.api.nvim_create_augroup('plugin/lint', { clear = true }),
     callback = function()
-        if vim.bo.modifiable then require('lint').try_lint() end
+        if vim.bo.modifiable then
+            require('lint').try_lint()
+        end
     end,
 })
