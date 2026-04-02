@@ -20,7 +20,8 @@
   "permissions": {
     "allow": [
       "Bash(* --help *)",
-      "Bash(* --version)"
+      "Bash(* --version)",
+      "Bash(shellcheck *)"
     ],
     "deny": [
       "Bash(git push *)",
