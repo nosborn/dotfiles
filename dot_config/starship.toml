@@ -207,8 +207,10 @@ disabled = true
 
 # [hg_branch]
 
-# [hostname]
-# ssh_symbol = ' '
+[hostname]
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold yellow'
+ssh_symbol = '@'
 
 # [hostname.aliases]
 
@@ -358,8 +360,8 @@ disabled = true
 [typst]
 disabled = true
 
-# [username]
-# format = '\[[$user]($style)\]'
+[username]
+disabled = true
 
 [vagrant]
 disabled = true

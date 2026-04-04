@@ -10,3 +10,10 @@
 /package-lock.json
 /package.json
 /requirements.txt
+
+{{- if ne .chezmoi.os "darwin" }}
+.Brewfile
+.editrc
+.local/bin/claude
+Library/*
+{{- end }}

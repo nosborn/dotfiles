@@ -61,10 +61,5 @@
   },
   "showTurnDuration": false,
   "spinnerTipsEnabled": false,
-  "statusLine": {
-    "command": "~/.claude/statusline.sh",
-    "padding": 0,
-    "type": "command"
-  },
   "terminalProgressBarEnabled": true
 }

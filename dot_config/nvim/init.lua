@@ -6,7 +6,9 @@ vim.o.breakindentopt = 'list:-1'
 vim.o.colorcolumn = '+1'
 vim.o.complete = '.,w,b,kspell'
 vim.o.completeopt = 'fuzzy,menuone,noselect,nosort'
-vim.o.completetimeout = 100
+if vim.fn.has('nvim-0.12') == 1 then
+    vim.o.completetimeout = 100
+end
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'screenline,number'
 vim.o.expandtab = true
@@ -28,9 +30,13 @@ vim.o.modeline = false
 vim.o.mouse = 'a'
 vim.o.mousescroll = 'ver:25,hor:6'
 vim.o.number = true
-vim.o.pumborder = 'single'
+if vim.fn.has('nvim-0.12') == 1 then
+    vim.o.pumborder = 'single'
+end
 vim.o.pumheight = 10
-vim.o.pummaxwidth = 100
+if vim.fn.has('nvim-0.12') == 1 then
+    vim.o.pummaxwidth = 100
+end
 vim.o.ruler = false
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
 vim.o.shiftwidth = 2

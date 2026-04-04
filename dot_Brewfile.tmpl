@@ -133,10 +133,12 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 if "{{ .where }}" == "home"
+  tap "Arthur-Ficial/tap"
   tap "UpCloudLtd/tap"
   tap "fluxcd/tap"
 
   brew "age"
+  brew 'Arthur-Ficial/tap/apfel'
   brew "b2-tools"
   cask "calibre", appdir: "~/Applications", require_sha: true
   brew "cpanminus"
@@ -157,7 +159,7 @@ if "{{ .where }}" == "home"
   brew "sops"
   brew "step"
   # brew "tintin"
-  brew "upcloud-cli"
+  brew "UpCloudLtd/tap/upcloud-cli"
   brew "vultr"
   # cask "wine-stable", require_sha: true
   # brew "winetricks"
