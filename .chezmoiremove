@@ -9,6 +9,7 @@ Library/HTTPStorages/com.google.Keystone
 Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .actrc
 .bundle/
+.cache/nvim/catppuccin/
 .config/.curlrc
 .config/.shellcheckrc
 .config/direnv/direnvrc
