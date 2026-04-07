@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+repo=tree-sitter-grammars/tree-sitter-markdown
+if command -v gh &>/dev/null; then
+  tag_name="$(gh api "/repos/${repo}/releases/latest" --jq .tag_name)"
+else
+  tag_name="$(curl -fLsS "https://api.github.com/repos/${repo}/releases/latest" | jq -r .tag_name)"
+fi
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --branch="${tag_name}" --depth=1 "https://github.com/${repo}.git" "${srcdir}"
+
+tree-sitter build --output=markdown_inline.so "${srcdir}/tree-sitter-markdown-inline"
+# mkdir -p ~/.local/share/nvim/site/queries/markdown_inline
+# cp -R "${srcdir}/tree-sitter-markdown-inline/queries/" ~/.local/share/nvim/site/queries/markdown_inline

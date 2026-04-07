@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+repo=tree-sitter-grammars/tree-sitter-printf
+if command -v gh &>/dev/null; then
+  tag_name="$(gh api "/repos/${repo}/releases/latest" --jq .tag_name)"
+else
+  tag_name="$(curl -fLsS "https://api.github.com/repos/${repo}/releases/latest" | jq -r .tag_name)"
+fi
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --branch="${tag_name}" --depth=1 "https://github.com/${repo}.git" "${srcdir}"
+
+tree-sitter build --output=printf.so "${srcdir}"
+# mkdir -p ~/.local/share/nvim/site/queries/printf
+# cp -R "${srcdir}/queries/query/" ~/.local/share/nvim/site/queries/printf

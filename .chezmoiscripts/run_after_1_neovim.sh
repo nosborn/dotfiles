@@ -10,11 +10,6 @@ nvim -n --headless \
   -c 'quit'
 
 nvim -n --headless \
-  -c 'lua require("nvim-treesitter").install(vim.g.treesitter_languages, {max_jobs = 1}):wait()' \
-  -c 'lua require("nvim-treesitter").update():wait()' \
-  -c 'quit'
-
-nvim -n --headless \
   -c 'helptags ALL' \
   -c 'quit'
 

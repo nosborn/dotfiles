@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "effortLevel": "medium",
+  "env": {
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_FEEDBACK_COMMAND": "1",
+{{- if eq .chezmoi.os "darwin" }}
+    "DISABLE_INSTALLATION_CHECKS": "1",
+{{- end }}
+    "DISABLE_TELEMETRY": "1",
+{{- if eq .chezmoi.os "darwin" }}
+    "DISABLE_UPGRADE_COMMAND": "1",
+{{- end }}
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "GIT_CONFIG_NOSYSTEM": "1"
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
+  },
+  "permissions": {
+    "allow": [
+      "Bash(* --help *)",
+      "Bash(* --version)",
+      "Bash(shellcheck *)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash(sudo *)",
+      "Read(**/*.pem)",
+      "Read(**/.age.key.txt)",
+      "Read(**/.aws/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/.envrc)",
+      "Read(**/.envrc.*)",
+      "Read(**/.gnupg/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/.vault_password)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "excludedCommands": [
+      "docker"
+    ],
+    "failIfUnavailable": true,
+    "filesystem": {
+      "allowRead": [
+        "."
+      ],
+      "allowWrite": [
+        "."
+      ],
+      "denyRead": [
+        "~/"
+      ],
+      "denyWrite": [
+        "/"
+      ]
+    }
+  },
+  "showTurnDuration": false,
+  "spinnerTipsEnabled": false,
+  "terminalProgressBarEnabled": true
+}

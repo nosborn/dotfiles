@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+repo=tree-sitter-grammars/tree-sitter-gitattributes
+tag_name=v0.1.6 # no releases
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --branch="${tag_name}" --depth=1 "https://github.com/${repo}.git" "${srcdir}"
+
+tree-sitter build --output=gitattributes.so "${srcdir}"
+# mkdir -p ~/.local/share/nvim/site/queries/gitattributes
+# cp -R "${srcdir}/queries/" ~/.local/share/nvim/site/queries/gitattributes

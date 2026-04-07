@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+repo=tree-sitter-grammars/tree-sitter-gpg-config
+tag_name=v0.2.1 # no releases
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --branch="${tag_name}" --depth=1 "https://github.com/${repo}.git" "${srcdir}"
+
+tree-sitter build --output=gpg_config.so "${srcdir}"
+# mkdir -p ~/.local/share/nvim/site/queries/gpg_config
+# cp -R "${srcdir}/queries/" ~/.local/share/nvim/site/queries/gpg_config

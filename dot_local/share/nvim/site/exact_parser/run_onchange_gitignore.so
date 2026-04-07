@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --depth=1 --revision=f4685bf11ac466dd278449bcfe5fd014e94aa504 \
+  https://github.com/shunsambongi/tree-sitter-gitignore.git "${srcdir}"
+
+tree-sitter build --output=gitignore.so "${srcdir}"
+# mkdir -p ~/.local/share/nvim/site/queries/gitignore
+# cp -R "${srcdir}/queries/" ~/.local/share/nvim/site/queries/gitignore

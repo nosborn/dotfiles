@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+srcdir="$(mktemp -d)"
+trap 'rm -rf "${srcdir}"' EXIT
+git clone --depth=1 --revision=aa71f63de226c5592dfbfc1f29949522d7c95fac \
+  https://github.com/ngalaiko/tree-sitter-go-template.git "${srcdir}"
+
+tree-sitter build --output=gotmpl.so "${srcdir}"
+# mkdir -p ~/.local/share/nvim/site/queries/gotmpl
+# cp -R "${srcdir}/queries/" ~/.local/share/nvim/site/queries/gotmpl
