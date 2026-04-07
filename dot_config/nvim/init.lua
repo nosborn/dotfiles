@@ -22,7 +22,6 @@ vim.o.formatoptions = 'rqnl1j'
 -- vim.o.guicursor = 'n-v-i-c:block-Cursor'
 vim.o.ignorecase = true
 vim.o.incsearch = true
--- vim.o.indentexpr = "v:lua.require('treesitter').indentexpr()"
 vim.o.infercase = true
 vim.o.iskeyword = '@,48-57,_,192-255,-'
 vim.o.linebreak = true
@@ -70,6 +69,7 @@ end
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.cmd('setlocal formatoptions-=c formatoptions-=o')
+        vim.bo.indentexpr = 'v:lua.require("treesitter").indentexpr()'
     end,
     desc = "Proper 'formatoptions'",
     group = vim.api.nvim_create_augroup('custom-config', {}),
