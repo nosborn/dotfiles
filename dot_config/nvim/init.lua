@@ -3,6 +3,7 @@
 vim.o.autoindent = true
 vim.o.breakindent = true
 vim.o.breakindentopt = 'list:-1'
+-- vim.o.cmdheight = 1
 vim.o.colorcolumn = '+1'
 vim.o.complete = '.,w,b,kspell'
 vim.o.completeopt = 'fuzzy,menuone,noselect,nosort'
@@ -133,9 +134,9 @@ vim.lsp.enable({
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/implementation') then
-            -- Create a keymap for vim.lsp.buf.implementation ...
-        end
+        -- if client:supports_method('textDocument/implementation') then
+        --     -- Create a keymap for vim.lsp.buf.implementation ...
+        -- end
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
         if client:supports_method('textDocument/completion') then
             -- Optional: trigger autocompletion on EVERY keypress. May be slow!
@@ -193,16 +194,26 @@ require('kanso').setup({
 })
 vim.cmd('colorscheme kanso')
 
+local _diag_open_float = vim.diagnostic.open_float
+---@diagnostic disable-next-line: duplicate-set-field
+vim.diagnostic.open_float = function(opts, ...)
+    local bufnr, winnr = _diag_open_float(opts, ...)
+    if winnr and vim.api.nvim_win_is_valid(winnr) then
+        vim.wo[winnr].winhighlight = 'Normal:Pmenu,FloatBorder:PmenuBorder'
+    end
+    return bufnr, winnr
+end
+
 vim.diagnostic.config({
-    -- float = {
-    --     border = 'rounded',
-    --     source = 'always',
-    --     width = 100,
-    --     wrap = true,
-    --     format = function(diagnostic)
-    --         return string.format('[%s] %s', diagnostic.source or 'unknown', diagnostic.message)
-    --     end,
-    -- },
+    float = {
+        border = 'single',
+        -- source = 'always',
+        -- width = 100,
+        -- wrap = true,
+        -- format = function(diagnostic)
+        --     return string.format('[%s] %s', diagnostic.source or 'unknown', diagnostic.message)
+        -- end,
+    },
     severity_sort = true,
     signs = {
         priority = 9999,
@@ -241,3 +252,81 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
     group = vim.api.nvim_create_augroup('highlight-yank', {}),
 })
+
+require('vim._core.ui2').enable({
+    enable = true,
+    msg = {
+        cmd = {
+            height = 0.5,
+        },
+        dialog = {
+            height = 0.5,
+        },
+        msg = {
+            height = 0.3,
+            timeout = 5000,
+        },
+        pager = {
+            height = 0.5,
+        },
+        targets = {
+            [''] = 'msg',
+            bufwrite = 'msg',
+            completion = 'cmd',
+            confirm = 'cmd',
+            echo = 'msg',
+            echoerr = 'pager',
+            echomsg = 'msg',
+            empty = 'cmd',
+            emsg = 'pager',
+            list_cmd = 'pager',
+            lua_error = 'pager',
+            lua_print = 'msg',
+            progress = 'pager',
+            quickfix = 'msg',
+            rpc_error = 'pager',
+            search_cmd = 'cmd',
+            search_count = 'cmd',
+            shell_cmd = 'pager',
+            shell_err = 'pager',
+            shell_out = 'pager',
+            shell_ret = 'msg',
+            typed_cmd = 'cmd',
+            undo = 'msg',
+            verbose = 'pager',
+            wildlist = 'cmd',
+            wmsg = 'msg',
+        },
+    },
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function()
+        local ui2 = require('vim._core.ui2')
+        local win = ui2.wins and ui2.wins.msg
+        if win and vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_set_option_value(
+                'winhighlight',
+                'Normal:NormalFloat,FloatBorder:FloatBorder',
+                { scope = 'local', win = win }
+            )
+        end
+    end,
+    pattern = 'msg',
+})
+
+local msgs = require('vim._core.ui2.messages')
+local ui2 = require('vim._core.ui2')
+local orig_set_pos = msgs.set_pos
+msgs.set_pos = function(tgt)
+    orig_set_pos(tgt)
+    if (tgt == 'msg' or tgt == nil) and vim.api.nvim_win_is_valid(ui2.wins.msg) then
+        pcall(vim.api.nvim_win_set_config, ui2.wins.msg, {
+            relative = 'editor',
+            anchor = 'NE',
+            row = 1,
+            col = vim.o.columns - 1,
+            border = 'rounded',
+        })
+    end
+end
