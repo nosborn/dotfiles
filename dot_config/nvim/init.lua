@@ -193,6 +193,7 @@ require('kanso').setup({
     -- foreground = 'saturated',
 })
 vim.cmd('colorscheme kanso')
+-- vim.g.kanso_lualine_bold = 1
 
 local _diag_open_float = vim.diagnostic.open_float
 ---@diagnostic disable-next-line: duplicate-set-field
@@ -253,80 +254,80 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('highlight-yank', {}),
 })
 
-require('vim._core.ui2').enable({
-    enable = true,
-    msg = {
-        cmd = {
-            height = 0.5,
-        },
-        dialog = {
-            height = 0.5,
-        },
-        msg = {
-            height = 0.3,
-            timeout = 5000,
-        },
-        pager = {
-            height = 0.5,
-        },
-        targets = {
-            [''] = 'msg',
-            bufwrite = 'msg',
-            completion = 'cmd',
-            confirm = 'cmd',
-            echo = 'msg',
-            echoerr = 'pager',
-            echomsg = 'msg',
-            empty = 'cmd',
-            emsg = 'pager',
-            list_cmd = 'pager',
-            lua_error = 'pager',
-            lua_print = 'msg',
-            progress = 'pager',
-            quickfix = 'msg',
-            rpc_error = 'pager',
-            search_cmd = 'cmd',
-            search_count = 'cmd',
-            shell_cmd = 'pager',
-            shell_err = 'pager',
-            shell_out = 'pager',
-            shell_ret = 'msg',
-            typed_cmd = 'cmd',
-            undo = 'msg',
-            verbose = 'pager',
-            wildlist = 'cmd',
-            wmsg = 'msg',
-        },
-    },
-})
+-- require('vim._core.ui2').enable({
+--     enable = true,
+--     msg = {
+--         cmd = {
+--             height = 0.5,
+--         },
+--         dialog = {
+--             height = 0.5,
+--         },
+--         msg = {
+--             height = 0.3,
+--             timeout = 5000,
+--         },
+--         pager = {
+--             height = 0.5,
+--         },
+--         targets = {
+--             [''] = 'msg',
+--             bufwrite = 'msg',
+--             completion = 'cmd',
+--             confirm = 'cmd',
+--             echo = 'msg',
+--             echoerr = 'pager',
+--             echomsg = 'msg',
+--             empty = 'cmd',
+--             emsg = 'pager',
+--             list_cmd = 'pager',
+--             lua_error = 'pager',
+--             lua_print = 'msg',
+--             progress = 'pager',
+--             quickfix = 'msg',
+--             rpc_error = 'pager',
+--             search_cmd = 'cmd',
+--             search_count = 'cmd',
+--             shell_cmd = 'pager',
+--             shell_err = 'pager',
+--             shell_out = 'pager',
+--             shell_ret = 'msg',
+--             typed_cmd = 'cmd',
+--             undo = 'msg',
+--             verbose = 'pager',
+--             wildlist = 'cmd',
+--             wmsg = 'msg',
+--         },
+--     },
+-- })
 
-vim.api.nvim_create_autocmd('FileType', {
-    callback = function()
-        local ui2 = require('vim._core.ui2')
-        local win = ui2.wins and ui2.wins.msg
-        if win and vim.api.nvim_win_is_valid(win) then
-            vim.api.nvim_set_option_value(
-                'winhighlight',
-                'Normal:NormalFloat,FloatBorder:FloatBorder',
-                { scope = 'local', win = win }
-            )
-        end
-    end,
-    pattern = 'msg',
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--     callback = function()
+--         local ui2 = require('vim._core.ui2')
+--         local win = ui2.wins and ui2.wins.msg
+--         if win and vim.api.nvim_win_is_valid(win) then
+--             vim.api.nvim_set_option_value(
+--                 'winhighlight',
+--                 'Normal:NormalFloat,FloatBorder:FloatBorder',
+--                 { scope = 'local', win = win }
+--             )
+--         end
+--     end,
+--     pattern = 'msg',
+-- })
 
-local msgs = require('vim._core.ui2.messages')
-local ui2 = require('vim._core.ui2')
-local orig_set_pos = msgs.set_pos
-msgs.set_pos = function(tgt)
-    orig_set_pos(tgt)
-    if (tgt == 'msg' or tgt == nil) and vim.api.nvim_win_is_valid(ui2.wins.msg) then
-        pcall(vim.api.nvim_win_set_config, ui2.wins.msg, {
-            relative = 'editor',
-            anchor = 'NE',
-            row = 1,
-            col = vim.o.columns - 1,
-            border = 'rounded',
-        })
-    end
-end
+-- local msgs = require('vim._core.ui2.messages')
+-- local ui2 = require('vim._core.ui2')
+-- local orig_set_pos = msgs.set_pos
+-- msgs.set_pos = function(tgt)
+--     orig_set_pos(tgt)
+--     if (tgt == 'msg' or tgt == nil) and vim.api.nvim_win_is_valid(ui2.wins.msg) then
+--         pcall(vim.api.nvim_win_set_config, ui2.wins.msg, {
+--             relative = 'editor',
+--             anchor = 'SE',
+--             row = 1,
+--             col = vim.o.columns - 1,
+--             border = 'rounded',
+--         })
+--     end
+-- end
