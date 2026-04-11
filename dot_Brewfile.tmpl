@@ -139,6 +139,8 @@ if "{{ .where }}" == "home"
 
   brew "age"
   brew 'Arthur-Ficial/tap/apfel'
+  cask 'Arthur-Ficial/tap/apfel-chat', require_sha: true
+  cask 'Arthur-Ficial/tap/apfel-clip', require_sha: true
   brew "b2-tools"
   cask "calibre", appdir: "~/Applications", require_sha: true
   brew "cpanminus"
