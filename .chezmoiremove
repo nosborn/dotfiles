@@ -16,7 +16,6 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .config/git/config.*
 .config/http-prompt/
 .config/nvim/init.vim
-.config/nvim/pack/
 .config/opencode/
 .config/proselint/
 .config/stylua.toml
@@ -35,8 +34,7 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .local/bin/mbt-0.24
 .local/bin/ppyaml
 .local/bin/safehouse
-.local/share/nvim/site/pack/nvim-treesitter/
-.local/share/nvim/site/parser-info/
+.local/share/nvim/pack/
 .local/share/terminfo/
 .local/share/terraform/
 .local/share/zsh-completions/_aws_vault

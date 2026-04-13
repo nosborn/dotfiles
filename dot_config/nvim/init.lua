@@ -13,6 +13,8 @@ end
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'screenline,number'
 vim.o.expandtab = true
+vim.o.fillchars = 'eob: ,fold: ,foldclose:,foldinner: ,foldopen:,foldsep: '
+vim.o.foldcolumn = 'auto:1'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevel = 10
 vim.o.foldmethod = 'expr'

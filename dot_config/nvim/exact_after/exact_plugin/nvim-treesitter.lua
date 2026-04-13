@@ -1,0 +1,91 @@
+require('nvim-treesitter').setup()
+
+vim.g.treesitter_languages = {
+    'awk',
+    'bash',
+    'c',
+    'cmake',
+    'comment',
+    'cpp',
+    'css',
+    'csv',
+    'diff',
+    'dockerfile',
+    'dot',
+    'editorconfig',
+    'git_config',
+    'git_rebase',
+    'gitattributes',
+    'gitcommit',
+    'gitignore',
+    'go',
+    'gomod',
+    'gosum',
+    'gotmpl',
+    'gowork',
+    'gpg',
+    'graphql',
+    'groovy',
+    'hcl',
+    'helm',
+    'hocon',
+    'html',
+    'http',
+    'java',
+    'javascript',
+    'jinja',
+    'jinja_inline',
+    'jq',
+    'json',
+    'lua',
+    'make',
+    'markdown',
+    'markdown_inline',
+    'mermaid',
+    'nginx',
+    'pem',
+    'perl',
+    'php',
+    'proto',
+    'pug',
+    'python',
+    'readline',
+    'regex',
+    'rego',
+    'requirements',
+    'robots_txt',
+    'ruby',
+    'sql',
+    'ssh_config',
+    'tcl',
+    'terraform',
+    'todotxt',
+    'tsv',
+    'typescript',
+    'vim',
+    'xml',
+    'yaml',
+    'zig',
+    'zsh',
+}
+
+local filetypes = {}
+for _, lang in ipairs(vim.g.treesitter_languages) do
+    for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+        table.insert(filetypes, ft)
+    end
+end
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function() vim.treesitter.start() end,
+    pattern = filetypes,
+})
+
+-- require('nvim-treesitter.parsers').get_parser_configs().river = {
+--     install_info = {
+--         branch = 'main',
+--         files = { 'src/parser.c' },
+--         generate_requires_npm = false,
+--         requires_generate_from_grammar = false,
+--         url = 'https://github.com/grafana/tree-sitter-river.git', -- FIXME: archived
+--     },
+-- }
