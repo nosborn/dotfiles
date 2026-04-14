@@ -185,6 +185,7 @@ require('mini.clue').setup({
         { mode = { 'n', 'x' }, keys = 'z' }, -- `z` key
     },
     window = {
+        config = { width = 'auto' },
         delay = 500,
     },
 })

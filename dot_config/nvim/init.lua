@@ -13,7 +13,7 @@ end
 vim.o.cursorline = true
 vim.o.cursorlineopt = 'screenline,number'
 vim.o.expandtab = true
-vim.o.fillchars = 'eob: ,fold: ,foldclose:,foldinner: ,foldopen:,foldsep: '
+vim.o.fillchars = 'eob: ,fold:·,foldclose:▶︎,foldinner: ,foldopen:▼,foldsep: ,trunc:…,truncrl:…'
 vim.o.foldcolumn = 'auto:1'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevel = 10
@@ -191,6 +191,11 @@ require('kanso').setup({
         dark = 'zen',
         light = 'pearl',
     },
+    overrides = function(_)
+        return {
+            FloatBorder = { link = 'PmenuBorder' },
+        }
+    end,
     -- dimInactive = true,
     -- foreground = 'saturated',
 })
