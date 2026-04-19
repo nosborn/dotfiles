@@ -49,7 +49,9 @@
     "excludedCommands": [
       "docker"
     ],
+{{- if eq .chezmoi.os "darwin" }}
     "failIfUnavailable": true,
+{{- end }}
     "filesystem": {
       "allowRead": [
         "."
