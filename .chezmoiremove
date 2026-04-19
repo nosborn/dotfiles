@@ -1,12 +1,3 @@
-Library/Application Support/Google/
-Library/Application Support/go/telemetry/local/
-Library/Application Support/go/telemetry/upload/
-Library/Caches/Google/
-Library/Caches/com.google.GoogleUpdater/
-Library/Google/
-Library/HTTPStorages/com.google.GoogleUpdater
-Library/HTTPStorages/com.google.Keystone
-Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .actrc
 .bundle/
 .cache/nvim/catppuccin/
@@ -49,9 +40,20 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 .zsh/
 .zsh_history
 .zsh_sessions/
+{{ if eq .chezmoi.os "darwin" }}
+Library/Application Support/Google/
+Library/Application Support/go/telemetry/local/
+Library/Application Support/go/telemetry/upload/
+Library/Caches/Google/
 {{ if ne .where "work" }}Library/Caches/com.google.Keystone/{{ end }}
+Library/Caches/com.google.GoogleUpdater/
+Library/Google/
+Library/HTTPStorages/com.google.GoogleUpdater
+Library/HTTPStorages/com.google.Keystone
+Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.agent.plist{{ end }}
 {{ if ne .where "work" }}Library/LaunchAgents/com.google.keystone.xpcservice.plist{{ end }}
 {{ if ne .where "work" }}Library/Preferences/com.google.Keystone.Agent.plist{{ end }}
+{{ end }}
 default.profraw
 styles/

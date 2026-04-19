@@ -11,9 +11,17 @@
 /package.json
 /requirements.txt
 
-{{- if ne .chezmoi.os "darwin" }}
+{{ if ne .chezmoi.os "darwin" }}
 .Brewfile
 .editrc
 .local/bin/claude
+.local/bin/flush-dns
+.local/bin/telnet
+.terraform.d/
+.terraformrc
+.tflint.d/
+.tflint.hcl
+.zshrc.d/ansible.zsh
+.zshrc.d/terraform.zsh
 Library/*
-{{- end }}
+{{ end }}

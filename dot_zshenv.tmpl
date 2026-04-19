@@ -1,7 +1,9 @@
 export ANSIBLE_NOCOWS=1
 export AWS_VAULT_DISABLE_HELP_MESSAGE=1
 # export BUNDLE_USER_HOME="${HOME}/.bundle"
+{{- if eq .chezmoi.os "darwin" }}
 export BUNDLE_USER_CACHE="${HOME}/Library/Caches/bundle"
+{{- end }}
 # export BUNDLE_USER_CONFIG="${BUNDLE_USER_HOME}/config"
 # export BUNDLE_USER_PLUGIN="${BUNDLE_USER_HOME}/plugin"
 export CHECKPOINT_DISABLE=1 # Hashicorp
@@ -9,6 +11,7 @@ export GIT_CONFIG_COUNT=1
 export GIT_CONFIG_KEY_0=core.fsmonitor
 export GIT_CONFIG_VALUE_0=false
 export GOBIN="${GOROOT:-"${HOME}/go"}/bin"
+{{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_API_AUTO_UPDATE_SECS=86400
 export HOMEBREW_BAT=1
 export HOMEBREW_BUNDLE_NO_LOCK=1
@@ -18,9 +21,12 @@ export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_UPGRADE_GREEDY=1
 export HOMEBREW_VERIFY_ATTESTATIONS=1
+{{- end }}
 export LANG=en_GB.UTF-8
 export LC_COLLATE=C
+{{- if eq .chezmoi.os "darwin" }}
 export LLVM_PROFILE_FILE=%t/pid-%p.profraw
+{{- end }}
 export NPM_CONFIG_PREFIX="${HOME}/.local"
 export OPENCODE_DISABLE_LSP_DOWNLOAD=true
 export PIPX_HOME="${HOME}/.local/pipx"
@@ -31,13 +37,17 @@ export PYTHONWARNINGS=ignore
 export RIPGREP_CONFIG_FILE="${HOME}/.config/ripgrep/config"
 export SAM_CLI_TELEMETRY=0 # AWS SAM CLI
 export SHELL_SESSIONS_DISABLE=1
+{{- if eq .chezmoi.os "darwin" }}
 export STARSHIP_CACHE="${HOME}/Library/Caches/starship"
+{{- end }}
 export STEAMPIPE_TELEMETRY=none
 export STEAMPIPE_UPDATE_CHECK=false
 export SUDO_PROMPT='[sudo] password for %p: '
+{{- if eq .chezmoi.os "darwin" }}
 # export TF_IN_AUTOMATION=1
 export TF_PLUGIN_CACHE_DIR="${HOME}/.terraform.d/plugin-cache"
 export XDG_CACHE_HOME="${HOME}/Library/Caches"
+{{- end }}
 export XDG_CONFIG_HOME="${HOME}/.config" # "${HOME}/Library/Application Support"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
