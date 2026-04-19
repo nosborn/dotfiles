@@ -34,6 +34,16 @@
 	trustctime = false ; play nicely with revisiond
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+{{- end }}
 [delta]
 	hyperlinks = true
 
