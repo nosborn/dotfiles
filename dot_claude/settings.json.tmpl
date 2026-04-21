@@ -1,10 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
-  "effortLevel": "xhigh",
   "env": {
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "DISABLE_AUTOUPDATER": "1",
@@ -20,8 +15,9 @@
     "GIT_CONFIG_GLOBAL": "/dev/null",
     "GIT_CONFIG_NOSYSTEM": "1"
   },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754056529971
+  "attribution": {
+    "commit": "",
+    "pr": ""
   },
   "permissions": {
     "allow": [
@@ -46,28 +42,32 @@
   },
   "sandbox": {
     "enabled": true,
-    "excludedCommands": [
-      "docker"
-    ],
 {{- if eq .chezmoi.os "darwin" }}
     "failIfUnavailable": true,
 {{- end }}
     "filesystem": {
-      "allowRead": [
-        "."
-      ],
       "allowWrite": [
         "."
+      ],
+      "denyWrite": [
+        "/"
       ],
       "denyRead": [
         "~/"
       ],
-      "denyWrite": [
-        "/"
+      "allowRead": [
+        "."
       ]
-    }
+    },
+    "excludedCommands": [
+      "docker"
+    ]
+  },
+  "spinnerTipsEnabled": false,
+  "effortLevel": "high",
+  "feedbackSurveyState": {
+    "lastShownTime": 1754056529971
   },
   "showTurnDuration": false,
-  "spinnerTipsEnabled": false,
   "terminalProgressBarEnabled": true
 }
