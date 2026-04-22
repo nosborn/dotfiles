@@ -214,13 +214,8 @@ end
 
 vim.diagnostic.config({
     float = {
-        border = 'single',
-        -- source = 'always',
-        -- width = 100,
-        -- wrap = true,
-        -- format = function(diagnostic)
-        --     return string.format('[%s] %s', diagnostic.source or 'unknown', diagnostic.message)
-        -- end,
+        border = 'rounded',
+        focusable = 'false',
     },
     severity_sort = true,
     signs = {
@@ -230,27 +225,15 @@ vim.diagnostic.config({
             min = 'WARN',
         },
         text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
-            [vim.diagnostic.severity.INFO] = ' ',
-            [vim.diagnostic.severity.WARN] = ' ',
+            [vim.diagnostic.severity.ERROR] = '󰅚',
+            [vim.diagnostic.severity.HINT] = '󰌶',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.WARN] = '',
         },
     },
-    underline = {
-        severity = {
-            max = 'ERROR',
-            min = 'HINT',
-        },
-    },
-    update_in_insert = false,
-    virtual_lines = false,
-    virtual_text = {
-        current_line = true,
-        severity = {
-            max = 'ERROR',
-            min = 'ERROR',
-        },
-    },
+    underline = false,
+    update_in_insert = true,
+    virtual_lines = true,
 })
 
 -- Highlight on yank
