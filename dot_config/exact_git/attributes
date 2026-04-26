@@ -27,4 +27,5 @@
 # *.sops.yml diff=sops
 *.tf diff=terraform
 *.zip diff=zipinfo
+sopssecret.yaml diff=sops
 vault.yml diff=ansible-vault
