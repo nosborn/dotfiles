@@ -135,10 +135,10 @@ if "{{ .where }}" == "home"
   tap "fluxcd/tap"
 
   brew "age"
-  brew 'Arthur-Ficial/tap/apfel'
-  cask 'Arthur-Ficial/tap/apfel-chat', require_sha: true
-  cask 'Arthur-Ficial/tap/apfel-clip', require_sha: true
-  cask 'Arthur-Ficial/tap/apfel-quick', require_sha: true
+  brew "Arthur-Ficial/tap/apfel"
+  cask "Arthur-Ficial/tap/apfel-chat", require_sha: true
+  cask "Arthur-Ficial/tap/apfel-clip", require_sha: true
+  cask "Arthur-Ficial/tap/apfel-quick", require_sha: true
   brew "b2-tools"
   cask "calibre", appdir: "~/Applications", require_sha: true
   brew "cpanminus"
@@ -148,8 +148,7 @@ if "{{ .where }}" == "home"
   brew "fluxcd/tap/flux"
   brew "flyctl"
   brew "git-crypt"
-  brew "gitea"
-  brew 'hcloud'
+  brew "hcloud"
   brew "helm@3"
   brew "hugo"
   cask "hush", appdir: "~/Applications", require_sha: true
@@ -163,7 +162,8 @@ if "{{ .where }}" == "home"
   brew "sops"
   brew "step"
   # brew "tintin"
-  brew "UpCloudLtd/tap/upcloud-cli"
+  cask "ungoogled-chromium", appdir: "~/Applications", require_sha: true
+  # brew "UpCloudLtd/tap/upcloud-cli"
   brew "vultr"
   # cask "wine-stable", require_sha: true
   # brew "winetricks"
