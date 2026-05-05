@@ -34,6 +34,9 @@
 	trustctime = false ; play nicely with revisiond
 {{- end }}
 
+[credential]
+	helper = oauth
+
 [delta]
 	hyperlinks = true
 
@@ -109,6 +112,12 @@
 	gpgSign = true
 {{- end }}
 	sort = version:refname
+
+[url "https://git.osborn.io/"]
+	insteadOf = git@git.osborn.io:
+
+[url "https://git.osborn.io/"]
+	insteadOf = git.osborn.io:
 
 [url "https://github.com/"]
 	insteadOf = git@github.com:

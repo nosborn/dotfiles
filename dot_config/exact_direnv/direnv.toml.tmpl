@@ -3,6 +3,9 @@ strict_env = true
 
 [whitelist]
 prefix = [
+{{- if ne "" .gitea.user }}
+  "{{ .chezmoi.homeDir }}/src/gitea.com/{{ .gitea.user }}",
+{{- end }}
 {{- if ne "" .github.org }}
   "{{ .chezmoi.homeDir }}/src/github.com/{{ .github.org }}",
 {{- end }}

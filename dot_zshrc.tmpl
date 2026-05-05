@@ -18,6 +18,7 @@ bindkey -e
 
 cdpath=(
   .
+  {{ if ne "" .gitea.user }}"${HOME}/src/gitea.com/{{ .gitea.user }}"{{ end }}
   {{ if ne "" .github.user }}"${HOME}/src/github.com/{{ .github.user }}"{{ end }}
   {{ if ne "" .github.org }}"${HOME}/src/github.com/{{ .github.org }}"{{ end }}
   ${cdpath}
@@ -83,27 +84,32 @@ if (( $+commands[terramate] )); then
 fi
 
 export CLICOLOR=1
-export EDITOR=nvim
+export EDITOR=vim
 export PROMPT_EOL_MARK='%F{1}⏎%f'
-export VISUAL=nvim
+export VISUAL=vim
 
-# alias claude='safehouse --add-dirs-ro=~/src/github.com ${commands[claude]}'
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias dotenv-linter='command dotenv-linter --not-check-updates'
 alias glow='command glow -w ${COLUMNS}'
-alias k=kubectl
-alias kubectl=kubecolor
 alias pstree='command pstree -g 2 -s ${SHELL}'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
-alias vim=nvim
-alias vi=nvim
 alias vultr-cli='vultr'
 
 if (( $+commands[kubectl] )); then
   compdef k=kubectl
+  alias k=kubectl
   if (( $+commands[kubecolor] )); then
     compdef kubecolor=kubectl
+    alias kubectl=kubecolor
   fi
+fi
+
+if (( $+commands[nvim] )); then
+  export EDITOR=nvim
+  export VISUAL=nvim
+
+  alias vim=nvim
+  alias vi=nvim
 fi
 
 zle_highlight=('paste:none')
@@ -114,13 +120,7 @@ if [[ -e {{ .homebrew.prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zs
 fi
 
 # Do at end.
-if [[ -e {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
-  source {{ .homebrew.prefix }}/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-  if [[ $(uname) == Darwin ]]; then
-    FAST_HIGHLIGHT[chroma-man]=
-    FAST_HIGHLIGHT[chroma-whatis]=
-  fi
-elif [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+if [[ -e {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source {{ .homebrew.prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
