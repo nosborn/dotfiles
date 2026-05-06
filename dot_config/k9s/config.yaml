@@ -1,0 +1,6 @@
+---
+k9s:
+  skipLatestRevCheck: true
+  ui:
+    logoless: true
+    splashless: true
