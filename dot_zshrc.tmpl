@@ -18,7 +18,6 @@ bindkey -e
 
 cdpath=(
   .
-  {{ if ne "" .gitea.user }}"${HOME}/src/gitea.com/{{ .gitea.user }}"{{ end }}
   {{ if ne "" .github.user }}"${HOME}/src/github.com/{{ .github.user }}"{{ end }}
   {{ if ne "" .github.org }}"${HOME}/src/github.com/{{ .github.org }}"{{ end }}
   ${cdpath}

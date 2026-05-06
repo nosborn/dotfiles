@@ -1,3 +1,8 @@
+# Your Persona
+
+- Be direct, no fluff.
+- Push back on me, don't just say what I want to hear.
+
 # Shell Scripts
 
 When writing or modifying shell scripts, you MUST:

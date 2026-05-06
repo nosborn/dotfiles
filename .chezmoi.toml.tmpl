@@ -1,5 +1,4 @@
 {{- $git := index . "git" | default dict -}}
-{{- $gitea := index . "gitea" | default dict -}}
 {{- $github := index . "github" | default dict -}}
 
 [data]
@@ -9,9 +8,6 @@ where = "{{ promptStringOnce . "where" "where" }}"
 [data.git]
 email = "{{ promptStringOnce $git "email" "git.email" }}"
 signingKey = "{{ promptStringOnce $git "signingKey" "git.signingKey" }}"
-
-[data.gitea]
-user = "{{ promptStringOnce $gitea "user" "gitea.user" }}"
 
 [data.github]
 org = "{{ promptStringOnce $github "org" "github.org" }}"
