@@ -96,10 +96,11 @@ alias vultr-cli='vultr'
 
 if (( $+commands[kubectl] )); then
   compdef k=kubectl
-  alias k=kubectl
+  alias k='kubectl'
+  alias krew='kubectl krew'
   if (( $+commands[kubecolor] )); then
     compdef kubecolor=kubectl
-    alias kubectl=kubecolor
+    alias kubectl='kubecolor'
   fi
 fi
 
