@@ -72,7 +72,6 @@ end
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.cmd('setlocal formatoptions-=c formatoptions-=o')
-        vim.bo.indentexpr = 'v:lua.require("treesitter").indentexpr()'
     end,
     desc = "Proper 'formatoptions'",
     group = vim.api.nvim_create_augroup('custom-config', {}),

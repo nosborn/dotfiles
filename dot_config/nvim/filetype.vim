@@ -8,6 +8,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead **/.config/yamllint/config   set filetype=yaml
   autocmd! BufNewFile,BufRead **/.config/zed/settings.json set filetype=jsonc
   autocmd! BufNewFile,BufRead *.alloy                      set filetype=river
+  autocmd! BufNewFile,BufRead *.dockerconfigjson           set filetype=json
   autocmd! BufNewFile,BufRead *.env                        set filetype=dotenv syntax=sh
   autocmd! BufNewFile,BufRead *.ini.j2                     set filetype=dosini.jinja2
   autocmd! BufNewFile,BufRead *.json.j2                    set filetype=json.jinja2
