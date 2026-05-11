@@ -9,7 +9,7 @@ if executable('ansible-vault') == 1
     execute 'silent %!ansible-vault encrypt --encrypt-vault-id='.b:ansible_vault_id
   endfunction
 
-  augroup ansible-vault
+  augroup AnsibleVaultPlugin
     autocmd!
     autocmd BufReadPre,FileReadPre */group_vars/*/vault.yaml setlocal nobackup noswapfile noundofile viminfo=
     autocmd BufReadPre,FileReadPre */host_vars/*/vault.yaml setlocal nobackup noswapfile noundofile viminfo=
