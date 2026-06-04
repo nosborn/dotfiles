@@ -134,9 +134,10 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
+krew "get-all"
+
 if "{{ .where }}" == "home"
   tap "Arthur-Ficial/tap"
-  tap "UpCloudLtd/tap"
   tap "fluxcd/tap"
 
   brew "age"
@@ -176,7 +177,6 @@ if "{{ .where }}" == "home"
   brew "tea"
   # brew "tintin"
   cask "ungoogled-chromium", appdir: "~/Applications", require_sha: true
-  # brew "UpCloudLtd/tap/upcloud-cli"
   brew "vultr"
   # cask "wine-stable", require_sha: true
   # brew "winetricks"
