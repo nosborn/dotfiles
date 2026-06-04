@@ -21,9 +21,8 @@ brew "container-compose"
 brew "coreutils"
 brew "diffutils"
 brew "direnv"
-brew "docker"
-brew "docker-buildx"
-brew "docker-completion"
+# brew "docker" -- provided by `orbstack`
+# brew "docker-buildx" -- provided by `orbstack`
 brew "docker-credential-helper"
 brew "docker-credential-helper-ecr"
 brew "dockerfmt"
@@ -87,6 +86,7 @@ brew "mkdocs-material"
 # cask "monitorcontrol", appdir: "~/Applications", greedy: true, require_sha: true
 brew "mtr"
 brew "neovim"
+brew "opencode"
 cask "orbstack", greedy: true, require_sha: true
 cask "orion", greedy: true, require_sha: true
 brew "parallel"
@@ -169,7 +169,6 @@ if "{{ .where }}" == "home"
   brew "perltidy"
   brew "popeye"
   brew "qemu"
-  brew "renovate"
   brew "scw"
   brew "sops"
   brew "step"

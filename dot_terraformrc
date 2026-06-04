@@ -1,2 +1,9 @@
 disable_checkpoint = true
 plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
+
+provider_installation {
+  dev_overrides {
+    "registry.terraform.io/nosborn/controld" = "$HOME/src/github/nosborn/terraform-provider-controld"
+  }
+  direct {}
+}

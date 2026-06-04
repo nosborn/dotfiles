@@ -7,7 +7,6 @@
 .config/git/config.*
 .config/http-prompt/
 .config/nvim/init.vim
-.config/opencode/
 .config/proselint/
 .config/stylua.toml
 .config/tig/
