@@ -1,4 +1,7 @@
 auto-update = off
+background-blur = macos-glass-regular
+background-opacity = 0.95
+background-opacity-cells = true
 font-family = JetBrains Mono
 font-family = Symbols Nerd Font Mono
 font-feature = -calt
