@@ -81,7 +81,7 @@ brew "less"
 brew "luacheck"
 brew "luarocks"
 brew "markdownlint-cli"
-brew "mas"
+brew "mas" if "{{ .chezmoi.os }}" == "darwin"
 brew "mermaid-cli"
 brew "mise"
 brew "mkdocs-material"
@@ -138,6 +138,12 @@ brew "zsh-syntax-highlighting"
 
 krew "get-all"
 
+if "{{ .chezmoi.os }}" == "darwin"
+  mas "Keynote", id: 361285480
+  mas "Numbers", id: 361304891
+  mas "Pages", id: 361309726
+end
+
 if "{{ .where }}" == "home"
   tap "Arthur-Ficial/tap"
   tap "fluxcd/tap"
@@ -163,7 +169,6 @@ if "{{ .where }}" == "home"
   brew "hcloud"
   brew "helm@3"
   brew "hugo"
-  cask "hush", appdir: "~/Applications", require_sha: true
   brew "immich-cli"
   brew "kubernetes-mcp-server"
   brew "mtools"
@@ -184,6 +189,19 @@ if "{{ .where }}" == "home"
   # brew "winetricks"
   brew "ykman"
   brew "yubico-piv-tool"
+
+  if "{{ .chezmoi.os }}" == "darwin"
+    mas "1Blocker", id: 1365531024
+    mas "Apple Configurator", id: 1037126344
+    mas "Clean Links", id: 6747395062
+    mas "DaisyDisk", id: 411643860
+    mas "Discovery", id: 1381004916
+    mas "Hush", id: 1544743900
+    mas "Microsoft Word", id: 462054704
+
+    # 1123795278  Civilization VI     (1.4.7)
+    # 408981434  iMovie              (10.4.4)
+  end
 end
 
 if "{{ .where }}" == "work"
