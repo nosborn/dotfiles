@@ -145,14 +145,9 @@ if "{{ .chezmoi.os }}" == "darwin"
 end
 
 if "{{ .where }}" == "home"
-  tap "Arthur-Ficial/tap"
   tap "fluxcd/tap"
 
   brew "age"
-  brew "Arthur-Ficial/tap/apfel"
-  cask "Arthur-Ficial/tap/apfel-chat", require_sha: true
-  cask "Arthur-Ficial/tap/apfel-clip", require_sha: true
-  cask "Arthur-Ficial/tap/apfel-quick", require_sha: true
   brew "b2-tools"
   cask "bitwarden", appdir: "~/Applications", require_sha: true
   brew "bitwarden-cli"
