@@ -11,6 +11,7 @@ brew "ansible-lint"
 brew "bat"
 brew "bfg"
 brew "black"
+brew "ccusage"
 brew "checkmake"
 brew "chezmoi"
 brew "cidr"
@@ -21,8 +22,6 @@ brew "container-compose"
 brew "coreutils"
 brew "diffutils"
 brew "direnv"
-# brew "docker" -- provided by `orbstack`
-# brew "docker-buildx" -- provided by `orbstack`
 brew "docker-credential-helper"
 brew "docker-credential-helper-ecr"
 brew "dockerfmt"
@@ -81,7 +80,7 @@ brew "less"
 brew "luacheck"
 brew "luarocks"
 brew "markdownlint-cli"
-brew "mas" if "{{ .chezmoi.os }}" == "darwin"
+brew "mas"
 brew "mermaid-cli"
 brew "mise"
 brew "mkdocs-material"
@@ -138,11 +137,9 @@ brew "zsh-syntax-highlighting"
 
 krew "get-all"
 
-if "{{ .chezmoi.os }}" == "darwin"
-  mas "Keynote", id: 361285480
-  mas "Numbers", id: 361304891
-  mas "Pages", id: 361309726
-end
+mas "Keynote", id: 361285480
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
 
 if "{{ .where }}" == "home"
   tap "fluxcd/tap"
@@ -185,18 +182,16 @@ if "{{ .where }}" == "home"
   brew "ykman"
   brew "yubico-piv-tool"
 
-  if "{{ .chezmoi.os }}" == "darwin"
-    mas "1Blocker", id: 1365531024
-    mas "Apple Configurator", id: 1037126344
-    mas "Clean Links", id: 6747395062
-    mas "DaisyDisk", id: 411643860
-    mas "Discovery", id: 1381004916
-    mas "Hush", id: 1544743900
-    mas "Microsoft Word", id: 462054704
+  mas "1Blocker", id: 1365531024
+  mas "Apple Configurator", id: 1037126344
+  mas "Clean Links", id: 6747395062
+  mas "DaisyDisk", id: 411643860
+  mas "Discovery", id: 1381004916
+  mas "Hush", id: 1544743900
+  mas "Microsoft Word", id: 462054704
 
-    # 1123795278  Civilization VI     (1.4.7)
-    # 408981434  iMovie              (10.4.4)
-  end
+  # 1123795278  Civilization VI     (1.4.7)
+  # 408981434  iMovie              (10.4.4)
 end
 
 if "{{ .where }}" == "work"

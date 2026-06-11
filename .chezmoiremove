@@ -38,6 +38,7 @@
 .zsh/
 .zsh_history
 .zsh_sessions/
+1
 {{ if eq .chezmoi.os "darwin" }}
 Library/Application Support/Google/
 Library/Application Support/go/telemetry/local/

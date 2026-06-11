@@ -10,6 +10,7 @@
 /package-lock.json
 /package.json
 /requirements.txt
+1
 
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
