@@ -23,7 +23,8 @@
     "allow": [
       "Bash(* --help *)",
       "Bash(* --version)",
-      "Bash(shellcheck *)"
+      "Bash(shellcheck *)",
+      "WebSearch"
     ],
     "deny": [
       "Bash(git push *)",
@@ -36,8 +37,10 @@
       "Read(**/.envrc.*)",
       "Read(**/.gnupg/**)",
       "Read(**/.ssh/**)"
-    ]
+    ],
+    "defaultMode": "default"
   },
+  "model": "opus",
   "sandbox": {
     "enabled": true,
 {{- if eq .chezmoi.os "darwin" }}
@@ -55,10 +58,11 @@
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
+  "awaySummaryEnabled": false,
+  "autoCompactEnabled": true,
   "showTurnDuration": false,
   "terminalProgressBarEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754056529971
-  },
-  "model": "opus"
+  }
 }
