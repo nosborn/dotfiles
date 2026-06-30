@@ -1,0 +1,61 @@
+(version 1)
+
+(deny default)
+
+(import "system.sb")
+(import "com.apple.corefoundation.sb")
+
+(allow file-read-metadata)
+(allow iokit-open)
+(allow ipc-posix-shm*)
+(allow mach-lookup)
+(allow network*)
+(allow process*)
+(allow sysctl*)
+
+(allow file-ioctl
+  (subpath "/dev")
+)
+
+(allow file-map-executable file-read*
+   (subpath "/opt/homebrew")
+)
+
+(allow file-map-executable file-read* file-write*
+    (subpath "/private/tmp")
+    (subpath "/private/var/folders")
+    (subpath "/private/var/tmp")
+    (subpath "/tmp")
+    (subpath "/var/tmp")
+)
+
+(allow file-map-executable file-read* file-write*
+    (subpath "{{ .chezmoi.homeDir }}/.cache/opencode")
+    (subpath "{{ .chezmoi.homeDir }}/.config/opencode")
+    (subpath "{{ .chezmoi.homeDir }}/.local/share/opencode")
+    (subpath "{{ .chezmoi.homeDir }}/.local/state/opencode")
+)
+
+(allow file-read*
+    (subpath "{{ .chezmoi.homeDir }}/.config")
+    (subpath "{{ .chezmoi.homeDir }}/.local/share")
+    (subpath "{{ .chezmoi.homeDir }}/.local/state")
+)
+
+(allow file-read* file-write*
+  (subpath "/dev")
+)
+
+(allow file-read* file-write*
+    (subpath "{{ .chezmoi.homeDir }}/.local/share/chezmoi")
+    (subpath "{{ .chezmoi.homeDir }}/src/github.com/{{ .github.user }}")
+)
+
+(allow file-write-data
+  (subpath "/tmp")
+  (subpath "/var/tmp")
+)
+
+(deny file-read*
+    (regex #"\.env*")
+)

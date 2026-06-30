@@ -39,7 +39,7 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-treesitter/start/nvim-treesitter: # archived
+.config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-treesitter/nvim-treesitter.git

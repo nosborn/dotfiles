@@ -273,6 +273,8 @@ require('mini.indentscope').setup({
     },
 })
 
+require('mini.input').setup()
+
 -- luacheck: globals MiniKeymap
 require('mini.keymap').setup()
 -- MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })

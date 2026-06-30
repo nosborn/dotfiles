@@ -1,4 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoupdate": false
+  "autoupdate": false,
+  "formatter": {
+    "yamlfmt": {
+      "command": ["yamlfmt", "$FILE"],
+      "extensions": [".yaml", ".yml"]
+    }
+  },
+  "lsp": {},
+  "provider": {}
 }
