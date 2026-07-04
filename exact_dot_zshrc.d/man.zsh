@@ -1,3 +1,6 @@
 if (( ${+commands[bat]} )); then
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  case '{{ .chezmoi.os }}' in
+    darwin) export MANPAGER="sh -c 'col -bx | bat -l man -p'" ;;
+    liNux) export MANPAGER="bat -l man -p'" ;;
+  esac
 fi
