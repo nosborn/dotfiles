@@ -1,0 +1,10 @@
+{
+  "filesystem": {
+    "allowWrite": [
+      ".",
+      "/tmp/opencode",
+      "~/.local/share/opencode",
+      "~/.local/state/opencode"
+    ]
+  }
+}

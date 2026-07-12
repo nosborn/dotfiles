@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "neovim": "5.4.0",
+    "opencode-sandbox": "0.3.0",
     "prettier-plugin-toml": "2.0.6"
   }
 }

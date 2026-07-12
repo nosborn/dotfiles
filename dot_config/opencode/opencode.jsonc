@@ -8,5 +8,8 @@
     }
   },
   "lsp": {},
+  "plugin": [
+    "opencode-sandbox",
+  ],
   "provider": {}
 }
