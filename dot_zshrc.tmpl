@@ -76,7 +76,7 @@ if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 if (( $+commands[opencode] )); then
-  source <("${commands[opencode]}" completion)
+  source <({{ if eq .chezmoi.os "darwin" }}"{{ .homebrew.prefix }}/bin/opencode"{{ else }}command -p opencode{{ end }} completion)
 fi
 if (( $+commands[terramate] )); then
   complete -o nospace -C "${commands[terramate]}" terramate
@@ -90,9 +90,6 @@ export VISUAL=vim
 alias diff='command diff -W ${COLUMNS} -x .terraform -d'
 alias dotenv-linter='command dotenv-linter --not-check-updates'
 alias glow='command glow -w ${COLUMNS}'
-{{ if eq .chezmoi.os "darwin" }}
-alias opencode='sandbox-exec -f ~/.local/share/sandbox/opencode.sb ${commands[opencode]}'
-{{ end }}
 alias pstree='command pstree -g 2 -s ${SHELL}'
 alias sdiff='command sdiff -w ${COLUMNS} -d'
 alias vultr-cli='vultr'

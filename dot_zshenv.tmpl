@@ -13,6 +13,8 @@ export GIT_CONFIG_COUNT=1
 export GIT_CONFIG_KEY_0=core.fsmonitor
 export GIT_CONFIG_VALUE_0=false
 export GOBIN="${GOROOT:-"${HOME}/go"}/bin"
+export GROK_TELEMETRY_ENABLED=0
+export GROK_TELEMETRY_TRACE_UPLOAD=0
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_API_AUTO_UPDATE_SECS=86400
 export HOMEBREW_BAT=1

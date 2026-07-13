@@ -1,0 +1,46 @@
+#!/bin/bash
+
+case "$(uname -s)" in
+  Darwin)
+    exec sandbox-exec \
+      -f "${HOME:?}/.local/share/sandbox/opencode.sb" \
+      "$(brew --prefix)/bin/opencode" "$@"
+    ;;
+
+  Linux)
+    exec bwrap \
+      --ro-bind "${HOME:?}/.config" "${HOME:?}/.config" \
+      --bind "${HOME:?}/.config/opencode" "${HOME:?}/.config/opencode" \
+      --ro-bind "${HOME:?}/.local" "${HOME:?}/.local" \
+      --bind "${HOME:?}/.local/share/opencode" "${HOME:?}/.local/share/opencode" \
+      --bind "${HOME:?}/.local/state/opencode" "${HOME:?}/.local/state/opencode" \
+      --bind "${PWD:?}" "${PWD:?}" \
+      --bind "${XDG_RUNTIME_DIR:?}/gnupg" "${XDG_RUNTIME_DIR:?}/gnupg" \
+      --bind /tmp/opencode /tmp/opencode \
+      --bind-try "${DBUS_SESSION_BUS_ADDRESS:?}" "${DBUS_SESSION_BUS_ADDRESS:?}" \
+      --chdir "${PWD:?}" \
+      --dev /dev \
+      --die-with-parent \
+      --proc /proc \
+      --ro-bind "${HOME:?}/.ssh/known_hosts" "${HOME:?}/.ssh/known_hosts" \
+      --ro-bind /bin /bin \
+      --ro-bind /etc/group /etc/group \
+      --ro-bind /etc/hosts /etc/hosts \
+      --ro-bind /etc/passwd /etc/passwd \
+      --ro-bind /etc/resolv.conf /etc/resolv.conf \
+      --ro-bind /etc/ssl /etc/ssl \
+      --ro-bind /lib /lib \
+      --ro-bind /lib64 /lib64 \
+      --ro-bind /sbin /sbin \
+      --ro-bind /usr /usr \
+      --share-net \
+      --tmpfs /tmp \
+      --unshare-pid \
+      /usr/bin/opencode "$@"
+    ;;
+
+  *)
+    # TODO
+    exit 1
+    ;;
+esac
