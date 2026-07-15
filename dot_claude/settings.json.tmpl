@@ -24,6 +24,8 @@
       "Bash(* --help *)",
       "Bash(* --version)",
       "Bash(shellcheck *)",
+      "Bash(shfmt *)",
+      "Bash(yamllint *)",
       "WebSearch"
     ],
     "deny": [
@@ -38,10 +40,11 @@
       "Read(**/.gnupg/**)",
       "Read(**/.ssh/**)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable"
   },
-  "model": "opus",
   "sandbox": {
+    "allowUnsandboxedCommands": false,
     "enabled": true,
 {{- if eq .chezmoi.os "darwin" }}
     "failIfUnavailable": true,
@@ -52,13 +55,16 @@
         "/tmp/claude"
       ]
     },
-    "excludedCommands": [
-      "docker"
-    ]
+    "network": {
+      "allowedDomains": [
+        "192.168.1.2"
+      ]
+    }
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
   "awaySummaryEnabled": false,
+  "theme": "dark",
   "autoCompactEnabled": true,
   "showTurnDuration": false,
   "terminalProgressBarEnabled": true,

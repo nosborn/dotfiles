@@ -4,7 +4,10 @@
 	; waitingForEditor = false
 
 [alias]
+	difft = -c diff.external=difft diff
 	fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup
+	logt = -c diff.external=difft log --ext-diff
+	showt = -c diff.external=difft show --ext-diff
 	wdiff = diff --word-diff
 
 [blame]
