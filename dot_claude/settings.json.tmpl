@@ -52,12 +52,13 @@
     "filesystem": {
       "allowWrite": [
         ".",
-        "/tmp/claude"
+        "/tmp/claude-{{ .chezmoi.uid }}"
       ]
     },
     "network": {
       "allowedDomains": [
-        "192.168.1.2"
+        "github.com",
+        "raw.githubusercontent.com"
       ]
     }
   },
