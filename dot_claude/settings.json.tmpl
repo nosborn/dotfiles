@@ -44,28 +44,28 @@
     "disableBypassPermissionsMode": "disable"
   },
   "sandbox": {
-    "allowUnsandboxedCommands": false,
     "enabled": true,
 {{- if eq .chezmoi.os "darwin" }}
     "failIfUnavailable": true,
 {{- end }}
-    "filesystem": {
-      "allowWrite": [
-        ".",
-        "/tmp/claude-{{ .chezmoi.uid }}"
-      ]
-    },
+    "allowUnsandboxedCommands": false,
     "network": {
       "allowedDomains": [
         "github.com",
         "raw.githubusercontent.com"
+      ]
+    },
+    "filesystem": {
+      "allowWrite": [
+        ".",
+        "/tmp/claude-{{ .chezmoi.uid }}"
       ]
     }
   },
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
   "awaySummaryEnabled": false,
-  "theme": "dark",
+  "theme": "auto",
   "autoCompactEnabled": true,
   "showTurnDuration": false,
   "terminalProgressBarEnabled": true,

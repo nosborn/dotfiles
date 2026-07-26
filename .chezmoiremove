@@ -1,12 +1,12 @@
 .actrc
 .bundle/
-.cache/nvim/catppuccin/
 .config/.curlrc
 .config/.shellcheckrc
 .config/direnv/direnvrc
 .config/git/config.*
 .config/http-prompt/
 .config/nvim/init.vim
+.config/nvim/pack/webhooked/
 .config/proselint/
 .config/stylua.toml
 .config/tig/
@@ -28,6 +28,7 @@
 .local/share/terraform/
 .local/share/zsh-completions/_aws_vault
 .local/state/ghostty/crash/
+.local/state/nvim/kanso/
 .minikube/
 .mono/
 .rubocop.yml

@@ -3,4 +3,5 @@ k9s:
   skipLatestRevCheck: true
   ui:
     logoless: true
+    skin: catppuccin-latte
     splashless: true

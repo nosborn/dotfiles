@@ -12,7 +12,7 @@ require('lualine').setup({
         component_separators = { left = '', right = '' },
         globalstatus = true,
         section_separators = { left = '', right = '' },
-        theme = 'kanso',
+        theme = 'catppuccin-nvim',
     },
     sections = {
         lualine_b = {

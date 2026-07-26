@@ -2,7 +2,7 @@
 aliases:
   co: pr checkout
 color_labels: enabled
-editor: nvim
+editor: vim
 pager: less
 telemetry: disabled
 version: "1"

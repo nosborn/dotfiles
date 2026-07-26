@@ -1,0 +1,3 @@
+if (( ${+commands[bat]} )); then
+  export MANPAGER="{{- if eq .chezmoi.os "darwin" }}sh -c 'col -bx | bat -l man -p'{{- else  }}bat -l man -p'{{ end }}"
+fi

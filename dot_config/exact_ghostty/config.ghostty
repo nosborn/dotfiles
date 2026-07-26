@@ -1,7 +1,5 @@
+adjust-cursor-thickness = 200%
 auto-update = off
-background-blur = macos-glass-regular
-background-opacity = 0.95
-background-opacity-cells = true
 font-family = JetBrains Mono
 font-family = Symbols Nerd Font Mono
 font-feature = -calt
@@ -11,13 +9,15 @@ keybind = global:ctrl+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 link-previews = osc8
 macos-applescript = false
+macos-shortcuts = deny
+macos-titlebar-style = native
 mouse-hide-while-typing = true
 shell-integration-features = no-cursor,sudo,title
 split-inherit-working-directory = true
 tab-inherit-working-directory = true
-theme = light:Kanso Pearl,dark:Kanso Zen
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 window-height = 44
 window-inherit-working-directory = false
-window-theme = dark
+window-theme = system
 window-width = 88
 working-directory = home

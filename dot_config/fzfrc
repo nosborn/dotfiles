@@ -1,0 +1,16 @@
+# Catppuccin Latte
+--color=bg:#EFF1F5
+--color=border:#9CA0B0
+--color=current-bg:#CCD0DA
+--color=current-fg:#4C4F69
+--color=current-hl:#D20F39
+--color=fg:#4C4F69
+--color=header:#D20F39
+--color=hl:#D20F39
+--color=info:#8839EF
+--color=label:#4C4F69
+--color=marker:#7287FD
+--color=pointer:#DC8A78
+--color=prompt:#8839EF
+--color=selected-bg:#BCC0CC
+--color=spinner:#DC8A78

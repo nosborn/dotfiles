@@ -22,7 +22,7 @@ vim.o.foldnestmax = 10
 vim.o.foldtext = ''
 vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 vim.o.formatoptions = 'rqnl1j'
--- vim.o.guicursor = 'n-v-i-c:block-Cursor'
+vim.o.guicursor = '' -- 'n-v-i-c:block-Cursor'
 vim.o.ignorecase = true
 vim.o.incsearch = true
 vim.o.infercase = true
@@ -124,6 +124,7 @@ end, { expr = true })
 
 vim.lsp.enable({
     -- 'ansiblels',
+    'clangd',
     'golangci_lint_ls',
     'gopls',
     -- 'terraformls',
@@ -185,21 +186,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp-attach', {}),
 })
 
-require('kanso').setup({
+require('catppuccin').setup({
     background = {
-        dark = 'zen',
-        light = 'pearl',
+        dark = 'frappe',
+        light = 'latte',
     },
-    overrides = function(_)
-        return {
-            FloatBorder = { link = 'PmenuBorder' },
-        }
-    end,
-    -- dimInactive = true,
-    -- foreground = 'saturated',
+    -- overrides = function(_)
+    --     return {
+    --         FloatBorder = { link = 'PmenuBorder' },
+    --     }
+    -- end,
+    -- -- dimInactive = true,
+    -- -- foreground = 'saturated',
 })
-vim.cmd('colorscheme kanso')
--- vim.g.kanso_lualine_bold = 1
+vim.cmd('colorscheme catppuccin-nvim')
 
 local _diag_open_float = vim.diagnostic.open_float
 ---@diagnostic disable-next-line: duplicate-set-field

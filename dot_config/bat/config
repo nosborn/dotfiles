@@ -1,3 +1,4 @@
 --italic-text=always
 --tabs=0
---theme='Kanso'
+--theme-dark="Catppuccin Frappe"
+--theme-light="Catppuccin Latte"

@@ -1,5 +1,4 @@
-std = {
-    globals = {
-        'vim',
-    },
+-- luacheck: globals globals
+globals = {
+    'vim',
 }

@@ -1,4 +1,23 @@
 ---
+---
+.config/bat/themes:
+  type: archive
+  refreshPeriod: 24h
+  url: https://github.com/catppuccin/bat/archive/main.tar.gz
+  exact: true
+  stripComponents: 2
+  include:
+    - "*/themes/**"
+
+.config/k9s/skins:
+  type: archive
+  refreshPeriod: 24h
+  url: https://github.com/catppuccin/k9s/archive/main.tar.gz
+  exact: true
+  stripComponents: 2
+  include:
+    - "*/dist/**"
+
 .config/nvim/pack/alker0/start/chezmoi.vim:
   type: git-repo
   refreshPeriod: 24h
@@ -67,14 +86,6 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/stevearc/conform.nvim.git
-  pull:
-    args:
-      - --force
-
-.config/nvim/pack/webhooked/start/kanso.nvim:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/webhooked/kanso.nvim.git
   pull:
     args:
       - --force
