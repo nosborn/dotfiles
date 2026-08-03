@@ -55,7 +55,7 @@ brew "goimports"
 brew "golangci-lint"
 brew "golangci-lint-langserver"
 cask "google-analytics-opt-out", require_sha: true
-brew "grafana-alloy"
+# brew "grafana-alloy"
 brew "graphviz"
 brew "gron"
 brew "gum"
@@ -209,9 +209,10 @@ end
 
 if "{{ .where }}" == "work"
   # # cask "1password", greedy: true, require_sha: true
+  brew "1password-cli"
   # # brew "amazon-ecs-cli"
   # # cask "aws-vpn-client", greedy: true, require_sha: true
-  # brew "awscli"
+  brew "awscli"
   # # cask "google-drive", appdir: "~/Applications", greedy: true, require_sha: true
   # # brew "gradle"
   # # brew "liquibase"
