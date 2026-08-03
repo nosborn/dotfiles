@@ -76,7 +76,7 @@ if (( $+commands[gcloud] )); then
   source "{{ .homebrew.prefix }}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 if (( $+commands[opencode] )); then
-  source <({{ if eq .chezmoi.os "darwin" }}"{{ .homebrew.prefix }}/bin/opencode"{{ else }}command -p opencode{{ end }} completion)
+  source <({{ if eq .chezmoi.os "darwin" }}"{{ .homebrew.prefix }}/bin/opencode"{{ else }}command -p opencode{{ end }} completion 2>/dev/null)
 fi
 if (( $+commands[terramate] )); then
   complete -o nospace -C "${commands[terramate]}" terramate
