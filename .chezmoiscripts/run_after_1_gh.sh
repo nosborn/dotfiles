@@ -9,6 +9,7 @@ readonly extensions="
 "
 
 command -v gh >/dev/null 2>&1 || exit 0
+gh auth status >/dev/null 2>&1 || exit 0
 
 installed="$(mktemp)"
 readonly installed
