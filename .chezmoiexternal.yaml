@@ -17,6 +17,14 @@
   include:
     - "*/dist/**"
 
+.config/nvim/pack/Bekaboo/start/dropbar.nvim:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/Bekaboo/dropbar.nvim.git
+  pull:
+    args:
+      - --force
+
 .config/nvim/pack/alker0/start/chezmoi.vim:
   type: git-repo
   refreshPeriod: 24h
@@ -29,6 +37,14 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/cappyzawa/trim.nvim.git
+  pull:
+    args:
+      - --force
+
+.config/nvim/pack/catppuccin/start/catppuccin:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/catppuccin/nvim.git
   pull:
     args:
       - --force
@@ -57,14 +73,6 @@
     args:
       - --force
 
-.config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
-  type: git-repo
-  refreshPeriod: 24h
-  url: https://github.com/nvim-treesitter/nvim-treesitter.git
-  pull:
-    args:
-      - --force
-
 .config/nvim/pack/nvim-lualine/start/lualine.nvim:
   type: git-repo
   refreshPeriod: 24h
@@ -77,6 +85,14 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/nvim-mini/mini.nvim.git
+  pull:
+    args:
+      - --force
+
+.config/nvim/pack/nvim-treesitter/start/nvim-treesitter:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/nvim-treesitter/nvim-treesitter.git
   pull:
     args:
       - --force
