@@ -1,5 +1,4 @@
 ---
----
 .config/bat/themes:
   type: archive
   refreshPeriod: 24h
