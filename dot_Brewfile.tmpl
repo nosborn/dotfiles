@@ -5,18 +5,15 @@ tap "hashicorp/tap"
 cask_args adopt: true
 
 brew "actionlint"
-brew "ansible"
 brew "ansible-language-server"
 brew "ansible-lint"
 brew "bat"
 brew "bfg"
 brew "black"
-brew "ccusage"
 brew "checkmake"
 brew "chezmoi"
 brew "cidr"
 # brew "clang-format"
-cask "claude-code", require_sha: true
 # brew "container" # , restart_service: :changed -- FIXME
 # brew "container-compose"
 brew "coreutils"
@@ -51,7 +48,6 @@ brew "glow"
 brew "gnu-sed"
 brew "gnu-tar"
 brew "gnupg"
-brew "gnupg@1.4"
 brew "go"
 brew "gopls"
 brew "gofumpt"
@@ -91,9 +87,7 @@ brew "mkdocs-material"
 # cask "monitorcontrol", appdir: "~/Applications", greedy: true, require_sha: true
 brew "mtr"
 brew "neovim"
-brew "opencode"
-cask "orbstack", greedy: true, require_sha: true
-cask "orion", greedy: true, require_sha: true
+# cask "orion", greedy: true, require_sha: true
 brew "parallel"
 brew "pinentry-mac"
 brew "pipx"
@@ -122,7 +116,6 @@ brew "tfclean"
 brew "tfupdate"
 brew "tree-sitter-cli"
 brew "typescript"
-cask "utm", appdir: "~/Applications", require_sha: true
 brew "uv"
 brew "vint"
 brew "virtualenv"
@@ -150,13 +143,14 @@ if "{{ .where }}" == "home"
   tap "fluxcd/tap"
 
   brew "age"
+  brew "ansible"
   brew "autoconf"
   brew "automake"
   brew "b2-tools"
   cask "bitwarden", appdir: "~/Applications", require_sha: true
   brew "bitwarden-cli"
   cask "calibre", appdir: "~/Applications", require_sha: true
-  brew "calicoctl"
+  cask "claude-code", require_sha: true
   brew "cpanminus"
   brew "cdrtools"
   brew "cvs"
@@ -166,6 +160,7 @@ if "{{ .where }}" == "home"
   brew "git-credential-oauth"
   brew "git-crypt"
   brew "gitea-mcp-server"
+  brew "gnupg@1.4"
   brew "hcloud"
   brew "helm@3"
   brew "http-server-rs"
@@ -174,6 +169,8 @@ if "{{ .where }}" == "home"
   brew "mtools"
   brew "node@24"
   brew "ollama"
+  brew "opencode"
+  cask "orbstack", greedy: true, require_sha: true
   cask "oversight", require_sha: true
   brew "perl"
   brew "perltidy"
@@ -189,6 +186,7 @@ if "{{ .where }}" == "home"
   brew "tcl-tk@8"
   brew "tea"
   cask "ungoogled-chromium", appdir: "~/Applications", require_sha: true
+  cask "utm", appdir: "~/Applications", require_sha: true
   brew "vultr-cli"
   brew "ykman"
   brew "yubico-piv-tool"
