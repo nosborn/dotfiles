@@ -142,9 +142,9 @@ brew "zsh-syntax-highlighting"
 
 krew "get-all"
 
-mas "Keynote", id: 361285480
-mas "Numbers", id: 361304891
-mas "Pages", id: 361309726
+# mas "Keynote", id: 361285480
+# mas "Numbers", id: 361304891
+# mas "Pages", id: 361309726
 
 if "{{ .where }}" == "home"
   tap "fluxcd/tap"
@@ -201,23 +201,27 @@ if "{{ .where }}" == "home"
   mas "Hush", id: 1544743900
   mas "Microsoft Word", id: 462054704
 
+  mas "Keynote", id: 361285480
+  mas "Numbers", id: 361304891
+  mas "Pages", id: 361309726
+
   # 1123795278  Civilization VI     (1.4.7)
   # 408981434  iMovie              (10.4.4)
 end
 
 if "{{ .where }}" == "work"
-  # cask "1password", greedy: true, require_sha: true
-  # brew "amazon-ecs-cli"
-  # cask "aws-vpn-client", greedy: true, require_sha: true
-  brew "awscli"
-  # cask "google-drive", appdir: "~/Applications", greedy: true, require_sha: true
-  # brew "gradle"
-  # brew "liquibase"
-  cask "logitech-camera-settings", appdir: "~/Applications", require_sha: true
-  # brew "mysql-client@8.0"
-  # brew "openjdk"
-  # brew "poetry"
-  # brew "postgresql@14"
-  # brew "postgresql@15"
-  cask "slack", appdir: "~/Applications", greedy: true, require_sha: true
+  # # cask "1password", greedy: true, require_sha: true
+  # # brew "amazon-ecs-cli"
+  # # cask "aws-vpn-client", greedy: true, require_sha: true
+  # brew "awscli"
+  # # cask "google-drive", appdir: "~/Applications", greedy: true, require_sha: true
+  # # brew "gradle"
+  # # brew "liquibase"
+  # cask "logitech-camera-settings", appdir: "~/Applications", require_sha: true
+  # # brew "mysql-client@8.0"
+  # # brew "openjdk"
+  # # brew "poetry"
+  # # brew "postgresql@14"
+  # # brew "postgresql@15"
+  # cask "slack", appdir: "~/Applications", greedy: true, require_sha: true
 end
