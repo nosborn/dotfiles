@@ -1,15 +1,16 @@
 *.local.md
 *.log
+1
 AGENTS.md
 CLAUDE.md
 LICENSE
 README.md
+RectangleConfig.json
 install.sh
 node_modules/
 package-lock.json
 package.json
 requirements.txt
-1
 
 {{ if ne .chezmoi.os "darwin" }}
 .Brewfile
