@@ -104,3 +104,19 @@
   pull:
     args:
       - --force
+
+.vim/pack/catppuccin/start/catppuccin:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/catppuccin/vim.git
+  pull:
+    args:
+      - --force
+
+.vim/pack/tpope/start/vim-commentary:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/tpope/vim-commentary.git
+  pull:
+    args:
+      - --force

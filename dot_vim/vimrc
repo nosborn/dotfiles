@@ -1,0 +1,101 @@
+set encoding=UTF-8
+scriptencoding utf-8
+
+filetype plugin indent on
+syntax enable
+
+" set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set belloff=all
+set breakindent
+set breakindentopt=list:-1
+set complete-=i
+set completeopt+=longest
+set cursorline
+set display+=lastline
+set display+=truncate
+set formatoptions+=j
+set history=1000
+set hlsearch
+set incsearch
+set infercase
+set ignorecase
+set laststatus=2
+set list
+set listchars=extends:…,nbsp:␣,precedes:…,tab:⇥\ ,trail:-
+set mouse=a
+set nolangremap
+set noshowmode
+set nostartofline
+set noswapfile
+set nowrap
+set nrformats-=octal
+set number
+" set omnifunc=ale#completion#OmniFunc
+set ruler " TODO: noruler
+set scrolloff=2
+set sessionoptions-=options
+set showcmd
+set showmatch
+set sidescroll=1
+set sidescrolloff=5
+set signcolumn=yes
+set smartcase
+set smartindent
+set smarttab
+set spelllang=en_gb
+set tabpagemax=50
+set termguicolors
+set ttimeout
+set ttimeoutlen=100
+set ttyfast
+set updatetime=100
+set viewoptions-=options
+set viminfo-=!
+set virtualedit=block
+set wildmenu
+set wildoptions=pum
+
+if executable('rg')
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
+let g:bash_is_sh = 1
+
+let g:markdown_fenced_languages = [
+      \   'bash=sh',
+      \   'gitconfig',
+      \   'json',
+      \   'sh',
+      \   'terraform',
+      \   'yaml',
+      \   'zsh=sh',
+      \ ]
+let g:markdown_syntax_conceal = 0
+
+let g:netrw_banner = 0
+
+let g:vim_json_conceal = 0
+
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+
+augroup color-scheme
+  autocmd!
+  autocmd ColorScheme * highlight Comment cterm=italic
+  " if $TERM ==# 'xterm-ghostty'
+  highlight SpellBad cterm=undercurl term=underline
+  " else
+  "   highlight SpellBad cterm=underline term=underline
+  " endif
+augroup END
+
+colorscheme catppuccin_latte
+
+" if $TERM ==# 'xterm-ghostty'
+"   let &t_Cs = "\e[4:3m"
+"   let &t_Ce = "\e[4:0m"
+" endif
