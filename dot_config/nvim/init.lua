@@ -78,11 +78,17 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.g.health = { style = 'float' }
+
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+vim.g.netrw_altfile = 1
 vim.g.netrw_banner = 0
+vim.g.netrw_browse_split = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_winsize = 25
 
 vim.g['chezmoi#use_external'] = 1
 vim.g['chezmoi#use_tmp_buffer'] = 1
