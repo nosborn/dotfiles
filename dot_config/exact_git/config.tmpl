@@ -42,7 +42,9 @@
 	helper = !tea login helper
 
 [credential]
+{{- if ne .where "work" }}
 	helper = oauth
+{{- end }}
 
 [delta]
 	hyperlinks = true
@@ -120,18 +122,22 @@
 {{- end }}
 	sort = version:refname
 
+{{- if eq .where "home" }}
 [url "https://git.osborn.io/"]
 	insteadOf = git@git.osborn.io:
 
 [url "https://git.osborn.io/"]
 	insteadOf = git.osborn.io:
 
+{{- end }}
+{{- if ne .where "work" }}
 [url "https://github.com/"]
 	insteadOf = git@github.com:
 
 [url "https://github.com/"]
 	insteadOf = github.com:
 
+{{- end }}
 [user]
 	email = {{ .git.email }}
 	name = {{ .name }}
