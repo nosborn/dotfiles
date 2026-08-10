@@ -12,8 +12,6 @@ brew "checkmake"
 brew "chezmoi"
 brew "cidr"
 # brew "clang-format"
-# brew "container" # , restart_service: :changed -- FIXME
-# brew "container-compose"
 brew "coreutils"
 brew "difftastic"
 brew "diffutils"
@@ -135,6 +133,8 @@ if "{{ .where }}" == "home"
   brew "bitwarden-cli"
   cask "calibre", appdir: "~/Applications", require_sha: true
   cask "claude-code", require_sha: true
+  brew "container" # , restart_service: :changed -- FIXME
+  brew "container-compose"
   brew "cpanminus"
   brew "cdrtools"
   brew "cvs"
