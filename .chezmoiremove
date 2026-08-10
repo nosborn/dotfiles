@@ -3,6 +3,7 @@
 .config/.curlrc
 .config/.shellcheckrc
 .config/direnv/direnvrc
+.config/gh-dash/
 .config/git/config.*
 .config/http-prompt/
 .config/nvim/init.vim
