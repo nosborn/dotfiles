@@ -1,3 +1,4 @@
+{{- if eq .where "home" }}
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -110,3 +111,4 @@ while ! netstat -an -f inet | grep '\<LISTEN\>' | grep -q "\*\.${proxy_port}\>";
 done
 
 exec "$(brew --prefix)/bin/telnet" "${opts[@]}" 127.0.0.1 "${proxy_port}"
+{{- end }}
