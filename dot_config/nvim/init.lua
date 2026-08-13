@@ -133,6 +133,7 @@ vim.lsp.enable({
     'clangd',
     'golangci_lint_ls',
     'gopls',
+    'systemd_lsp',
     -- 'terraformls',
     -- 'terramatels',
     -- 'tflint',
