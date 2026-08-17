@@ -8,9 +8,9 @@ command -v npm >/dev/null 2>&1 || exit 0
 cd "${CHEZMOI_SOURCE_DIR:?}"
 
 # if [ ! -e package-lock.json ]; then
-#   npm install --omit=dev --no-fund --package-lock-only
+#   npm install --ignore-scripts --omit=dev --no-fund --package-lock-only
 # fi
-#
+
 # INSTALLED="$(npm list --depth=0 --json --location=global --prefix="${HOME}/.local")"
 # WANTED="$(jq -r '.dependencies | to_entries | .[] | .key + "@" + .value' package.json)"
 #
