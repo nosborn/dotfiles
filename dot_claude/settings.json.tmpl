@@ -1,25 +1,30 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
+{{- if eq .chezmoi.os "darwin" }}
+    "DISABLE_INSTALLATION_CHECKS": "1",
+    "DISABLE_UPGRADE_COMMAND": "1",
+{{- end }}
+{{- if ne .where "work" }}
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "GIT_CONFIG_NOSYSTEM": "1",
+{{- end }}
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_FEEDBACK_COMMAND": "1",
-{{- if eq .chezmoi.os "darwin" }}
-    "DISABLE_INSTALLATION_CHECKS": "1",
-{{- end }}
-    "DISABLE_TELEMETRY": "1",
-{{- if eq .chezmoi.os "darwin" }}
-    "DISABLE_UPGRADE_COMMAND": "1",
-{{- end }}
-    "GIT_CONFIG_GLOBAL": "/dev/null",
-    "GIT_CONFIG_NOSYSTEM": "1"
+    "DISABLE_TELEMETRY": "1"
   },
+{{- if ne .where "work" }}
   "attribution": {
     "commit": "",
     "pr": ""
   },
+{{- end }}
   "permissions": {
+{{- if eq .where "work" }}
+    "defaultMode": "auto"
+{{- else }}
     "allow": [
       "Bash(* --help *)",
       "Bash(* --version)",
@@ -42,7 +47,9 @@
     ],
     "defaultMode": "default",
     "disableBypassPermissionsMode": "disable"
+{{- end }}
   },
+{{- if ne .where "work" }}
   "sandbox": {
     "enabled": true,
 {{- if eq .chezmoi.os "darwin" }}
@@ -62,6 +69,7 @@
       ]
     }
   },
+{{- end }}
   "spinnerTipsEnabled": false,
   "effortLevel": "medium",
   "awaySummaryEnabled": false,

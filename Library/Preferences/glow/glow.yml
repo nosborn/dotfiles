@@ -1,6 +1,3 @@
----
-style: dark
+style: light
 local: true
-mouse: false
-pager: false
-width: 80
+pager: true
