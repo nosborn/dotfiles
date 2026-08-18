@@ -1,0 +1,3 @@
+{{- if eq .where "work" }}
+eval "$('{{ .chezmoi.homeDir }}/.local/bin/festool' helpers generate)"
+{{- end }}

@@ -313,7 +313,9 @@ disabled = true
 disabled = false
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
 
-# [kubernetes.context_aliases]
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:.+:cluster/(?P<cluster>.+)"
+context_alias = "eks:$cluster"
 
 # [kubernetes.user_aliases]
 
@@ -460,3 +462,10 @@ disabled = true
 
 [zig]
 disabled = true
+{{- if eq .where "work" }}
+
+[custom.fes]
+command = 'festool env current'
+format = ' \[$output\]'
+when = 'test -n "$(festool env current 2>/dev/null)"'
+{{- end }}

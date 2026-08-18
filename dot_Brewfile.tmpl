@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+tap "fluxcd/tap"
 tap "hashicorp/tap"
 
 cask_args adopt: true
@@ -47,7 +48,6 @@ brew "graphviz"
 brew "gron"
 brew "gum"
 brew "hadolint"
-brew "hashicorp/tap/terraform", trusted: true
 brew "hashicorp/tap/terraform-ls", trusted: true
 brew "hcl2json"
 brew "hcledit"
@@ -120,8 +120,6 @@ krew "get-all"
 # mas "Pages", id: 361309726
 
 if "{{ .where }}" == "home"
-  tap "fluxcd/tap"
-
   brew "age"
   brew "ansible"
   brew "ansible-language-server"
@@ -153,6 +151,7 @@ if "{{ .where }}" == "home"
   brew "goimports"
   brew "golangci-lint"
   brew "golangci-lint-langserver"
+  brew "hashicorp/tap/terraform", trusted: true
   brew "hcloud"
   brew "helm@3"
   brew "http-server-rs"
@@ -208,21 +207,32 @@ if "{{ .where }}" == "home"
 end
 
 if "{{ .where }}" == "work"
+  # tap "{{ .github.org }}/homebrew-fes-tap", "git@github.com:{{ .github.org }}/homebrew-fes-tap"
+
   # # cask "1password", greedy: true, require_sha: true
   cask "1password-cli", require_sha: true
   # brew "amazon-ecs-cli"
   # cask "aws-vpn-client", greedy: true, require_sha: true
-  # brew "awscli"
+  brew "aws-sso-util" # festool
+  brew "awscli" # festool
   brew "cloudflare-cli4"
   # cask "google-drive", appdir: "~/Applications", greedy: true, require_sha: true
+  brew "fluxcd/tap/flux@0.41", trusted: true # festool
   # brew "gradle"
+  brew "helm" # festool
+  brew "jq" # festool
   # brew "liquibase"
   # cask "logitech-camera-settings", appdir: "~/Applications", require_sha: true
   brew "mcp-atlassian"
   # brew "mysql-client@8.0"
   # brew "openjdk"
+  brew "openjdk@25"
   # brew "poetry"
   # brew "postgresql@14"
   # brew "postgresql@15"
+  brew "python3" # festool
   # cask "slack", appdir: "~/Applications", greedy: true, require_sha: true
+  brew "tfenv" # festool
+
+  # cask "{{ .github.org }}/homebrew-fes-tap/festool", trusted: true
 end

@@ -36,7 +36,7 @@
 .shellcheckrc
 .terminfo/
 .tflint.d/plugins/github.com/terraform-linters/tflint-ruleset-terraform/
-.zprofile
+{{ if ne .where "work" }}.zprofile{{ end }}
 .zsh/
 .zsh_history
 .zsh_sessions/
