@@ -6,22 +6,31 @@ set breakindent
 set breakindentopt=list:-1
 " set cmdheight=1
 set colorcolumn=+1
+set complete=.,w,b,kspell
+set completeopt=fuzzy,menuone,noselect,nosort
 if has('nvim-0.12')
   set completetimeout=100
 endif
 set cursorline
 set cursorlineopt=screenline,number
 set expandtab
+set fillchars=eob:\ ,fold:·,foldclose:▶︎,foldinner:\ ,foldopen:▼,foldsep:\ ,trunc:…,truncrl:…
+set foldcolumn=1
+set foldexpr=v:lua.vim.treesitter.foldexpr()
 set foldlevel=10
 set foldmethod=expr
 set foldnestmax=10
+set foldtext=
+set formatlistpat=^\\s*[0-9\\-\\+\\*]\\+[\\.\\)]*\\s\\+
 set formatoptions=rqnl1j
+set guicursor= " n-v-i-c:block-Cursor
 set ignorecase
 set incsearch
 set infercase
 set iskeyword=@,48-57,_,192-255,-
 set linebreak
 set list
+set listchars=tab:⇥\ ,extends:…,precedes:…,nbsp:␣
 set mouse=a
 set mousescroll=ver:25,hor:6
 set nomodeline
@@ -38,6 +47,7 @@ set pumheight=10
 if has('nvim-0.12')
   set pummaxwidth=100
 endif
+set shada='100,<50,s10,:1000,/100,@100,h
 set shiftwidth=2
 set shortmess=CFIOSWaco
 set signcolumn=yes
@@ -54,35 +64,17 @@ set virtualedit=block
 set winborder=single
 set winhighlight=NormalNC:CursorLine
 
-lua <<EOT
--- vim.g.mapleader = ' '
-
-vim.o.complete = '.,w,b,kspell'
-vim.o.completeopt = 'fuzzy,menuone,noselect,nosort'
-vim.o.fillchars = 'eob: ,fold:·,foldclose:▶︎,foldinner: ,foldopen:▼,foldsep: ,trunc:…,truncrl:…'
-vim.o.foldcolumn = '1'
-vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldtext = ''
-vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-vim.o.guicursor = '' -- 'n-v-i-c:block-Cursor'
-vim.o.listchars = 'tab:⇥ ,extends:…,precedes:…,nbsp:␣'
-vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
-EOT
-
 filetype plugin indent on
 " syntax enable
 
-lua <<EOT
-vim.api.nvim_create_autocmd('FileType', {
-    callback = function()
-        vim.cmd('setlocal formatoptions-=c formatoptions-=o')
-    end,
-    desc = "Proper 'formatoptions'",
-    group = vim.api.nvim_create_augroup('custom-config', {}),
-})
+augroup custom-config
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=o
+augroup END
 
-vim.g.health = { style = 'float' }
-EOT
+let g:health = {
+      \   'style': 'float'
+      \ }
 
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
@@ -98,42 +90,36 @@ let g:netrw_winsize = 25
 let g:chezmoi#use_external = 1
 let g:chezmoi#use_tmp_buffer = 1
 
+" Clear highlights on search.
+nnoremap <Esc> <cmd>nohlsearch<CR>
+
+" Better up/down.
+nnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
+nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
+
+" Better indenting.
+vnoremap < <gv
+vnoremap > >gv
+
+" Insert mode.
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-k> <C-o>C
+
+" Command mode.
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" Typing is hard.
+cnoremap <expr> w1 (getcmdtype() ==# ':' && getcmdline() ==# 'w1') ? 'w!' : 'w1'
+
 lua <<EOT
--- Clear highlights on search
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Better up/down
-vim.keymap.set({ 'n', 'x' }, '<Down>', function()
-    return vim.v.count == 0 and 'gj' or 'j'
-end, { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, '<Up>', function()
-    return vim.v.count == 0 and 'gk' or 'k'
-end, { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, 'j', function()
-    return vim.v.count == 0 and 'gj' or 'j'
-end, { expr = true, silent = true })
-vim.keymap.set({ 'n', 'x' }, 'k', function()
-    return vim.v.count == 0 and 'gk' or 'k'
-end, { expr = true, silent = true })
-
--- Better indenting
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv')
-
--- Insert mode
-vim.keymap.set('i', '<C-a>', '<C-o>^')
-vim.keymap.set('i', '<C-e>', '<C-o>$')
-vim.keymap.set('i', '<C-k>', '<C-o>C')
-
--- Command mode
-vim.keymap.set('c', '<C-a>', '<Home>')
-vim.keymap.set('c', '<C-e>', '<End>')
-
--- Typing is hard
-vim.keymap.set('c', 'w1', function()
-    return vim.fn.getcmdtype() == ':' and vim.fn.getcmdline() == 'w1' and 'w!' or 'w1'
-end, { expr = true })
-
 vim.lsp.enable({
     -- 'ansiblels',
     'clangd',
@@ -198,22 +184,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
     group = vim.api.nvim_create_augroup('lsp-attach', {}),
 })
+EOT
 
-require('catppuccin').setup({
-    background = {
-        dark = 'frappe',
-        light = 'latte',
-    },
-    -- overrides = function(_)
-    --     return {
-    --         FloatBorder = { link = 'PmenuBorder' },
-    --     }
-    -- end,
-    -- -- dimInactive = true,
-    -- -- foreground = 'saturated',
-})
-vim.cmd('colorscheme catppuccin-nvim')
+lua require('catppuccin').setup({
+      \   background = {
+      \     dark = 'frappe',
+      \     light = 'latte',
+      \   },
+      \ })
+colorscheme catppuccin-nvim
 
+lua <<EOT
 local _diag_open_float = vim.diagnostic.open_float
 ---@diagnostic disable-next-line: duplicate-set-field
 vim.diagnostic.open_float = function(opts, ...)
@@ -247,14 +228,12 @@ vim.diagnostic.config({
     update_in_insert = true,
     virtual_lines = true,
 })
-
--- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.hl.on_yank()
-    end,
-    group = vim.api.nvim_create_augroup('highlight-yank', {}),
-})
 EOT
+
+" Highlight on yank.
+augroup highlight-yank
+  autocmd!
+  autocmd TextYankPost * lua vim.hl.on_yank()
+augroup END
 
 lua require('vim._core.ui2').enable()
