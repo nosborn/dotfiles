@@ -1,4 +1,3 @@
----
 .config/bat/themes:
   type: archive
   refreshPeriod: 24h
@@ -117,6 +116,22 @@
   type: git-repo
   refreshPeriod: 24h
   url: https://github.com/tpope/vim-commentary.git
+  pull:
+    args:
+      - --force
+
+.vim/pack/tpope/start/vim-fugitive:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/tpope/vim-fugitive.git
+  pull:
+    args:
+      - --force
+
+.vim/pack/vim-airline/start/vim-airline:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/vim-airline/vim-airline.git
   pull:
     args:
       - --force

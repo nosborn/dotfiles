@@ -1,74 +1,78 @@
+set encoding=UTF-8
+scriptencoding utf-8
+
+set autoindent
+set breakindent
+set breakindentopt=list:-1
+" set cmdheight=1
+set colorcolumn=+1
+if has('nvim-0.12')
+  set completetimeout=100
+endif
+set cursorline
+set cursorlineopt=screenline,number
+set expandtab
+set foldlevel=10
+set foldmethod=expr
+set foldnestmax=10
+set formatoptions=rqnl1j
+set ignorecase
+set incsearch
+set infercase
+set iskeyword=@,48-57,_,192-255,-
+set linebreak
+set list
+set mouse=a
+set mousescroll=ver:25,hor:6
+set nomodeline
+set noruler
+set noshowmode
+set noswapfile
+set noundofile
+set nowrap
+set number
+if has('nvim-0.12')
+  set pumborder=single
+endif
+set pumheight=10
+if has('nvim-0.12')
+  set pummaxwidth=100
+endif
+set shiftwidth=2
+set shortmess=CFIOSWaco
+set signcolumn=yes
+set smartcase
+set smartindent
+" set spelllang=en_gb
+set spelloptions=camel
+set splitbelow
+set splitkeep=screen
+set switchbuf=usetab
+set tabstop=2
+set textwidth=80
+set virtualedit=block
+set winborder=single
+set winhighlight=NormalNC:CursorLine
+
+lua <<EOT
 -- vim.g.mapleader = ' '
 
-vim.o.autoindent = true
-vim.o.breakindent = true
-vim.o.breakindentopt = 'list:-1'
--- vim.o.cmdheight = 1
-vim.o.colorcolumn = '+1'
 vim.o.complete = '.,w,b,kspell'
 vim.o.completeopt = 'fuzzy,menuone,noselect,nosort'
-if vim.fn.has('nvim-0.12') == 1 then
-    vim.o.completetimeout = 100
-end
-vim.o.cursorline = true
-vim.o.cursorlineopt = 'screenline,number'
-vim.o.expandtab = true
 vim.o.fillchars = 'eob: ,fold:·,foldclose:▶︎,foldinner: ,foldopen:▼,foldsep: ,trunc:…,truncrl:…'
 vim.o.foldcolumn = '1'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldlevel = 10
-vim.o.foldmethod = 'expr'
-vim.o.foldnestmax = 10
 vim.o.foldtext = ''
 vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-vim.o.formatoptions = 'rqnl1j'
 vim.o.guicursor = '' -- 'n-v-i-c:block-Cursor'
-vim.o.ignorecase = true
-vim.o.incsearch = true
-vim.o.infercase = true
-vim.o.iskeyword = '@,48-57,_,192-255,-'
-vim.o.linebreak = true
-vim.o.list = true
 vim.o.listchars = 'tab:⇥ ,extends:…,precedes:…,nbsp:␣'
-vim.o.modeline = false
-vim.o.mouse = 'a'
-vim.o.mousescroll = 'ver:25,hor:6'
-vim.o.number = true
-if vim.fn.has('nvim-0.12') == 1 then
-    vim.o.pumborder = 'single'
-end
-vim.o.pumheight = 10
-if vim.fn.has('nvim-0.12') == 1 then
-    vim.o.pummaxwidth = 100
-end
-vim.o.ruler = false
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
-vim.o.shiftwidth = 2
-vim.o.shortmess = 'CFIOSWaco'
-vim.o.showmode = false
-vim.o.signcolumn = 'yes'
-vim.o.smartcase = true
-vim.o.smartindent = true
--- vim.o.spelllang = 'en_gb'
-vim.o.spelloptions = 'camel'
-vim.o.splitbelow = true
-vim.o.splitkeep = 'screen'
-vim.o.splitbelow = true
-vim.o.swapfile = false
-vim.o.switchbuf = 'usetab'
-vim.o.tabstop = 2
-vim.o.textwidth = 80
-vim.o.undofile = false
-vim.o.virtualedit = 'block'
-vim.o.winborder = 'single'
-vim.o.winhighlight = 'NormalNC:CursorLine'
-vim.o.wrap = false
+EOT
 
-vim.cmd('filetype plugin indent on')
-if vim.fn.exists('syntax_on') ~= 1 then
-    vim.cmd('syntax enable')
-end
+filetype plugin indent on
+" syntax enable
 
+lua <<EOT
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
         vim.cmd('setlocal formatoptions-=c formatoptions-=o')
@@ -78,21 +82,23 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.g.health = { style = 'float' }
+EOT
 
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_python_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
 
-vim.g.netrw_altfile = 1
-vim.g.netrw_banner = 0
-vim.g.netrw_browse_split = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 25
+let g:netrw_altfile = 1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
 
-vim.g['chezmoi#use_external'] = 1
-vim.g['chezmoi#use_tmp_buffer'] = 1
+let g:chezmoi#use_external = 1
+let g:chezmoi#use_tmp_buffer = 1
 
+lua <<EOT
 -- Clear highlights on search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -249,5 +255,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
     group = vim.api.nvim_create_augroup('highlight-yank', {}),
 })
+EOT
 
-require('vim._core.ui2').enable()
+lua require('vim._core.ui2').enable()

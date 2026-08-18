@@ -63,6 +63,8 @@ if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
+let g:airline_theme = 'catppuccin_latte'
+
 let g:bash_is_sh = 1
 
 let g:highlight_balanced_quotes = 1

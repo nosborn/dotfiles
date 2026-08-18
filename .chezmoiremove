@@ -6,7 +6,7 @@
 .config/gh-dash/
 .config/git/config.*
 .config/http-prompt/
-.config/nvim/init.vim
+.config/nvim/init.lua
 .config/nvim/pack/webhooked/
 .config/proselint/
 .config/stylua.toml
