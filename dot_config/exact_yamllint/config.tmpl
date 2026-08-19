@@ -1,4 +1,3 @@
----
 extends: default
 
 rules:
@@ -19,6 +18,9 @@ rules:
     min-spaces-from-content: 1 # agree with Prettier
   document-end:
     present: false
+{{- if eq .where "work" }}
+  document-start: disable
+{{- end }}
   empty-lines:
     max: 1
   empty-values: enable
@@ -37,8 +39,8 @@ rules:
   quoted-strings:
     allow-quoted-quotes: true
     check-keys: true
-    quote-type: double
-    required: only-when-needed
+    quote-type: {{ if eq .where "work" }}any{{ else }}double{{ end }}
+    required: {{ if eq .where "work" }}false{{ else }}only-when-needed{{ end }}
   truthy:
     check-keys: false
     level: error
