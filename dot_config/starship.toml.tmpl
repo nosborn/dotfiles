@@ -466,6 +466,7 @@ disabled = true
 
 [custom.fes]
 command = 'festool env current'
-format = ' \[$output\]'
+format = ' \[$symbol$output\]'
+symbol = '⚛️ '
 when = 'test -n "$(festool env current 2>/dev/null)"'
 {{- end }}
