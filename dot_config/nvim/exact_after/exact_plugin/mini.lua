@@ -360,6 +360,7 @@ vim.keymap.set('n', '<Leader>fV', '<Cmd>Pick visit_paths<CR>', { desc = 'Visit p
 
 require('mini.splitjoin').setup()
 -- require('mini.starter').setup()
+-- require('mini.statuscolumn').setup()
 
 -- -- luacheck: globals MiniStatusline
 -- require('mini.statusline').setup({

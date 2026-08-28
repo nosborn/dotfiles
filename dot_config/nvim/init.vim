@@ -208,7 +208,7 @@ end
 vim.diagnostic.config({
     float = {
         border = 'rounded',
-        focusable = 'false',
+        focusable = false,
     },
     severity_sort = true,
     signs = {
@@ -226,7 +226,8 @@ vim.diagnostic.config({
     },
     underline = false,
     update_in_insert = true,
-    virtual_lines = true,
+    -- virtual_lines = true,
+    virtual_text = true,
 })
 EOT
 
