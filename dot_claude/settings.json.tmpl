@@ -15,12 +15,13 @@
     "DISABLE_FEEDBACK_COMMAND": "1",
     "DISABLE_TELEMETRY": "1"
   },
-{{- if ne .where "work" }}
   "attribution": {
+{{- if ne .where "work" }}
     "commit": "",
-    "pr": ""
-  },
+    "pr": "",
 {{- end }}
+    "sessionUrl": false
+  },
   "permissions": {
 {{- if eq .where "work" }}
     "defaultMode": "auto"
