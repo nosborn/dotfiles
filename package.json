@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@anthropic-ai/sandbox-runtime": "0.0.74",
     "neovim": "5.4.0",
-    "opencode-sandbox": "0.5.1",
     "prettier-plugin-toml": "2.0.6"
   }
 }
