@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
 cask_args adopt: true
+
+tap "terraform-linters/tap", trusted: true
 
 brew "actionlint"
 brew "bat"
@@ -90,12 +91,12 @@ brew "shfmt"
 brew "socat"
 brew "starship"
 brew "stylua"
+cask "terraform-linters/tap/tflint", require_sha: true, trusted: true
 brew "terraform-ls"
 brew "terraform-mcp-server"
 brew "texinfo"
 brew "tf-summarize"
 brew "tfclean"
-# brew "tflint" -- FIXME
 brew "tfupdate"
 brew "tree-sitter-cli"
 brew "typescript"
