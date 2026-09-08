@@ -123,8 +123,8 @@ krew "get-all"
 # mas "Pages", id: 361309726
 
 if "{{ .where }}" == "home"
-  tap "fluxcd/tap"
-  tap "hashicorp/tap"
+  tap "fluxcd/tap", trusted: true
+  tap "hashicorp/tap", trusted: true
 
   brew "age"
   brew "ansible"
@@ -207,7 +207,7 @@ end
 
 if "{{ .where }}" == "work"
   tap "{{ .github.org }}/fes-tap", "git@github.com:{{ .github.org }}/homebrew-fes-tap", trusted: true
-  cask "{{ .github.org }}/homebrew-fes-tap/festool"
+  cask "{{ .github.org }}/homebrew-fes-tap/festool", trusted: true
 
   cask "1password-cli", require_sha: true
   brew "cloudflare-cli4"
