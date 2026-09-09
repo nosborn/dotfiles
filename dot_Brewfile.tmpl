@@ -208,8 +208,12 @@ if "{{ .where }}" == "home"
 end
 
 if "{{ .where }}" == "work"
+  tap "fluxcd/tap", trusted: true
+  # brew "fluxcd/tap/flux@0.41", trusted: true
+
   tap "{{ .github.org }}/fes-tap", "git@github.com:{{ .github.org }}/homebrew-fes-tap", trusted: true
-  cask "{{ .github.org }}/homebrew-fes-tap/festool", trusted: true
+  brew "{{ .github.org }}/fes-tap/fcore-certificates" # , trusted: true
+  cask "{{ .github.org }}/fes-tap/festool", require_sha: true # , trusted: true
 
   cask "1password-cli", require_sha: true
   brew "cloudflare-cli4"

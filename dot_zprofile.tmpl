@@ -3,5 +3,5 @@
 export PATH="${PATH}:{{ .chezmoi.homeDir }}/.docker/bin"
 # End of Docker Desktop section.
 
-eval "$('{{ .homebrew.prefix }}/bin/festool' helpers generate)"
+eval "$({{ .homebrew.prefix }}/bin/festool helpers generate)"
 {{- end }}
