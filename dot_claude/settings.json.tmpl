@@ -74,5 +74,10 @@
   "terminalProgressBarEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754056529971
+{{- if eq .where "home" }}
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
+{{- end }}
   }
 }
