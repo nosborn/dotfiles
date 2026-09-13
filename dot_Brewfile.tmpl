@@ -10,7 +10,6 @@ brew "black"
 brew "checkmake"
 brew "chezmoi"
 brew "cidr"
-# brew "clang-format"
 cask "claude-code", require_sha: true
 brew "coreutils"
 brew "difftastic"
@@ -133,10 +132,12 @@ if "{{ .where }}" == "home"
   brew "ansible-lint"
   brew "autoconf"
   brew "automake"
+  brew "bear"
   cask "bitwarden", appdir: "~/Applications", require_sha: true
   brew "bitwarden-cli"
   cask "calibre", appdir: "~/Applications", require_sha: true
   brew "cc65"
+  brew "clang-format"
   brew "container" # , restart_service: :changed -- FIXME
   brew "container-compose"
   brew "cpanminus"
