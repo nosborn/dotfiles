@@ -56,6 +56,14 @@
     args:
       - --force
 
+.config/nvim/pack/maxbane/start/vim-asm_ca65:
+  type: git-repo
+  refreshPeriod: 24h
+  url: https://github.com/maxbane/vim-asm_ca65.git
+  pull:
+    args:
+      - --force
+
 .config/nvim/pack/mfussenegger/start/nvim-lint:
   type: git-repo
   refreshPeriod: 24h

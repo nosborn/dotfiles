@@ -12,6 +12,7 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.env                        set filetype=dotenv syntax=sh
   autocmd! BufNewFile,BufRead *.ini.j2                     set filetype=dosini.jinja2
   autocmd! BufNewFile,BufRead *.json.j2                    set filetype=json.jinja2
+  autocmd! BufNewFile,BufRead *.s                          set filetype=asm_ca65
   autocmd! BufNewFile,BufRead *.yaml.j2                    set filetype=yaml.jinja2
   autocmd! BufNewFile,BufRead *.yml.j2                     set filetype=yaml.jinja2
   autocmd! BufNewFile,BufRead .Brewfile                    set filetype=ruby
