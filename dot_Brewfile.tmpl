@@ -127,6 +127,7 @@ krew "get-all"
 if "{{ .where }}" == "home"
   tap "fluxcd/tap", trusted: true
   tap "hashicorp/tap", trusted: true
+  tap "rickard-von-essen/formulae"
 
   brew "age"
   brew "ansible"
@@ -154,6 +155,7 @@ if "{{ .where }}" == "home"
   brew "gitea-mcp-server"
   brew "gnupg@1.4"
   brew "hashicorp/tap/terraform", trusted: true
+  brew "hatari"
   brew "hcloud"
   brew "helm@3"
   brew "http-server-rs"
@@ -178,6 +180,7 @@ if "{{ .where }}" == "home"
   brew "qemu"
   brew "qrencode"
   cask "rectangle", require_sha: true
+  brew "rickard-von-essen/formulae/tcpser", trusted: true
   brew "rsync"
   brew "scw"
   brew "sops"
