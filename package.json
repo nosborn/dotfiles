@@ -4,6 +4,6 @@
   "private": true,
   "dependencies": {
     "neovim": "5.5.0",
-    "prettier-plugin-toml": "3.0.2"
+    "prettier-plugin-toml": "4.0.0"
   }
 }
