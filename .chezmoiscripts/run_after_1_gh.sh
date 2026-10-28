@@ -6,7 +6,7 @@ set -o nounset
 readonly extensions="
   actions/gh-actions-cache
   github/gh-actions-lock
-  rnorth/gh-combine-prs
+  github/gh-stack
 "
 
 command -v gh >/dev/null 2>&1 || exit 0
